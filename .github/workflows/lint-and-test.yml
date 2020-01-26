@@ -1,0 +1,26 @@
+name: Lint and Test
+on:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
+    branches:
+      - master
+jobs:
+  test:
+    name: Lint and Test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@master
+      - name: Run lint and test with Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          run: |
+            yarn install
+            yarn build
+            yarn lint
+            yarn test:ci
+      env:
+        CI: true

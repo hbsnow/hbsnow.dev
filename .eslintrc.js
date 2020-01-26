@@ -12,6 +12,12 @@ module.exports = {
     "react",
     "react-hooks"
   ],
+  settings: {
+    react: {
+      pragma: "React",
+      version: "detect",
+    }
+  },
   env: {
     browser: true,
     node: true,

@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps | LinkProps> = (props) => {
         {children}
       </a>
     ) : (
-      <Link href={href} as={as}>
+      <Link href={href} {...(as && { as })}>
         <a {...restProps}>{children}</a>
       </Link>
     )

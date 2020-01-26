@@ -1,19 +1,8 @@
 import React from 'react'
-import { css } from '@emotion/core'
-import Header from '../components/Header/Header'
-
-const root = css({
-  minHeight: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-})
+import DefaultLayout from '../layouts/DefaultLayout/DefaultLayout'
 
 const Index = (): JSX.Element => {
-  return (
-    <div css={root}>
-      <Header />
-    </div>
-  )
+  return <DefaultLayout>wow</DefaultLayout>
 }
 
 export default Index

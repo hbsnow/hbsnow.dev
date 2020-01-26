@@ -7,36 +7,38 @@ const isLinkType = (props): props is LinkProps => props?.href !== undefined
 
 const Button: React.FC<ButtonProps | LinkProps> = (props) => {
   if (isLinkType(props)) {
-    const { children, href, as, amp, ...restProps } = props
+    const { children, style, href, as, amp, ...restProps } = props
     const isExternal = href.startsWith('http')
     return amp || isExternal ? (
-      <a href={href} {...restProps}>
+      <a href={href} css={style} {...restProps}>
         {children}
       </a>
     ) : (
       <Link href={href} {...(as && { as })}>
-        <a {...restProps}>{children}</a>
+        <a css={style} {...restProps}>
+          {children}
+        </a>
       </Link>
     )
   }
 
-  const { children, ...restProps } = props
+  const { children, style, ...restProps } = props
   return (
-    <button type="button" {...restProps}>
-      <span>{children}</span>
+    <button type="button" css={style} {...restProps}>
+      {children}
     </button>
   )
 }
 
 type LinkProps = {
-  cssProps?: SerializedStyles
+  style?: SerializedStyles
   href: string
   as?: string
   amp?: boolean
 } & JSX.IntrinsicElements['a']
 
 type ButtonProps = {
-  cssProps?: SerializedStyles
+  style?: SerializedStyles
 } & JSX.IntrinsicElements['button']
 
 export default Button

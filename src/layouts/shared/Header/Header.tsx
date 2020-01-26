@@ -1,6 +1,11 @@
 import Link from 'next/link'
 import { SerializedStyles, css } from '@emotion/core'
-import Container from '../Container/Container'
+import Container from '../../../components/Container/Container'
+
+const headerStyle = css`
+  color: var(--color-primary-text);
+  background-color: var(--color-primary-bg);
+`
 
 const containerStyle = css`
   display: flex;
@@ -8,11 +13,6 @@ const containerStyle = css`
 `
 
 const Header: React.FC<HeaderProps> = ({ styles, ...props }) => {
-  const headerStyle = css`
-    color: var(--color-primary-text);
-    background-color: var(--color-primary-bg);
-  `
-
   return (
     <header css={[headerStyle, styles]} {...props}>
       <Container>

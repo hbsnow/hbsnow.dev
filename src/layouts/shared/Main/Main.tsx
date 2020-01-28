@@ -2,12 +2,12 @@ import { css, SerializedStyles } from '@emotion/core'
 
 const mainStyle = css``
 
-const Main: React.FC<MainProps> = ({ children, style }) => {
-  return <main css={[mainStyle, style]}>{children}</main>
+const Main: React.FC<MainProps> = ({ children, css }) => {
+  return <main css={[mainStyle, css]}>{children}</main>
 }
 
 type MainProps = {
-  style?: SerializedStyles
+  css?: SerializedStyles
 }
 
 export default Main

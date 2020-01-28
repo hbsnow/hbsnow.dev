@@ -8,13 +8,12 @@ const footerStyle = css`
 `
 
 const containerStyle = css`
-  display: flex;
   align-items: center;
 `
 
-const Footer: React.FC<FooterProps> = ({ styles, ...props }) => {
+const Footer: React.FC<FooterProps> = ({ children, css, ...props }) => {
   return (
-    <footer css={[footerStyle, styles]} {...props}>
+    <footer css={[footerStyle, css]} {...props}>
       <Container>
         <div css={containerStyle}>
           <p>
@@ -30,13 +29,15 @@ const Footer: React.FC<FooterProps> = ({ styles, ...props }) => {
             までご連絡ください。
           </p>
         </div>
+
+        {children}
       </Container>
     </footer>
   )
 }
 
 type FooterProps = {
-  styles?: SerializedStyles
+  css?: SerializedStyles
 } & JSX.IntrinsicElements['footer']
 
 export default Footer

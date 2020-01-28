@@ -2,21 +2,21 @@ import Link from 'next/link'
 import { SerializedStyles, css } from '@emotion/core'
 import Container from '../../../components/Container/Container'
 
-const headerStyle = css`
+const headerCss = css`
   color: var(--color-primary-text);
   background-color: var(--color-primary-bg);
 `
 
-const containerStyle = css`
+const containerCss = css`
   display: flex;
   align-items: center;
 `
 
-const Header: React.FC<HeaderProps> = ({ styles, ...props }) => {
+const Header = ({ css, ...props }: HeaderProps): JSX.Element => {
   return (
-    <header css={[headerStyle, styles]} {...props}>
+    <header css={[headerCss, css]} {...props}>
       <Container>
-        <div css={containerStyle}>
+        <div css={containerCss}>
           <h1>
             <Link href="/">
               <a>hbsnow.dev</a>
@@ -31,7 +31,7 @@ const Header: React.FC<HeaderProps> = ({ styles, ...props }) => {
 }
 
 type HeaderProps = {
-  styles?: SerializedStyles
+  css?: SerializedStyles
 } & JSX.IntrinsicElements['header']
 
 export default Header

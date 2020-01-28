@@ -12,7 +12,8 @@
     "build-storybook": "build-storybook",
     "lint": "eslint src/**/*.{ts,tsx} && prettier --check 'src/**/*.{ts,tsx}'",
     "test": "jest --watch",
-    "test:ci": "jest"
+    "test:ci": "jest",
+    "contentful-typescript-codegen": "contentful-typescript-codegen --output @types/generated/contentful.d.ts"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "10.0.27",
@@ -35,6 +36,9 @@
     "babel-plugin-emotion": "10.0.27",
     "babel-preset-react-app": "9.1.0",
     "classnames": "2.2.6",
+    "contentful-management": "^5.12.0",
+    "contentful-typescript-codegen": "^3.0.0",
+    "dotenv": "^8.2.0",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.2",
     "eslint": "6.8.0",
@@ -50,5 +54,8 @@
     "react-dom": "16.12.0",
     "react-test-renderer": "16.12.0",
     "typescript": "3.7.5"
+  },
+  "engines": {
+    "node": ">=12"
   }
 }

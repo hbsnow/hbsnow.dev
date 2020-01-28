@@ -28,8 +28,8 @@ class BaseDocument extends Document {
             href="//unpkg.com/normalize.css@8.0.1/normalize.css"
           />
           <link
-            href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap"
             rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap"
           />
         </Head>
         <Global styles={globalStyles} />

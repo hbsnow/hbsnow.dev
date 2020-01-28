@@ -35,6 +35,7 @@ export const globalStyles = css`
   body {
     color: var(--color-default-text);
     background-color: var(--color-default-bg);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
@@ -54,5 +55,9 @@ export const globalStyles = css`
   dl,
   table {
     margin: 0 0 1rem;
+  }
+
+  a {
+    text-decoration: none;
   }
 `

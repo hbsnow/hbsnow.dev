@@ -27,6 +27,10 @@ class BaseDocument extends Document {
             rel="stylesheet"
             href="//unpkg.com/normalize.css@8.0.1/normalize.css"
           />
+          <link
+            href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <Global styles={globalStyles} />
         <body>

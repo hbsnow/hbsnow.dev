@@ -1,14 +1,20 @@
 import { css, SerializedStyles } from '@emotion/core'
 
-const containerStyle = css`
+const containerCss = css`
+  display: grid;
   width: 100%;
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  grid-template-columns: 1fr minmax(auto, 42rem) 1fr;
+  gap: 0.5rem;
 `
 
 const Container: React.FC<ContainerProps> = ({ children, style }) => {
-  return <div css={[containerStyle, style]}>{children}</div>
+  return (
+    <div css={[containerCss, style]}>
+      <div></div>
+      <div>{children}</div>
+      <div></div>
+    </div>
+  )
 }
 
 type ContainerProps = {

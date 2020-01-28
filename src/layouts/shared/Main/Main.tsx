@@ -1,9 +1,14 @@
 import { css, SerializedStyles } from '@emotion/core'
+import Container from '../../../components/Container/Container'
 
-const mainStyle = css``
+const mainCss = css``
 
 const Main: React.FC<MainProps> = ({ children, css }) => {
-  return <main css={[mainStyle, css]}>{children}</main>
+  return (
+    <main css={[mainCss, css]}>
+      <Container>{children}</Container>
+    </main>
+  )
 }
 
 type MainProps = {

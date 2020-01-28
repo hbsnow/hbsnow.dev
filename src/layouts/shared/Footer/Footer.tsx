@@ -2,20 +2,20 @@ import Link from 'next/link'
 import { SerializedStyles, css } from '@emotion/core'
 import Container from '../../../components/Container/Container'
 
-const footerStyle = css`
+const footerCss = css`
   color: var(--color-primary-text);
   background-color: var(--color-primary-bg);
 `
 
-const containerStyle = css`
+const containerCss = css`
   align-items: center;
 `
 
 const Footer: React.FC<FooterProps> = ({ children, css, ...props }) => {
   return (
-    <footer css={[footerStyle, css]} {...props}>
+    <footer css={[footerCss, css]} {...props}>
       <Container>
-        <div css={containerStyle}>
+        <div css={containerCss}>
           <p>
             このサイト内の記事は
             <Link href="/about">

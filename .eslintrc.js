@@ -1,41 +1,53 @@
 module.exports = {
   extends: [
     "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint"
   ],
-  plugins: [
-    "@typescript-eslint",
-    "react",
-    "react-hooks"
-  ],
-  settings: {
-    react: {
-      pragma: "React",
-      version: "detect",
-    }
-  },
   env: {
     browser: true,
     node: true,
-    es6: true
+    es2020: true
   },
-  parser: "@typescript-eslint/parser",
   parserOptions: {
-    sourceType: "module",
-    project: "./tsconfig.json",
-    ecmaFeatures: {
-      jsx: true
-    }
+    ecmaVersion: 2020,
   },
   rules: {
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": "error",
-    "react/prop-types": "off"
   },
+  overrides: [
+    {
+      files: ['**/*.{ts,tsx}'],
+      extends: [
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "prettier/@typescript-eslint"
+      ],
+      parser: '@typescript-eslint/parser',
+      settings: {
+        react: {
+          pragma: "React",
+          version: "detect",
+        }
+      },
+      parserOptions: {
+        sourceType: 'module',
+        project: './tsconfig.json',
+        ecmaFeatures: {
+          jsx: true
+        }
+      },
+      plugins: [
+        "@typescript-eslint",
+        "react",
+        "react-hooks"
+      ],
+      rules: {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "react/prop-types": "off"
+      }
+    }
+  ],
   globals: {
     React: "writable"
   }

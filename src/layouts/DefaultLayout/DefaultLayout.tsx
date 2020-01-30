@@ -33,6 +33,7 @@ const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children, css }) => {
 
 type DefaultLayoutProps = {
   css?: SerializedStyles
+  title?: string
 }
 
 export default DefaultLayout

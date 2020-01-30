@@ -3,7 +3,7 @@ import { css, SerializedStyles } from '@emotion/core'
 const containerCss = css`
   display: grid;
   width: 100%;
-  grid-template-columns: 1fr minmax(auto, 42rem) 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(auto, 42rem) 5fr;
   gap: 0.5rem;
 `
 

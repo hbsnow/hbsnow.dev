@@ -45,6 +45,7 @@ export const globalStyles = css`
     color: var(--color-default-text);
     background-color: var(--color-default-bg);
     font-family: 'M PLUS Rounded 1c', sans-serif;
+    line-height: 1.25;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }

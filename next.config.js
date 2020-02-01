@@ -1,3 +1,4 @@
+const withCSS = require('@zeit/next-css')
 const rehypePrism = require('@mapbox/rehype-prism')
 const withMDX = require('@next/mdx')({
   options: {
@@ -9,4 +10,4 @@ const nextSettings = {
   pageExtensions: ['tsx', 'mdx'],
 }
 
-module.exports = withMDX(nextSettings)
+module.exports = withMDX(withCSS(nextSettings))

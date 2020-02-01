@@ -6,6 +6,7 @@ import Document, {
   DocumentInitialProps,
 } from 'next/document'
 import { Global } from '@emotion/core'
+import 'normalize.css'
 import { globalStyles } from '../styles/globalStyles'
 
 class BaseDocument extends Document {
@@ -22,10 +23,6 @@ class BaseDocument extends Document {
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
-          />
-          <link
-            rel="stylesheet"
-            href="//unpkg.com/normalize.css@8.0.1/normalize.css"
           />
           <link
             rel="stylesheet"

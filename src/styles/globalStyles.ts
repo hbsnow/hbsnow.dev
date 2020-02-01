@@ -1,20 +1,29 @@
 import { css } from '@emotion/core'
-import { colors } from './variables'
+import { colors } from './colors'
+import Color from 'color'
+
+/**
+ * 背景色の明るさをから、最適なフォントカラーを戻す
+ * @param bgColor 背景色
+ */
+const textColor = (bgColor: string): string => {
+  return Color(bgColor).isLight() ? colors.text.default : colors.text.dark
+}
 
 export const globalStyles = css`
   :root {
-    --color-default-bg: ${colors.default.bg.light};
-    --color-default-text: ${colors.default.text.light};
-    --color-primary-bg: ${colors.primary.bg.light};
-    --color-primary-text: ${colors.primary.text.light};
+    --color-default-bg: ${colors.bg.default};
+    --color-default-text: ${textColor(colors.bg.default)};
+    --color-primary-bg: ${colors.primary.default};
+    --color-primary-text: ${textColor(colors.primary.default)};
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --color-default-text: ${colors.default.text.dark};
-      --color-default-bg: ${colors.default.bg.dark};
-      --color-primary-bg: ${colors.primary.bg.dark};
-      --color-primary-text: ${colors.primary.text.dark};
+      --color-default-bg: ${colors.bg.dark};
+      --color-default-text: ${textColor(colors.bg.dark)};
+      --color-primary-bg: ${colors.primary.dark};
+      --color-primary-text: ${textColor(colors.primary.dark)};
     }
   }
 

@@ -37,6 +37,9 @@ const Header = ({ css, title, ...props }: HeaderProps): JSX.Element => {
             <Link href="/blog">
               <a>blog</a>
             </Link>
+            <Link href="/books">
+              <a>books</a>
+            </Link>
             <Link href="/about">
               <a>about</a>
             </Link>

@@ -3,7 +3,7 @@
 import { Asset, Entry } from 'contentful'
 import { Document } from '@contentful/rich-text-types'
 
-export interface IBlogPostFields {
+export interface IBookFields {
   /** Name */
   name: string
 
@@ -29,7 +29,7 @@ export interface IBlogPostFields {
   state: 'bookshelf' | 'ebook' | 'rented'
 }
 
-export interface IBlogPost extends Entry<IBlogPostFields> {
+export interface IBook extends Entry<IBookFields> {
   sys: {
     id: string
     type: string
@@ -38,7 +38,7 @@ export interface IBlogPost extends Entry<IBlogPostFields> {
     locale: string
     contentType: {
       sys: {
-        id: 'blogPost'
+        id: 'book'
         linkType: 'ContentType'
         type: 'Link'
       }
@@ -71,7 +71,7 @@ export interface ITag extends Entry<ITagFields> {
   }
 }
 
-type CONTENT_TYPE = 'blogPost' | 'tag'
+type CONTENT_TYPE = 'book' | 'tag'
 
 type LOCALE_CODE = 'ja-JP'
 

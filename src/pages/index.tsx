@@ -1,8 +1,8 @@
 import React from 'react'
-import DefaultLayout from '../layouts/DefaultLayout/DefaultLayout'
+import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
 
-const Index = (): JSX.Element => {
-  return <DefaultLayout>index</DefaultLayout>
+const Page = (): JSX.Element => {
+  return <DefaultTemplate>index</DefaultTemplate>
 }
 
-export default Index
+export default Page

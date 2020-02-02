@@ -1,8 +1,8 @@
 import React from 'react'
 import { css, SerializedStyles } from '@emotion/core'
-import Header from '../shared/Header/Header'
-import Footer from '../shared/Footer/Footer'
-import Main from '../shared/Main/Main'
+import Header from '../partials/Header/Header'
+import Footer from '../partials/Footer/Footer'
+import Main from '../partials/Main/Main'
 
 const containerCss = css`
   min-height: 100%;
@@ -21,19 +21,23 @@ const footerCss = css`
   grid-row: 3 / 4;
 `
 
-const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children, css }) => {
+const DefaultTemplate: React.FC<DefaultTemplateProps> = ({
+  children,
+  css,
+  title,
+}) => {
   return (
     <div css={[containerCss, css]}>
-      <Header css={headerCss} />
+      <Header css={headerCss} title={title} />
       <Main css={mainCss}>{children}</Main>
       <Footer css={footerCss} />
     </div>
   )
 }
 
-type DefaultLayoutProps = {
+type DefaultTemplateProps = {
   css?: SerializedStyles
   title?: string
 }
 
-export default DefaultLayout
+export default DefaultTemplate

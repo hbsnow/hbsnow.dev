@@ -1,8 +1,8 @@
 import React from 'react'
-import DefaultLayout from '../layouts/DefaultLayout/DefaultLayout'
+import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
 
-const About = (): JSX.Element => {
-  return <DefaultLayout>about</DefaultLayout>
+const Page = (): JSX.Element => {
+  return <DefaultTemplate>about</DefaultTemplate>
 }
 
-export default About
+export default Page

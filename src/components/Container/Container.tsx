@@ -7,9 +7,9 @@ const containerCss = css`
   gap: 0.5rem;
 `
 
-const Container: React.FC<ContainerProps> = ({ children, style }) => {
+const Container: React.FC<ContainerProps> = ({ children, css }) => {
   return (
-    <div css={[containerCss, style]}>
+    <div css={[containerCss, css]}>
       <div></div>
       <div>{children}</div>
       <div></div>
@@ -18,7 +18,7 @@ const Container: React.FC<ContainerProps> = ({ children, style }) => {
 }
 
 type ContainerProps = {
-  style?: SerializedStyles
-}
+  css?: SerializedStyles
+} & JSX.IntrinsicElements['div']
 
 export default Container

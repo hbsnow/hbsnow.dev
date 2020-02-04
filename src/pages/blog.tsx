@@ -1,10 +1,11 @@
 import React from 'react'
+import { NextPage } from 'next'
 import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
 import path from 'path'
 import matter from 'gray-matter'
 import Link from 'next/link'
 
-const Page = ({ posts }: PageProps): JSX.Element => (
+const Page: NextPage<PageProps> = ({ posts }) => (
   <DefaultTemplate>
     <ul>
       {posts.map((post) => (

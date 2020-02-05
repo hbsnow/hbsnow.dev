@@ -1,5 +1,5 @@
 import { css } from '@emotion/core'
-import { colors } from './colors'
+import { colors } from './const'
 import Color from 'color'
 
 /**

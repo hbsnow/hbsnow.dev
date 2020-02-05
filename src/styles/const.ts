@@ -12,3 +12,10 @@ export const colors = Object.freeze({
     dark: '#111',
   },
 })
+
+export const mediaQuery = Object.freeze({
+  xs: '(min-width: 36rem)',
+  sm: '(min-width: 48rem)',
+  md: '(min-width: 62rem)',
+  lg: '(min-width: 75rem)',
+})

@@ -3,12 +3,12 @@ import { NextPage } from 'next'
 import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
 import { createClient, EntryCollection } from 'contentful'
 import { IBookFields } from '../models/contentful'
-import BookList from '../components/Books/BookList'
+import BookColmuns from '../components/Books/BookColmuns'
 
 const Page: NextPage<PageProps> = ({ entries }) => {
   return (
     <DefaultTemplate title="Blog">
-      <BookList books={entries.items} />
+      <BookColmuns books={entries.items} />
     </DefaultTemplate>
   )
 }

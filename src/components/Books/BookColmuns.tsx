@@ -15,7 +15,22 @@ export const Col = styled.div`
   display: grid;
 `
 
-const BookList = ({ css, books, ...restProps }: BookListProps): JSX.Element => {
+const createBookColmuns = (
+  books: BookColmunsProps['books'],
+  length: number
+): JSX.Element[][] => {
+  const colmuns: JSX.Element[][] = Array.from({ length }).map(() => [])
+  books.forEach((book, i) => {
+    colmuns[i % length].push(<div key={book.sys.id}>{book.fields.name}</div>)
+  })
+  return colmuns
+}
+
+const BookColmuns = ({
+  css,
+  books,
+  ...restProps
+}: BookColmunsProps): JSX.Element => {
   const mq = {
     match: [
       useMedia(mediaQuery.lg),
@@ -26,22 +41,23 @@ const BookList = ({ css, books, ...restProps }: BookListProps): JSX.Element => {
   }
   //const [booksRef, { width }] = useMeasure()
   //const heights = new Array(mq.colmuns.length).fill(0)
-  const index = mq.match.findIndex((_) => _)
-  const colmuns = index === -1 ? 1 : mq.colmuns[index]
-  console.log(mq, mq.colmuns.length, colmuns)
+  const colmunIndex = mq.match.findIndex((_) => _)
+  const colmunLength = colmunIndex === -1 ? 1 : mq.colmuns[colmunIndex]
+  const colmuns = createBookColmuns(books, colmunLength)
+  console.log(mq, colmuns)
 
   return (
     <div css={[bookListCss, css]} {...restProps}>
-      {books.map((book) => (
-        <div key={book.sys.id}>{book.fields.name}</div>
+      {books.map((book, i) => (
+        <div key={book.sys.id}>{colmuns[i]}</div>
       ))}
     </div>
   )
 }
 
-type BookListProps = {
+type BookColmunsProps = {
   css?: SerializedStyles
   books: Entry<IBookFields>[]
 } & JSX.IntrinsicElements['div']
 
-export default BookList
+export default BookColmuns

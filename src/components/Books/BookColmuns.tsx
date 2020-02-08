@@ -5,6 +5,7 @@ import { SerializedStyles, css } from '@emotion/core'
 import { mediaQuery } from '../../styles/const'
 import { Entry } from 'contentful'
 import { IBookFields } from '../../models/contentful'
+import Book from './Book'
 
 export const bookListCss = css`
   display: grid;
@@ -18,10 +19,12 @@ export const Col = styled.div`
 const createBookColmuns = (
   books: BookColmunsProps['books'],
   length: number
-): JSX.Element[][] => {
-  const colmuns: JSX.Element[][] = Array.from({ length }).map(() => [])
+): BookColmunsProps['books'][] => {
+  const colmuns: BookColmunsProps['books'][] = Array.from({
+    length,
+  }).map(() => [])
   books.forEach((book, i) => {
-    colmuns[i % length].push(<div key={book.sys.id}>{book.fields.name}</div>)
+    colmuns[i % length].push(book)
   })
   return colmuns
 }
@@ -48,8 +51,8 @@ const BookColmuns = ({
 
   return (
     <div css={[bookListCss, css]} {...restProps}>
-      {books.map((book, i) => (
-        <div key={book.sys.id}>{colmuns[i]}</div>
+      {books.map((book) => (
+        <Book key={book.sys.id} {...book} />
       ))}
     </div>
   )

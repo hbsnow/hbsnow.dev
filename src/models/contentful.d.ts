@@ -14,19 +14,19 @@ export interface IBookFields {
   rate: number
 
   /** Body */
-  body: string
+  body?: string | undefined
 
   /** Tag */
   tag?: ITag[] | undefined
 
-  /** PublishedAt */
-  publishedAt: string
-
-  /** ReadAt */
-  readAt?: string | undefined
+  /** isRead */
+  isRead?: boolean | undefined
 
   /** State */
   state: 'bookshelf' | 'ebook' | 'rented'
+
+  /** PublishedAt */
+  publishedAt: string
 }
 
 export interface IBook extends Entry<IBookFields> {

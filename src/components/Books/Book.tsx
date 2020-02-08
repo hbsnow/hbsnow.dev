@@ -5,16 +5,16 @@ import { IBookFields } from '../../models/contentful'
 
 export const bookCss = css``
 
-const Book = ({ css, book, ...restProps }: BookProps): JSX.Element => {
+const Book = ({ styles, book, ...restProps }: BookProps): JSX.Element => {
   return (
-    <div css={[bookCss, css]} {...restProps}>
+    <div css={[bookCss, styles]} {...restProps}>
       {book.fields.name}
     </div>
   )
 }
 
 type BookProps = {
-  css?: SerializedStyles
+  styles?: SerializedStyles
   book: Entry<IBookFields>
 } & JSX.IntrinsicElements['div']
 

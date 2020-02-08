@@ -2,18 +2,18 @@ import Link from 'next/link'
 import { SerializedStyles, css } from '@emotion/core'
 import Container from '../../../components/Container/Container'
 
-const footerCss = css`
-  color: var(--color-primary-text);
-  background-color: var(--color-primary-bg);
-`
+const Footer: React.FC<FooterProps> = ({ children, styles, ...props }) => {
+  const footerCss = css`
+    color: var(--color-primary-text);
+    background-color: var(--color-primary-bg);
+  `
 
-const containerCss = css`
-  align-items: center;
-`
+  const containerCss = css`
+    align-items: center;
+  `
 
-const Footer: React.FC<FooterProps> = ({ children, css, ...props }) => {
   return (
-    <footer css={[footerCss, css]} {...props}>
+    <footer css={[footerCss, styles]} {...props}>
       <Container>
         <div css={containerCss}>
           <p>
@@ -37,7 +37,7 @@ const Footer: React.FC<FooterProps> = ({ children, css, ...props }) => {
 }
 
 type FooterProps = {
-  css?: SerializedStyles
+  styles?: SerializedStyles
 } & JSX.IntrinsicElements['footer']
 
 export default Footer

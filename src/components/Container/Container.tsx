@@ -1,15 +1,18 @@
 import { css, SerializedStyles } from '@emotion/core'
 
-const containerCss = css`
-  display: grid;
-  width: 100%;
-  grid-template-columns: minmax(0, 1fr) minmax(auto, 42rem) 5fr;
-  gap: 0.5rem;
-`
-
-const Container: React.FC<ContainerProps> = ({ children, css }) => {
+const Container: React.FC<ContainerProps> = ({
+  children,
+  styles,
+  size = 'md',
+}) => {
+  const containerCss = css`
+    display: grid;
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) minmax(auto, 42rem) 5fr;
+    gap: 0.5rem;
+  `
   return (
-    <div css={[containerCss, css]}>
+    <div css={[containerCss, styles]}>
       <div></div>
       <div>{children}</div>
       <div></div>
@@ -18,7 +21,8 @@ const Container: React.FC<ContainerProps> = ({ children, css }) => {
 }
 
 type ContainerProps = {
-  css?: SerializedStyles
+  styles?: SerializedStyles
+  size?: 'md' | 'lg'
 } & JSX.IntrinsicElements['div']
 
 export default Container

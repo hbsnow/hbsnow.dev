@@ -3,19 +3,15 @@ import { NextPage } from 'next'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
+import { subTitle } from '../blog'
 
 const Page: NextPage<PageProps> = ({ document }) => {
   return (
-    <DefaultTemplate title="Blog">
+    <DefaultTemplate subTitle={subTitle}>
       <h2>{document.data.title}</h2>
       <ReactMarkdown source={document.content} />
     </DefaultTemplate>
   )
-}
-
-type PageProps = {
-  slug: string
-  document: matter.GrayMatterFile<string>
 }
 
 Page.getInitialProps = async (context): Promise<PageProps> => {
@@ -32,6 +28,11 @@ Page.getInitialProps = async (context): Promise<PageProps> => {
     slug,
     document: data,
   }
+}
+
+type PageProps = {
+  slug: string
+  document: matter.GrayMatterFile<string>
 }
 
 export default Page

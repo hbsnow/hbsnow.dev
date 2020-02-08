@@ -3,25 +3,25 @@ import { SerializedStyles, css } from '@emotion/core'
 import styled from '@emotion/styled'
 import Container from '../../../components/Container/Container'
 
-const headerCss = css`
-  color: var(--color-primary-text);
-  background-color: var(--color-primary-bg);
-`
-const Grid = styled.div`
-  display: flex;
-  align-items: center;
-`
-const Spacer = styled.div`
-  flex: 1 1 auto;
-`
-const TitleGroup = styled.div``
-const Title = styled.h1`
-  font-size: 1rem;
-`
+const Header: React.FC<HeaderProps> = ({ children, styles, ...props }) => {
+  const headerCss = css`
+    color: var(--color-primary-text);
+    background-color: var(--color-primary-bg);
+  `
+  const Grid = styled.div`
+    display: flex;
+    align-items: center;
+  `
+  const Spacer = styled.div`
+    flex: 1 1 auto;
+  `
+  const TitleGroup = styled.div``
+  const Title = styled.h1`
+    font-size: 1rem;
+  `
 
-const Header = ({ css, title, ...props }: HeaderProps): JSX.Element => {
   return (
-    <header css={[headerCss, css]} {...props}>
+    <header css={[headerCss, styles]} {...props}>
       <Container>
         <Grid>
           <TitleGroup>
@@ -30,7 +30,7 @@ const Header = ({ css, title, ...props }: HeaderProps): JSX.Element => {
                 <a>hbsnow.dev</a>
               </Link>
             </Title>
-            {title && <h2>{title}</h2>}
+            {children}
           </TitleGroup>
           <Spacer></Spacer>
           <div>
@@ -51,7 +51,7 @@ const Header = ({ css, title, ...props }: HeaderProps): JSX.Element => {
 }
 
 type HeaderProps = {
-  css?: SerializedStyles
+  styles?: SerializedStyles
   title?: string
 } & JSX.IntrinsicElements['header']
 

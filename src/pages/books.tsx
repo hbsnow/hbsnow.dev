@@ -5,9 +5,14 @@ import { createClient, EntryCollection } from 'contentful'
 import { IBookFields } from '../models/contentful'
 import BookColmuns from '../components/Books/BookColmuns'
 
+const subTitle = {
+  name: 'Books',
+  href: '/books',
+}
+
 const Page: NextPage<PageProps> = ({ entries }) => {
   return (
-    <DefaultTemplate title="Blog">
+    <DefaultTemplate subTitle={subTitle}>
       <BookColmuns books={entries.items} />
     </DefaultTemplate>
   )

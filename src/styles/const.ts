@@ -19,3 +19,10 @@ export const mediaQuery = Object.freeze({
   md: '(min-width: 62rem)',
   lg: '(min-width: 75rem)',
 })
+
+export const containerSize = Object.freeze({
+  xs: '26rem',
+  sm: '34rem',
+  md: '42rem',
+  lg: '50rem',
+})

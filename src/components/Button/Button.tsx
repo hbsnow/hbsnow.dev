@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { SerializedStyles, css } from '@emotion/core'
 
-const buttonCss = css``
+const buttonStyles = css``
 
 const isLinkType = (props): props is LinkProps => props?.href !== undefined
 
@@ -10,21 +10,21 @@ const Button: React.FC<ButtonProps | LinkProps> = (props) => {
     const { children, styles, href, as, amp, ...restProps } = props
     const isExternal = href.startsWith('http')
     return amp || isExternal ? (
-      <a href={href} css={[buttonCss, styles]} {...restProps}>
+      <a href={href} css={[buttonStyles, styles]} {...restProps}>
         {children}
       </a>
     ) : (
       <Link href={href} {...(as && { as })}>
-        <a css={[buttonCss, styles]} {...restProps}>
+        <a css={[buttonStyles, styles]} {...restProps}>
           {children}
         </a>
       </Link>
     )
   }
 
-  const { children, css, ...restProps } = props
+  const { children, styles, ...restProps } = props
   return (
-    <button type="button" css={css} {...restProps}>
+    <button type="button" css={[buttonStyles, styles]} {...restProps}>
       {children}
     </button>
   )

@@ -1,18 +1,15 @@
-import { css, SerializedStyles } from '@emotion/core'
-import Container from '../../../components/Container/Container'
+import { css } from '@emotion/core'
 
-const mainCss = css``
+const Main: React.FC<MainProps> = ({ children, ...restProps }) => {
+  const mainStyles = css``
 
-const Main: React.FC<MainProps> = ({ children, css }) => {
   return (
-    <main css={[mainCss, css]}>
-      <Container>{children}</Container>
+    <main css={mainStyles} {...restProps}>
+      {children}
     </main>
   )
 }
 
-type MainProps = {
-  css?: SerializedStyles
-}
+type MainProps = {} & JSX.IntrinsicElements['main']
 
 export default Main

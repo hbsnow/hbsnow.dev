@@ -1,46 +1,53 @@
 import React from 'react'
-import { css, SerializedStyles } from '@emotion/core'
-import Header from '../partials/Header/Header'
-import Footer from '../partials/Footer/Footer'
+import { css } from '@emotion/core'
 import Main from '../partials/Main/Main'
-import SubTitle, { Title } from '../partials/Header/SubTitle'
+import SiteTitle from '../partials/Header/SiteTitle'
+import SiteNav from '../partials/Header/SiteNav'
+import { LinkType } from '../../models/link'
+import Footer from '../partials/Footer/Footer'
+import { containerSize } from '../../styles/const'
 
 const DefaultTemplate: React.FC<DefaultTemplateProps> = ({
   children,
-  styles,
   subTitle,
+  ...restProps
 }) => {
-  const containerCss = css`
+  const containerStyles = css`
     min-height: 100%;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(auto, ${containerSize['md']}) 5fr;
     grid-template-rows: auto 1fr auto;
-    row-gap: 1rem;
+    gap: 1rem;
   `
-  const headerCss = css`
+  const siteTitleStyles = css`
     grid-row: 1 / 2;
+    grid-column: 1 / 3;
   `
-  const mainCss = css`
+  const siteNavStyles = css`
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+  `
+  const mainStyles = css`
     grid-row: 2 / 3;
+    grid-column: 2 / 4;
   `
-  const footerCss = css`
+  const footerStyles = css`
     grid-row: 3 / 4;
+    grid-column: 2 / 3;
   `
 
   return (
-    <div css={[containerCss, styles]}>
-      <Header css={headerCss}>
-        {subTitle?.name && <SubTitle title={subTitle} />}
-      </Header>
-      <Main css={mainCss}>{children}</Main>
-      <Footer css={footerCss} />
+    <div css={containerStyles} {...restProps}>
+      <SiteTitle subTitle={subTitle} css={siteTitleStyles} />
+      <SiteNav css={siteNavStyles} />
+      <Main css={mainStyles}>{children}</Main>
+      <Footer css={footerStyles} />
     </div>
   )
 }
 
 type DefaultTemplateProps = {
-  styles?: SerializedStyles
-  subTitle?: Title
-}
+  subTitle?: LinkType
+} & JSX.IntrinsicElements['div']
 
 export default DefaultTemplate

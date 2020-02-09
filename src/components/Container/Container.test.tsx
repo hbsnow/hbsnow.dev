@@ -6,6 +6,6 @@ import Container from './Container'
 describe('Container Component', () => {
   it('render the container', () => {
     const wrapper = shallow(<Container>container</Container>)
-    expect(wrapper.find('div')).toBeTruthy()
+    expect(wrapper.html()).toContain('div')
   })
 })

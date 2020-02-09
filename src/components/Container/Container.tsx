@@ -1,18 +1,19 @@
 import { css, SerializedStyles } from '@emotion/core'
+import { containerSize } from '../../styles/const'
 
 const Container: React.FC<ContainerProps> = ({
   children,
   styles,
   size = 'md',
 }) => {
-  const containerCss = css`
+  const containerStyles = css`
     display: grid;
     width: 100%;
-    grid-template-columns: minmax(0, 1fr) minmax(auto, 42rem) 5fr;
+    grid-template-columns: minmax(0, 1fr) minmax(auto, ${containerSize[size]}) 5fr;
     gap: 0.5rem;
   `
   return (
-    <div css={[containerCss, styles]}>
+    <div css={[containerStyles, styles]}>
       <div></div>
       <div>{children}</div>
       <div></div>
@@ -22,7 +23,7 @@ const Container: React.FC<ContainerProps> = ({
 
 type ContainerProps = {
   styles?: SerializedStyles
-  size?: 'md' | 'lg'
+  size?: 'xs' | 'sm' | 'md' | 'lg'
 } & JSX.IntrinsicElements['div']
 
 export default Container

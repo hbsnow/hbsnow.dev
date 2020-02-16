@@ -1,7 +1,7 @@
 import React from 'react'
 import { useMedia } from 'react-use'
 import styled from '@emotion/styled'
-import { SerializedStyles, css } from '@emotion/core'
+import { css } from '@emotion/core'
 import { mediaQuery } from '../../styles/const'
 import { Entry } from 'contentful'
 import { IBookFields } from '../../models/contentful'
@@ -10,7 +10,6 @@ import Book from './Book'
 const Colmun = styled.div``
 
 const BookColmuns = ({
-  styles,
   books,
   ...restProps
 }: BookColmunsProps): JSX.Element => {
@@ -34,7 +33,7 @@ const BookColmuns = ({
   console.log(mq, colmunLength)
 
   return (
-    <div css={[bookColmunsCss, styles]} {...restProps}>
+    <div css={bookColmunsCss} {...restProps}>
       {books.map((book) => (
         <Colmun key={book.sys.id}>
           <Book book={book} />
@@ -45,7 +44,6 @@ const BookColmuns = ({
 }
 
 type BookColmunsProps = {
-  styles?: SerializedStyles
   books: Entry<IBookFields>[]
 } & JSX.IntrinsicElements['div']
 

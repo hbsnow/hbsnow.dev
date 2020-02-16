@@ -1,5 +1,3 @@
-import { SerializedStyles } from '@emotion/core'
-
 const addRel = (props: NoTargetElement): NoTargetElement => {
   const rel = props?.rel?.split(' ') || []
   rel.push(...['noopener', 'noreferrer'])
@@ -12,11 +10,10 @@ const addRel = (props: NoTargetElement): NoTargetElement => {
 
 const ExternalLink: React.FC<ExternalLinkProps> = ({
   children,
-  styles,
   ...restProps
 }) => {
   return (
-    <a css={styles} target="_blank" {...addRel(restProps)}>
+    <a target="_blank" {...addRel(restProps)}>
       {children}
     </a>
   )
@@ -24,8 +21,6 @@ const ExternalLink: React.FC<ExternalLinkProps> = ({
 
 type NoTargetElement = Omit<JSX.IntrinsicElements['a'], 'target'>
 
-type ExternalLinkProps = {
-  styles?: SerializedStyles
-} & NoTargetElement
+type ExternalLinkProps = {} & NoTargetElement
 
 export default ExternalLink

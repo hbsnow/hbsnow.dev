@@ -6,24 +6,33 @@ import Color from 'color'
  * 背景色の明るさをから、最適なフォントカラーを戻す
  * @param bgColor 背景色
  */
-const textColor = (bgColor: string): string => {
-  return Color(bgColor).isLight() ? colors.text.default : colors.text.dark
-}
+const textColor = (bgColor: string): string =>
+  Color(bgColor).isLight() ? colors.text.light : colors.text.dark
 
 export const globalStyles = css`
   :root {
-    --color-default-bg: ${colors.bg.default};
-    --color-default-text: ${textColor(colors.bg.default)};
-    --color-primary-bg: ${colors.primary.default};
-    --color-primary-text: ${textColor(colors.primary.default)};
+    --color-default-bg: ${colors.bg.light};
+    --color-default-text: ${textColor(colors.bg.light)};
+    --color-default-divider: ${textColor(colors.divider.light)};
+    --color-primary-bg: ${colors.primary.light};
+    --color-primary-text: ${textColor(colors.primary.light)};
+    --color-primary-light-bg: ${colors.primaryLight.light};
+    --color-primary-light-text: ${textColor(colors.primaryLight.light)};
+    --color-primary-dark-bg: ${colors.primaryDark.light};
+    --color-primary-dark-text: ${textColor(colors.primaryDark.light)};
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
       --color-default-bg: ${colors.bg.dark};
       --color-default-text: ${textColor(colors.bg.dark)};
+      --color-default-divider: ${textColor(colors.divider.dark)};
       --color-primary-bg: ${colors.primary.dark};
       --color-primary-text: ${textColor(colors.primary.dark)};
+      --color-primary-light-bg: ${colors.primaryLight.dark};
+      --color-primary-light-text: ${textColor(colors.primaryLight.dark)};
+      --color-primary-dark-bg: ${colors.primaryDark.dark};
+      --color-primary-dark-text: ${textColor(colors.primaryDark.dark)};
     }
   }
 
@@ -64,7 +73,11 @@ export const globalStyles = css`
   ol,
   dl,
   table {
-    margin: 0 0 1rem;
+    margin: 0 0 1.5rem;
+  }
+
+  li {
+    margin: 0 0 calc(1.5rem / 2);
   }
 
   a {

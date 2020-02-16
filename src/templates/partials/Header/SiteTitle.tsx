@@ -5,10 +5,7 @@ import styled from '@emotion/styled'
 import { LinkType } from '../../../models/link'
 
 const SiteTitle = ({ subTitle, ...restProps }: SiteTitleProps): JSX.Element => {
-  const siteTitleStyles = css`
-    color: var(--color-primary-text);
-    background-color: var(--color-primary-bg);
-  `
+  const siteTitleStyles = css``
   const Title = styled.h1`
     font-size: 1rem;
   `

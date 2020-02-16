@@ -1,15 +1,39 @@
 export const colors = Object.freeze({
   bg: {
-    default: '#fefefe',
+    light: '#fefefe',
     dark: '#111',
   },
   text: {
-    default: '#111',
+    light: '#111',
     dark: '#eee',
   },
+  divider: {
+    light: 'rgba(0, 0, 0, 0.12)',
+    dark: 'rgba(255, 255, 255, 0.2)',
+  },
   primary: {
-    default: '#fefefe',
-    dark: '#111',
+    light: '#559dff',
+    dark: '#559dff',
+  },
+  primaryLight: {
+    light: '#8fceff',
+    dark: '#8fceff',
+  },
+  primaryDark: {
+    light: '#006fcb',
+    dark: '#006fcb',
+  },
+  secondary: {
+    light: '#fd9547',
+    dark: '#fd9547',
+  },
+  secondaryLight: {
+    light: '#ffc676',
+    dark: '#ffc676',
+  },
+  secondaryDark: {
+    light: '#c56617',
+    dark: '#c56617',
   },
 })
 

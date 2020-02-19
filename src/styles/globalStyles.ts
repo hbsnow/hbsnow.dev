@@ -12,27 +12,25 @@ const textColor = (bgColor: string): string =>
 export const globalStyles = css`
   :root {
     --color-default-bg: ${colors.bg.light};
+    --color-default-surface: ${colors.surface.light};
     --color-default-text: ${textColor(colors.bg.light)};
-    --color-default-divider: ${textColor(colors.divider.light)};
+    --color-default-divider: ${colors.divider.light};
     --color-primary-bg: ${colors.primary.light};
     --color-primary-text: ${textColor(colors.primary.light)};
-    --color-primary-light-bg: ${colors.primaryLight.light};
-    --color-primary-light-text: ${textColor(colors.primaryLight.light)};
-    --color-primary-dark-bg: ${colors.primaryDark.light};
-    --color-primary-dark-text: ${textColor(colors.primaryDark.light)};
+    --color-primary-variant-bg: ${colors.primaryVariant.light};
+    --color-primary-variant-text: ${textColor(colors.primaryVariant.light)};
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
       --color-default-bg: ${colors.bg.dark};
+      --color-default-surface: ${colors.surface.dark};
       --color-default-text: ${textColor(colors.bg.dark)};
-      --color-default-divider: ${textColor(colors.divider.dark)};
+      --color-default-divider: ${colors.divider.dark};
       --color-primary-bg: ${colors.primary.dark};
       --color-primary-text: ${textColor(colors.primary.dark)};
-      --color-primary-light-bg: ${colors.primaryLight.dark};
-      --color-primary-light-text: ${textColor(colors.primaryLight.dark)};
-      --color-primary-dark-bg: ${colors.primaryDark.dark};
-      --color-primary-dark-text: ${textColor(colors.primaryDark.dark)};
+      --color-primary-variant-bg: ${colors.primaryVariant.dark};
+      --color-primary-variant-text: ${textColor(colors.primaryVariant.dark)};
     }
   }
 

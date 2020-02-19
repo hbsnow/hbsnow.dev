@@ -11,19 +11,19 @@ const SiteTitle = ({ subTitle, ...restProps }: SiteTitleProps): JSX.Element => {
   `
 
   return (
-    <header css={siteTitleStyles} {...restProps}>
+    <div css={siteTitleStyles} {...restProps}>
       <Title>
         <Link href="/">
           <a>hbsnow.dev</a>
         </Link>
       </Title>
       {subTitle && <>{subTitle.name}</>}
-    </header>
+    </div>
   )
 }
 
 type SiteTitleProps = {
   subTitle?: LinkType
-} & JSX.IntrinsicElements['header']
+} & JSX.IntrinsicElements['div']
 
 export default SiteTitle

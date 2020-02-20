@@ -5,7 +5,11 @@ import styled from '@emotion/styled'
 import { LinkType } from '../../../models/link'
 
 const SiteTitle = ({ subTitle, ...restProps }: SiteTitleProps): JSX.Element => {
-  const siteTitleStyles = css``
+  const siteTitleStyles = css`
+    display: flex;
+    align-items: center;
+    height: 2rem;
+  `
   const Title = styled.h1`
     font-size: 1rem;
   `

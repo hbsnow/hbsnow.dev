@@ -4,7 +4,8 @@ import { containerSize } from '../../styles/const'
 const Container: React.FC<ContainerProps> = ({ children, ...restProps }) => {
   const containerStyles = css`
     display: grid;
-    width: ${containerSize};
+    width: 100%;
+    max-width: ${containerSize};
     grid-template-columns: repeat(8, 1fr);
     gap: calc(1.5rem / 2);
     margin: 0 auto;

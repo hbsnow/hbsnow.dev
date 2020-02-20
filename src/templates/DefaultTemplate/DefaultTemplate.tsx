@@ -17,10 +17,13 @@ const DefaultTemplate: React.FC<DefaultTemplateProps> = ({
     grid-template-rows: auto 1fr auto;
   `
   const siteTitleStyles = css`
-    grid-column: 1 / 3;
+    grid-column: 1 / 4;
+  `
+  const headerStyles = css`
+    padding: 5rem 0;
   `
   const siteNavStyles = css`
-    grid-column: 3 / 9;
+    grid-column: 4 / 9;
   `
   const snsStyles = css`
     grid-column: 1 / 5;
@@ -32,7 +35,7 @@ const DefaultTemplate: React.FC<DefaultTemplateProps> = ({
 
   return (
     <div css={containerStyles} {...restProps}>
-      <header>
+      <header css={headerStyles}>
         <Container>
           <SiteTitle css={siteTitleStyles} subTitle={subTitle} />
           <SiteNav css={siteNavStyles} />

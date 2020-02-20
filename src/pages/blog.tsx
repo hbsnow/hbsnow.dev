@@ -5,13 +5,8 @@ import path from 'path'
 import matter from 'gray-matter'
 import Link from 'next/link'
 
-export const subTitle = {
-  name: 'Blog',
-  href: '/blog',
-}
-
 const Page: NextPage<PageProps> = ({ posts }) => (
-  <DefaultTemplate subTitle={subTitle}>
+  <DefaultTemplate>
     <ul>
       {posts.map((post) => (
         <li key={post.slug}>

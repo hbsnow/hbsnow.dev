@@ -26,7 +26,7 @@ class BaseDocument extends Document {
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap"
+            href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&amp;display=swap"
           />
         </Head>
         <Global styles={globalStyles} />

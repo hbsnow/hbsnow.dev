@@ -1,3 +1,5 @@
+import React from 'react'
+
 const addRel = (props: NoTargetElement): NoTargetElement => {
   const rel = props?.rel?.split(' ') || []
   rel.push(...['noopener', 'noreferrer'])

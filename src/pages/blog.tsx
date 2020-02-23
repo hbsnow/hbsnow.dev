@@ -1,12 +1,12 @@
 import React from 'react'
 import { NextPage } from 'next'
-import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
+import PageTemplate from '../templates/PageTemplate/PageTemplate'
 import path from 'path'
 import matter from 'gray-matter'
 import Link from 'next/link'
 
 const Page: NextPage<PageProps> = ({ posts }) => (
-  <DefaultTemplate>
+  <PageTemplate>
     <ul>
       {posts.map((post) => (
         <li key={post.slug}>
@@ -16,7 +16,7 @@ const Page: NextPage<PageProps> = ({ posts }) => (
         </li>
       ))}
     </ul>
-  </DefaultTemplate>
+  </PageTemplate>
 )
 
 Page.getInitialProps = async (): Promise<PageProps> => {

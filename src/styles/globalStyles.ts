@@ -15,7 +15,7 @@ export const globalStyles = css`
     --color-default-surface: ${colors.surface.light};
     --color-default-text: ${textColor(colors.bg.light)};
     --color-default-divider: ${colors.divider.light};
-    --color-primary-bg: ${colors.primary.light};
+    --color-primary: ${colors.primary.light};
     --color-primary-text: ${textColor(colors.primary.light)};
     --color-primary-variant-bg: ${colors.primaryVariant.light};
     --color-primary-variant-text: ${textColor(colors.primaryVariant.light)};
@@ -27,7 +27,7 @@ export const globalStyles = css`
       --color-default-surface: ${colors.surface.dark};
       --color-default-text: ${textColor(colors.bg.dark)};
       --color-default-divider: ${colors.divider.dark};
-      --color-primary-bg: ${colors.primary.dark};
+      --color-primary: ${colors.primary.dark};
       --color-primary-text: ${textColor(colors.primary.dark)};
       --color-primary-variant-bg: ${colors.primaryVariant.dark};
       --color-primary-variant-text: ${textColor(colors.primaryVariant.dark)};
@@ -79,6 +79,7 @@ export const globalStyles = css`
   }
 
   a {
+    color: var(--color-primary);
     text-decoration: none;
   }
 `

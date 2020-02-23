@@ -3,11 +3,11 @@
  */
 export const colors = Object.freeze({
   bg: {
-    light: '#ffffff',
+    light: '#fff',
     dark: '#121212',
   },
   surface: {
-    light: '#fafafa',
+    light: '#f6faff',
     dark: '#121212',
   },
   text: {
@@ -27,8 +27,8 @@ export const colors = Object.freeze({
     dark: 'rgba(255, 255, 255, 0.2)',
   },
   primary: {
-    light: '#559dff',
-    dark: '#8fceff',
+    light: '#59a1ff',
+    dark: '#59a1ff',
   },
   primaryVariant: {
     light: '#006fcb',
@@ -51,4 +51,4 @@ export const mediaQuery = Object.freeze({
   lg: '(min-width: 74rem)',
 })
 
-export const containerSize = '74rem'
+export const containerSize = '62rem'

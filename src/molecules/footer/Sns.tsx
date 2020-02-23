@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import ExternalLink from '../../../components/ExternalLink/ExternalLink'
-import { ExternalLinkType } from '../../../models/link'
+import ExternalLink from '../../atoms/link/ExternalLink'
+import { ExternalLinkType } from '../../models/link'
 
 const sns: SnsExternalLinkType[] = [
   {

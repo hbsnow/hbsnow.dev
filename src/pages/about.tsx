@@ -1,9 +1,9 @@
 import React from 'react'
 import { NextPage } from 'next'
-import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
+import PageTemplate from '../templates/PageTemplate/PageTemplate'
 
 const Page: NextPage = () => {
-  return <DefaultTemplate>about</DefaultTemplate>
+  return <PageTemplate>about</PageTemplate>
 }
 
 export default Page

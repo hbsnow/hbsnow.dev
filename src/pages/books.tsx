@@ -1,15 +1,15 @@
 import React from 'react'
 import { NextPage } from 'next'
-import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
+import PageTemplate from '../templates/PageTemplate/PageTemplate'
 import { createClient, EntryCollection } from 'contentful'
 import { IBookFields } from '../models/contentful'
 import BookColmuns from '../components/Books/BookColmuns'
 
 const Page: NextPage<PageProps> = ({ entries }) => {
   return (
-    <DefaultTemplate>
+    <PageTemplate>
       <BookColmuns books={entries.items} />
-    </DefaultTemplate>
+    </PageTemplate>
   )
 }
 

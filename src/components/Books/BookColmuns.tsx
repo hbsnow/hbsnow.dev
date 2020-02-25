@@ -7,7 +7,7 @@ import { Entry } from 'contentful'
 import { IBookFields } from '../../models/contentful'
 import Book from './Book'
 
-const Colmun = styled.div``
+const Colmun = styled('div')``
 
 const BookColmuns = ({
   books,

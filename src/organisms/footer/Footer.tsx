@@ -8,7 +8,7 @@ const Footer = ({ ...restProps }: FooterProps): JSX.Element => {
   const snsStyles = css`
     grid-column: 1 / 5;
   `
-  const Footer = styled.footer`
+  const Footer = styled('footer')`
     border-top: 1px solid var(--color-default-divider);
     padding: calc(1.5rem / 2) 0;
   `

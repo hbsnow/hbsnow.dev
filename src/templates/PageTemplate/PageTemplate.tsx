@@ -7,7 +7,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({
   children,
   ...restProps
 }) => {
-  const PageTemplate = styled.div`
+  const PageTemplate = styled('div')`
     display: grid;
     min-height: 100%;
     grid-template-rows: auto 1fr auto;

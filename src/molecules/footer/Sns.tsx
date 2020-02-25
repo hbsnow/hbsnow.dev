@@ -2,27 +2,16 @@ import React from 'react'
 import { css } from '@emotion/core'
 import ExternalLink from '../../atoms/link/ExternalLink'
 import { ExternalLinkType } from '../../models/link'
+import Icon from '../../atoms/icon/Icon'
 
-const sns: SnsExternalLinkType[] = [
+const sns: ExternalLinkType[] = [
   {
-    icon: null,
-    name: 'GitHub',
+    name: 'github',
     href: 'https://github.com/hbsnow',
   },
   {
-    icon: null,
-    name: 'Twitter',
+    name: 'twitter',
     href: 'https://twitter.com/hbsnow',
-  },
-  {
-    icon: null,
-    name: 'Facebook',
-    href: 'https://www.facebook.com/hb.yuki',
-  },
-  {
-    icon: null,
-    name: 'Qiita',
-    href: 'https://qiita.com/hbsnow',
   },
 ]
 
@@ -31,16 +20,16 @@ const Sns = ({ ...restProps }: SnsProps): JSX.Element => {
 
   return (
     <div role="list" css={SnsStyles} {...restProps}>
-      {sns.map((item: SnsExternalLinkType) => (
+      {sns.map((item: ExternalLinkType) => (
         <div role="listitem" key={item.href}>
-          <ExternalLink href={item.href}>{item.name}</ExternalLink>
+          <ExternalLink href={item.href}>
+            <Icon name={item.name} />
+          </ExternalLink>
         </div>
       ))}
     </div>
   )
 }
-
-type SnsExternalLinkType = { icon: JSX.Element } & ExternalLinkType
 
 type SnsProps = {} & JSX.IntrinsicElements['div']
 

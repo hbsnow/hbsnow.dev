@@ -7,7 +7,7 @@ import SiteNav from '../../molecules/header/SiteNav'
 import { mediaQuery } from '../../styles/const'
 
 const Header = ({ ...restProps }: HeaderProps): JSX.Element => {
-  const Header = styled.header`
+  const Header = styled('header')`
     padding: 1.5rem 0;
     @media ${mediaQuery.sm} {
       padding: calc(1.5rem * 3) 0;

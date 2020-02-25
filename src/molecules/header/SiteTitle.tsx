@@ -3,12 +3,12 @@ import Link from 'next/link'
 import styled from '@emotion/styled'
 
 const SiteTitle = ({ ...restProps }: SiteTitleProps): JSX.Element => {
-  const SiteTitle = styled.h1`
+  const SiteTitle = styled('h1')`
     display: flex;
     align-items: center;
     font-size: 1.5rem;
   `
-  const Title = styled.div`
+  const Title = styled('div')`
     color: inherit;
   `
 

@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 const Page: NextPage = () => (
   <PageTemplate>
-    <ul>
+    {/* <ul>
       {posts.map((post) => (
         <li key={post.slug}>
           <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
@@ -13,7 +13,7 @@ const Page: NextPage = () => (
           </Link>
         </li>
       ))}
-    </ul>
+    </ul> */}
   </PageTemplate>
 )
 

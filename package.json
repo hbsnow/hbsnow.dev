@@ -18,7 +18,7 @@
   "dependencies": {
     "@babel/core": "7.8.6",
     "@emotion/babel-preset-css-prop": "10.0.27",
-    "@emotion/core": "10.0.27",
+    "@emotion/core": "10.0.28",
     "@emotion/styled": "10.0.27",
     "@storybook/addon-actions": "5.3.14",
     "@storybook/addon-knobs": "5.3.14",
@@ -38,7 +38,7 @@
     "@zeit/next-css": "1.0.1",
     "babel-jest": "25.1.0",
     "babel-loader": "8.0.6",
-    "babel-plugin-emotion": "10.0.27",
+    "babel-plugin-emotion": "10.0.28",
     "babel-preset-react-app": "9.1.1",
     "classnames": "2.2.6",
     "color": "3.1.2",

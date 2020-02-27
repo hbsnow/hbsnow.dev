@@ -16,7 +16,7 @@
     "contentful-typescript-codegen": "contentful-typescript-codegen --output src/models/contentful.d.ts"
   },
   "dependencies": {
-    "@babel/core": "7.8.4",
+    "@babel/core": "7.8.6",
     "@emotion/babel-preset-css-prop": "10.0.27",
     "@emotion/core": "10.0.27",
     "@emotion/styled": "10.0.27",

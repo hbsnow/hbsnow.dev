@@ -11331,10 +11331,10 @@ react-transition-group@^2.2.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
-react-use@13.26.3:
-  version "13.26.3"
-  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.26.3.tgz#d278bb0f8c995c3684a15de2026fbb51bd04df02"
-  integrity sha512-81I+p1F7LFxdkGM3qiLjF9NUi2mTupvaiN76IAWL5JMY7BHTGSk6PFdzByqJrxnTJ/RBrbIVttmqvYKHOz/9Tw==
+react-use@13.26.4:
+  version "13.26.4"
+  resolved "https://registry.yarnpkg.com/react-use/-/react-use-13.26.4.tgz#9f68ae1b44496626db447be502e62f0dd482103c"
+  integrity sha512-Bv/XvJREnkyGhbPKOzI1Agtg68MBS8EwL0o16qEJk/Z0d4NbWf/zZGgKSa8IzwaI0BBE0mk0zvSMe/RJR+IFYA==
   dependencies:
     "@types/js-cookie" "2.2.5"
     "@xobotyi/scrollbar-width" "1.9.3"

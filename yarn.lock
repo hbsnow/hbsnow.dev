@@ -1917,7 +1917,7 @@
     "@secretlint/types" "^0.7.0"
     "@textlint/regexp-string-matcher" "^1.1.0"
 
-"@secretlint/secretlint-rule-preset-recommend@^0.7.2":
+"@secretlint/secretlint-rule-preset-recommend@0.7.2":
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/@secretlint/secretlint-rule-preset-recommend/-/secretlint-rule-preset-recommend-0.7.2.tgz#47307f447e6a5beffc2ef242faf77d04f5795c9c"
   integrity sha512-+gB3egSJxkyajc3eecHRRJ6McPa2zkrOOHaCkr/4j3dkHsgp2yBHAh81WpIHvMUp9zAecdrynWLUjmjFenAhJg==
@@ -12535,7 +12535,7 @@ screenfull@^5.0.0:
   resolved "https://registry.yarnpkg.com/screenfull/-/screenfull-5.0.1.tgz#873052411eb9096bc1c8e615f5badad119e6e42c"
   integrity sha512-NgQH4KKh2V3zlj2u90l7TUcSFxr9qL/64QEvhAvCN/fu1YS39YLTBKIqZqiS3STj3QD8sN6XnsK/8jk3hRq4WA==
 
-secretlint@^0.7.3:
+secretlint@0.7.3:
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/secretlint/-/secretlint-0.7.3.tgz#9bbbd73744bcc10c44ad5a798ed4ec76fd76f794"
   integrity sha512-CHtyw/9vt05c4PiAgpoHYtc3xlX33yD4DI4vUf8ip88RXl9wLFGob/NC2Uo3EeQmSrgHb6HjrjsxhGrGmE23yw==

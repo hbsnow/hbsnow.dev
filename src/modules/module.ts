@@ -5,9 +5,9 @@ import { EntryCollection, createClient } from 'contentful'
 import { IBookFields } from '../models/contentful'
 
 export const initialState: StateType = {
-  blog: undefined,
-  book: undefined,
-  isBookLoading: false,
+  blogList: undefined,
+  bookList: undefined,
+  isBookListLoading: false,
 }
 
 export const StateContext = createContext(null)
@@ -15,22 +15,22 @@ export const DispatchContext = createContext(null)
 
 export const reducer = (state: StateType, action): StateType => {
   switch (action.type) {
-    case 'blog': {
+    case 'blogList': {
       return {
         ...state,
-        blog: action.blog,
+        blogList: action.blogList,
       }
     }
-    case 'book': {
+    case 'bookList': {
       return {
         ...state,
-        book: action.book,
+        bookList: action.bookList,
       }
     }
-    case 'isBookLoading': {
+    case 'isBookListLoading': {
       return {
         ...state,
-        isBookLoading: action.isBookLoading,
+        isBookListLoading: action.isBookListLoading,
       }
     }
     default:
@@ -38,8 +38,8 @@ export const reducer = (state: StateType, action): StateType => {
   }
 }
 
-export const loadBlog = (): StateType['blog'] => {
-  const blog = ((context): StateType['blog'] => {
+export const loadBlogList = (): StateType['blogList'] => {
+  const blogList = ((context): StateType['blogList'] => {
     const keys = context.keys()
     const values = keys.map(context) as { [key: string]: string }[]
 
@@ -51,10 +51,26 @@ export const loadBlog = (): StateType['blog'] => {
     })
   })(require.context('../posts', true, /\.md$/))
 
-  return blog
+  return blogList
 }
 
-export const fetchBook = async (): Promise<StateType['book']> => {
+// export const loadBlog = (slug: string): StateType['blogList'] => {
+//   const blog = ((context): StateType['blogList'] => {
+//     const keys = context.keys()
+//     const values = keys.map(context) as { [key: string]: string }[]
+
+//     return keys.map((key, i) => {
+//       const slug = path.basename(key, '.md')
+//       const document = matter(values[i].default)
+
+//       return { slug, document }
+//     })
+//   })(require.context('../posts', true, /\.md$/))
+
+//   return blog
+// }
+
+export const fetchBookList = async (): Promise<StateType['bookList']> => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_API_ACCESS_TOKEN,
@@ -67,9 +83,9 @@ export const fetchBook = async (): Promise<StateType['book']> => {
 }
 
 export type StateType = {
-  blog?: BlogType[]
-  book?: EntryCollection<IBookFields>
-  isBookLoading: boolean
+  blogList?: BlogType[]
+  bookList?: EntryCollection<IBookFields>
+  isBookListLoading: boolean
 }
 
 export type BlogType = {

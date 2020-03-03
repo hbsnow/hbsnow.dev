@@ -10,10 +10,11 @@ import {
   loadBlog,
   StateType,
   fetchBook,
+  BlogType,
 } from '../modules/module'
 import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
 
-const Page: NextPage = () => {
+const Page: NextPage<PageProps> = ({ blog }) => {
   const IndexTemplate = styled(DefaultTemplate)`
     display: grid;
     min-height: 100%;
@@ -24,15 +25,14 @@ const Page: NextPage = () => {
   const dispatch = useContext(DispatchContext)
 
   useEffect(() => {
-    if (!state.blog) {
-      dispatch({ type: 'blog', blog: loadBlog() })
-    }
-  }, [state.blog])
+    dispatch({ type: 'blog', blog })
+  }, [blog])
 
   useEffect(() => {
     if (!state.book) {
       ;(async (): Promise<void> => {
-        dispatch({ type: 'book', book: await fetchBook() })
+        const book = await fetchBook()
+        dispatch({ type: 'book', book })
       })()
     }
   }, [state.book])
@@ -60,6 +60,16 @@ const Page: NextPage = () => {
       <Footer />
     </IndexTemplate>
   )
+}
+
+Page.getInitialProps = async (): Promise<PageProps> => {
+  const blog = loadBlog()
+
+  return { blog }
+}
+
+type PageProps = {
+  blog: BlogType[]
 }
 
 export default Page

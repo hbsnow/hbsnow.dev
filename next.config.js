@@ -6,6 +6,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 const nextSettings = {
   target: 'serverless',
+  exportTrailingSlash: true,
+  exportPathMap: function() {
+    return {
+      '/': { page: '/' },
+    }
+  },
   pageExtensions: ['tsx'],
   env: {
     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,

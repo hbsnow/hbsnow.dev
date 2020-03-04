@@ -21,9 +21,10 @@ class BaseDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8" />
+          <script async src="https://cdn.ampproject.org/v0.js"></script>
           <meta
             name="viewport"
-            content="initial-scale=1.0, width=device-width"
+            content="width=device-width,minimum-scale=1,initial-scale=1"
           />
           <link
             rel="stylesheet"

@@ -7,7 +7,6 @@ import { IBookFields } from '../models/contentful'
 export const initialState: StateType = {
   blogList: undefined,
   bookList: undefined,
-  isBookListLoading: false,
 }
 
 export const StateContext = createContext(null)
@@ -27,12 +26,6 @@ export const reducer = (state: StateType, action): StateType => {
         bookList: action.bookList,
       }
     }
-    case 'isBookListLoading': {
-      return {
-        ...state,
-        isBookListLoading: action.isBookListLoading,
-      }
-    }
     default:
       throw new Error()
   }
@@ -47,9 +40,9 @@ export const loadBlogList = (): StateType['blogList'] => {
       const slug = path.basename(key, '.md')
       const document = matter(values[i].default)
 
-      return { slug, document }
+      return { slug, ...document.data }
     })
-  })(require.context('../posts', true, /\.md$/))
+  })(require.context(`../posts`, true, /\.md$/))
 
   return blogList
 }
@@ -85,10 +78,8 @@ export const fetchBookList = async (): Promise<StateType['bookList']> => {
 export type StateType = {
   blogList?: BlogType[]
   bookList?: EntryCollection<IBookFields>
-  isBookListLoading: boolean
 }
 
 export type BlogType = {
   slug: string
-  document: matter.GrayMatterFile<string>
-}
+} & matter.GrayMatterFile<string>['data']

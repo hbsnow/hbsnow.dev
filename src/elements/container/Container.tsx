@@ -1,14 +1,11 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { containerSize, mediaQuery } from '../../styles/const'
+import { containerSize, mediaQuery, gapSize } from '../../styles/const'
 
 const Container: React.FC<ContainerProps> = ({ children, ...restProps }) => {
   const Container = styled('div')`
-    display: grid;
     max-width: calc(${containerSize} - 1.5rem);
-    grid-template-columns: repeat(8, 1fr);
-    gap: 0 calc(1.5rem / 2);
-    margin: 0 calc(1.5rem / 2);
+    margin: 0 ${gapSize};
 
     @media ${mediaQuery.md} {
       margin: 0 auto;

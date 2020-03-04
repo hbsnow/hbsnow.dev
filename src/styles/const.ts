@@ -52,3 +52,4 @@ export const mediaQuery = Object.freeze({
 })
 
 export const containerSize = '62rem'
+export const gapSize = 'calc(1.5rem / 2)'

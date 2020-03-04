@@ -21,8 +21,8 @@ const SiteNav = ({ ...restProps }: SiteNavProps): JSX.Element => {
         </Link>
       </SiteNavLink>
       <SiteNavLink>
-        <Link href="/books">
-          <a>books</a>
+        <Link href="/book">
+          <a>book</a>
         </Link>
       </SiteNavLink>
     </SiteNav>

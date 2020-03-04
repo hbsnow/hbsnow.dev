@@ -27,8 +27,10 @@ const Icon = ({ name, ...restProps }: IconProps): JSX.Element => {
   }
 }
 
+export type IconType = 'github' | 'twitter'
+
 type IconProps = {
-  name: string
+  name: IconType
 } & JSX.IntrinsicElements['svg']
 
 export default Icon

@@ -2,7 +2,7 @@ export type LinkType = {
   to?: string
 } & ExternalLinkType
 
-export type ExternalLinkType = {
-  name: string
+export type ExternalLinkType<T = string> = {
+  name: T
   href: string
 }

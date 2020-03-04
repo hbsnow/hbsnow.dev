@@ -1,8 +1,8 @@
 import React from 'react'
-import Container from '../../atoms/container/Container'
+import Container from '../../elements/container/Container'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import Sns from '../../molecules/footer/Sns'
+import Sns from '../../components/footer/Sns'
 
 const Footer = ({ ...restProps }: FooterProps): JSX.Element => {
   const snsStyles = css`

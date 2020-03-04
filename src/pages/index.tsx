@@ -1,13 +1,11 @@
 import React, { useContext, useEffect } from 'react'
 import { NextPage } from 'next'
-import Header from '../organisms/header/Header'
-import Footer from '../organisms/footer/Footer'
+import Header from '../components/header/Header'
+import Footer from '../components/footer/Footer'
 import styled from '@emotion/styled'
 import Link from 'next/link'
 import {
-  StateContext,
   DispatchContext,
-  StateType,
   loadBlogList,
   fetchBookList,
   BlogType,
@@ -15,6 +13,9 @@ import {
 import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
 import { EntryCollection } from 'contentful'
 import { IBookFields } from '../models/contentful'
+import LastestPosts from '../components/lastest/LastestPosts'
+import LastestReadBooks from '../components/lastest/LastestReadBooks'
+import Container from '../elements/container/Container'
 
 const Page: NextPage<PageProps> = ({ blogList, bookList }) => {
   const IndexTemplate = styled(DefaultTemplate)`
@@ -23,36 +24,41 @@ const Page: NextPage<PageProps> = ({ blogList, bookList }) => {
     grid-template-rows: auto 1fr auto;
   `
 
-  const state: StateType = useContext(StateContext)
   const dispatch = useContext(DispatchContext)
 
   useEffect(() => {
     dispatch({ type: 'blogList', blogList })
-  }, [blogList])
+  }, [blogList, dispatch])
 
   useEffect(() => {
     dispatch({ type: 'bookList', bookList })
-  }, [bookList])
+  }, [bookList, dispatch])
 
   return (
     <IndexTemplate>
       <Header />
       <main>
-        <h2>Latest Posts</h2>
+        <Container>
+          <section>
+            <h2>Latest Posts</h2>
 
-        <Link href="/blog">
-          <a>all posts</a>
-        </Link>
+            <LastestPosts />
 
-        {state.blogList?.map((post) => {
-          return <div key={post.slug}>{post.slug}</div>
-        })}
+            <Link href="/blog">
+              <a>All Posts</a>
+            </Link>
+          </section>
 
-        <h2>BookList</h2>
+          <section>
+            <h2>Latest Read Books</h2>
 
-        {state.bookList?.items.map((book) => {
-          return <div key={book.fields.name}>{book.fields.name}</div>
-        })}
+            <LastestReadBooks />
+
+            <Link href="/book">
+              <a>All Read Books</a>
+            </Link>
+          </section>
+        </Container>
       </main>
       <Footer />
     </IndexTemplate>

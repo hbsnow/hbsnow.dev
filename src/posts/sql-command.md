@@ -1,6 +1,6 @@
 ---
 title: MySQL と PostgreSQL のコマンド
-tags: mysql, postgresql
+tags: [mysql, postgresql]
 description: MySQL と PostgreSQL のコマンドの対応表ろSQL逆引き。
 createdAt: 2019-06-01
 updatedAt: 2019-07-26

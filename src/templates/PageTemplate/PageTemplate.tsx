@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Header from '../../organisms/header/Header'
-import Footer from '../../organisms/footer/Footer'
+import Header from '../../components/header/Header'
+import Footer from '../../components/footer/Footer'
 
 const PageTemplate: React.FC<PageTemplateProps> = ({
   children,

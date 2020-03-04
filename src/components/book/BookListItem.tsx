@@ -5,7 +5,10 @@ import { IBookFields } from '../../models/contentful'
 
 export const bookCss = css``
 
-const Book = ({ book, ...restProps }: BookProps): JSX.Element => {
+const BookListItem = ({
+  book,
+  ...restProps
+}: BookListItemProps): JSX.Element => {
   return (
     <div css={bookCss} {...restProps}>
       {book.fields.name}
@@ -13,8 +16,8 @@ const Book = ({ book, ...restProps }: BookProps): JSX.Element => {
   )
 }
 
-type BookProps = {
+type BookListItemProps = {
   book: Entry<IBookFields>
 } & JSX.IntrinsicElements['div']
 
-export default Book
+export default BookListItem

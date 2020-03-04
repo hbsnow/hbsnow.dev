@@ -17,7 +17,6 @@ export const config = { amp: true }
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
-  // const book = useReducer(bookReducer, initialBookState)
 
   return (
     <StateContext.Provider value={state}>

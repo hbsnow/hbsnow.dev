@@ -13,8 +13,6 @@ if (process.env.NODE_ENV !== 'production') {
   whyDidYouRender(React)
 }
 
-export const config = { amp: true }
-
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 

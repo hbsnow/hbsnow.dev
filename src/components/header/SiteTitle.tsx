@@ -1,25 +1,27 @@
 import React from 'react'
 import Link from 'next/link'
-import styled from '@emotion/styled'
 
 const SiteTitle = ({ ...restProps }: SiteTitleProps): JSX.Element => {
-  const SiteTitle = styled('h1')`
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem;
-  `
-  const Title = styled('div')`
-    color: inherit;
-  `
-
   return (
-    <SiteTitle {...restProps}>
-      <Link href="/">
-        <a>
-          <Title>hbsnow.dev</Title>
-        </a>
-      </Link>
-    </SiteTitle>
+    <div {...restProps}>
+      <h1 className="siteTitle">
+        <Link href="/">
+          <a>
+            <div className="title">hbsnow.dev</div>
+          </a>
+        </Link>
+      </h1>
+      <style jsx>{`
+        .siteTitle {
+          display: flex;
+          align-items: center;
+          font-size: 1.5rem;
+        }
+        .title {
+          color: inherit;
+        }
+      `}</style>
+    </div>
   )
 }
 

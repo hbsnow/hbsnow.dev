@@ -1,15 +1,27 @@
+const fs = require('fs')
+const path = require('path')
 const withCSS = require('@zeit/next-css')
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+// if (process.env.NODE_ENV !== 'production') {
+require('dotenv').config()
+// }
 
 const nextSettings = {
   target: 'serverless',
-  exportTrailingSlash: true,
-  exportPathMap: function() {
+  exportPathMap: async () => {
+    const fileList = fs.promises.readdir('./src/posts', (_, items) => items)
+
+    const postPathMap = {}
+    ;(await fileList).forEach((file) => {
+      const slug = path.basename(file, '.md')
+      postPathMap[`/blog/${slug}`] = { page: '/blog/[slug]' }
+    })
+
     return {
       '/': { page: '/' },
+      '/blog': { page: '/blog' },
+      '/book': { page: '/book' },
+      ...postPathMap,
     }
   },
   pageExtensions: ['tsx'],

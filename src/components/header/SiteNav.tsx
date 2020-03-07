@@ -1,31 +1,34 @@
 import React from 'react'
 import Link from 'next/link'
-import styled from '@emotion/styled'
 
 const SiteNav = ({ ...restProps }: SiteNavProps): JSX.Element => {
-  const SiteNav = styled('div')`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  `
-  const SiteNavLink = styled('div')`
-    display: block;
-    padding: calc(1.5rem / 2);
-  `
-
   return (
-    <SiteNav {...restProps}>
-      <SiteNavLink>
-        <Link href="/blog">
-          <a>blog</a>
-        </Link>
-      </SiteNavLink>
-      <SiteNavLink>
-        <Link href="/book">
-          <a>book</a>
-        </Link>
-      </SiteNavLink>
-    </SiteNav>
+    <div {...restProps}>
+      <ul className="list">
+        <li>
+          <Link href="/blog">
+            <a>blog</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/book">
+            <a>book</a>
+          </Link>
+        </li>
+      </ul>
+      <style jsx>{`
+        .list {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          margin: 0;
+        }
+        .listItem {
+          display: block;
+          padding: calc(1.5rem / 2);
+        }
+      `}</style>
+    </div>
   )
 }
 

@@ -1,18 +1,28 @@
-import React, { useContext } from 'react'
-import { StateContext, StateType } from '../../modules/module'
+import React from 'react'
+import Link from 'next/link'
+import { BlogType } from '../../modules/module'
 
-const LastestPosts = ({ ...restProps }: LastestPostsProps): JSX.Element => {
-  const state: StateType = useContext(StateContext)
-
+const LastestPosts = ({
+  blogList,
+  ...restProps
+}: LastestPostsProps): JSX.Element => {
   return (
     <div {...restProps}>
-      {state.blogList?.map((post) => {
-        return <div key={post.slug}>{post.slug}</div>
+      {blogList?.map((post) => {
+        return (
+          <div key={post.slug}>
+            <Link href="/blog/[slug]" as={`/post/${post.slug}`}>
+              <a>{post.title}</a>
+            </Link>
+          </div>
+        )
       })}
     </div>
   )
 }
 
-type LastestPostsProps = {} & JSX.IntrinsicElements['div']
+type LastestPostsProps = {
+  blogList: BlogType[]
+} & JSX.IntrinsicElements['div']
 
 export default LastestPosts

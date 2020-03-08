@@ -39,8 +39,7 @@ const Page: NextPage<PageProps> = ({ blogList, bookList }) => {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/camelcase
-export const unstable_getStaticProps = async (): Promise<{
+export const getStaticProps = async (): Promise<{
   props: PageProps
 }> => {
   const blogList = loadBlogList()

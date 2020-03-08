@@ -11,7 +11,7 @@ const LastestPosts = ({
       {blogList?.map((post) => {
         return (
           <div key={post.slug}>
-            <Link href="/blog/[slug]" as={`/post/${post.slug}`}>
+            <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
               <a>{post.title}</a>
             </Link>
           </div>

@@ -19,8 +19,7 @@ const Page: NextPage<PageProps> = ({ bookList }) => {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/camelcase
-export const unstable_getStaticProps = async (): Promise<{
+export const getStaticProps = async (): Promise<{
   props: PageProps
 }> => {
   const bookList = await fetchBookList()

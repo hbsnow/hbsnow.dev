@@ -1,35 +1,7 @@
-import { createContext } from 'react'
 import path from 'path'
 import matter from 'gray-matter'
 import { EntryCollection, createClient } from 'contentful'
 import { IBookFields } from '../models/contentful'
-
-export const initialState: StateType = {
-  blogList: undefined,
-  bookList: undefined,
-}
-
-export const StateContext = createContext(null)
-export const DispatchContext = createContext(null)
-
-export const reducer = (state: StateType, action): StateType => {
-  switch (action.type) {
-    case 'blogList': {
-      return {
-        ...state,
-        blogList: action.blogList,
-      }
-    }
-    case 'bookList': {
-      return {
-        ...state,
-        bookList: action.bookList,
-      }
-    }
-    default:
-      throw new Error()
-  }
-}
 
 export const loadBlogList = (): StateType['blogList'] => {
   const blogList = ((context): StateType['blogList'] => {
@@ -47,21 +19,13 @@ export const loadBlogList = (): StateType['blogList'] => {
   return blogList
 }
 
-// export const loadBlog = (slug: string): StateType['blogList'] => {
-//   const blog = ((context): StateType['blogList'] => {
-//     const keys = context.keys()
-//     const values = keys.map(context) as { [key: string]: string }[]
+export const loadBlog = async (
+  slug: string
+): Promise<matter.GrayMatterFile<string>> => {
+  const content = await import(`../posts/${slug}.md`)
 
-//     return keys.map((key, i) => {
-//       const slug = path.basename(key, '.md')
-//       const document = matter(values[i].default)
-
-//       return { slug, document }
-//     })
-//   })(require.context('../posts', true, /\.md$/))
-
-//   return blog
-// }
+  return matter(content.default)
+}
 
 export const fetchBookList = async (): Promise<StateType['bookList']> => {
   const client = createClient({

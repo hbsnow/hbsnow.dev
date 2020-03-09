@@ -1769,10 +1769,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@next/polyfill-nomodule@9.2.3-canary.28":
-  version "9.2.3-canary.28"
-  resolved "https://registry.yarnpkg.com/@next/polyfill-nomodule/-/polyfill-nomodule-9.2.3-canary.28.tgz#7403ab01d392a90bdee41a8c74d71fbe894b8ab3"
-  integrity sha512-jEbk23mkogYp+gEcRwYqDyk13xLTh/2TeysI5yOS4fJXTHKBu74WkhY5F4wAYfSoTQ485rABdP3P9VdwZnSc5A==
+"@next/polyfill-nomodule@9.2.3-canary.29":
+  version "9.2.3-canary.29"
+  resolved "https://registry.yarnpkg.com/@next/polyfill-nomodule/-/polyfill-nomodule-9.2.3-canary.29.tgz#04ab7ab3aec5f6392caa45683f24643a5c369e1b"
+  integrity sha512-T3j32F0APJzHrEbfvS/075Z+8B0tbkn1C1KTxVmkq7kO0ipFTtyPmB1i5wFy61zUqNjlHjNJ05djvCsZOlzTaQ==
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
@@ -9977,10 +9977,10 @@ next@*:
     webpack-sources "1.4.3"
     whatwg-fetch "3.0.0"
 
-next@9.2.3-canary.28:
-  version "9.2.3-canary.28"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.2.3-canary.28.tgz#34691dc38c9443c7bf535ccb7ad42b038d804204"
-  integrity sha512-420ZhXBduHyVmGubfvB/8FNREssQncJvpcgLRb8MnRk90CKnPKSR78k+9vzOxiqGgU48PH96s5kydOgUkqSA0A==
+next@9.2.3-canary.29:
+  version "9.2.3-canary.29"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.2.3-canary.29.tgz#d5a231de000a459a54284f6490c9279ccc49a173"
+  integrity sha512-WC8xGzqDyZX75tWxb4sKLOcO11Gx6374+DE9kqFGUpcMZUsBDoE108bo+4gL29dfmFCIjoaGT+Cc/WcMLGt1Mg==
   dependencies:
     "@ampproject/toolbox-optimizer" "2.0.0"
     "@babel/core" "7.7.2"
@@ -9998,7 +9998,7 @@ next@9.2.3-canary.28:
     "@babel/preset-typescript" "7.7.2"
     "@babel/runtime" "7.7.2"
     "@babel/types" "7.7.4"
-    "@next/polyfill-nomodule" "9.2.3-canary.28"
+    "@next/polyfill-nomodule" "9.2.3-canary.29"
     amphtml-validator "1.0.30"
     async-retry "1.2.3"
     async-sema "3.0.0"
@@ -10068,7 +10068,7 @@ next@9.2.3-canary.28:
     url "0.11.0"
     use-subscription "1.1.1"
     watchpack "2.0.0-beta.13"
-    webpack "4.41.2"
+    webpack "4.42.0"
     webpack-dev-middleware "3.7.0"
     webpack-hot-middleware "2.25.0"
     webpack-sources "1.4.3"

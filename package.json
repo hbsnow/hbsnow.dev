@@ -69,7 +69,7 @@
     "husky": "4.2.3",
     "jest": "25.1.0",
     "lint-staged": "10.0.8",
-    "next": "9.2.3-canary.28",
+    "next": "9.2.3-canary.29",
     "normalize.css": "8.0.1",
     "prettier": "1.19.1",
     "raw-loader": "4.0.0",

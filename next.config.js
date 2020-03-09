@@ -1,15 +1,16 @@
 const withCSS = require('@zeit/next-css')
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
+// if (process.env.NODE_ENV !== 'production') {
+require('dotenv').config()
+// }
 
 const nextSettings = {
   target: 'serverless',
-  exportTrailingSlash: true,
-  exportPathMap: function() {
+  exportPathMap: async () => {
     return {
       '/': { page: '/' },
+      '/blog': { page: '/blog' },
+      '/book': { page: '/book' },
     }
   },
   pageExtensions: ['tsx'],

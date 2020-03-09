@@ -1,26 +1,34 @@
 import React from 'react'
 import { NextPage } from 'next'
-import PageTemplate from '../../templates/PageTemplate/PageTemplate'
+import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 import { EntryCollection } from 'contentful'
 import { IBookFields } from '../../models/contentful'
 import { fetchBookList } from '../../modules/module'
 import BookList from '../../components/book/BookList'
 import Container from '../../elements/container/Container'
 
+export const config = { amp: true }
+
 const Page: NextPage<PageProps> = ({ bookList }) => {
   return (
-    <PageTemplate>
+    <DefaultTemplate>
       <Container>
         <BookList bookList={bookList.items} />
       </Container>
-    </PageTemplate>
+    </DefaultTemplate>
   )
 }
 
-Page.getInitialProps = async (): Promise<PageProps> => {
+export const getStaticProps = async (): Promise<{
+  props: PageProps
+}> => {
   const bookList = await fetchBookList()
 
-  return { bookList }
+  return {
+    props: {
+      bookList,
+    },
+  }
 }
 
 type PageProps = {

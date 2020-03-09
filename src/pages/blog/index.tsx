@@ -1,29 +1,18 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import { NextPage } from 'next'
-import PageTemplate from '../../templates/PageTemplate/PageTemplate'
-import {
-  StateType,
-  StateContext,
-  DispatchContext,
-  BlogType,
-  loadBlogList,
-} from '../../modules/module'
+import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
+import { BlogType, loadBlogList } from '../../modules/module'
 import Link from 'next/link'
 import Container from '../../elements/container/Container'
 
+export const config = { amp: true }
+
 const Page: NextPage<PageProps> = ({ blogList }) => {
-  const state: StateType = useContext(StateContext)
-  const dispatch = useContext(DispatchContext)
-
-  useEffect(() => {
-    dispatch({ type: 'blogList', blogList })
-  }, [blogList, dispatch])
-
   return (
-    <PageTemplate>
+    <DefaultTemplate>
       <Container>
         <ul>
-          {state.blogList?.map((blog) => (
+          {blogList?.map((blog) => (
             <li key={blog.slug}>
               <Link href="/blog/[slug]" as={`/blog/${blog.slug}`}>
                 <a>{blog.title}</a>
@@ -32,14 +21,23 @@ const Page: NextPage<PageProps> = ({ blogList }) => {
           ))}
         </ul>
       </Container>
-    </PageTemplate>
+    </DefaultTemplate>
   )
 }
 
-Page.getInitialProps = async (): Promise<PageProps> => {
+export const getStaticProps = async (
+  ctx
+): Promise<{
+  props: PageProps
+}> => {
   const blogList = loadBlogList()
+  console.log(ctx)
 
-  return { blogList }
+  return {
+    props: {
+      blogList,
+    },
+  }
 }
 
 type PageProps = {

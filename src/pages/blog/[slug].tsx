@@ -2,35 +2,41 @@ import React from 'react'
 import { NextPage } from 'next'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
-import PageTemplate from '../../templates/PageTemplate/PageTemplate'
+import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
+import { loadBlogList, loadBlog } from '../../modules/module'
+
+export const config = { amp: true }
 
 const Page: NextPage<PageProps> = ({ document }) => {
   return (
-    <PageTemplate>
-      <h2>{document.data.title}</h2>
+    <DefaultTemplate>
+      <h1>{document.data.title}</h1>
       <ReactMarkdown source={document.content} />
-    </PageTemplate>
+    </DefaultTemplate>
   )
 }
 
-Page.getInitialProps = async (context): Promise<PageProps> => {
-  const { slug } = context.query
-
-  if (Array.isArray(slug)) {
-    throw new Error('slugが複数指定されています。')
-  }
-
-  const content = await import(`../../posts/${slug}.md`)
-  const data = matter(content.default)
+export const getStaticPaths = (): {
+  fallback: boolean
+  paths: string[]
+} => {
+  const blogList = loadBlogList()
 
   return {
-    slug,
-    document: data,
+    fallback: false,
+    paths: blogList.map((blog) => `/blog/${blog.slug}`),
   }
 }
 
+export const getStaticProps = async ({
+  params,
+}): Promise<{ props: PageProps }> => {
+  const document = await loadBlog(params.slug)
+
+  return { props: { document } }
+}
+
 type PageProps = {
-  slug: string
   document: matter.GrayMatterFile<string>
 }
 

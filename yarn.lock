@@ -1769,10 +1769,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@next/polyfill-nomodule@9.2.3-canary.26":
-  version "9.2.3-canary.26"
-  resolved "https://registry.yarnpkg.com/@next/polyfill-nomodule/-/polyfill-nomodule-9.2.3-canary.26.tgz#12dd27014f5f919c7d19d9019a0201a8cf68c0f4"
-  integrity sha512-YW8AB2z2NLHMBOqa/agzrv7AD1tUJMQu77vNXwCNRCbxhEM81Kq5GVzCDXQIG717PH38/fi9z62I4zaX8xe5hQ==
+"@next/polyfill-nomodule@9.2.3-canary.28":
+  version "9.2.3-canary.28"
+  resolved "https://registry.yarnpkg.com/@next/polyfill-nomodule/-/polyfill-nomodule-9.2.3-canary.28.tgz#7403ab01d392a90bdee41a8c74d71fbe894b8ab3"
+  integrity sha512-jEbk23mkogYp+gEcRwYqDyk13xLTh/2TeysI5yOS4fJXTHKBu74WkhY5F4wAYfSoTQ485rABdP3P9VdwZnSc5A==
 
 "@nodelib/fs.scandir@2.1.3":
   version "2.1.3"
@@ -9977,10 +9977,10 @@ next@*:
     webpack-sources "1.4.3"
     whatwg-fetch "3.0.0"
 
-next@9.2.3-canary.26:
-  version "9.2.3-canary.26"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.2.3-canary.26.tgz#3c34667b7a6e4dc4c70ab6e7188ed7c2213ae785"
-  integrity sha512-5IzKvwr0s3mX/siYoA9fFZuMZBz50aeho7cKxFGu8Ty3+qrcuf0Ooh8r9w7/yh4eEp4Gcfr+GoOnQaOTEsEcIg==
+next@9.2.3-canary.28:
+  version "9.2.3-canary.28"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.2.3-canary.28.tgz#34691dc38c9443c7bf535ccb7ad42b038d804204"
+  integrity sha512-420ZhXBduHyVmGubfvB/8FNREssQncJvpcgLRb8MnRk90CKnPKSR78k+9vzOxiqGgU48PH96s5kydOgUkqSA0A==
   dependencies:
     "@ampproject/toolbox-optimizer" "2.0.0"
     "@babel/core" "7.7.2"
@@ -9998,7 +9998,7 @@ next@9.2.3-canary.26:
     "@babel/preset-typescript" "7.7.2"
     "@babel/runtime" "7.7.2"
     "@babel/types" "7.7.4"
-    "@next/polyfill-nomodule" "9.2.3-canary.26"
+    "@next/polyfill-nomodule" "9.2.3-canary.28"
     amphtml-validator "1.0.30"
     async-retry "1.2.3"
     async-sema "3.0.0"

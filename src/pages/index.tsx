@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextPage } from 'next'
 import Link from 'next/link'
-import { EntryCollection } from 'contentful'
+import { Entry } from 'contentful'
 import { IBookFields } from '../models/contentful'
 import { loadBlogList, fetchBookList, BlogType } from '../modules/module'
 import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
@@ -48,14 +48,14 @@ export const getStaticProps = async (): Promise<{
   return {
     props: {
       blogList,
-      bookList,
+      bookList: bookList.items,
     },
   }
 }
 
 type PageProps = {
   blogList: BlogType[]
-  bookList: EntryCollection<IBookFields>
+  bookList: Entry<IBookFields>[]
 }
 
 export default Page

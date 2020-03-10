@@ -16,7 +16,7 @@ export const loadBlogList = (): StateType['blogList'] => {
     })
   })(require.context(`../posts`, true, /\.md$/))
 
-  return blogList
+  return JSON.parse(JSON.stringify(blogList))
 }
 
 export const loadBlog = async (
@@ -24,7 +24,7 @@ export const loadBlog = async (
 ): Promise<matter.GrayMatterFile<string>> => {
   const content = await import(`../posts/${slug}.md`)
 
-  return matter(content.default)
+  return JSON.parse(JSON.stringify(matter(content.default)))
 }
 
 export const fetchBookList = async (): Promise<StateType['bookList']> => {

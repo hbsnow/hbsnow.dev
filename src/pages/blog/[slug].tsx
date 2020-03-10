@@ -4,14 +4,17 @@ import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 import { loadBlogList, loadBlog } from '../../modules/module'
+import Container from '../../elements/container/Container'
 
 export const config = { amp: true }
 
 const Page: NextPage<PageProps> = ({ document }) => {
   return (
     <DefaultTemplate>
-      <h1>{document.data.title}</h1>
-      <ReactMarkdown source={document.content} />
+      <Container>
+        <h1>{document.data.title}</h1>
+        <ReactMarkdown source={document.content} />
+      </Container>
     </DefaultTemplate>
   )
 }

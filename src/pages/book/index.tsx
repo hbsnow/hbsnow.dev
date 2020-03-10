@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextPage } from 'next'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
-import { EntryCollection } from 'contentful'
+import { Entry } from 'contentful'
 import { IBookFields } from '../../models/contentful'
 import { fetchBookList } from '../../modules/module'
 import BookList from '../../components/book/BookList'
@@ -13,7 +13,7 @@ const Page: NextPage<PageProps> = ({ bookList }) => {
   return (
     <DefaultTemplate>
       <Container>
-        <BookList bookList={bookList.items} />
+        <BookList bookList={bookList} />
       </Container>
     </DefaultTemplate>
   )
@@ -26,13 +26,13 @@ export const getStaticProps = async (): Promise<{
 
   return {
     props: {
-      bookList,
+      bookList: bookList.items,
     },
   }
 }
 
 type PageProps = {
-  bookList: EntryCollection<IBookFields>
+  bookList: Entry<IBookFields>[]
 }
 
 export default Page

@@ -25,17 +25,14 @@ const Page: NextPage<PageProps> = ({ blogList }) => {
   )
 }
 
-export const getStaticProps = async (
-  ctx
-): Promise<{
+export const getStaticProps = async (): Promise<{
   props: PageProps
 }> => {
   const blogList = loadBlogList()
-  console.log(ctx)
 
   return {
     props: {
-      blogList,
+      blogList: JSON.parse(JSON.stringify(blogList)),
     },
   }
 }

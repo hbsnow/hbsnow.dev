@@ -1,4 +1,5 @@
 import React from 'react'
+import globalStyles from '../../styles/globalStyles'
 import Header from '../../components/header/Header'
 import Footer from '../../components/footer/Footer'
 
@@ -10,7 +11,17 @@ const DefaultTemplate: React.FC<DefaultTemplateProps> = ({
     <div {...restProps}>
       <Header />
       <main>{children}</main>
-      <Footer />
+      <Footer className="footer" />
+      <style jsx>
+        {`
+          .footer {
+            color: red;
+          }
+        `}
+      </style>
+      <style jsx global>
+        {globalStyles}
+      </style>
     </div>
   )
 }

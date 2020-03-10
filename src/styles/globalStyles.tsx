@@ -1,15 +1,8 @@
-import { css } from '@emotion/core'
+import css from 'styled-jsx/css'
 import { colors } from './const'
-import Color from 'color'
+import { textColor } from './mixin'
 
-/**
- * 背景色の明るさをから、最適なフォントカラーを戻す
- * @param bgColor 背景色
- */
-export const textColor = (bgColor: string): string =>
-  Color(bgColor).isLight() ? colors.text.light : colors.text.dark
-
-export const globalStyles = css`
+const globalStyles = css.global`
   :root {
     --color-default-bg: ${colors.bg.light};
     --color-default-surface: ${colors.surface.light};
@@ -62,20 +55,16 @@ export const globalStyles = css`
   h3,
   h4,
   h5,
-  h6 {
-    margin: 0;
-  }
-
+  h6,
   p,
   ul,
   ol,
+  li,
   dl,
+  dd,
   table {
-    margin: 0 0 1.5rem;
-  }
-
-  li {
-    margin: 0 0 calc(1.5rem / 2);
+    margin: 0;
+    padding: 0;
   }
 
   a {
@@ -83,3 +72,5 @@ export const globalStyles = css`
     text-decoration: none;
   }
 `
+
+export default globalStyles

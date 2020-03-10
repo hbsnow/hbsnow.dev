@@ -1,5 +1,5 @@
 import React from 'react'
-import { EntryCollection } from 'contentful'
+import { Entry } from 'contentful'
 import { IBookFields } from '../../models/contentful'
 
 const LastestReadBooks = ({
@@ -8,7 +8,7 @@ const LastestReadBooks = ({
 }: LastestReadBooksProps): JSX.Element => {
   return (
     <div {...restProps}>
-      {bookList?.items.map((book) => {
+      {bookList.map((book) => {
         return <div key={book.fields.name}>{book.fields.name}</div>
       })}
     </div>
@@ -16,7 +16,7 @@ const LastestReadBooks = ({
 }
 
 type LastestReadBooksProps = {
-  bookList: EntryCollection<IBookFields>
+  bookList: Entry<IBookFields>[]
 } & JSX.IntrinsicElements['div']
 
 export default LastestReadBooks

@@ -6,8 +6,9 @@ import { IBookFields } from '../models/contentful'
 import { loadBlogList, fetchBookList, BlogType } from '../modules/module'
 import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
 import Container from '../elements/container/Container'
-import LastestPosts from '../components/lastest/LastestPosts'
+import BlogList from '../elements/blogList/BlogList'
 import LastestReadBooks from '../components/lastest/LastestReadBooks'
+import Margin from '../elements/margin/Margin'
 
 export const config = { amp: true }
 
@@ -15,25 +16,29 @@ const Page: NextPage<PageProps> = ({ blogList, bookList }) => {
   return (
     <DefaultTemplate>
       <Container>
-        <section>
-          <h2>Latest Posts</h2>
+        <Margin bottom={4}>
+          <section>
+            <h2>Latest Posts</h2>
 
-          <LastestPosts blogList={blogList} />
+            <BlogList blogList={blogList} />
 
-          <Link href="/blog">
-            <a>All Posts</a>
-          </Link>
-        </section>
+            <Link href="/blog">
+              <a>All Posts</a>
+            </Link>
+          </section>
+        </Margin>
 
-        <section>
-          <h2>Latest Read Books</h2>
+        <Margin bottom={4}>
+          <section>
+            <h2>Latest Read Books</h2>
 
-          <LastestReadBooks bookList={bookList} />
+            <LastestReadBooks bookList={bookList} />
 
-          <Link href="/book">
-            <a>All Read Books</a>
-          </Link>
-        </section>
+            <Link href="/book">
+              <a>All Read Books</a>
+            </Link>
+          </section>
+        </Margin>
       </Container>
     </DefaultTemplate>
   )

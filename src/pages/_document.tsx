@@ -20,7 +20,7 @@ class BaseDocument extends Document {
         <Head>
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&amp;display=swap"
+            href="https://fonts.googleapis.com/css?family=Material+Icons&amp;display=swap"
           />
         </Head>
         <body>

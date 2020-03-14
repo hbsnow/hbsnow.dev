@@ -1,11 +1,11 @@
 /* eslint-env jest */
 import React from 'react'
 import { shallow } from 'enzyme'
-import Grid from './Grid'
+import BlogList from './BlogList'
 
-describe('Grid Component', () => {
+describe('BlogList Component', () => {
   it('render the container', () => {
-    const wrapper = shallow(<Grid>container</Grid>)
+    const wrapper = shallow(<BlogList>container</BlogList>)
     expect(wrapper.html()).toContain('div')
   })
 })

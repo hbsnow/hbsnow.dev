@@ -1,53 +1,96 @@
 import React from 'react'
-// import classNames from 'classnames'
 import Container from '../../elements/container/Container'
-import SiteTitle from './SiteTitle'
-import SiteNav from './SiteNav'
 import { mediaQuery } from '../../styles/const'
-import Grid from '../../elements/grid/Grid'
+import Link from 'next/link'
 
 const Header = ({ ...restProps }: HeaderProps): JSX.Element => {
-  // const containerStyle = css`
-  //   grid-template-rows: repeat(2, auto);
-  // `
-  // const siteTitleStyles = css`
-  //   grid-column: 1 / 9;
-  //   grid-row: 1 / 2;
-  //   @media ${mediaQuery.sm} {
-  //     grid-column: 1 / 5;
-  //     grid-row: 1 / 3;
-  //   }
-  // `
-  // const siteNavStyles = css`
-  //   grid-column: 1 / 9;
-  //   grid-row: 2 / 3;
-  //   @media ${mediaQuery.sm} {
-  //     grid-column: 5 / 9;
-  //     grid-row: 1 / 3;
-  //   }
-  // `
-
   return (
-    <div {...restProps}>
-      <header className="header">
-        <Container>
-          <Grid>
-            <SiteTitle />
-            <SiteNav />
-          </Grid>
-        </Container>
-        <style jsx>{`
+    <header className="header" {...restProps}>
+      <Container>
+        <div className="grid">
+          <div className="siteTitleContainer">
+            <h1 className="siteTitle">
+              <Link href="/">
+                <a>hbsnow.dev</a>
+              </Link>
+            </h1>
+          </div>
+
+          <nav className="navContainer">
+            <ul className="navList">
+              <li className="navListItem">
+                <Link href="/blog">
+                  <a>blog</a>
+                </Link>
+              </li>
+              <li className="navListItem">
+                <Link href="/book">
+                  <a>book</a>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </Container>
+      <style jsx>{`
+        .header {
+          padding: 1.5rem 0;
+        }
+
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(8, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          gap: 0 calc(1.5rem / 2);
+        }
+
+        .siteTitleContainer {
+          display: flex;
+          align-items: center;
+          grid-column: 1 / 9;
+          grid-row: 1 / 2;
+        }
+
+        .navContainer {
+          grid-column: 1 / 9;
+          grid-row: 2 / 3;
+        }
+
+        .siteTitle {
+          font-size: 1.5rem;
+          margin: 0;
+        }
+
+        .navList {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          margin: 0;
+        }
+
+        .navListItem {
+          display: block;
+          margin: 0;
+          padding: calc(1.5rem / 2);
+        }
+
+        @media ${mediaQuery.sm} {
+          .siteTitleContainer {
+            grid-column: 1 / 5;
+            grid-row: 1 / 3;
+          }
+
+          .navContainer {
+            grid-column: 5 / 9;
+            grid-row: 1 / 3;
+          }
+
           .header {
-            padding: 1.5rem 0;
+            padding: calc(1.5rem * 3) 0;
           }
-          @media ${mediaQuery.sm} {
-            .header {
-              padding: calc(1.5rem * 3) 0;
-            }
-          }
-        `}</style>
-      </header>{' '}
-    </div>
+        }
+      `}</style>
+    </header>
   )
 }
 

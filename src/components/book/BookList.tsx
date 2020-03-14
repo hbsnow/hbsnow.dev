@@ -16,7 +16,7 @@ const BookList = ({ bookList, ...restProps }: BookListProps): JSX.Element => {
         .bookList {
           display: grid;
           grid-template-columns: 1fr;
-          gap: 0.5rem;
+          gap: 1.5rem / 4;
         }
 
         @media ${mediaQuery.md} {

@@ -25,9 +25,18 @@ const Icon = ({ name, ...restProps }: IconProps): JSX.Element => {
       </svg>
     )
   }
+
+  if (name === 'arrowRight') {
+    return (
+      <svg role="img" viewBox="0 0 24 24" {...svgRestProps}>
+        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+        <path d="M0 0h24v24H0V0z" fill="none" />
+      </svg>
+    )
+  }
 }
 
-export type IconType = 'github' | 'twitter'
+export type IconType = 'github' | 'twitter' | 'arrowRight'
 
 type IconProps = {
   name: IconType

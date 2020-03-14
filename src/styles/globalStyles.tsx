@@ -12,6 +12,8 @@ const globalStyles = css.global`
     --color-primary-text: ${textColor(colors.primary.light)};
     --color-primary-variant-bg: ${colors.primaryVariant.light};
     --color-primary-variant-text: ${textColor(colors.primaryVariant.light)};
+    --font-family-default: sans-serif;
+    --font-family-code: '_', monospace;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -59,17 +61,27 @@ const globalStyles = css.global`
   p,
   ul,
   ol,
-  li,
   dl,
   dd,
   table {
-    margin: 0;
+    margin: 0 0 1.5rem;
+    padding: 0;
+  }
+
+  li {
+    margin: 0 0 calc(1.5rem / 2);
     padding: 0;
   }
 
   a {
+    display: inline-block;
     color: var(--color-primary);
     text-decoration: none;
+  }
+
+  img,
+  svg {
+    vertical-align: bottom;
   }
 `
 

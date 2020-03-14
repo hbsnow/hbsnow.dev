@@ -1,5 +1,5 @@
 import React from 'react'
-import { containerSize, mediaQuery, gapSize } from '../../styles/const'
+import { containerSize, gapSize } from '../../styles/const'
 
 const Container: React.FC<ContainerProps> = ({ children, ...restProps }) => {
   return (
@@ -8,12 +8,8 @@ const Container: React.FC<ContainerProps> = ({ children, ...restProps }) => {
       <style jsx>{`
         .container {
           max-width: calc(${containerSize} - 1.5rem);
-          margin: 0 ${gapSize};
-        }
-        @media ${mediaQuery.md} {
-          .container {
-            margin: 0 auto;
-          }
+          margin: 0 auto;
+          padding: 0 ${gapSize};
         }
       `}</style>
     </div>

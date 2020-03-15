@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 import { Entry } from 'contentful'
 import { IBookFields } from '../../models/contentful'
-import { fetchBookList } from '../../modules/module'
+import { fetchBookList } from '../../modules/book'
 import BookList from '../../components/book/BookList'
 import Container from '../../elements/container/Container'
 

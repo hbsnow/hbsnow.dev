@@ -17,6 +17,6 @@ addParameters({
   },
 })
 
-const req = require.context('../src/components', true, /(.stories.tsx$)/)
+const req = require.context('../src/elements', true, /(.stories.tsx$)/)
 
 configure(req, module)

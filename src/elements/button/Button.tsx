@@ -1,8 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { css } from '@emotion/core'
-
-const buttonStyles = css``
+import ExternalLink from '../link/ExternalLink'
 
 const isLinkType = (props): props is LinkProps => props?.href !== undefined
 
@@ -11,21 +9,19 @@ const Button: React.FC<ButtonProps | LinkProps> = (props) => {
     const { children, href, as, amp, ...restProps } = props
     const isExternal = href.startsWith('http')
     return amp || isExternal ? (
-      <a href={href} css={buttonStyles} {...restProps}>
+      <ExternalLink href={href} {...restProps}>
         {children}
-      </a>
+      </ExternalLink>
     ) : (
       <Link href={href} {...(as && { as })}>
-        <a css={buttonStyles} {...restProps}>
-          {children}
-        </a>
+        <a {...restProps}>{children}</a>
       </Link>
     )
   }
 
   const { children, ...restProps } = props
   return (
-    <button type="button" css={buttonStyles} {...restProps}>
+    <button type="button" {...restProps}>
       {children}
     </button>
   )

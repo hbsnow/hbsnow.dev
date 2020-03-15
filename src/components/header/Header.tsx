@@ -3,7 +3,7 @@ import Container from '../../elements/container/Container'
 import { mediaQuery } from '../../styles/const'
 import Link from 'next/link'
 
-const Header = ({ ...restProps }: HeaderProps): JSX.Element => {
+const Header: React.FC<HeaderProps> = ({ ...restProps }) => {
   return (
     <header className="header" {...restProps}>
       <Container>
@@ -34,14 +34,14 @@ const Header = ({ ...restProps }: HeaderProps): JSX.Element => {
       </Container>
       <style jsx>{`
         .header {
-          padding: 1.5rem 0;
+          padding: calc(var(--gap-size) * 2) 0;
         }
 
         .grid {
           display: grid;
           grid-template-columns: repeat(8, 1fr);
           grid-template-rows: repeat(2, 1fr);
-          gap: 0 calc(1.5rem / 2);
+          gap: 0 var(--gap-size);
         }
 
         .siteTitleContainer {
@@ -71,7 +71,7 @@ const Header = ({ ...restProps }: HeaderProps): JSX.Element => {
         .navListItem {
           display: block;
           margin: 0;
-          padding: calc(1.5rem / 2);
+          padding: var(--gap-size);
         }
 
         @media ${mediaQuery.sm} {
@@ -86,7 +86,7 @@ const Header = ({ ...restProps }: HeaderProps): JSX.Element => {
           }
 
           .header {
-            padding: calc(1.5rem * 3) 0;
+            padding: calc(var(--gap-size) * 6) 0;
           }
         }
       `}</style>

@@ -1,6 +1,7 @@
 import React from 'react'
-import { BlogType } from '../../modules/module'
+import { BlogType } from '../../modules/blog'
 import BlogListItem from './BlogListItem'
+import { mediaQuery } from '../../styles/const'
 
 const BlogList: React.FC<BlogListProps> = ({ blogList, ...restProps }) => {
   return (
@@ -8,7 +9,7 @@ const BlogList: React.FC<BlogListProps> = ({ blogList, ...restProps }) => {
       <ul className="blogList" {...restProps}>
         {blogList?.map((post) => {
           return (
-            <li key={post.slug}>
+            <li key={post.slug} className="blogListItem">
               <BlogListItem post={post} />
             </li>
           )
@@ -17,6 +18,16 @@ const BlogList: React.FC<BlogListProps> = ({ blogList, ...restProps }) => {
       <style jsx>{`
         .blogList {
           list-style: none;
+        }
+
+        .blogListItem {
+          margin-bottom: calc(var(--gap-size) * 3);
+        }
+
+        @media ${mediaQuery.sm} {
+          .blogListItem {
+            margin-bottom: calc(var(--gap-size) * 2);
+          }
         }
       `}</style>
     </>

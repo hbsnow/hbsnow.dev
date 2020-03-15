@@ -1,7 +1,7 @@
 import React from 'react'
 import { NextPage } from 'next'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
-import { BlogType, loadBlogList } from '../../modules/module'
+import { BlogType, loadBlogList } from '../../modules/blog'
 import Link from 'next/link'
 import Container from '../../elements/container/Container'
 

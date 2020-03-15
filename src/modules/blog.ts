@@ -1,7 +1,6 @@
 import path from 'path'
 import matter from 'gray-matter'
-import { EntryCollection, createClient } from 'contentful'
-import { IBookFields } from '../models/contentful'
+import { StateType } from '.'
 
 export const loadBlogList = (): StateType['blogList'] => {
   const blogList = ((context): StateType['blogList'] => {
@@ -25,23 +24,6 @@ export const loadBlog = async (
   const content = await import(`../posts/${slug}.md`)
 
   return JSON.parse(JSON.stringify(matter(content.default)))
-}
-
-export const fetchBookList = async (): Promise<StateType['bookList']> => {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_API_ACCESS_TOKEN,
-  })
-
-  // eslint-disable-next-line @typescript-eslint/camelcase
-  const query = { content_type: 'book' }
-
-  return client.getEntries(query)
-}
-
-export type StateType = {
-  blogList?: BlogType[]
-  bookList?: EntryCollection<IBookFields>
 }
 
 export type BlogType = {

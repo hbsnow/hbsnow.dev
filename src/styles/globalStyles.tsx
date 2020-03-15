@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { colors } from './const'
+import { colors, gapSize } from './const'
 import { textColor } from './mixin'
 
 const globalStyles = css.global`
@@ -7,6 +7,7 @@ const globalStyles = css.global`
     --color-default-bg: ${colors.bg.light};
     --color-default-surface: ${colors.surface.light};
     --color-default-text: ${textColor(colors.bg.light)};
+    --color-default-text-muted: ${textColor(colors.bg.light, 'textMuted')};
     --color-default-divider: ${colors.divider.light};
     --color-primary: ${colors.primary.light};
     --color-primary-text: ${textColor(colors.primary.light)};
@@ -14,6 +15,7 @@ const globalStyles = css.global`
     --color-primary-variant-text: ${textColor(colors.primaryVariant.light)};
     --font-family-default: sans-serif;
     --font-family-code: '_', monospace;
+    --gap-size: ${gapSize};
   }
 
   @media (prefers-color-scheme: dark) {
@@ -21,6 +23,8 @@ const globalStyles = css.global`
       --color-default-bg: ${colors.bg.dark};
       --color-default-surface: ${colors.surface.dark};
       --color-default-text: ${textColor(colors.bg.dark)};
+      --color-default-text-muted: ${textColor(colors.bg.dark, 'textMuted')};
+      --color-default-text: ${textColor(colors.bg.light)};
       --color-default-divider: ${colors.divider.dark};
       --color-primary: ${colors.primary.dark};
       --color-primary-text: ${textColor(colors.primary.dark)};
@@ -46,8 +50,8 @@ const globalStyles = css.global`
   body {
     color: var(--color-default-text);
     background-color: var(--color-default-bg);
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    line-height: 1.25;
+    font-family: sans-serif;
+    line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }

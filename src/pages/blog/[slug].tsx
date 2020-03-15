@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
-import { loadBlogList, loadBlog } from '../../modules/module'
+import { loadBlogList, loadBlog } from '../../modules/blog'
 import Container from '../../elements/container/Container'
 
 export const config = { amp: true }

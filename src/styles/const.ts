@@ -14,6 +14,10 @@ export const colors = Object.freeze({
     light: 'rgba(0, 0, 0, 0.87)',
     dark: 'rgba(255, 255, 255, 0.87)',
   },
+  textMuted: {
+    light: 'rgba(0, 0, 0, 0.38)',
+    dark: 'rgba(255, 255, 255, 0.38)',
+  },
   textLink: {
     light: 'rgba(0, 0, 0, 0.60)',
     dark: 'rgba(255, 255, 255, 0.60)',

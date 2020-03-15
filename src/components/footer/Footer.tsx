@@ -16,7 +16,7 @@ const sns: ExternalLinkType<IconType>[] = [
   },
 ]
 
-const Footer = ({ ...restProps }: FooterProps): JSX.Element => {
+const Footer: React.FC<FooterProps> = ({ ...restProps }) => {
   return (
     <footer className="footer" {...restProps}>
       <Container>
@@ -54,7 +54,7 @@ const Footer = ({ ...restProps }: FooterProps): JSX.Element => {
           width: 1px;
           height: 1.5rem;
           border-left: 1px solid var(--color-default-divider);
-          margin: 0 1.5rem;
+          margin: 0 calc(var(--gap-size) * 2);
         }
 
         .snsList {
@@ -68,11 +68,11 @@ const Footer = ({ ...restProps }: FooterProps): JSX.Element => {
         }
 
         .snsIcon {
-          padding: calc(1.5rem / 2);
+          padding: var(--gap-size);
         }
 
         .siteName {
-          padding: calc(1.5rem / 2);
+          padding: var(--gap-size);
         }
       `}</style>
     </footer>

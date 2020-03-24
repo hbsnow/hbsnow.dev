@@ -49,8 +49,8 @@
     "@types/node": "13.9.3",
     "@types/react": "16.9.25",
     "@types/react-dom": "16.9.5",
-    "@typescript-eslint/eslint-plugin": "2.24.0",
-    "@typescript-eslint/parser": "2.24.0",
+    "@typescript-eslint/eslint-plugin": "2.25.0",
+    "@typescript-eslint/parser": "2.25.0",
     "@welldone-software/why-did-you-render": "4.0.5",
     "@zeit/next-css": "1.0.1",
     "babel-jest": "25.1.0",
@@ -70,10 +70,10 @@
     "gray-matter": "4.0.2",
     "husky": "4.2.3",
     "jest": "25.1.0",
-    "lint-staged": "10.0.8",
+    "lint-staged": "10.0.9",
     "next": "9.3.1",
     "normalize.css": "8.0.1",
-    "prettier": "2.0.1",
+    "prettier": "2.0.2",
     "raw-loader": "4.0.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -83,7 +83,7 @@
     "regenerator-runtime": "0.13.5",
     "secretlint": "1.0.0",
     "typescript": "3.8.3",
-    "webpack": "4.42.0"
+    "webpack": "4.42.1"
   },
   "engines": {
     "node": ">=12"

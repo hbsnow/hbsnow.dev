@@ -19,9 +19,9 @@ const Button: React.FC<ButtonProps | LinkProps> = (props) => {
     )
   }
 
-  const { children, ...restProps } = props
+  const { children, type = 'button', ...restProps } = props
   return (
-    <button type="button" {...restProps}>
+    <button type={type} {...restProps}>
       {children}
     </button>
   )
@@ -33,6 +33,8 @@ type LinkProps = {
   amp?: boolean
 } & JSX.IntrinsicElements['a']
 
-type ButtonProps = {} & JSX.IntrinsicElements['button']
+type ButtonProps = {
+  type?: 'button' | 'submit' | 'reset'
+} & JSX.IntrinsicElements['button']
 
 export default Button

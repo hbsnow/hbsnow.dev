@@ -2,24 +2,19 @@ import React from 'react'
 import { NextPage } from 'next'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 import { BlogType, loadBlogList } from '../../modules/blog'
-import Link from 'next/link'
 import Container from '../../elements/container/Container'
+import BlogList from '../../components/blogList/BlogList'
+import { useSortBlog } from '../../hooks/blog'
 
 export const config = { amp: true }
 
 const Page: NextPage<PageProps> = ({ blogList }) => {
+  const sortedBlogList = useSortBlog(blogList)
+
   return (
     <DefaultTemplate>
       <Container>
-        <ul>
-          {blogList?.map((blog) => (
-            <li key={blog.slug}>
-              <Link href="/blog/[slug]" as={`/blog/${blog.slug}`}>
-                <a>{blog.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <BlogList blogList={sortedBlogList} />
       </Container>
     </DefaultTemplate>
   )

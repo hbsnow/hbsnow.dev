@@ -22,7 +22,9 @@ const Margin: React.SFC<MarginProps> = ({
 
   return (
     <>
-      <div className="margin">{children}</div>
+      <div data-testid="Margin" className="margin">
+        {children}
+      </div>
       <style jsx>{`
         .margin {
           ${topRem ? `margin-top: ${topRem};` : ''};
@@ -37,7 +39,7 @@ const Margin: React.SFC<MarginProps> = ({
 
 export default Margin
 
-export interface MarginProps {
+type MarginProps = {
   all?: number
   x?: number
   y?: number
@@ -45,6 +47,4 @@ export interface MarginProps {
   bottom?: number
   left?: number
   right?: number
-  className?: string
-  style?: React.CSSProperties
-}
+} & JSX.IntrinsicElements['div']

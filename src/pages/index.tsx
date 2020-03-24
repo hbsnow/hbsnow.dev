@@ -7,13 +7,16 @@ import { loadBlogList, BlogType } from '../modules/blog'
 import { fetchBookList } from '../modules/book'
 import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
 import Container from '../elements/container/Container'
-import BlogList from '../elements/blogList/BlogList'
+import BlogList from '../components/blogList/BlogList'
 import LastestReadBooks from '../components/lastest/LastestReadBooks'
 import Margin from '../elements/margin/Margin'
+import { useSortBlog } from '../hooks/blog'
 
 export const config = { amp: true }
 
 const Page: NextPage<PageProps> = ({ blogList, bookList }) => {
+  const sortedBlogList = useSortBlog(blogList)
+
   return (
     <DefaultTemplate>
       <Container>
@@ -21,7 +24,7 @@ const Page: NextPage<PageProps> = ({ blogList, bookList }) => {
           <section>
             <h2>Latest Posts</h2>
 
-            <BlogList blogList={blogList} />
+            <BlogList blogList={sortedBlogList} />
 
             <Link href="/blog">
               <a>All Posts</a>

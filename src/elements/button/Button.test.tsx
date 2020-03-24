@@ -1,24 +1,40 @@
 /* eslint-env jest */
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import Button from './Button'
 
 describe('Button Component', () => {
   it('render the link', () => {
-    const wrapper = shallow(<Button href="/home">button</Button>)
-    expect(wrapper.exists('Link')).toBeTruthy()
-    expect(wrapper.html()).toContain('a')
+    render(<Button href="/home">button</Button>)
+    const target = screen.getByRole('link')
+    expect(target).toHaveTextContent('button')
+    expect(target).toHaveAttribute('href', '/home')
   })
 
   it('render the external link', () => {
-    const wrapper = shallow(<Button href="http://example.com">button</Button>)
-    expect(wrapper.exists('Link')).toBeFalsy()
-    expect(wrapper.html()).toContain('a')
+    render(<Button href="https://example.com">button</Button>)
+    const target = screen.getByRole('link')
+    expect(target).toHaveTextContent('button')
+    expect(target).toHaveAttribute(
+      'href',
+      expect.stringContaining('https://example.com')
+    )
+    expect(target).toHaveAttribute('rel', expect.stringContaining('noopener'))
+    expect(target).toHaveAttribute('rel', expect.stringContaining('noreferrer'))
+    expect(target).toHaveAttribute('target', '_blank')
   })
 
   it('render the button', () => {
-    const wrapper = shallow(<Button>button</Button>)
-    expect(wrapper.text()).toEqual('button')
-    expect(wrapper.html()).toContain('button')
+    render(<Button>button</Button>)
+    const target = screen.getByRole('button')
+    expect(target).toHaveTextContent('button')
+    expect(target).toHaveAttribute('type', 'button')
+  })
+
+  it('render the submit button', () => {
+    render(<Button type="submit">submit button</Button>)
+    const target = screen.getByRole('button')
+    expect(target).toHaveTextContent('submit button')
+    expect(target).toHaveAttribute('type', 'submit')
   })
 })

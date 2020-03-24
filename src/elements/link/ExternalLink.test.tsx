@@ -1,41 +1,80 @@
 /* eslint-env jest */
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import ExternalLink from './ExternalLink'
 
 describe('ExternalLink Component', () => {
   it('render the component', () => {
-    const wrapper = shallow(<ExternalLink>ExternalLink</ExternalLink>)
-    expect(wrapper.props().target).toEqual('_blank')
-    expect(wrapper.html()).toContain('a')
+    render(
+      <ExternalLink href="https://example.com">external link</ExternalLink>
+    )
+    const target = screen.getByRole('link')
+    expect(target).toHaveTextContent('external link')
+    expect(target).toHaveAttribute(
+      'href',
+      expect.stringContaining('https://example.com')
+    )
+    expect(target).toHaveAttribute('rel', expect.stringContaining('noopener'))
+    expect(target).toHaveAttribute('rel', expect.stringContaining('noreferrer'))
+    expect(target).toHaveAttribute('target', '_blank')
   })
 
   it('add rel attribute', () => {
-    const wrapper = shallow(<ExternalLink rel="rel">ExternalLink</ExternalLink>)
-    expect(wrapper.props().rel).toEqual('rel noopener noreferrer')
-  })
-
-  it('add rel noopener/noreferrer attribute', () => {
-    const wrapper = shallow(
-      <ExternalLink rel="noopener noreferrer">ExternalLink</ExternalLink>
+    render(
+      <ExternalLink href="https://example.com" rel="rel">
+        external link
+      </ExternalLink>
     )
-    expect(wrapper.props().rel).toEqual('noopener noreferrer')
+    const target = screen.getByRole('link')
+    expect(target).toHaveTextContent('external link')
+    expect(target).toHaveAttribute(
+      'href',
+      expect.stringContaining('https://example.com')
+    )
+    expect(target).toHaveAttribute('rel', expect.stringContaining('rel'))
+    expect(target).toHaveAttribute('rel', expect.stringContaining('noopener'))
+    expect(target).toHaveAttribute('rel', expect.stringContaining('noreferrer'))
+    expect(target).toHaveAttribute('target', '_blank')
   })
 
   it('add rel noopener/noreferrer and other attribute', () => {
-    const wrapper = shallow(
-      <ExternalLink rel="rel noopener noreferrer">ExternalLink</ExternalLink>
+    render(
+      <ExternalLink href="https://example.com" rel="rel noopener noreferrer">
+        external link
+      </ExternalLink>
     )
-    expect(wrapper.props().rel).toEqual('rel noopener noreferrer')
+    const target = screen.getByRole('link')
+    expect(target).toHaveTextContent('external link')
+    expect(target).toHaveAttribute(
+      'href',
+      expect.stringContaining('https://example.com')
+    )
+    expect(target).toHaveAttribute('rel', expect.stringContaining('rel'))
+    expect(target).toHaveAttribute('rel', expect.stringContaining('noopener'))
+    expect(target).toHaveAttribute('rel', expect.stringContaining('noreferrer'))
+    expect(target).toHaveAttribute('target', '_blank')
   })
 
   it('add other attribute', () => {
-    const wrapper = shallow(
-      <ExternalLink rel="rel" title="title">
-        ExternalLink
+    render(
+      <ExternalLink
+        href="https://example.com"
+        rel="rel noopener noreferrer"
+        title="title"
+      >
+        external link
       </ExternalLink>
     )
-    expect(wrapper.props().rel).toEqual('rel noopener noreferrer')
-    expect(wrapper.props().title).toEqual('title')
+    const target = screen.getByRole('link')
+    expect(target).toHaveTextContent('external link')
+    expect(target).toHaveAttribute(
+      'href',
+      expect.stringContaining('https://example.com')
+    )
+    expect(target).toHaveAttribute('rel', expect.stringContaining('rel'))
+    expect(target).toHaveAttribute('rel', expect.stringContaining('noopener'))
+    expect(target).toHaveAttribute('rel', expect.stringContaining('noreferrer'))
+    expect(target).toHaveAttribute('title', 'title')
+    expect(target).toHaveAttribute('target', '_blank')
   })
 })

@@ -1,13 +1,13 @@
 import React from 'react'
 import { BlogType } from '../../modules/blog'
 import Link from 'next/link'
-import { useFormatDate } from '../../hooks/date'
+import { useFormattedDate } from '../../hooks/date'
 import classNames from 'classnames'
 import { mediaQuery } from '../../styles/const'
 
 const BlogListItem: React.FC<BlogListItemProps> = ({ post, ...restProps }) => {
-  const createdAt = useFormatDate(post.createdAt)
-  const updatedAt = useFormatDate(post.updatedAt)
+  const createdAt = useFormattedDate(post.createdAt)
+  const updatedAt = useFormattedDate(post.updatedAt)
 
   return (
     <div

@@ -1,11 +1,11 @@
 /* eslint-env jest */
 import React from 'react'
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import Container from './Container'
 
 describe('Container Component', () => {
   it('render the container', () => {
-    const wrapper = shallow(<Container>container</Container>)
-    expect(wrapper.html()).toContain('div')
+    render(<Container>container</Container>)
+    expect(screen.getByTestId('Container')).toHaveTextContent('container')
   })
 })

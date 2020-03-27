@@ -2,10 +2,7 @@ import React from 'react'
 import { Entry } from 'contentful'
 import { IBookFields } from '../../models/contentful'
 
-const BookListItem = ({
-  book,
-  ...restProps
-}: BookListItemProps): JSX.Element => {
+const BookListItem: React.FC<BookListItemProps> = ({ book, ...restProps }) => {
   return <div {...restProps}>{book.fields.name}</div>
 }
 

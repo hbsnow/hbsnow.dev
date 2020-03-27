@@ -4,8 +4,9 @@ import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 import { Entry } from 'contentful'
 import { IBookFields } from '../../models/contentful'
 import { fetchBookList } from '../../modules/book'
-import BookList from '../../components/book/BookList'
+import Book from '../../components/book/Book'
 import Container from '../../elements/container/Container'
+import Margin from '../../elements/margin/Margin'
 
 export const config = { amp: true }
 
@@ -13,7 +14,11 @@ const Page: NextPage<PageProps> = ({ bookList }) => {
   return (
     <DefaultTemplate>
       <Container>
-        <BookList bookList={bookList} />
+        {bookList.map((book) => (
+          <Margin key={book.sys.id} bottom={2}>
+            <Book book={book} />
+          </Margin>
+        ))}
       </Container>
     </DefaultTemplate>
   )

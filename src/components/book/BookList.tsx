@@ -4,13 +4,13 @@ import { Entry } from 'contentful'
 import { IBookFields } from '../../models/contentful'
 import BookListItem from './BookListItem'
 
-const BookList = ({ bookList, ...restProps }: BookListProps): JSX.Element => {
+const BookList: React.FC<BookListProps> = ({ bookList, ...restProps }) => {
   return (
-    <div className="bookList" {...restProps}>
+    <ul className="bookList" {...restProps}>
       {bookList.map((book) => (
-        <div key={book.sys.id}>
+        <li key={book.sys.id}>
           <BookListItem book={book} />
-        </div>
+        </li>
       ))}
       <style jsx>{`
         .bookList {
@@ -21,16 +21,16 @@ const BookList = ({ bookList, ...restProps }: BookListProps): JSX.Element => {
 
         @media ${mediaQuery.md} {
           .bookList {
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
           }
         }
       `}</style>
-    </div>
+    </ul>
   )
 }
 
 type BookListProps = {
   bookList: Entry<IBookFields>[]
-} & JSX.IntrinsicElements['div']
+} & JSX.IntrinsicElements['ul']
 
 export default BookList

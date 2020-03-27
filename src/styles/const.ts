@@ -15,15 +15,11 @@ export const colors = Object.freeze({
     dark: 'rgba(255, 255, 255, 0.87)',
   },
   textMuted: {
-    light: 'rgba(0, 0, 0, 0.38)',
+    light: 'rgba(0, 0, 0, 0.54)',
     dark: 'rgba(255, 255, 255, 0.38)',
   },
-  textLink: {
-    light: 'rgba(0, 0, 0, 0.60)',
-    dark: 'rgba(255, 255, 255, 0.60)',
-  },
   disabled: {
-    light: 'rgba(0, 0, 0, 0.38)',
+    light: 'rgba(0, 0, 0, 0.54)',
     dark: 'rgba(255, 255, 255, 0.38)',
   },
   divider: {
@@ -31,7 +27,7 @@ export const colors = Object.freeze({
     dark: 'rgba(255, 255, 255, 0.2)',
   },
   primary: {
-    light: '#59a1ff',
+    light: '#335BC4',
     dark: '#59a1ff',
   },
   primaryVariant: {

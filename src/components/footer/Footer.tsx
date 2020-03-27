@@ -5,13 +5,19 @@ import ExternalLink from '../../elements/link/ExternalLink'
 import { ExternalLinkType } from '../../models/link'
 import Icon, { IconType } from '../../elements/icon/Icon'
 
-const sns: ExternalLinkType<IconType>[] = [
+type SnsLink = {
+  label: string
+} & ExternalLinkType<IconType>
+
+const sns: SnsLink[] = [
   {
     name: 'github',
+    label: 'GitHub',
     href: 'https://github.com/hbsnow',
   },
   {
     name: 'twitter',
+    label: 'Twitter',
     href: 'https://twitter.com/hbsnow',
   },
 ]
@@ -33,7 +39,7 @@ const Footer: React.FC<FooterProps> = ({ ...restProps }) => {
             {sns.map((item) => (
               <li className="snsListItem" key={item.href}>
                 <div className="snsIcon">
-                  <ExternalLink href={item.href}>
+                  <ExternalLink href={item.href} aria-label={item.label}>
                     <Icon name={item.name} />
                   </ExternalLink>
                 </div>

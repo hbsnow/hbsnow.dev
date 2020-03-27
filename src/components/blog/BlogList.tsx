@@ -5,16 +5,14 @@ import { mediaQuery } from '../../styles/const'
 
 const BlogList: React.FC<BlogListProps> = ({ blogList, ...restProps }) => {
   return (
-    <>
-      <ul className="blogList" {...restProps}>
-        {blogList?.map((post) => {
-          return (
-            <li key={post.slug} className="blogListItem">
-              <BlogListItem post={post} />
-            </li>
-          )
-        })}
-      </ul>
+    <ul className="blogList" {...restProps}>
+      {blogList?.map((post) => {
+        return (
+          <li key={post.slug} className="blogListItem">
+            <BlogListItem post={post} />
+          </li>
+        )
+      })}
       <style jsx>{`
         .blogList {
           list-style: none;
@@ -30,7 +28,7 @@ const BlogList: React.FC<BlogListProps> = ({ blogList, ...restProps }) => {
           }
         }
       `}</style>
-    </>
+    </ul>
   )
 }
 

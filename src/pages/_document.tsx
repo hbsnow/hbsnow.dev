@@ -16,7 +16,7 @@ class BaseDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang="ja">
         <Head>
           <link
             rel="stylesheet"

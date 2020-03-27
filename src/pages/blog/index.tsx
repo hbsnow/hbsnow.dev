@@ -3,7 +3,7 @@ import { NextPage } from 'next'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 import { BlogType, loadBlogList } from '../../modules/blog'
 import Container from '../../elements/container/Container'
-import BlogList from '../../components/blogList/BlogList'
+import BlogList from '../../components/blog/BlogList'
 import { useSortBlog } from '../../hooks/blog'
 
 export const config = { amp: true }

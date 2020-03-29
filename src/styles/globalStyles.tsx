@@ -65,7 +65,8 @@ const globalStyles = css.global`
   ol,
   dl,
   dd,
-  table {
+  table,
+  pre {
     margin: 0 0 1.5rem;
     padding: 0;
   }
@@ -84,6 +85,21 @@ const globalStyles = css.global`
   img,
   svg {
     vertical-align: bottom;
+  }
+
+  pre {
+    font-family: var(--font-family-code);
+    font-size: 1em;
+    overflow-wrap: break-word;
+    tab-size: 4;
+    white-space: pre-wrap;
+    word-break: normal;
+  }
+
+  code,
+  kbd,
+  samp {
+    font-family: var(--font-family-code);
   }
 `
 

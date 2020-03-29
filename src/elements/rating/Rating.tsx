@@ -4,7 +4,6 @@ import classNames from 'classnames'
 import Icon from '../icon/Icon'
 
 const Rating: React.FC<RatingProps> = ({ rate, maxRate = 3, ...restProps }) => {
-  console.log(rate, maxRate)
   return (
     <div
       data-testid="Rating"

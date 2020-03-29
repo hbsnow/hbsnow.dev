@@ -1,10 +1,10 @@
 import React from 'react'
 import { NextPage } from 'next'
 import matter from 'gray-matter'
-import ReactMarkdown from 'react-markdown'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 import { loadBlogList, loadBlog } from '../../modules/blog'
 import Container from '../../elements/container/Container'
+import Markdown from '../../elements/markdown/Markdown'
 
 export const config = { amp: true }
 
@@ -13,7 +13,7 @@ const Page: NextPage<PageProps> = ({ document }) => {
     <DefaultTemplate>
       <Container>
         <h1>{document.data.title}</h1>
-        <ReactMarkdown source={document.content} />
+        <Markdown source={document.content} />
       </Container>
     </DefaultTemplate>
   )

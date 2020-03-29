@@ -60,14 +60,14 @@ DROP TABLE
 ### テーブルのリネーム
 
 ```sql
-/* MySQL */
+-- MySQL
 RENAME TABLE
   before_table_name
 TO
   after_table_name
 ;
 
-/* PostgreSQL */
+-- PostgreSQL
 ALTER TABLE
   before_table_name
 RENAME

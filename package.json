@@ -81,7 +81,7 @@
     "react-test-renderer": "16.13.1",
     "react-use": "13.27.1",
     "regenerator-runtime": "0.13.5",
-    "secretlint": "1.0.0",
+    "secretlint": "1.0.1",
     "typescript": "3.8.3",
     "webpack": "4.42.1"
   },

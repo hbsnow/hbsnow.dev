@@ -39,6 +39,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-markdown": "4.3.1",
+    "react-test-renderer": "16.13.1",
     "react-use": "13.27.1"
   },
   "devDependencies": {
@@ -67,7 +68,7 @@
     "babel-loader": "8.1.0",
     "babel-preset-react-app": "9.1.2",
     "contentful": "7.14.0",
-    "contentful-management": "5.15.0",
+    "contentful-management": "5.16.0",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.1",
@@ -78,10 +79,9 @@
     "husky": "4.2.3",
     "jest": "25.2.4",
     "lint-staged": "10.0.10",
-    "next": "9.3.2",
+    "next": "9.3.3",
     "prettier": "2.0.2",
     "raw-loader": "4.0.0",
-    "react-test-renderer": "16.13.1",
     "regenerator-runtime": "0.13.5",
     "secretlint": "1.0.1",
     "typescript": "3.8.3",

@@ -1,6 +1,7 @@
+import React from 'react'
 import css from 'styled-jsx/css'
 
-export const styles = css.global`
+const styles = css.global`
   /* a11y-light theme */
   /* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
   /* @author: ericwbailey */
@@ -131,3 +132,19 @@ export const styles = css.global`
     }
   }
 `
+
+const Pre: React.FC = ({ children }) => {
+  return (
+    <pre className="hljs">
+      {children}
+      <style jsx>{`
+        .hljs {
+          margin: 0;
+        }
+      `}</style>
+      <style jsx>{styles}</style>
+    </pre>
+  )
+}
+
+export default Pre

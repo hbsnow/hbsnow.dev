@@ -1,35 +1,7 @@
 import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import { styles } from './styles'
-
-const Pre: React.FC = ({ children }) => {
-  return (
-    <pre className="hljs">
-      {children}
-      <style jsx>{`
-        .hljs {
-          margin: 0;
-        }
-      `}</style>
-      <style jsx global>
-        {styles}
-      </style>
-    </pre>
-  )
-}
-
-const Code: React.FC = ({ children }) => {
-  return (
-    <code className="code">
-      {children}
-      <style jsx>{`
-        .code {
-          display: block;
-        }
-      `}</style>
-    </code>
-  )
-}
+import Pre from './Pre'
+import Code from './Code'
 
 const Blockcode: React.FC<BlockcodeProps> = ({
   children,
@@ -38,7 +10,7 @@ const Blockcode: React.FC<BlockcodeProps> = ({
 }) => {
   return (
     <div data-testid="Blockcode" className="blockcode" {...restProps}>
-      <p>{language}</p>
+      {language && <div className="language">{language}</div>}
       <SyntaxHighlighter
         language={language}
         style={false}
@@ -54,6 +26,17 @@ const Blockcode: React.FC<BlockcodeProps> = ({
           margin-right: calc(var(--gap-size) * -2);
           margin-bottom: calc(var(--gap-size) * 2);
           padding: calc(var(--gap-size) * 1.5) calc(var(--gap-size) * 2);
+          ${language && `padding-top: 0; `}
+        }
+
+        .language {
+          display: inline-block;
+          vertical-align: middle;
+          background-color: var(--color-default-bg);
+          font-size: 0.75rem;
+          margin-bottom: var(--gap-size);
+          padding: 0.125rem 0.5rem;
+          transform: translateX(-0.5rem);
         }
       `}</style>
     </div>

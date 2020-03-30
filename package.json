@@ -11,7 +11,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint 'src/**/*.{ts,tsx}' && prettier --check 'src/**/*.{ts,tsx}' '*.js' && secretlint '**/*'",
-    "lintfix": "eslint --fix 'src/**/*.{ts,tsx}' && prettier --write '*.js'",
+    "lintfix": "eslint --fix 'src/**/*.{ts,tsx}' && prettier --write --ignore-path .gitignore '**/*.{js,json,md}'",
     "test": "jest --watch",
     "test:ci": "jest --ci",
     "contentful-typescript-codegen": "npx contentful-typescript-codegen --output src/models/contentful.d.ts"

@@ -14,7 +14,7 @@ dateModified: 2019-04-21
 
 ## 簡単な解説
 
-```javascript
+```js
 const timer = (delay) => {
   return new Promise((resolve) => {
     setTimeout(() => {
@@ -49,7 +49,7 @@ $ timer 300ms
 
 ## 順次処理をするためには
 
-```javascript
+```js
 ;(async () => {
   for (const delay of [100, 300, 200]) {
     await timer(delay)
@@ -63,7 +63,7 @@ $ timer 300ms
 
 そういった場合には `then` を使用することで解決することができます。
 
-```javascript
+```js
 import { timer } from './timer'
 
 let promiseChain = Promise.resolve()
@@ -74,7 +74,7 @@ let promiseChain = Promise.resolve()
 
 `then` を使うのが微妙と感じるのであれば `reduce` でも実現可能です。
 
-```javascript
+```js
 ;[100, 300, 200].reduce(async (accumulator, delay) => {
   await accumulator
   return timer(delay)
@@ -87,7 +87,7 @@ let promiseChain = Promise.resolve()
 
 今回のスライドの趣旨とはあまり関係ありませんが、普通に並列処理して全部終わるまで待ちたいのであれば、`Promise.all()` と `map` を使います。
 
-```javascript
+```js
 ;(async () => {
   await Promise.all([100, 300, 200].map(async (delay) => await timer(delay)))
 })()

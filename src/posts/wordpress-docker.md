@@ -24,7 +24,7 @@ updatedAt: 2019-10-02
 
 [volumes](https://docs.docker.com/compose/compose-file/#volumes) の項目を参考に、ホストとコンテナをマッピングします。
 
-```docker.yml
+```yml
 volumes:
   - ./wp-content:/var/www/html/wp-content
 ```
@@ -46,7 +46,7 @@ docker run -it --rm \
 
 Wordpress と関係はなく必要性もあまり感じないのですが、なぜか一定数の需要があったりするので設定をメモしておきます。基本的には不要です。
 
-```docker.yml
+```yml
 phpmyadmin:
   image: phpmyadmin/phpmyadmin
   restart: always

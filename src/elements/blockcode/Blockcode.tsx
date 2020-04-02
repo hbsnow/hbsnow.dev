@@ -32,7 +32,8 @@ const Blockcode: React.FC<BlockcodeProps> = ({
         .language {
           display: inline-block;
           vertical-align: middle;
-          background-color: var(--color-default-bg);
+          background-color: rgba(0, 0, 0, 0.05);
+          font-family: var(--font-family-code);
           font-size: 0.75rem;
           margin-bottom: var(--gap-size);
           padding: 0.125rem 0.5rem;

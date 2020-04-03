@@ -61,7 +61,7 @@
     "@types/react-dom": "16.9.6",
     "@typescript-eslint/eslint-plugin": "2.25.0",
     "@typescript-eslint/parser": "2.25.0",
-    "@welldone-software/why-did-you-render": "4.0.5",
+    "@welldone-software/why-did-you-render": "4.0.6",
     "@zeit/next-css": "1.0.1",
     "babel-jest": "25.2.4",
     "babel-loader": "8.1.0",

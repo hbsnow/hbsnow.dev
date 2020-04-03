@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
-    "@secretlint/secretlint-rule-preset-recommend": "1.0.3",
+    "@secretlint/secretlint-rule-preset-recommend": "1.0.5",
     "@storybook/addon-actions": "5.3.17",
     "@storybook/addon-knobs": "5.3.17",
     "@storybook/addon-storysource": "5.3.17",

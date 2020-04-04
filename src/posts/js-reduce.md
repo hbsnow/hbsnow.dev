@@ -1,6 +1,6 @@
 ---
 title: reduce の使いどころ
-tags: JavaScript
+tags: [javascript]
 description: JavaScript の reduce の使いどころについて。
 datePublished: 2019-07-22
 dateModified: 2020-04-02
@@ -64,7 +64,7 @@ console.log(sum) // => { itemId: 3, quantity: 1 }
 
 ### 集計する
 
-SQL でいう `group by` のような集計を取りたいときに便利。
+SQL でいう `group by` のような集計を取りたいときに便利。配列の合計を計算するをすこし複雑に使った場合の例になると思う。
 
 ```js
 const items = [
@@ -75,7 +75,7 @@ const items = [
 ]
 ```
 
-こんな配列から `taxRate` ごとに集計をとりたくなったときには、以下のように `reduce` を使うとうまく記述できる。
+こんな配列から `taxRate` ごとに集計をとりたくなったときには、以下のように記述できる。
 
 ```js
 const groupByTaxRate = (items) => {
@@ -97,13 +97,35 @@ const groupByTaxRate = (items) => {
 
 `groupByTaxRate(items)` の出力結果は以下の通り。
 
-```js
-;[
+```
+[
   { taxRate: 0, amount: 0 },
   { taxRate: 8, amount: 1500 },
   { taxRate: 10, amount: 1200 },
 ]
 ```
+
+`reduce` を使わなかった場合には
+
+```js
+const groupByTaxRate = (items) => {
+  let taxes = {}
+  for (const item of items) {
+    if (!taxes[item.taxRate]) {
+      taxes[item.taxRate] = item.amount
+      continue
+    }
+    taxes[item.taxRate] = taxes[item.taxRate] + item.amount
+  }
+
+  return Object.keys(taxes).map((taxKey) => ({
+    taxRate: parseInt(taxKey),
+    amount: taxes[taxKey],
+  }))
+}
+```
+
+こんな感じになるだろうか。どちらが読みやすいかはちょっと迷うところ。
 
 ### flatten
 
@@ -133,21 +155,97 @@ console.log(
 
 これについては別記事 [JavaScript の async/await を forEach で使ったらハマった話](/blog/async-await-higher-order-function/)で書いたのでそちらを参照してください。
 
-## reduce は使うべきか
+## reduce を使うべきか
 
 - [Is reduce() bad? - HTTP 203](https://www.youtube.com/watch?v=qaGjS7-qWzg)
 
 [Jake Archibald が Twitter で reduce について言及して](https://twitter.com/jaffathecake/status/1213077702300852224) 少し話題になっていて、自分も考えさせられた。
 
-例えば合計値を求める場合には以下のように書き直すことができる。
+合計や最大値を求めるといった以外のループとしての用途で使うことがそれなりにあったからだ。
+
+### reduce をループとして使う例
+
+`reduce` をループとして使うシンプルな例を示そう。
 
 ```js
-let sum = 0
-for (const item of cart) {
-  sum += item.quantity
-}
+const items = [
+  { amount: 500, taxRate: 8 },
+  { amount: 1000, taxRate: 8 },
+  { amount: 1200, taxRate: 10 },
+  { amount: 0, taxRate: 0 },
+]
 ```
 
-`eslint-config-airbnb` の Lint のルールが採用されていて、`no-restricted-syntax` にひっかかるので業務上使えない事情がある場合にはどうしようもないけれど、読みやすさでいえば自分も圧倒的に `for..of` での記述のほうが読みやすいと感じる。
+さきほどのサンプルの配列で、amount が 1000 以上のものについてそれぞれ`+100`した結果のオブジェクトの配列、つまり
 
-これまで `reduce` を使っていたのは `let sum = 0` の再代入がちょっと微妙に思えたからと短い記述で書けるカッコよさが理由で、読みやすさを犠牲にしてまで貫かなければいけないものではなかったので、`reduce` を使うときには一度立ち止まって考えてみることにしようと思う。
+```
+[
+  { amount: 1100, taxRate: 8 }
+  { amount: 1300, taxRate: 10 }
+]
+```
+
+このような結果がほしいとき、`reduce` を使った場合には
+
+```js
+const result = items.reduce((accumulator, currentValue) => {
+  if (currentValue.amount >= 1000) {
+    accumulator.push({
+      ...currentValue,
+      amount: currentValue.amount + 100,
+    })
+  }
+
+  return accumulator
+}, [])
+```
+
+でもこれは実際にこんな書き方をする必要はなくて
+
+```js
+const result = items
+  .filter((item) => item.amount >= 1000)
+  .map((item) => ({
+    ...item,
+    amount: item.amount + 100
+  }))
+```
+
+`map` と `filter` で書き直すことができる。
+
+このコードを `reduce` で記述するのはなんだか賢くなった気分になる、というのは確かにあるが、この例は明らかに `map` と `filter` のほうがリーダブルだ。
+
+動画の最後に紹介されている [Underdash](https://surma.github.io/underdash/) はシンプルなイディオムがまとまっていて便利なので、ここでもおすすめしておく。
+
+## TypeScript で型をつける
+
+先程の `items` を例にすると次のように書ける
+
+```js
+type ItemType = {
+  amount: number,
+  taxRate: number
+}
+
+type TaxItemType = {
+  [key: string]: number
+}
+
+const items: ItemType[] = [
+  { amount: 500, taxRate: 8 },
+  { amount: 1000, taxRate: 8 },
+  { amount: 1200, taxRate: 10 },
+  { amount: 0, taxRate: 0 },
+]
+
+const taxes = items.reduce<TaxItemType>((accumulator, currentValue) => {
+  const key = currentValue.taxRate
+  accumulator[key] = !accumulator[key]
+    ? currentValue.amount
+    : accumulator[key] + currentValue.amount
+
+  return accumulator
+}, {})
+```
+
+`reduce` の型定義を確認すればわかるのだが、ジェネリクスを使うかあるいは `accumulator` を `accumulator: TaxItemType` として型をわたしてあげるといい。

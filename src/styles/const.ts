@@ -3,12 +3,12 @@
  */
 export const colors = Object.freeze({
   bg: {
-    light: '#fff',
+    light: '#fefefe',
     dark: '#121212',
   },
   surface: {
-    light: '#f6faff',
-    dark: '#121212',
+    light: 'rgba(0, 0, 0, 0.04)',
+    dark: 'rgba(255, 255, 255, 0.08)',
   },
   text: {
     light: 'rgba(0, 0, 0, 0.87)',

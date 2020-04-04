@@ -24,7 +24,6 @@ const globalStyles = css.global`
       --color-default-surface: ${colors.surface.dark};
       --color-default-text: ${textColor(colors.bg.dark)};
       --color-default-text-muted: ${textColor(colors.bg.dark, 'textMuted')};
-      --color-default-text: ${textColor(colors.bg.light)};
       --color-default-divider: ${colors.divider.dark};
       --color-primary: ${colors.primary.dark};
       --color-primary-text: ${textColor(colors.primary.dark)};
@@ -61,18 +60,22 @@ const globalStyles = css.global`
   h5,
   h6,
   p,
-  ul,
-  ol,
   dl,
   dd,
   table,
   pre {
-    margin: 0 0 1.5rem;
+    margin: 0 0 calc(var(--gap-size) * 2);
+    padding: 0;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 calc(var(--gap-size) * 2) calc(var(--gap-size) * 2);
     padding: 0;
   }
 
   li {
-    margin: 0 0 calc(1.5rem / 2);
+    margin: 0 0 var(--gap-size);
     padding: 0;
   }
 

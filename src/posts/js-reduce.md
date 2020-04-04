@@ -2,15 +2,15 @@
 title: reduce の使いどころ
 tags: [javascript]
 description: JavaScript の reduce の使いどころについて。
-datePublished: 2019-07-22
-dateModified: 2020-04-02
+createdAt: 2019-07-22
+updatedAt: 2020-04-02
 ---
 
 JavaScript の `reduce` は便利だけれども、普段使いで別言語をやっていたりすると少し使いどころがわかりにくいらしい。
 
 [MDN にわかりやすいサンプル](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)もあるんだけど、自分の整理もかねてこのブログでよくある使用方法をまとめておくことにする。
 
-## reduce の使いどころ
+## reduce の使用例
 
 ### 配列の合計を計算する
 

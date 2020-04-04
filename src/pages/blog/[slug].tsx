@@ -1,21 +1,30 @@
 import React from 'react'
 import { NextPage } from 'next'
-import matter from 'gray-matter'
+import Head from 'next/head'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
-import { loadBlogList, loadBlog } from '../../modules/blog'
+import { loadBlogList, loadBlog, BlogType } from '../../modules/blog'
 import Container from '../../elements/container/Container'
 import Markdown from '../../elements/markdown/Markdown'
+import BlogHeader from '../../components/blog/BlogHeader'
 
 export const config = { amp: true }
 
 const Page: NextPage<PageProps> = ({ document }) => {
   return (
-    <DefaultTemplate>
-      <Container>
-        <h1>{document.data.title}</h1>
-        <Markdown source={document.content} />
-      </Container>
-    </DefaultTemplate>
+    <>
+      <Head>
+        <title>{document.data.title} - hbsnow.dev</title>
+        <meta name="description" content={document.data.description} />
+      </Head>
+      <DefaultTemplate>
+        <Container>
+          <article>
+            <BlogHeader post={document.data} />
+            <Markdown source={document.content} />
+          </article>
+        </Container>
+      </DefaultTemplate>
+    </>
   )
 }
 
@@ -40,7 +49,7 @@ export const getStaticProps = async ({
 }
 
 type PageProps = {
-  document: matter.GrayMatterFile<string>
+  document: BlogType
 }
 
 export default Page

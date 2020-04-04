@@ -1,9 +1,8 @@
 import path from 'path'
 import matter from 'gray-matter'
-import { StateType } from '.'
 
-export const loadBlogList = (): StateType['blogList'] => {
-  const blogList = ((context): StateType['blogList'] => {
+export const loadBlogList = (): BlogType[] => {
+  const blogList = ((context): BlogType[] => {
     const keys = context.keys()
     const values = keys.map(context) as { [key: string]: string }[]
 
@@ -18,12 +17,15 @@ export const loadBlogList = (): StateType['blogList'] => {
   return JSON.parse(JSON.stringify(blogList))
 }
 
-export const loadBlog = async (
-  slug: string
-): Promise<matter.GrayMatterFile<string>> => {
+export const loadBlog = async (slug: string): Promise<BlogType> => {
   const content = await import(`../posts/${slug}.md`)
 
-  return JSON.parse(JSON.stringify(matter(content.default)))
+  return JSON.parse(
+    JSON.stringify({
+      ...matter(content.default),
+      slug,
+    })
+  )
 }
 
 export type BlogType = {

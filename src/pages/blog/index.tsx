@@ -1,5 +1,6 @@
 import React from 'react'
 import { NextPage } from 'next'
+import Head from 'next/head'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 import { BlogType, loadBlogList } from '../../modules/blog'
 import Container from '../../elements/container/Container'
@@ -12,11 +13,17 @@ const Page: NextPage<PageProps> = ({ blogList }) => {
   const sortedBlogList = useSortBlog(blogList)
 
   return (
-    <DefaultTemplate>
-      <Container>
-        <BlogList blogList={sortedBlogList} />
-      </Container>
-    </DefaultTemplate>
+    <>
+      <Head>
+        <title>hbsnow.dev</title>
+        <meta name="description" content="hbsnowのメモ書き置き場兼実験場。" />
+      </Head>
+      <DefaultTemplate>
+        <Container>
+          <BlogList blogList={sortedBlogList} />
+        </Container>
+      </DefaultTemplate>
+    </>
   )
 }
 

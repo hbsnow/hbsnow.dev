@@ -18,12 +18,6 @@ const BookList: React.FC<BookListProps> = ({ bookList, ...restProps }) => {
           grid-template-columns: 1fr;
           gap: 1.5rem / 4;
         }
-
-        @media ${mediaQuery.md} {
-          .bookList {
-            grid-template-columns: 1fr;
-          }
-        }
       `}</style>
     </ul>
   )

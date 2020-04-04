@@ -1,19 +1,19 @@
 import React from 'react'
-import Link from 'next/link'
+import Link, { LinkProps } from 'next/link'
 import ExternalLink from '../link/ExternalLink'
 
 const isLinkType = (props): props is LinkProps => props?.href !== undefined
 
 const Button: React.FC<ButtonProps | LinkProps> = (props) => {
   if (isLinkType(props)) {
-    const { children, href, as, amp, ...restProps } = props
-    const isExternal = href.startsWith('http')
-    return amp || isExternal ? (
-      <ExternalLink href={href} {...restProps}>
+    const { children, href, ...restProps } = props
+    const isExternal = href.toString().startsWith('http')
+    return isExternal ? (
+      <ExternalLink href={href.toString()} {...restProps}>
         {children}
       </ExternalLink>
     ) : (
-      <Link href={href} {...(as && { as })}>
+      <Link href={href} {...(props.as && { as: props.as })}>
         <a {...restProps}>{children}</a>
       </Link>
     )
@@ -26,12 +26,6 @@ const Button: React.FC<ButtonProps | LinkProps> = (props) => {
     </button>
   )
 }
-
-type LinkProps = {
-  href: string
-  as?: string
-  amp?: boolean
-} & JSX.IntrinsicElements['a']
 
 type ButtonProps = {
   type?: 'button' | 'submit' | 'reset'

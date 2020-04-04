@@ -2,7 +2,7 @@
 title: JSON-LD による構造化データ
 tags: [amp]
 description: JSON-LD による構造化データの記述方法についての解説。
-datePublished: 2017-12-01
+createdAt: 2017-12-01
 ---
 
 JSON-LD とは、[Linked Data](https://www.w3.org/DesignIssues/LinkedData.html) を JSON で記述するための軽量シンタックスです。Google は構造化データを、この [JSON-LD で記述することを推奨](https://developers.google.com/search/docs/guides/intro-structured-data#structured-data-format)しています。

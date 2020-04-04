@@ -26,13 +26,13 @@ const Blockcode: React.FC<BlockcodeProps> = ({
           margin-right: calc(var(--gap-size) * -2);
           margin-bottom: calc(var(--gap-size) * 2);
           padding: calc(var(--gap-size) * 1.5) calc(var(--gap-size) * 2);
-          ${language && `padding-top: 0; `}
+          ${language ? `padding-top: 0;` : ''}
         }
 
         .language {
           display: inline-block;
           vertical-align: middle;
-          background-color: rgba(0, 0, 0, 0.05);
+          background-color: var(--color-default-surface);
           font-family: var(--font-family-code);
           font-size: 0.75rem;
           margin-bottom: var(--gap-size);

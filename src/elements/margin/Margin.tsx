@@ -27,10 +27,10 @@ const Margin: React.SFC<MarginProps> = ({
       </div>
       <style jsx>{`
         .margin {
-          ${topRem ? `margin-top: ${topRem};` : ''};
-          ${bottomRem ? `margin-bottom: ${bottomRem};` : ''};
-          ${leftRem ? `margin-left: ${leftRem};` : ''};
-          ${rightRem ? `margin-right: ${rightRem};` : ''};
+          ${topRem ? `margin-top: ${topRem};` : ''}
+          ${bottomRem ? `margin-bottom: ${bottomRem};` : ''}
+          ${leftRem ? `margin-left: ${leftRem};` : ''}
+          ${rightRem ? `margin-right: ${rightRem};` : ''}
         }
       `}</style>
     </>

@@ -59,6 +59,7 @@ const Footer: React.FC<FooterProps> = ({ ...restProps }) => {
         .separator {
           width: 1px;
           height: 1.5rem;
+          border: 0;
           border-left: 1px solid var(--color-default-divider);
           margin: 0 calc(var(--gap-size) * 2);
         }

@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ ...restProps }) => {
         }
 
         .siteTitle {
-          font-size: 1.5rem;
+          font-size: 1.25rem;
           margin: 0;
         }
 

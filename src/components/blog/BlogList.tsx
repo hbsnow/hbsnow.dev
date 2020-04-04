@@ -16,6 +16,7 @@ const BlogList: React.FC<BlogListProps> = ({ blogList, ...restProps }) => {
       <style jsx>{`
         .blogList {
           list-style: none;
+          margin: 0;
         }
 
         .blogListItem {

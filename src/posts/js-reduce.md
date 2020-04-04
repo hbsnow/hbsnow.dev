@@ -207,7 +207,7 @@ const result = items
   .filter((item) => item.amount >= 1000)
   .map((item) => ({
     ...item,
-    amount: item.amount + 100
+    amount: item.amount + 100,
   }))
 ```
 
@@ -221,9 +221,9 @@ const result = items
 
 先程の `items` を例にすると次のように書ける
 
-```js
+```ts
 type ItemType = {
-  amount: number,
+  amount: number
   taxRate: number
 }
 

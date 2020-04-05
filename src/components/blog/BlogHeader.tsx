@@ -2,7 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import { BlogType } from '../../modules/blog'
 import { useFormattedDate } from '../../hooks/date'
-import Chip from '../../elements/chip/Chip'
+import TagList from '../tag/TagList'
 
 const BlogHeader: React.FC<BlogHeaderProps> = ({ post, ...restProps }) => {
   const createdAt = useFormattedDate(post.createdAt)
@@ -28,17 +28,7 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({ post, ...restProps }) => {
         )}
       </div>
 
-      <ul className="tagList">
-        {post.tags.map((tag) => {
-          return (
-            <li key={tag} className="tagListItem">
-              <Chip href="/blog/tag/[slug]" as={`/blog/tag/${tag}`} icon={tag}>
-                {tag}
-              </Chip>
-            </li>
-          )
-        })}
-      </ul>
+      <TagList tagList={post.tags} />
 
       <style jsx>{`
         .header {

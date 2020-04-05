@@ -1,13 +1,20 @@
 import { useMemo } from 'react'
-import { StateType } from '../modules'
+import { BlogType } from '../modules/blog'
 
-export const useSortBlog = (
-  posts: StateType['blogList']
-): StateType['blogList'] =>
+export const useSortBlog = (blogList: BlogType[]): BlogType[] =>
   useMemo(
     () =>
-      posts.sort((prev, current) =>
+      blogList.sort((prev, current) =>
         prev.createdAt < current.createdAt ? 1 : -1
       ),
-    [posts]
+    [blogList]
+  )
+
+export const useFilterBlogBy = (
+  blogList: BlogType[],
+  tagSlug: string
+): BlogType[] =>
+  useMemo(
+    () => blogList.filter((blog) => blog.tags.some((tag) => tag === tagSlug)),
+    [blogList, tagSlug]
   )

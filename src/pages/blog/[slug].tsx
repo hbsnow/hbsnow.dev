@@ -9,18 +9,18 @@ import BlogHeader from '../../components/blog/BlogHeader'
 
 export const config = { amp: true }
 
-const Page: NextPage<PageProps> = ({ document }) => {
+const Page: NextPage<PageProps> = ({ blog }) => {
   return (
     <>
       <Head>
-        <title>{document.data.title} - hbsnow.dev</title>
-        <meta name="description" content={document.data.description} />
+        <title>{blog.data.title} - hbsnow.dev</title>
+        <meta name="description" content={blog.data.description} />
       </Head>
       <DefaultTemplate>
         <Container>
           <article>
-            <BlogHeader post={document.data} />
-            <Markdown source={document.content} />
+            <BlogHeader post={blog.data} />
+            <Markdown source={blog.content} />
           </article>
         </Container>
       </DefaultTemplate>
@@ -43,13 +43,13 @@ export const getStaticPaths = (): {
 export const getStaticProps = async ({
   params,
 }): Promise<{ props: PageProps }> => {
-  const document = await loadBlog(params.slug)
+  const blog = await loadBlog(params.slug)
 
-  return { props: { document } }
+  return { props: { blog } }
 }
 
 type PageProps = {
-  document: BlogType
+  blog: BlogType
 }
 
 export default Page

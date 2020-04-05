@@ -8,9 +8,9 @@ export const loadBlogList = (): BlogType[] => {
 
     return keys.map((key, i) => {
       const slug = path.basename(key, '.md')
-      const document = matter(values[i].default)
+      const blog = matter(values[i].default)
 
-      return { slug, ...document.data }
+      return { slug, ...blog.data }
     })
   })(require.context(`../posts`, true, /\.md$/))
 

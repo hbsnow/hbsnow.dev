@@ -1,6 +1,6 @@
 import React from 'react'
 import Link, { LinkProps } from 'next/link'
-import Icon, { TagType, TagList } from '../icon/Icon'
+import Icon, { TagType, tagList } from '../icon/Icon'
 import { textColor } from '../../styles/mixin'
 
 const Chip: React.FC<ChipProps> = ({ children, icon, ...restProps }) => {
@@ -39,8 +39,8 @@ const Chip: React.FC<ChipProps> = ({ children, icon, ...restProps }) => {
             margin: 0 calc(var(--gap-size) / 2) 0 2px;
             ${icon
               ? `
-                color: ${textColor(TagList[icon])};
-                background-color: ${TagList[icon]};
+                color: ${textColor(tagList[icon])};
+                background-color: ${tagList[icon]};
               `
               : ''}
           }

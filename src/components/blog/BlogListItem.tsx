@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useFormattedDate } from '../../hooks/date'
 import classNames from 'classnames'
 import { mediaQuery } from '../../styles/const'
+import TagList from '../tag/TagList'
 
 const BlogListItem: React.FC<BlogListItemProps> = ({ post, ...restProps }) => {
   const createdAt = useFormattedDate(post.createdAt)
@@ -30,11 +31,14 @@ const BlogListItem: React.FC<BlogListItemProps> = ({ post, ...restProps }) => {
       <div className="createdAt">
         <time dateTime={post.createdAt}>{createdAt}</time>
       </div>
+      <div className="tags">
+        <TagList tagList={post.tags} />
+      </div>
       <style jsx>{`
         .blogListItem {
           display: grid;
           grid-template-columns: 1fr auto;
-          grid-template-rows: repeat(2, auto);
+          grid-template-rows: repeat(3, auto);
           gap: var(--gap-size);
         }
 
@@ -81,6 +85,11 @@ const BlogListItem: React.FC<BlogListItemProps> = ({ post, ...restProps }) => {
           grid-column: 3 / 4;
         }
 
+        .tags {
+          grid-row: 3 / 4;
+          grid-column: 1 / 4;
+        }
+
         .blogListItem.update {
           grid-template-columns: 1fr auto auto;
         }
@@ -104,6 +113,11 @@ const BlogListItem: React.FC<BlogListItemProps> = ({ post, ...restProps }) => {
           .title {
             grid-column: 1 / 2;
             grid-row: 1 / 2;
+          }
+
+          .tags {
+            grid-row: 2 / 4;
+            grid-column: 1 / 5;
           }
 
           .separator {

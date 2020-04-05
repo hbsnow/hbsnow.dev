@@ -61,7 +61,7 @@ const Icon: React.FC<IconProps> = ({ name, ...restProps }) => {
     case 'database':
       return (
         <svg role="img" viewBox="0 0 24 24" {...svgRestProps}>
-          <path d="M20,5.57V7.18c0,1.41-3.58,2.57-8,2.57S4,8.59,4,7.18V5.57C4,4.16,7.58,3,12,3S20,4.16,20,5.57Zm0,3.62V12.8c0,1.42-3.58,2.58-8,2.58S4,14.22,4,12.8V9.19c1.72,1.16,4.86,1.71,8,1.71S18.28,10.35,20,9.19Zm0,5.62v3.62C20,19.84,16.42,21,12,21s-8-1.16-8-2.57V14.81c1.72,1.17,4.86,1.71,8,1.71S18.28,16,20,14.81Z" />
+          <path d="M21,4.86V6.64c0,1.58-4,2.86-9,2.86S3,8.22,3,6.64V4.86C3,3.28,7,2,12,2S21,3.28,21,4.86Zm0,4v4c0,1.58-4,2.86-9,2.86s-9-1.28-9-2.86v-4c1.93,1.3,5.47,1.9,9,1.9S19.07,10.17,21,8.87Zm0,6.25v4C21,20.72,17,22,12,22s-9-1.28-9-2.86v-4c1.93,1.3,5.47,1.9,9,1.9S19.07,16.42,21,15.12Z" />
         </svg>
       )
     case 'docker':
@@ -133,7 +133,7 @@ const Icon: React.FC<IconProps> = ({ name, ...restProps }) => {
   }
 }
 
-export const TagList = Object.freeze({
+export const tagList = Object.freeze({
   amp: '#005AF0',
   angular: '#DD0031',
   aws: '#232F3E',
@@ -152,9 +152,9 @@ export const TagList = Object.freeze({
   wordpress: '#21759B',
 })
 
-const TagNameList = [...Object.keys(TagList)] as const
+const tagNameList = [...Object.keys(tagList)] as const
 
-export type TagType = typeof TagNameList[number]
+export type TagType = typeof tagNameList[number]
 
 export type IconType = 'twitter' | 'arrowRight' | 'star' | TagType
 

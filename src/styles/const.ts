@@ -7,7 +7,7 @@ export const colors = Object.freeze({
     dark: '#121212',
   },
   surface: {
-    light: 'rgba(0, 0, 0, 0.04)',
+    light: 'rgba(0, 0, 0, 0.06)',
     dark: 'rgba(255, 255, 255, 0.08)',
   },
   text: {

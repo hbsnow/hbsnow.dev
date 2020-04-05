@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 import { BlogType } from '../../modules/blog'
 import { useFormattedDate } from '../../hooks/date'
+import Chip from '../../elements/chip/Chip'
 
 const BlogHeader: React.FC<BlogHeaderProps> = ({ post, ...restProps }) => {
   const createdAt = useFormattedDate(post.createdAt)
@@ -14,6 +15,8 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({ post, ...restProps }) => {
       })}
       {...restProps}
     >
+      <h1 className="title">{post.title}</h1>
+
       <div className="date">
         <div className="createdAt">
           <time dateTime={createdAt}>{createdAt}</time>
@@ -24,8 +27,33 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({ post, ...restProps }) => {
           </div>
         )}
       </div>
-      <h1>{post.title}</h1>
+
+      <ul className="tagList">
+        {post.tags.map((tag) => {
+          return (
+            <li key={tag} className="tagListItem">
+              <Chip href="/blog/tag/[slug]" as={`/blog/tag/${tag}`} icon={tag}>
+                {tag}
+              </Chip>
+            </li>
+          )
+        })}
+      </ul>
+
       <style jsx>{`
+        .header {
+          margin: 0 0 calc(var(--gap-size) * 2);
+        }
+
+        .title {
+          margin: 0 0 var(--gap-size);
+        }
+
+        .tagList {
+          list-style: none;
+          margin: 0 0 var(--gap-size);
+        }
+
         .date {
           display: flex;
           margin-bottom: var(--gap-size);

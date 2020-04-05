@@ -13,8 +13,8 @@ const Button: React.FC<ButtonProps | LinkProps> = (props) => {
         {children}
       </ExternalLink>
     ) : (
-      <Link href={href} {...(props.as && { as: props.as })}>
-        <a {...restProps}>{children}</a>
+      <Link href={href} {...restProps}>
+        <a>{children}</a>
       </Link>
     )
   }

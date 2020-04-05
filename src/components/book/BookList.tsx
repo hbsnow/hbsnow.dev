@@ -1,5 +1,4 @@
 import React from 'react'
-import { mediaQuery } from '../../styles/const'
 import { Entry } from 'contentful'
 import { IBookFields } from '../../models/contentful'
 import BookListItem from './BookListItem'

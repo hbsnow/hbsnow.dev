@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 export const loadBlogList = (): BlogType[] => {
   const blogList = ((context): BlogType[] => {
     const keys = context.keys()
-    const values = keys.map(context) as { [key: string]: string }[]
+    const values = keys.map<{ [key: string]: string }>(context)
 
     return keys.map((key, i) => {
       const slug = path.basename(key, '.md')

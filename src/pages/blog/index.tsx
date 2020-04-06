@@ -20,7 +20,7 @@ const Page: NextPage<Props> = ({ blogList }) => {
     <>
       <Head>
         <title>hbsnow.dev</title>
-        <meta name="description" content="hbsnowのメモ書き置き場兼実験場。" />
+        <meta name="description" content="hbsnow のブログ記事一覧。" />
       </Head>
       <DefaultTemplate>
         <Container>

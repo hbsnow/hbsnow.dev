@@ -51,9 +51,13 @@ const Footer: React.FC<Props> = () => {
         </div>
       </Container>
       <style jsx>{`
+        .footer {
+          background-color: var(--color-default-surface);
+        }
+
         .footerContainer {
           display: flex;
-          height: calc(1.5rem * 6);
+          height: calc(1.5rem * 10);
           justify-content: center;
           align-items: center;
         }

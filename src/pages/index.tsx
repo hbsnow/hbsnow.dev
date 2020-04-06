@@ -12,6 +12,8 @@ import BlogList from '../components/blog/BlogList'
 import BookList from '../components/book/BookList'
 import Margin from '../elements/margin/Margin'
 import { useSortBlog } from '../hooks/blog'
+import HomeHeader from '../components/home/HomeHeader'
+import HomeAbout from '../components/home/HomeAbout'
 
 export const config = { amp: true }
 
@@ -23,50 +25,67 @@ type Props = {
 const Page: NextPage<Props> = ({ blogList, bookList }) => {
   const sortedBlogList = useSortBlog(blogList)
   const latestBlogList = useMemo(() => {
-    return sortedBlogList.slice(0, 4)
+    return sortedBlogList.slice(0, 3)
   }, [sortedBlogList])
 
   const latestBookList = useMemo(() => {
-    return bookList.slice(0, 4)
+    return bookList.slice(0, 3)
   }, [bookList])
 
   return (
     <>
       <Head>
         <title>hbsnow.dev</title>
-        <meta name="description" content="hbsnowのメモ書き置き場兼実験場。" />
+        <meta name="description" content="hbsnow のメモ書き置き場兼実験場。" />
       </Head>
       <DefaultTemplate>
-        <Container>
-          <Margin bottom={4}>
-            <p>hbsnowのメモ書き置き場兼実験場。</p>
-          </Margin>
+        <div className="main">
+          <div className="section dark">
+            <Container>
+              <Margin y={4}>
+                <HomeAbout />
+              </Margin>
+            </Container>
+          </div>
 
-          <Margin bottom={4}>
-            <section>
-              <h2>Latest Posts</h2>
+          <section className="section">
+            <Container>
+              <Margin y={4}>
+                <HomeHeader title="Latest Posts">
+                  <Link href="/blog">
+                    <a>All {blogList.length} Posts</a>
+                  </Link>
+                </HomeHeader>
 
-              <BlogList blogList={latestBlogList} />
+                <BlogList blogList={latestBlogList} />
+              </Margin>
+            </Container>
+          </section>
 
-              <Link href="/blog">
-                <a>All Posts</a>
-              </Link>
-            </section>
-          </Margin>
+          <section className="section">
+            <Container>
+              <Margin y={4}>
+                <HomeHeader title="Latest Read Books">
+                  <Link href="/blog">
+                    <a>All {bookList.length} Read Books</a>
+                  </Link>
+                </HomeHeader>
 
-          <Margin bottom={4}>
-            <section>
-              <h2>Latest Read Books</h2>
-
-              <BookList bookList={latestBookList} />
-
-              <Link href="/book">
-                <a>All Read Books</a>
-              </Link>
-            </section>
-          </Margin>
-        </Container>
+                <BookList bookList={latestBookList} />
+              </Margin>
+            </Container>
+          </section>
+        </div>
       </DefaultTemplate>
+      <style jsx>{`
+        .section:not(:first-child):not(:last-child) {
+          border-bottom: 1px solid var(--color-default-divider);
+        }
+
+        .section.dark {
+          background-color: var(--color-default-surface);
+        }
+      `}</style>
     </>
   )
 }

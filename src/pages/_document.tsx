@@ -17,12 +17,7 @@ class BaseDocument extends Document {
   render(): JSX.Element {
     return (
       <Html lang="ja">
-        <Head>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Material+Icons&amp;display=swap"
-          />
-        </Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

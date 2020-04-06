@@ -1,11 +1,22 @@
 import React from 'react'
 
+// @todo hooksにすること
 export const toRem = (val?: number): string => {
   if (!val) return '0'
   return `calc(1.5rem * ${val})`
 }
 
-const Margin: React.SFC<MarginProps> = ({
+type Props = {
+  all?: number
+  x?: number
+  y?: number
+  top?: number
+  bottom?: number
+  left?: number
+  right?: number
+} & JSX.IntrinsicElements['div']
+
+const Margin: React.FC<Props> = ({
   children,
   all,
   x,
@@ -21,10 +32,8 @@ const Margin: React.SFC<MarginProps> = ({
   const rightRem = toRem(right ?? x ?? all)
 
   return (
-    <>
-      <div data-testid="Margin" className="margin">
-        {children}
-      </div>
+    <div data-testid="Margin" className="margin">
+      {children}
       <style jsx>{`
         .margin {
           ${topRem ? `margin-top: ${topRem};` : ''}
@@ -33,18 +42,8 @@ const Margin: React.SFC<MarginProps> = ({
           ${rightRem ? `margin-right: ${rightRem};` : ''}
         }
       `}</style>
-    </>
+    </div>
   )
 }
 
 export default Margin
-
-type MarginProps = {
-  all?: number
-  x?: number
-  y?: number
-  top?: number
-  bottom?: number
-  left?: number
-  right?: number
-} & JSX.IntrinsicElements['div']

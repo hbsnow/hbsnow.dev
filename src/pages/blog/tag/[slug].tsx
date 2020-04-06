@@ -9,7 +9,12 @@ import { useFilterBlogBy } from '../../../hooks/blog'
 
 export const config = { amp: true }
 
-const Page: NextPage<PageProps> = ({ slug, blogList }) => {
+type Props = {
+  slug: string
+  blogList: BlogType[]
+}
+
+const Page: NextPage<Props> = ({ slug, blogList }) => {
   const filteredBlogList = useFilterBlogBy(blogList, slug)
   return (
     <>
@@ -31,17 +36,18 @@ export const getStaticPaths = (): {
   paths: string[]
 } => {
   const blogList = loadBlogList()
-  const tagList = blogList
+  const paths = blogList
     .flatMap((blog) => blog.tags)
     .filter((blog, i, self) => self.indexOf(blog) === i)
+    .map((tag) => `/blog/tag/${tag}`)
 
   return {
     fallback: false,
-    paths: tagList.map((tag) => `/blog/tag/${tag}`),
+    paths,
   }
 }
 
-export const getStaticProps = ({ params }): { props: PageProps } => {
+export const getStaticProps = ({ params }): { props: Props } => {
   const slug = params.slug
   const blogList = loadBlogList()
 
@@ -51,11 +57,6 @@ export const getStaticProps = ({ params }): { props: PageProps } => {
       blogList: JSON.parse(JSON.stringify(blogList)),
     },
   }
-}
-
-type PageProps = {
-  slug: string
-  blogList: BlogType[]
 }
 
 export default Page

@@ -9,7 +9,11 @@ import { useSortBlog } from '../../hooks/blog'
 
 export const config = { amp: true }
 
-const Page: NextPage<PageProps> = ({ blogList }) => {
+type Props = {
+  blogList: BlogType[]
+}
+
+const Page: NextPage<Props> = ({ blogList }) => {
   const sortedBlogList = useSortBlog(blogList)
 
   return (
@@ -28,7 +32,7 @@ const Page: NextPage<PageProps> = ({ blogList }) => {
 }
 
 export const getStaticProps = async (): Promise<{
-  props: PageProps
+  props: Props
 }> => {
   const blogList = loadBlogList()
 
@@ -37,10 +41,6 @@ export const getStaticProps = async (): Promise<{
       blogList: JSON.parse(JSON.stringify(blogList)),
     },
   }
-}
-
-type PageProps = {
-  blogList: BlogType[]
 }
 
 export default Page

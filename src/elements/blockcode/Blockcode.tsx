@@ -3,11 +3,11 @@ import SyntaxHighlighter from 'react-syntax-highlighter'
 import Pre from './Pre'
 import Code from './Code'
 
-const Blockcode: React.FC<BlockcodeProps> = ({
-  children,
-  language,
-  ...restProps
-}) => {
+type Props = {
+  language?: string
+} & JSX.IntrinsicElements['div']
+
+const Blockcode: React.FC<Props> = ({ children, language, ...restProps }) => {
   return (
     <div data-testid="Blockcode" className="blockcode" {...restProps}>
       {language && <div className="language">{language}</div>}
@@ -43,9 +43,5 @@ const Blockcode: React.FC<BlockcodeProps> = ({
     </div>
   )
 }
-
-type BlockcodeProps = {
-  language?: string
-} & JSX.IntrinsicElements['div']
 
 export default Blockcode

@@ -18,6 +18,10 @@ const button = css`
 
 const isLinkType = (props): props is LinkProps => props?.href !== undefined
 
+type ButtonProps = {
+  type?: 'button' | 'submit' | 'reset'
+} & JSX.IntrinsicElements['button']
+
 const Button: React.FC<ButtonProps | LinkProps> = (props) => {
   if (isLinkType(props)) {
     const { children, href, ...restProps } = props
@@ -45,9 +49,5 @@ const Button: React.FC<ButtonProps | LinkProps> = (props) => {
     </button>
   )
 }
-
-type ButtonProps = {
-  type?: 'button' | 'submit' | 'reset'
-} & JSX.IntrinsicElements['button']
 
 export default Button

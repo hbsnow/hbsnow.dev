@@ -11,14 +11,7 @@ const DefaultTemplate: React.FC<DefaultTemplateProps> = ({
     <div {...restProps}>
       <Header />
       <main>{children}</main>
-      <Footer className="footer" />
-      <style jsx>
-        {`
-          .footer {
-            color: red;
-          }
-        `}
-      </style>
+      <Footer />
       <style jsx global>
         {globalStyles}
       </style>

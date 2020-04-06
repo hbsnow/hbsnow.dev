@@ -3,9 +3,13 @@ import { Entry } from 'contentful'
 import { IBookFields } from '../../models/contentful'
 import Rating from '../../elements/rating/Rating'
 
-const Book: React.FC<BookProps> = ({ book, ...restProps }) => {
+type Props = {
+  book: Entry<IBookFields>
+}
+
+const Book: React.FC<Props> = ({ book }) => {
   return (
-    <div className="book" {...restProps}>
+    <div className="book">
       <header className="header">
         <h3 className="name">{book.fields.name}</h3>
       </header>
@@ -48,9 +52,5 @@ const Book: React.FC<BookProps> = ({ book, ...restProps }) => {
     </div>
   )
 }
-
-type BookProps = {
-  book: Entry<IBookFields>
-} & JSX.IntrinsicElements['div']
 
 export default Book

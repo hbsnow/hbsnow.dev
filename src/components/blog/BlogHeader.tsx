@@ -4,7 +4,11 @@ import { BlogType } from '../../modules/blog'
 import { useFormattedDate } from '../../hooks/date'
 import TagList from '../tag/TagList'
 
-const BlogHeader: React.FC<BlogHeaderProps> = ({ post, ...restProps }) => {
+type Props = {
+  post: BlogType
+}
+
+const BlogHeader: React.FC<Props> = ({ post }) => {
   const createdAt = useFormattedDate(post.createdAt)
   const updatedAt = useFormattedDate(post.updatedAt)
 
@@ -13,7 +17,6 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({ post, ...restProps }) => {
       className={classNames('header', {
         update: Boolean(post.updatedAt),
       })}
-      {...restProps}
     >
       <h1 className="title">{post.title}</h1>
 
@@ -62,9 +65,5 @@ const BlogHeader: React.FC<BlogHeaderProps> = ({ post, ...restProps }) => {
     </header>
   )
 }
-
-type BlogHeaderProps = {
-  post: BlogType
-} & JSX.IntrinsicElements['header']
 
 export default BlogHeader

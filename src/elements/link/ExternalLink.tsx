@@ -1,5 +1,9 @@
 import React from 'react'
 
+type NoTargetElement = Omit<JSX.IntrinsicElements['a'], 'target'>
+
+type Props = {} & NoTargetElement
+
 const addRel = (props: NoTargetElement): NoTargetElement => {
   const rel = props?.rel?.split(' ') || []
   rel.push(...['noopener', 'noreferrer'])
@@ -10,19 +14,12 @@ const addRel = (props: NoTargetElement): NoTargetElement => {
   }
 }
 
-const ExternalLink: React.FC<ExternalLinkProps> = ({
-  children,
-  ...restProps
-}) => {
+const ExternalLink: React.FC<Props> = ({ children, ...restProps }) => {
   return (
     <a target="_blank" {...addRel(restProps)}>
       {children}
     </a>
   )
 }
-
-type NoTargetElement = Omit<JSX.IntrinsicElements['a'], 'target'>
-
-type ExternalLinkProps = {} & NoTargetElement
 
 export default ExternalLink

@@ -1,20 +1,21 @@
 import React from 'react'
-import { BlogType } from '../../modules/blog'
 import Link from 'next/link'
-import { useFormattedDate } from '../../hooks/date'
 import classNames from 'classnames'
+import { BlogType } from '../../modules/blog'
+import { useFormattedDate } from '../../hooks/date'
 import { mediaQuery } from '../../styles/const'
 import TagList from '../tag/TagList'
 
-const BlogListItem: React.FC<BlogListItemProps> = ({ post, ...restProps }) => {
+type Props = {
+  post: BlogType
+}
+
+const BlogListItem: React.FC<Props> = ({ post }) => {
   const createdAt = useFormattedDate(post.createdAt)
   const updatedAt = useFormattedDate(post.updatedAt)
 
   return (
-    <div
-      className={classNames('blogListItem', { update: Boolean(updatedAt) })}
-      {...restProps}
-    >
+    <div className={classNames('blogListItem', { update: Boolean(updatedAt) })}>
       <div className="title">
         <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
           <a>{post.title}</a>
@@ -149,9 +150,5 @@ const BlogListItem: React.FC<BlogListItemProps> = ({ post, ...restProps }) => {
     </div>
   )
 }
-
-type BlogListItemProps = {
-  post: BlogType
-} & JSX.IntrinsicElements['div']
 
 export default BlogListItem

@@ -3,7 +3,11 @@ import Link, { LinkProps } from 'next/link'
 import Icon, { TagType, tagList } from '../icon/Icon'
 import { textColor } from '../../styles/mixin'
 
-const Chip: React.FC<ChipProps> = ({ children, icon, ...restProps }) => {
+type Props = {
+  icon?: TagType
+} & LinkProps
+
+const Chip: React.FC<Props> = ({ children, icon, ...restProps }) => {
   return (
     <Link {...restProps}>
       <a className="chip">
@@ -53,9 +57,5 @@ const Chip: React.FC<ChipProps> = ({ children, icon, ...restProps }) => {
     </Link>
   )
 }
-
-type ChipProps = {
-  icon?: TagType
-} & LinkProps
 
 export default Chip

@@ -3,9 +3,13 @@ import { BlogType } from '../../modules/blog'
 import BlogListItem from './BlogListItem'
 import { mediaQuery } from '../../styles/const'
 
-const BlogList: React.FC<BlogListProps> = ({ blogList, ...restProps }) => {
+type Props = {
+  blogList: BlogType[]
+}
+
+const BlogList: React.FC<Props> = ({ blogList }) => {
   return (
-    <ul className="blogList" {...restProps}>
+    <ul className="blogList">
       {blogList?.map((post) => {
         return (
           <li key={post.slug} className="blogListItem">
@@ -32,9 +36,5 @@ const BlogList: React.FC<BlogListProps> = ({ blogList, ...restProps }) => {
     </ul>
   )
 }
-
-type BlogListProps = {
-  blogList: BlogType[]
-} & JSX.IntrinsicElements['ul']
 
 export default BlogList

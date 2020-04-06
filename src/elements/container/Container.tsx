@@ -1,7 +1,9 @@
 import React from 'react'
 import { containerSize } from '../../styles/const'
 
-const Container: React.FC<ContainerProps> = ({ children, ...restProps }) => {
+type Props = {} & JSX.IntrinsicElements['div']
+
+const Container: React.FC<Props> = ({ children, ...restProps }) => {
   return (
     <div data-testid="Container" className="container" {...restProps}>
       {children}
@@ -15,7 +17,5 @@ const Container: React.FC<ContainerProps> = ({ children, ...restProps }) => {
     </div>
   )
 }
-
-type ContainerProps = {} & JSX.IntrinsicElements['div']
 
 export default Container

@@ -15,7 +15,12 @@ import { useSortBlog } from '../hooks/blog'
 
 export const config = { amp: true }
 
-const Page: NextPage<PageProps> = ({ blogList, bookList }) => {
+type Props = {
+  blogList: BlogType[]
+  bookList: Entry<IBookFields>[]
+}
+
+const Page: NextPage<Props> = ({ blogList, bookList }) => {
   const sortedBlogList = useSortBlog(blogList)
   const latestBlogList = useMemo(() => {
     return sortedBlogList.slice(0, 4)
@@ -67,7 +72,7 @@ const Page: NextPage<PageProps> = ({ blogList, bookList }) => {
 }
 
 export const getStaticProps = async (): Promise<{
-  props: PageProps
+  props: Props
 }> => {
   const blogList = loadBlogList()
   const bookList = await fetchBookList()
@@ -78,11 +83,6 @@ export const getStaticProps = async (): Promise<{
       bookList: bookList.items,
     },
   }
-}
-
-type PageProps = {
-  blogList: BlogType[]
-  bookList: Entry<IBookFields>[]
 }
 
 export default Page

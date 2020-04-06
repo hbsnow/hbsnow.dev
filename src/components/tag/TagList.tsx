@@ -1,9 +1,13 @@
 import React from 'react'
 import Chip from '../../elements/chip/Chip'
 
-const TagList: React.FC<TagListProps> = ({ tagList, ...restProps }) => {
+type Props = {
+  tagList: string[]
+}
+
+const TagList: React.FC<Props> = ({ tagList }) => {
   return (
-    <ul className="tagList" {...restProps}>
+    <ul className="tagList">
       {tagList?.map((tag) => {
         return (
           <li key={tag} className="tagListItem">
@@ -28,9 +32,5 @@ const TagList: React.FC<TagListProps> = ({ tagList, ...restProps }) => {
     </ul>
   )
 }
-
-type TagListProps = {
-  tagList: string[]
-} & JSX.IntrinsicElements['ul']
 
 export default TagList

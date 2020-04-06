@@ -22,9 +22,11 @@ const sns: SnsLink[] = [
   },
 ]
 
-const Footer: React.FC<FooterProps> = ({ ...restProps }) => {
+type Props = {}
+
+const Footer: React.FC<Props> = () => {
   return (
-    <footer className="footer" {...restProps}>
+    <footer className="footer">
       <Container>
         <div className="footerContainer">
           <div className="siteName">
@@ -85,7 +87,5 @@ const Footer: React.FC<FooterProps> = ({ ...restProps }) => {
     </footer>
   )
 }
-
-type FooterProps = {} & JSX.IntrinsicElements['footer']
 
 export default Footer

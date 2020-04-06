@@ -3,7 +3,12 @@ import React from 'react'
 import classNames from 'classnames'
 import Icon from '../icon/Icon'
 
-const Rating: React.FC<RatingProps> = ({ rate, maxRate = 3, ...restProps }) => {
+type Props = {
+  rate: number
+  maxRate?: number
+} & JSX.IntrinsicElements['div']
+
+const Rating: React.FC<Props> = ({ rate, maxRate = 3, ...restProps }) => {
   return (
     <div
       data-testid="Rating"
@@ -35,10 +40,5 @@ const Rating: React.FC<RatingProps> = ({ rate, maxRate = 3, ...restProps }) => {
     </div>
   )
 }
-
-type RatingProps = {
-  rate: number
-  maxRate?: number
-} & JSX.IntrinsicElements['div']
 
 export default Rating

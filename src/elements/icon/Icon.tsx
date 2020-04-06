@@ -1,6 +1,35 @@
 import React from 'react'
 
-const Icon: React.FC<IconProps> = ({ name, ...restProps }) => {
+export const tagList = Object.freeze({
+  amp: '#005AF0',
+  angular: '#DD0031',
+  aws: '#232F3E',
+  css: '#1572B6',
+  database: '#000000',
+  docker: '#2496ED',
+  git: '#F05032',
+  github: '#181717',
+  go: '#00ADD8',
+  javascript: '#F7DF1E',
+  nextjs: '#000000',
+  nuxtjs: '#00C58E',
+  react: '#61DAFB',
+  typescript: '#007ACC',
+  vuejs: '#4FC08D',
+  wordpress: '#21759B',
+})
+
+const tagNameList = [...Object.keys(tagList)] as const
+
+export type TagType = typeof tagNameList[number]
+
+export type IconType = 'twitter' | 'arrowRight' | 'star' | TagType
+
+type Props = {
+  name: IconType
+} & JSX.IntrinsicElements['svg']
+
+const Icon: React.FC<Props> = ({ name, ...restProps }) => {
   const svgRestProps = {
     width: 24,
     height: 24,
@@ -132,34 +161,5 @@ const Icon: React.FC<IconProps> = ({ name, ...restProps }) => {
       )
   }
 }
-
-export const tagList = Object.freeze({
-  amp: '#005AF0',
-  angular: '#DD0031',
-  aws: '#232F3E',
-  css: '#1572B6',
-  database: '#000000',
-  docker: '#2496ED',
-  git: '#F05032',
-  github: '#181717',
-  go: '#00ADD8',
-  javascript: '#F7DF1E',
-  nextjs: '#000000',
-  nuxtjs: '#00C58E',
-  react: '#61DAFB',
-  typescript: '#007ACC',
-  vuejs: '#4FC08D',
-  wordpress: '#21759B',
-})
-
-const tagNameList = [...Object.keys(tagList)] as const
-
-export type TagType = typeof tagNameList[number]
-
-export type IconType = 'twitter' | 'arrowRight' | 'star' | TagType
-
-type IconProps = {
-  name: IconType
-} & JSX.IntrinsicElements['svg']
 
 export default Icon

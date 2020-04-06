@@ -9,7 +9,11 @@ import BlogHeader from '../../components/blog/BlogHeader'
 
 export const config = { amp: true }
 
-const Page: NextPage<PageProps> = ({ blog }) => {
+type Props = {
+  blog: BlogType
+}
+
+const Page: NextPage<Props> = ({ blog }) => {
   return (
     <>
       <Head>
@@ -40,16 +44,10 @@ export const getStaticPaths = (): {
   }
 }
 
-export const getStaticProps = async ({
-  params,
-}): Promise<{ props: PageProps }> => {
+export const getStaticProps = async ({ params }): Promise<{ props: Props }> => {
   const blog = await loadBlog(params.slug)
 
   return { props: { blog } }
-}
-
-type PageProps = {
-  blog: BlogType
 }
 
 export default Page

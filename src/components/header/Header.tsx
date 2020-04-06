@@ -1,11 +1,13 @@
 import React from 'react'
+import Link from 'next/link'
 import Container from '../../elements/container/Container'
 import { mediaQuery } from '../../styles/const'
-import Link from 'next/link'
 
-const Header: React.FC<HeaderProps> = ({ ...restProps }) => {
+type Props = {}
+
+const Header: React.FC<Props> = () => {
   return (
-    <header className="header" {...restProps}>
+    <header className="header">
       <Container>
         <div className="grid">
           <div className="siteTitleContainer">
@@ -93,7 +95,5 @@ const Header: React.FC<HeaderProps> = ({ ...restProps }) => {
     </header>
   )
 }
-
-type HeaderProps = {} & JSX.IntrinsicElements['div']
 
 export default Header

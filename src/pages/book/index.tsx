@@ -11,7 +11,11 @@ import Margin from '../../elements/margin/Margin'
 
 export const config = { amp: true }
 
-const Page: NextPage<PageProps> = ({ bookList }) => {
+type Props = {
+  bookList: Entry<IBookFields>[]
+}
+
+const Page: NextPage<Props> = ({ bookList }) => {
   return (
     <>
       <Head>
@@ -32,7 +36,7 @@ const Page: NextPage<PageProps> = ({ bookList }) => {
 }
 
 export const getStaticProps = async (): Promise<{
-  props: PageProps
+  props: Props
 }> => {
   const bookList = await fetchBookList()
 
@@ -41,10 +45,6 @@ export const getStaticProps = async (): Promise<{
       bookList: bookList.items,
     },
   }
-}
-
-type PageProps = {
-  bookList: Entry<IBookFields>[]
 }
 
 export default Page

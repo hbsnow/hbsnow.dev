@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
 import { Entry } from 'contentful'
 import { IBookFields } from '../models/contentful'
 import { loadBlogList, BlogType } from '../modules/blog'
@@ -12,8 +11,8 @@ import BlogList from '../components/blog/BlogList'
 import BookList from '../components/book/BookList'
 import Margin from '../elements/margin/Margin'
 import { useSortBlog } from '../hooks/blog'
-import HomeHeader from '../components/home/HomeHeader'
 import HomeAbout from '../components/home/HomeAbout'
+import UnderlineLink from '../elements/link/UnderlineLink'
 
 export const config = { amp: true }
 
@@ -36,42 +35,55 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
     <>
       <Head>
         <title>hbsnow.dev</title>
-        <meta name="description" content="hbsnow のメモ書き置き場兼実験場。" />
+        <meta
+          name="description"
+          content="hbsnow の技術メモ置き場を兼ねた実験場。"
+        />
       </Head>
       <DefaultTemplate>
         <div className="main">
-          <div className="section dark">
+          <div className="section about">
             <Container>
-              <Margin y={4}>
-                <HomeAbout />
+              <Margin y={6}>
+                <HomeAbout>
+                  <p>札幌ではたらく Front End Developer です。</p>
+                </HomeAbout>
               </Margin>
             </Container>
           </div>
 
           <section className="section">
             <Container>
-              <Margin y={4}>
-                <HomeHeader title="Latest Posts">
-                  <Link href="/blog">
-                    <a>All {blogList.length} Posts</a>
-                  </Link>
-                </HomeHeader>
+              <Margin y={6}>
+                <h2 id="latest-posts">Latest Posts</h2>
 
                 <BlogList blogList={latestBlogList} />
+
+                <Margin y={2}>
+                  <div className="allView">
+                    <UnderlineLink href="/blog">
+                      All {blogList.length} Posts
+                    </UnderlineLink>
+                  </div>
+                </Margin>
               </Margin>
             </Container>
           </section>
 
           <section className="section">
             <Container>
-              <Margin y={4}>
-                <HomeHeader title="Latest Read Books">
-                  <Link href="/blog">
-                    <a>All {bookList.length} Read Books</a>
-                  </Link>
-                </HomeHeader>
+              <Margin y={6}>
+                <h2 id="latest-read-books">Latest Read Books</h2>
 
                 <BookList bookList={latestBookList} />
+
+                <Margin y={2}>
+                  <div className="allView">
+                    <UnderlineLink href="/book">
+                      All {bookList.length} Read Books
+                    </UnderlineLink>
+                  </div>
+                </Margin>
               </Margin>
             </Container>
           </section>
@@ -82,8 +94,35 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
           border-bottom: 1px solid var(--color-default-divider);
         }
 
-        .section.dark {
+        .section.about {
+          position: relative;
+          z-index: 2;
+        }
+        .section.about::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
           background-color: var(--color-default-surface);
+          transform: skew(0, var(--layout-deg));
+          z-index: -1;
+        }
+        .section.about::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: var(--color-default-bg);
+          opacity: 0.6;
+          z-index: -1;
+        }
+
+        .allView {
+          text-align: center;
         }
       `}</style>
     </>

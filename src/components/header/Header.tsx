@@ -36,7 +36,8 @@ const Header: React.FC<Props> = () => {
       </Container>
       <style jsx>{`
         .header {
-          padding: calc(var(--gap-size) * 2) 0;
+          background-color: var(--color-default-bg);
+          padding: calc(var(--gap-size) * 4) 0;
         }
 
         .grid {
@@ -48,6 +49,7 @@ const Header: React.FC<Props> = () => {
 
         .siteTitleContainer {
           display: flex;
+          justify-content: center;
           align-items: center;
           grid-column: 1 / 9;
           grid-row: 1 / 2;
@@ -59,13 +61,13 @@ const Header: React.FC<Props> = () => {
         }
 
         .siteTitle {
-          font-size: 1.25rem;
+          font-size: 1.5rem;
           margin: 0;
         }
 
         .navList {
           display: flex;
-          justify-content: flex-end;
+          justify-content: center;
           align-items: center;
           margin: 0;
         }
@@ -80,6 +82,7 @@ const Header: React.FC<Props> = () => {
           .siteTitleContainer {
             grid-column: 1 / 5;
             grid-row: 1 / 3;
+            justify-content: flex-start;
           }
 
           .navContainer {
@@ -88,7 +91,15 @@ const Header: React.FC<Props> = () => {
           }
 
           .header {
-            padding: calc(var(--gap-size) * 6) 0;
+            padding: calc(var(--gap-size) * 8) 0;
+          }
+
+          .siteTitle {
+            font-size: 2rem;
+          }
+
+          .navList {
+            justify-content: flex-end;
           }
         }
       `}</style>

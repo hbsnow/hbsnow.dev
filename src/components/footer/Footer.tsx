@@ -52,12 +52,32 @@ const Footer: React.FC<Props> = () => {
       </Container>
       <style jsx>{`
         .footer {
+          position: relative;
+          margin: calc(var(--gap-size) * 6) 0;
+        }
+        .footer::before,
+        .footer::after {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          left: 0;
+          content: '';
+          z-index: -1;
+        }
+
+        .footer::before {
+          transform: skew(0, var(--layout-deg));
           background-color: var(--color-default-surface);
+        }
+        .footer::after {
+          background-color: var(--color-default-bg);
+          opacity: 0.6;
         }
 
         .footerContainer {
           display: flex;
-          height: calc(1.5rem * 10);
+          height: calc(1.5rem * 16);
           justify-content: center;
           align-items: center;
         }

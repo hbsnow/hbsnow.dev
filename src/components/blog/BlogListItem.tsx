@@ -88,7 +88,7 @@ const BlogListItem: React.FC<Props> = ({ post }) => {
 
         .tags {
           grid-row: 3 / 4;
-          grid-column: 1 / 4;
+          grid-column: 1 / 3;
         }
 
         .blogListItem.update {
@@ -101,6 +101,10 @@ const BlogListItem: React.FC<Props> = ({ post }) => {
 
         .blogListItem.update .createdAt {
           color: var(--color-default-text-muted);
+        }
+
+        .blogListItem.update .tags {
+          grid-column: 1 / 4;
         }
 
         @media ${mediaQuery.sm} {
@@ -118,7 +122,7 @@ const BlogListItem: React.FC<Props> = ({ post }) => {
 
           .tags {
             grid-row: 2 / 4;
-            grid-column: 1 / 5;
+            grid-column: 1 / 4;
           }
 
           .separator {
@@ -144,6 +148,10 @@ const BlogListItem: React.FC<Props> = ({ post }) => {
 
           .blogListItem.update .title {
             grid-column: 1 / 2;
+          }
+
+          .blogListItem.update .tags {
+            grid-column: 1 / 5;
           }
         }
       `}</style>

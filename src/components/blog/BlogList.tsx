@@ -1,7 +1,6 @@
 import React from 'react'
 import { BlogType } from '../../modules/blog'
 import BlogListItem from './BlogListItem'
-import { mediaQuery } from '../../styles/const'
 
 type Props = {
   blogList: BlogType[]
@@ -25,12 +24,6 @@ const BlogList: React.FC<Props> = ({ blogList }) => {
 
         .blogListItem {
           margin-bottom: calc(var(--gap-size) * 3);
-        }
-
-        @media ${mediaQuery.sm} {
-          .blogListItem {
-            margin-bottom: calc(var(--gap-size) * 2);
-          }
         }
       `}</style>
     </ul>

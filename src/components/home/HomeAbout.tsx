@@ -1,39 +1,40 @@
 import React from 'react'
+import Avatar from './Avatar'
 
 type Props = {}
 
-const HomeAbout: React.FC<Props> = () => {
+const HomeAbout: React.FC<Props> = ({ children }) => {
   return (
     <div className="homeAbout">
-      <div className="avatar">
-        <amp-img
-          alt="hbsnow"
-          width="256"
-          height="256"
-          src="/assets/img/hbsnow.webp"
-        >
-          <amp-img
-            alt="hbsnow"
-            fallback
-            width="256"
-            height="256"
-            src="/assets/img/hbsnow.jpg"
-          ></amp-img>
-        </amp-img>
+      <div className="avatarCell">
+        <Avatar />
       </div>
-      <div className="description">
-        <p>hbsnowのメモ書き置き場兼実験場。</p>
+      <div className="descriptionCell">
+        <div className="description">{children}</div>
       </div>
 
       <style jsx>{`
-        .avatar {
+        .homeAbout {
+          display: grid;
+          grid-template-columns: auto 1fr;
+          gap: calc(var(--gap-size) * 4);
+        }
+
+        .avatarCell {
+          grid-column: 1 / 2;
+        }
+
+        .descriptionCell {
+          grid-column: 2 / 3;
           display: flex;
           justify-content: center;
           align-items: center;
-          width: calc(256px + var(--gap-size) * 4);
-          height: calc(256px + var(--gap-size) * 4);
-          background-color: var(--color-default-surface);
-          border-radius: 156px;
+        }
+
+        .description {
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       `}</style>
     </div>

@@ -1,5 +1,3 @@
-const withCSS = require('@zeit/next-css')
-
 // if (process.env.NODE_ENV !== 'production') {
 require('dotenv').config()
 // }
@@ -27,4 +25,4 @@ const nextSettings = {
   },
 }
 
-module.exports = withCSS(nextSettings)
+module.exports = nextSettings

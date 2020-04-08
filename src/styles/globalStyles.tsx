@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { colors, gapSize } from './const'
+import { colors, gapSize, mediaQuery } from './const'
 import { textColor } from './mixin'
 
 const globalStyles = css.global`
@@ -16,6 +16,7 @@ const globalStyles = css.global`
     --font-family-default: sans-serif;
     --font-family-code: '_', monospace;
     --gap-size: ${gapSize};
+    --layout-deg: -30deg;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -29,6 +30,12 @@ const globalStyles = css.global`
       --color-primary-text: ${textColor(colors.primary.dark)};
       --color-primary-variant-bg: ${colors.primaryVariant.dark};
       --color-primary-variant-text: ${textColor(colors.primaryVariant.dark)};
+    }
+  }
+
+  @media ${mediaQuery.sm} {
+    :root {
+      --layout-deg: -20deg;
     }
   }
 
@@ -47,7 +54,7 @@ const globalStyles = css.global`
   body {
     color: var(--color-default-text);
     background-color: var(--color-default-bg);
-    font-family: sans-serif;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -58,7 +65,11 @@ const globalStyles = css.global`
   h3,
   h4,
   h5,
-  h6,
+  h6 {
+    margin: 0 0 calc(var(--gap-size) * 4);
+    padding: 0;
+  }
+
   p,
   dl,
   dd,

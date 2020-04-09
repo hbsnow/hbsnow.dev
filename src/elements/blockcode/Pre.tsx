@@ -135,7 +135,7 @@ const styles = css.global`
 
 const Pre: React.FC = ({ children }) => {
   return (
-    <pre className="hljs">
+    <pre data-testid="Pre" className="hljs">
       {children}
       <style jsx>{`
         .hljs {

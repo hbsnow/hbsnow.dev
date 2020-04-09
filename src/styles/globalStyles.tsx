@@ -66,8 +66,28 @@ const globalStyles = css.global`
   h4,
   h5,
   h6 {
-    margin: 0 0 calc(var(--gap-size) * 4);
+    font-weight: bold;
+    margin: calc(var(--gap-size) * 4) 0;
     padding: 0;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  h3 {
+    font-size: 1.25rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  h5 {
+    font-size: 0.875rem;
+  }
+  h6 {
+    font-size: 0.75rem;
   }
 
   p,
@@ -94,6 +114,10 @@ const globalStyles = css.global`
     display: inline-block;
     color: var(--color-primary);
     text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   img,

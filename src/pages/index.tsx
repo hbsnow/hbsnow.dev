@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
 import { Entry } from 'contentful'
 import { IBookFields } from '../models/contentful'
 import { loadBlogList, BlogType } from '../modules/blog'
@@ -12,7 +13,7 @@ import BookList from '../components/book/BookList'
 import Margin from '../elements/margin/Margin'
 import { useSortBlog } from '../hooks/blog'
 import HomeAbout from '../components/home/HomeAbout'
-import UnderlineLink from '../elements/link/UnderlineLink'
+import Accent from '../elements/accent/Accent'
 
 export const config = { amp: true }
 
@@ -61,9 +62,11 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
 
                 <Margin y={2}>
                   <div className="allView">
-                    <UnderlineLink href="/blog">
-                      All {blogList.length} Posts
-                    </UnderlineLink>
+                    <Link href="/blog">
+                      <a>
+                        <Accent>All {blogList.length} Posts</Accent>
+                      </a>
+                    </Link>
                   </div>
                 </Margin>
               </Margin>
@@ -79,9 +82,11 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
 
                 <Margin y={2}>
                   <div className="allView">
-                    <UnderlineLink href="/book">
-                      All {bookList.length} Read Books
-                    </UnderlineLink>
+                    <Link href="/book">
+                      <a>
+                        <Accent>All {bookList.length} Read Books</Accent>
+                      </a>
+                    </Link>
                   </div>
                 </Margin>
               </Margin>
@@ -96,7 +101,6 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
 
         .section.about {
           position: relative;
-          z-index: 2;
         }
         .section.about::before {
           content: '';

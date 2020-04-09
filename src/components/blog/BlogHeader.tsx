@@ -35,10 +35,11 @@ const BlogHeader: React.FC<Props> = ({ post }) => {
 
       <style jsx>{`
         .header {
-          margin: 0 0 calc(var(--gap-size) * 2);
+          margin: 0 0 calc(var(--gap-size) * 6);
         }
 
         .title {
+          font-size: 2rem;
           margin: 0 0 var(--gap-size);
         }
 

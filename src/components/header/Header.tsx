@@ -36,7 +36,6 @@ const Header: React.FC<Props> = () => {
       </Container>
       <style jsx>{`
         .header {
-          background-color: var(--color-default-bg);
           padding: calc(var(--gap-size) * 4) 0;
         }
 
@@ -92,10 +91,6 @@ const Header: React.FC<Props> = () => {
 
           .header {
             padding: calc(var(--gap-size) * 8) 0;
-          }
-
-          .siteTitle {
-            font-size: 2rem;
           }
 
           .navList {

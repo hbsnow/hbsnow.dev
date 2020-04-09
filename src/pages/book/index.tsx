@@ -28,7 +28,7 @@ const Page: NextPage<Props> = ({ bookList }) => {
       <DefaultTemplate>
         <Container>
           {bookList.map((book) => (
-            <Margin key={book.sys.id} bottom={2}>
+            <Margin key={book.sys.id} bottom={4}>
               <Book book={book} />
             </Margin>
           ))}

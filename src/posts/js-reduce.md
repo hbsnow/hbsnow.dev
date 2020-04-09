@@ -12,6 +12,14 @@ JavaScript の `reduce` は便利だけれども、普段使いで別言語を�
 
 ## reduce の使用例
 
+- 配列の合計を計算する
+- オブジェクトの配列から最大、最小値をもつオブジェクトを取得する
+- 集計する
+- flatten
+- async/await で配列の順次処理
+
+ここでは上記 5 つの例をみていく。
+
 ### 配列の合計を計算する
 
 `reduce` のよくある例としてありがちなのが合計値の計算。
@@ -36,7 +44,9 @@ const sum = cart.reduce((accumulator, currentValue) => {
 console.log(sum) // => 6
 ```
 
-このようなオブジェクトの特定プロパティの総数を数えることもできるし、特定のプロパティ名のある値をもつものだけを除外することもできる。
+このようなオブジェクトの特定プロパティの総数を数えることもできる。
+
+また、特定のプロパティ名のある値をで除外するようなこともできる。
 
 ```js
 const sum = cart.reduce((accumulator, currentValue) => {
@@ -50,6 +60,8 @@ console.log(sum) // => 4
 
 ### オブジェクトの配列から最大、最小値をもつオブジェクトを取得する
 
+`cart` の `quantity` の最大、あるいは最小の値をもつオブジェクトを取得したい場合
+
 ```js
 const maxItem = cart.reduce((accumulator, currentValue) =>
   accumulator.quantity > currentValue.quantity ? accumulator : currentValue
@@ -62,9 +74,11 @@ const minItem = cart.reduce((accumulator, currentValue) =>
 console.log(sum) // => { itemId: 3, quantity: 1 }
 ```
 
+単純に値だけを求めたいのであれば `Math.max(...cart.map(item => item.quantity))` とすればいい。
+
 ### 集計する
 
-SQL でいう `group by` のような集計を取りたいときに便利。配列の合計を計算するをすこし複雑に使った場合の例になると思う。
+SQL でいう `group by` のような集計を取りたいときに便利。
 
 ```js
 const items = [
@@ -75,7 +89,7 @@ const items = [
 ]
 ```
 
-こんな配列から `taxRate` ごとに集計をとりたくなったときには、以下のように記述できる。
+このような配列から `taxRate` ごとに集計をとりたくなったときには、以下のように記述できる。
 
 ```js
 const groupByTaxRate = (items) => {
@@ -153,15 +167,33 @@ console.log(
 
 ### async/await で配列の順次処理
 
-これについては別記事 [JavaScript の async/await を forEach で使ったらハマった話](/blog/async-await-higher-order-function/)で書いたのでそちらを参照してください。
+これについては別記事 [JavaScript の async/await を forEach で使ったらハマった話](/blog/js-async-await-higher-order-function)で書いたのでそちらを参照してください。
 
 ## reduce を使うべきか
 
 - [Is reduce() bad? - HTTP 203](https://www.youtube.com/watch?v=qaGjS7-qWzg)
 
-[Jake Archibald が Twitter で reduce について言及して](https://twitter.com/jaffathecake/status/1213077702300852224) 少し話題になっていて、自分も考えさせられた。
+[Jake Archibald が Twitter で reduce について言及して](https://twitter.com/jaffathecake/status/1213077702300852224) 少し話題になっていて、自分も考えさせられた。合計や最大値を求めるといった以外のループとしての用途で使うことがそれなりにあったからだ。
 
-合計や最大値を求めるといった以外のループとしての用途で使うことがそれなりにあったからだ。
+前述のサンプルだと async/await で配列の順次処理がまさにこれに該当するし、配列の合計を計算するの最後の例
+
+```js
+const sum = cart.reduce((accumulator, currentValue) => {
+  return currentValue.itemId !== 2
+    ? accumulator + currentValue.quantity
+    : accumulator
+}, 0)
+```
+
+これは合計のために `reduce` は残るが、次のように書き直せる
+
+```js
+const sum = cart
+  .filter((item) => item.itemId !== 2)
+  .reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.quantity
+  }, 0)
+```
 
 ### reduce をループとして使う例
 
@@ -213,39 +245,46 @@ const result = items
 
 `map` と `filter` で書き直すことができる。
 
-このコードを `reduce` で記述するのはなんだか賢くなった気分になる、というのは確かにあるが、この例は明らかに `map` と `filter` のほうがリーダブルだ。
+このコードを `reduce` で記述するのはなんだか賢くなった気分になる、というのは確かにあるが、この例は明らかに `map` と `filter` のほうが何をしたいのかが明確でリーダブルだ。
 
-動画の最後に紹介されている [Underdash](https://surma.github.io/underdash/) はシンプルなイディオムがまとまっていて便利なので、ここでもおすすめしておく。
+### オブジェクトの指定 key を Omit する
 
-## TypeScript で型をつける
+オブジェクトで特定 key を除外したいときにも reduce を使うことができる。
 
-先程の `items` を例にすると次のように書ける
-
-```ts
-type ItemType = {
-  amount: number
-  taxRate: number
+```js
+const example = {
+  foo: 0,
+  bar: 1,
+  baz: 2,
 }
 
-type TaxItemType = {
-  [key: string]: number
-}
+const result = Object.keys(example)
+  .filter((key) => !['foo', 'bar'].includes(key))
+  .reduce(
+    (newObj, key) => ({
+      ...newObj,
+      [key]: example[key],
+    }),
+    {}
+  )
 
-const items: ItemType[] = [
-  { amount: 500, taxRate: 8 },
-  { amount: 1000, taxRate: 8 },
-  { amount: 1200, taxRate: 10 },
-  { amount: 0, taxRate: 0 },
-]
-
-const taxes = items.reduce<TaxItemType>((accumulator, currentValue) => {
-  const key = currentValue.taxRate
-  accumulator[key] = !accumulator[key]
-    ? currentValue.amount
-    : accumulator[key] + currentValue.amount
-
-  return accumulator
-}, {})
+console.log(result) // => { baz: 2 }
 ```
 
-`reduce` の型定義を確認すればわかるのだが、ジェネリクスを使うかあるいは `accumulator` を `accumulator: TaxItemType` として型をわたしてあげるといい。
+でも、これも `reduce` は使う必要はなくて
+
+```js
+Object.fromEntries(
+  Object.entries(example).filter(([key]) => !['foo', 'bar'].includes(key))
+)
+```
+
+`Object.fromEntries` と `Object.entries` で記述できるし、この例だともっとシンプルに
+
+```js
+const { foo, bar, ...result } = example
+```
+
+これでいい。
+
+また、こういった配列処理の例は[動画](https://www.youtube.com/watch?v=qaGjS7-qWzg)>)の最後に紹介されている [Underdash](https://surma.github.io/underdash/) はにまとまっているので、ここでもおすすめしておきます。

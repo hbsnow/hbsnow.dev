@@ -2,7 +2,7 @@ import React from 'react'
 
 const Code: React.FC = ({ children }) => {
   return (
-    <code className="code">
+    <code data-testid="Code" className="code">
       {children}
       <style jsx>{`
         .code {

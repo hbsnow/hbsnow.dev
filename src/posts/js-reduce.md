@@ -12,15 +12,9 @@ JavaScript の `reduce` は便利だけれども、普段使いで別言語を�
 
 ## reduce の使用例
 
-- 配列の合計を計算する
-- オブジェクトの配列から最大、最小値をもつオブジェクトを取得する
-- 集計する
-- flatten
-- async/await で配列の順次処理
-
 ここでは上記 5 つの例をみていく。
 
-### 配列の合計を計算する
+### 1. 配列の合計を計算する
 
 `reduce` のよくある例としてありがちなのが合計値の計算。
 
@@ -58,7 +52,7 @@ const sum = cart.reduce((accumulator, currentValue) => {
 console.log(sum) // => 4
 ```
 
-### オブジェクトの配列から最大、最小値をもつオブジェクトを取得する
+### 2. オブジェクトの配列から最大、最小値をもつオブジェクトを取得する
 
 `cart` の `quantity` の最大、あるいは最小の値をもつオブジェクトを取得したい場合
 
@@ -76,7 +70,7 @@ console.log(sum) // => { itemId: 3, quantity: 1 }
 
 単純に値だけを求めたいのであれば `Math.max(...cart.map(item => item.quantity))` とすればいい。
 
-### 集計する
+### 3. 集計する
 
 SQL でいう `group by` のような集計を取りたいときに便利。
 
@@ -141,7 +135,7 @@ const groupByTaxRate = (items) => {
 
 こんな感じになるだろうか。どちらが読みやすいかはちょっと迷うところ。
 
-### flatten
+### 4. flatten
 
 [flat](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) が使えるのであればこんなことをする必要はない。
 
@@ -165,7 +159,7 @@ console.log(
 
 ただ、2 次元より大きな配列に対応するためにはもう少し複雑な処理が必要になって、[MDN の flat の項目](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flat#reduce_and_concat)にもあるのでそちらにまかせることとします。
 
-### async/await で配列の順次処理
+### 5. async/await で配列の順次処理
 
 これについては別記事 [JavaScript の async/await を forEach で使ったらハマった話](/blog/js-async-await-higher-order-function)で書いたのでそちらを参照してください。
 

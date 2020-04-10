@@ -12,7 +12,7 @@ updatedAt: 2019-04-21
 
 - [hbsnow-sandbox/js-async-await](https://github.com/hbsnow-sandbox/js-async-await)
 
-## 簡単な解説
+## 前提
 
 ```js
 const timer = (delay) => {
@@ -29,7 +29,7 @@ const timer = (delay) => {
 })
 ```
 
-上記のコードで期待する結果にならなかったことが発表の経緯です。
+上記のコードで期待する結果にならなかったことを相談されたことが発表の経緯です。
 
 ```
 $ # 期待した結果
@@ -81,7 +81,7 @@ let promiseChain = Promise.resolve()
 }, Promise.resolve())
 ```
 
-ただこの方法だと何が目的でこういう記述になっているのか、すぐにわかりにくいのではないかと感じます。
+ただこの方法だと何が目的でこういう記述になっているのか、すぐにわかりにくいのではないかと感じます。この理由についての話は[reduce の使いどころ](/blog/js-async-await-higher-order-function)に書いています。
 
 ## 並列処理して全部終わるまで待つ
 

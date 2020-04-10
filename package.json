@@ -84,7 +84,7 @@
     "eslint-plugin-react": "7.19.0",
     "eslint-plugin-react-hooks": "3.0.0",
     "gray-matter": "4.0.2",
-    "husky": "4.2.3",
+    "husky": "4.2.5",
     "jest": "25.2.7",
     "lint-staged": "10.1.2",
     "next": "9.3.4",

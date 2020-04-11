@@ -93,7 +93,7 @@
     "next-transpile-modules": "3.2.0",
     "prettier": "2.0.4",
     "raw-loader": "4.0.0",
-    "react-children-utilities": "2.0.12",
+    "react-children-utilities": "2.0.13",
     "regenerator-runtime": "0.13.5",
     "remark-sectionize": "1.1.1",
     "secretlint": "1.1.0",

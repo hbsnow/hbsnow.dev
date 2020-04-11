@@ -26,10 +26,10 @@ const Avatar: React.FC<Props> = ({ size = 256 }) => {
           display: flex;
           justify-content: center;
           align-items: center;
-          width: calc(256px + var(--gap-size) * 4);
-          height: calc(256px + var(--gap-size) * 4);
+          width: calc(${size}px + var(--gap-size) * 3);
+          height: calc(${size}px + var(--gap-size) * 3);
           background-color: var(--color-default-surface);
-          border-radius: 156px;
+          border-radius: 50%;
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
             0 3px 6px rgba(0, 0, 0, 0.23);
         }

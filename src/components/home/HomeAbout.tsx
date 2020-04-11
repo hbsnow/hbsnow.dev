@@ -1,5 +1,6 @@
 import React from 'react'
 import Avatar from './Avatar'
+import { mediaQuery } from '../../styles/const'
 
 type Props = {}
 
@@ -16,25 +17,46 @@ const HomeAbout: React.FC<Props> = ({ children }) => {
       <style jsx>{`
         .homeAbout {
           display: grid;
-          grid-template-columns: auto 1fr;
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
           gap: calc(var(--gap-size) * 4);
         }
 
-        .avatarCell {
-          grid-column: 1 / 2;
-        }
-
+        .avatarCell,
         .descriptionCell {
-          grid-column: 2 / 3;
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+
+        .avatarCell {
+          grid-row: 1 / 2;
+        }
+
+        .descriptionCell {
+          grid-row: 2 / 3;
         }
 
         .description {
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+
+        @media ${mediaQuery.sm} {
+          .homeAbout {
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto;
+          }
+
+          .avatarCell {
+            grid-column: 1 / 2;
+          }
+
+          .descriptionCell {
+            grid-row: 1 / 2;
+            grid-column: 2 / 3;
+          }
         }
       `}</style>
     </div>

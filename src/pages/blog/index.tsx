@@ -6,6 +6,7 @@ import { BlogType, loadBlogList } from '../../modules/blog'
 import Container from '../../elements/container/Container'
 import BlogList from '../../components/blog/BlogList'
 import { useSortBlog } from '../../hooks/blog'
+import Margin from '../../elements/margin/Margin'
 
 export const config = { amp: true }
 
@@ -24,7 +25,9 @@ const Page: NextPage<Props> = ({ blogList }) => {
       </Head>
       <DefaultTemplate>
         <Container>
-          <BlogList blogList={sortedBlogList} />
+          <Margin bottom={6}>
+            <BlogList blogList={sortedBlogList} />
+          </Margin>
         </Container>
       </DefaultTemplate>
     </>

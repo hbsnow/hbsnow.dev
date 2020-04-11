@@ -4,7 +4,7 @@
 export const colors = Object.freeze({
   bg: {
     light: '#fefefe',
-    dark: '#121212',
+    dark: '#2B2842',
   },
   surface: {
     light: 'rgba(0, 0, 0, 0.06)',
@@ -16,11 +16,11 @@ export const colors = Object.freeze({
   },
   textMuted: {
     light: 'rgba(0, 0, 0, 0.54)',
-    dark: 'rgba(255, 255, 255, 0.38)',
+    dark: 'rgba(255, 255, 255, 0.49)',
   },
   disabled: {
     light: 'rgba(0, 0, 0, 0.54)',
-    dark: 'rgba(255, 255, 255, 0.38)',
+    dark: 'rgba(255, 255, 255, 0.49)',
   },
   divider: {
     light: 'rgba(0, 0, 0, 0.12)',
@@ -28,14 +28,14 @@ export const colors = Object.freeze({
   },
   primary: {
     light: '#335BC4',
-    dark: '#59a1ff',
+    dark: '#70A5D4',
   },
   primaryVariant: {
-    light: '#006fcb',
-    dark: '#006fcb',
+    light: '#6F5571',
+    dark: '#9C94A8',
   },
   secondary: {
-    light: '#fd9547',
+    light: '#6F5571',
     dark: '#fd9547',
   },
   error: {

@@ -46,7 +46,7 @@ const Book: React.FC<Props> = ({ book }) => {
 
         .name {
           font-size: 1.25rem;
-          margin-bottom: 0;
+          margin: 0;
         }
       `}</style>
     </div>

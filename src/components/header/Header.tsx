@@ -13,7 +13,7 @@ const Header: React.FC<Props> = () => {
           <div className="siteTitleContainer">
             <h1 className="siteTitle">
               <Link href="/">
-                <a>hbsnow.dev</a>
+                <a className="link">hbsnow.dev</a>
               </Link>
             </h1>
           </div>
@@ -22,12 +22,12 @@ const Header: React.FC<Props> = () => {
             <ul className="navList">
               <li className="navListItem">
                 <Link href="/blog">
-                  <a>blog</a>
+                  <a className="link">blog</a>
                 </Link>
               </li>
               <li className="navListItem">
                 <Link href="/book">
-                  <a>book</a>
+                  <a className="link">book</a>
                 </Link>
               </li>
             </ul>
@@ -75,6 +75,10 @@ const Header: React.FC<Props> = () => {
           display: block;
           margin: 0;
           padding: var(--gap-size);
+        }
+
+        .link {
+          color: var(--color-primary);
         }
 
         @media ${mediaQuery.sm} {

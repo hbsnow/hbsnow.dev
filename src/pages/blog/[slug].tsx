@@ -6,6 +6,7 @@ import { loadBlogList, loadBlog, BlogType } from '../../modules/blog'
 import Container from '../../elements/container/Container'
 import Markdown from '../../elements/markdown/Markdown'
 import BlogHeader from '../../components/blog/BlogHeader'
+import Margin from '../../elements/margin/Margin'
 
 export const config = { amp: true }
 
@@ -22,10 +23,12 @@ const Page: NextPage<Props> = ({ blog }) => {
       </Head>
       <DefaultTemplate>
         <Container>
-          <article>
-            <BlogHeader post={blog.data} />
-            <Markdown source={blog.content} />
-          </article>
+          <Margin bottom={6}>
+            <article>
+              <BlogHeader post={blog.data} />
+              <Markdown source={blog.content} />
+            </article>
+          </Margin>
         </Container>
       </DefaultTemplate>
     </>

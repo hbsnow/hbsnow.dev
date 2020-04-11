@@ -31,7 +31,7 @@ const Footer: React.FC<Props> = () => {
         <div className="footerContainer">
           <div className="siteName">
             <Link href="/">
-              <a>hbsnow.dev</a>
+              <a className="link">hbsnow.dev</a>
             </Link>
           </div>
 
@@ -41,7 +41,11 @@ const Footer: React.FC<Props> = () => {
             {sns.map((item) => (
               <li className="snsListItem" key={item.href}>
                 <div className="snsIcon">
-                  <ExternalLink href={item.href} aria-label={item.label}>
+                  <ExternalLink
+                    href={item.href}
+                    aria-label={item.label}
+                    disableVisited
+                  >
                     <Icon name={item.name} />
                   </ExternalLink>
                 </div>
@@ -53,10 +57,8 @@ const Footer: React.FC<Props> = () => {
       <style jsx>{`
         .footer {
           position: relative;
-          margin: calc(var(--gap-size) * 6) 0;
         }
-        .footer::before,
-        .footer::after {
+        .footer::before {
           position: absolute;
           top: 0;
           bottom: 0;
@@ -64,20 +66,13 @@ const Footer: React.FC<Props> = () => {
           left: 0;
           content: '';
           z-index: -1;
-        }
-
-        .footer::before {
-          transform: skew(0, var(--layout-deg));
-          background-color: var(--color-default-surface);
-        }
-        .footer::after {
           background-color: var(--color-default-bg);
           opacity: 0.6;
         }
 
         .footerContainer {
           display: flex;
-          height: calc(1.5rem * 16);
+          height: calc(1.5rem * 12);
           justify-content: center;
           align-items: center;
         }
@@ -106,6 +101,10 @@ const Footer: React.FC<Props> = () => {
 
         .siteName {
           padding: var(--gap-size);
+        }
+
+        .link {
+          color: var(--color-primary);
         }
       `}</style>
     </footer>

@@ -281,4 +281,4 @@ const { foo, bar, ...result } = example
 
 これでいい。
 
-また、こういった配列処理の例は[動画](https://www.youtube.com/watch?v=qaGjS7-qWzg)>)の最後に紹介されている [Underdash](https://surma.github.io/underdash/) はにまとまっているので、ここでもおすすめしておきます。
+また、こういった配列処理の例は[動画](https://www.youtube.com/watch?v=qaGjS7-qWzg)の最後に紹介されている [Underdash](https://surma.github.io/underdash/) にまとまっているので、ここでもおすすめしておきます。

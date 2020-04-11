@@ -39,6 +39,10 @@ const globalStyles = css.global`
     }
   }
 
+  html {
+    scroll-padding-top: calc(var(--gap-size) * 4);
+  }
+
   *,
   *::before,
   *::after {
@@ -110,14 +114,34 @@ const globalStyles = css.global`
     padding: 0;
   }
 
+  table {
+    border-collapse: collapse;
+    border: 1px solid var(--color-default-divider);
+  }
+
+  thead {
+    background-color: var(--color-default-surface);
+  }
+
+  th,
+  td {
+    border: 1px solid var(--color-default-divider);
+    padding: var(--gap-size);
+  }
+
   a {
     display: inline-block;
     color: var(--color-primary);
     text-decoration: none;
   }
-
   a:hover {
     text-decoration: underline;
+  }
+  a:visited {
+    color: var(--color-primary-variant-bg);
+  }
+  a[href^='#']:visited {
+    color: var(--color-primary);
   }
 
   img,
@@ -138,6 +162,10 @@ const globalStyles = css.global`
   kbd,
   samp {
     font-family: var(--font-family-code);
+  }
+
+  i {
+    font-style: normal;
   }
 `
 

@@ -2,7 +2,9 @@ import React from 'react'
 
 type NoTargetElement = Omit<JSX.IntrinsicElements['a'], 'target'>
 
-type Props = {} & NoTargetElement
+type Props = {
+  disableVisited?: boolean
+} & NoTargetElement
 
 const addRel = (props: NoTargetElement): NoTargetElement => {
   const rel = props?.rel?.split(' ') || []
@@ -14,10 +16,19 @@ const addRel = (props: NoTargetElement): NoTargetElement => {
   }
 }
 
-const ExternalLink: React.FC<Props> = ({ children, ...restProps }) => {
+const ExternalLink: React.FC<Props> = ({
+  children,
+  disableVisited = false,
+  ...restProps
+}) => {
   return (
-    <a target="_blank" {...addRel(restProps)}>
+    <a target="_blank" className="link" {...addRel(restProps)}>
       {children}
+      <style jsx>{`
+        .link {
+          ${disableVisited ? `color: var(--color-primary)` : ''}
+        }
+      `}</style>
     </a>
   )
 }

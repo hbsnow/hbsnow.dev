@@ -14,6 +14,7 @@ import Margin from '../elements/margin/Margin'
 import { useSortBlog } from '../hooks/blog'
 import HomeAbout from '../components/home/HomeAbout'
 import Accent from '../elements/accent/Accent'
+import Icon from '../elements/icon/Icon'
 
 export const config = { amp: true }
 
@@ -56,15 +57,17 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
           <section className="section">
             <Container>
               <Margin y={6}>
-                <h2 id="latest-posts">Latest Posts</h2>
+                <h2 id="latest-posts">
+                  <Accent>Latest Posts</Accent>
+                </h2>
 
                 <BlogList blogList={latestBlogList} />
 
                 <Margin y={2}>
                   <div className="allView">
                     <Link href="/blog">
-                      <a>
-                        <Accent>All {blogList.length} Posts</Accent>
+                      <a className="link">
+                        All {blogList.length} Posts <Icon name="arrowRight" />
                       </a>
                     </Link>
                   </div>
@@ -76,15 +79,18 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
           <section className="section">
             <Container>
               <Margin y={6}>
-                <h2 id="latest-read-books">Latest Read Books</h2>
+                <h2 id="latest-read-books">
+                  <Accent>Latest Read Books</Accent>
+                </h2>
 
                 <BookList bookList={latestBookList} />
 
                 <Margin y={2}>
                   <div className="allView">
                     <Link href="/book">
-                      <a>
-                        <Accent>All {bookList.length} Read Books</Accent>
+                      <a className="link">
+                        All {bookList.length} Read Books{' '}
+                        <Icon name="arrowRight" />
                       </a>
                     </Link>
                   </div>
@@ -126,7 +132,11 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
         }
 
         .allView {
-          text-align: center;
+          text-align: right;
+        }
+
+        .link {
+          color: var(--color-primary);
         }
       `}</style>
     </>

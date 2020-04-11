@@ -1,3 +1,6 @@
+const withTM = require('next-transpile-modules')(['react-children-utilities'])
+const withImages = require('next-images')
+
 // if (process.env.NODE_ENV !== 'production') {
 require('dotenv').config()
 // }
@@ -16,7 +19,14 @@ const nextSettings = {
     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
     CONTENTFUL_API_ACCESS_TOKEN: process.env.CONTENTFUL_API_ACCESS_TOKEN,
   },
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
+    // Fixes npm packages that depend on `fs` module
+    if (!isServer) {
+      config.node = {
+        fs: 'empty',
+      }
+    }
+
     config.module.rules.push({
       test: /\.md$/,
       use: 'raw-loader',
@@ -25,4 +35,4 @@ const nextSettings = {
   },
 }
 
-module.exports = nextSettings
+module.exports = withImages(withTM(nextSettings))

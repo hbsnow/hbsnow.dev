@@ -6,6 +6,6 @@ import Heading from './Heading'
 describe('Heading Component', () => {
   it('render the container', () => {
     render(<Heading>heading</Heading>)
-    expect(screen.getByTestId('Heading')).toHaveTextContent('heading')
+    expect(screen.getByRole('heading')).toHaveTextContent('heading')
   })
 })

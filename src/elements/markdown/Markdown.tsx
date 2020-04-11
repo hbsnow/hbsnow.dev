@@ -1,10 +1,9 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import Blockcode from '../blockcode/Blockcode'
 import remarkSectionize from 'remark-sectionize'
+import Blockcode from '../blockcode/Blockcode'
 import Heading from '../heading/Heading'
 import { imageSize } from 'image-size'
-// import { promisify } from 'util'
 
 type Props = {
   source: string

@@ -1,5 +1,4 @@
 const withTM = require('next-transpile-modules')(['react-children-utilities'])
-const withImages = require('next-images')
 
 // if (process.env.NODE_ENV !== 'production') {
 require('dotenv').config()
@@ -35,4 +34,4 @@ const nextSettings = {
   },
 }
 
-module.exports = withImages(withTM(nextSettings))
+module.exports = withTM(nextSettings)

@@ -1,6 +1,8 @@
 const withTM = require('next-transpile-modules')(['react-children-utilities'])
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 
-// if (process.env.NODE_ENV !== 'production') {
+// if (process.env.NODE_ENV === 'development') {
 require('dotenv').config()
 // }
 
@@ -30,6 +32,18 @@ const nextSettings = {
       test: /\.md$/,
       use: 'raw-loader',
     })
+
+    // localでビルド時にバンドルサイズ/時間を計測
+    if (process.env.MEASURE && process.env.NODE_ENV !== 'development') {
+      config.plugins.push(
+        new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+        })
+      )
+
+      return new SpeedMeasurePlugin().wrap(config)
+    }
+
     return config
   },
 }

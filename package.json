@@ -5,9 +5,9 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "dev": "next",
-    "build": "NODE_ENV=development rm -rf .next && next build && next export",
-    "start": "NODE_ENV=production next start",
+    "dev": "NODE_ENV=development next",
+    "build": "NODE_ENV=production MEASURE=true rm -rf .next && next build && next export",
+    "start": "next start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint 'src/**/*.{ts,tsx}' && prettier --check --ignore-path .gitignore '**/*.{js,json,md}' && secretlint '**/*' && textlint 'src/posts/**'",
@@ -98,13 +98,16 @@
     "regenerator-runtime": "0.13.5",
     "remark-sectionize": "1.1.1",
     "secretlint": "1.1.0",
+    "speed-measure-webpack-plugin": "^1.3.3",
     "textlint": "^11.6.3",
     "textlint-rule-ja-hiragana-fukushi": "^1.2.0",
     "textlint-rule-ja-hiragana-hojodoushi": "^1.0.4",
     "textlint-rule-ja-hiragana-keishikimeishi": "^1.0.2",
     "textlint-rule-spellcheck-tech-word": "^5.0.0",
     "typescript": "3.8.3",
-    "webpack": "4.42.1"
+    "webpack": "4.42.1",
+    "webpack-bundle-analyzer": "^3.6.1",
+    "webpack-visualizer-plugin": "^0.1.11"
   },
   "engines": {
     "node": ">=12"

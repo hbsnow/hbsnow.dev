@@ -5,7 +5,7 @@ import whyDidYouRender from '@welldone-software/why-did-you-render'
 import 'normalize.css'
 import globalStyles from '../styles/globalStyles'
 
-if (process.env.NODE_ENV !== 'production') {
+if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
   whyDidYouRender(React)
 }
 

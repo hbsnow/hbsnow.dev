@@ -40,7 +40,7 @@ const globalStyles = css.global`
   }
 
   html {
-    scroll-padding-top: calc(var(--gap-size) * 4);
+    scroll-behavior: smooth;
   }
 
   *,

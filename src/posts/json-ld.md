@@ -5,11 +5,11 @@ description: JSON-LD による構造化データの記述方法についての�
 createdAt: 2017-12-01
 ---
 
-JSON-LD とは、[Linked Data](https://www.w3.org/DesignIssues/LinkedData.html) を JSON で記述するための軽量シンタックスです。Google は構造化データを、この [JSON-LD で記述することを推奨](https://developers.google.com/search/docs/guides/intro-structured-data#structured-data-format)しています。
+JSON-LD とは、[Linked Data](https://www.w3.org/DesignIssues/LinkedData.html) を JSON で記述するための軽量シンタックスです。Google は構造化データを、 [JSON-LD での記述を推奨](https://developers.google.com/search/docs/guides/intro-structured-data#structured-data-format)しています。
 
 ## JSON-LD の keywords
 
-JSON-LD にはいくつかの keyword がありますが、ここで紹介しているのは AMP で必要になる keyword のみに限定しています。その他の keyword については[最新の JSON-LD の SPEC](https://json-ld.org/spec/latest/json-ld/#syntax-tokens-and-keywords) で確認してください。
+JSON-LD にはいくつかの keyword がありますが、ここで紹介しているのは AMP で必要になる keyword のみに限定しています。その他の keyword については[JSON-LD の SPEC](https://json-ld.org/spec/latest/json-ld/#syntax-tokens-and-keywords) にて確認できます。
 
 ### @context
 
@@ -24,7 +24,7 @@ JSON-LD にはいくつかの keyword がありますが、ここで紹介して
 }
 ```
 
-これは `@context` を使用することで、シンプルに記述することができます。
+これは `@context` を使用することで、シンプルに記述できます。
 
 ```json
 {
@@ -37,9 +37,9 @@ JSON-LD にはいくつかの keyword がありますが、ここで紹介して
 }
 ```
 
-ここでの `name` や `Person` は term と呼ばれ、識別子を短い記法で表現することができるようになります。
+ここでの `name` や `Person` は term と呼ばれ、識別子を短い記法で表現できるようになります。
 
-また、次のように記述することもできます。
+また、次のように記述できます。
 
 ```json
 {
@@ -61,7 +61,7 @@ JSON-LD にはいくつかの keyword がありますが、ここで紹介して
 }
 ```
 
-この例のように term の定義が一つであれば、`@vocab` を使用さらに簡略化して書くこともできます。
+この例のように term の定義が 1 つであれば、`@vocab` を使用さらに簡略化して書くこともできます。
 
 ```json
 {
@@ -71,7 +71,7 @@ JSON-LD にはいくつかの keyword がありますが、ここで紹介して
 }
 ```
 
-逆に複雑であれば、これらの定義を外部ファイルにすることもできます。
+逆に複雑であれば、これらの定義を外部ファイルにできます。
 
 ```json
 {
@@ -91,7 +91,7 @@ JSON-LD にはいくつかの keyword がありますが、ここで紹介して
 
 node あるいは typed value の型を指定するときに使用します。
 
-node 型は人物や場所、イベント、Web ページなどの記述されているものの型を指定し、typed value 型は整数、浮動小数点数、または日付など、特定の値のデータ型を指定します。
+node 型は人物や場所、イベント、Web ページなどの記述されているものの型を指定し、typed value 型は整数や浮動小数点数、または日付など特定の値のデータ型を指定します。
 
 #### @id
 
@@ -112,7 +112,7 @@ IRI や blank node identifier (`_:` ではじまる文字列) を用いて一意
 
 ## AMP で使用する場合のサンプル
 
-AMP で JSON-LD を使用する場合には、いくつかの記述が必須となる項目があり、それらは公式の [Google Search のドキュメント](https://developers.google.com/search/docs/guides/)で確認することができます。
+AMP で JSON-LD を使用する場合には、いくつかの記述が必須となる項目があり、それらは公式の [Google Search のドキュメント](https://developers.google.com/search/docs/guides/)で確認できます。
 
 ### ブログ記事
 
@@ -170,11 +170,11 @@ AMP で JSON-LD を使用する場合には、いくつかの記述が必須と�
 
 また、ここに指定される画像はワードマークやロゴであって、アイコンではないことに注意が必要です。
 
-`mainEntityOfPage`, `dateModified`, `description` は `recommended` であり必須ではありません。
+`mainEntityOfPage`, `dateModified`, `description` は `recommended` であり必須になっていません。
 
 ## バリデーション
 
-[Google 構造化テストツール](https://search.google.com/structured-data/testing-tool) では実際にサイトで利用するときにエラーがないかの確認をすることができます。
+[Google 構造化テストツール](https://search.google.com/structured-data/testing-tool) では実際にサイトで利用するときにエラーがないかの確認をできます。
 
 ## 参考
 

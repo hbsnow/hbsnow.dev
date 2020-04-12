@@ -14,7 +14,8 @@
     "lintfix": "eslint --fix 'src/**/*.{ts,tsx}' && prettier --write --ignore-path .gitignore '**/*.{js,json,md}'",
     "test": "jest --watch",
     "test:ci": "jest --ci",
-    "contentful-typescript-codegen": "npx contentful-typescript-codegen --output src/models/contentful.d.ts"
+    "contentful-typescript-codegen": "npx contentful-typescript-codegen --output src/models/contentful.d.ts",
+    "tl": "textlint 'src/posts/**'"
   },
   "husky": {
     "hooks": {
@@ -49,7 +50,8 @@
     "react-dom": "16.13.1",
     "react-markdown": "4.3.1",
     "react-test-renderer": "16.13.1",
-    "react-use": "14.1.1"
+    "react-use": "14.1.1",
+    "textlint-rule-preset-ja-technical-writing": "^4.0.0-beta.0"
   },
   "devDependencies": {
     "@babel/core": "7.9.0",
@@ -97,10 +99,11 @@
     "regenerator-runtime": "0.13.5",
     "remark-sectionize": "1.1.1",
     "secretlint": "1.1.0",
+    "textlint": "^11.6.3",
     "typescript": "3.8.3",
     "webpack": "4.42.1"
   },
   "engines": {
-    "node": ">=13"
+    "node": ">=12"
   }
 }

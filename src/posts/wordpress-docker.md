@@ -6,9 +6,11 @@ createdAt: 2018-05-11
 updatedAt: 2019-10-02
 ---
 
-ここには Docker のインストールなどのごく初歩的な解説はありません。また、Wordpress の環境構築には Docker の他に [VCCW](https://github.com/vccw-team/vccw) という Vagrant を使用する Starter もよく知られているようですが、私自身は使用したことがないので、これらツールの比較についてはこのページで言及していません。
+ここには Docker のインストールなどのごく初歩的な解説はありません。
 
-また、[Laradock](https://laradock.io/) でも Wordpress をサポートしているようなので、そちらを試してみるのもいいかもしれません。
+Wordpress の環境構築には [VCCW](https://github.com/vccw-team/vccw) という Vagrant を使用する Starter もありますが、私自身は使用したことがないので、これらの比較については言及していません。
+
+また、[Laradock](https://laradock.io/) でも Wordpress をサポートしているようです。
 
 ## とりあえず動かす
 
@@ -20,7 +22,7 @@ updatedAt: 2019-10-02
 
 ## ファイルの永続化
 
-とりあえず動作させて、ちょっとした確認だけを行うだけであれば上記の `docker-compose.yml` でさほど困ることはありませんが、起動のたびに `wp-content` 内のデータが消えるのは開発環境として好ましいくないことも多いので、該当のディレクトリを永続化させます。
+ちょっとした確認だけを行うだけであれば上記の `docker-compose.yml` で困ることはありませんが、起動のたび `wp-content` 内のデータが消えるのは開発環境として好ましくありません。そのため該当のディレクトリを永続化させる必要があるでしょう。
 
 [volumes](https://docs.docker.com/compose/compose-file/#volumes) の項目を参考に、ホストとコンテナをマッピングします。
 

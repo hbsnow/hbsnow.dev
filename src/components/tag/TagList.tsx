@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Chip from '../../elements/chip/Chip'
 
 type Props = {
@@ -11,9 +12,11 @@ const TagList: React.FC<Props> = ({ tagList }) => {
       {tagList?.map((tag) => {
         return (
           <li key={tag} className="tagListItem">
-            <Chip href="/blog/tag/[slug]" as={`/blog/tag/${tag}`} icon={tag}>
-              {tag}
-            </Chip>
+            <Link href="/blog/tag/[slug]" as={`/blog/tag/${tag}`}>
+              <a>
+                <Chip icon={tag}>{tag}</Chip>
+              </a>
+            </Link>
           </li>
         )
       })}

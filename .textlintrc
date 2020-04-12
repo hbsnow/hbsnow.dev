@@ -1,5 +1,9 @@
 {
   "rules": {
-      "preset-ja-technical-writing": true
+      "preset-ja-technical-writing": true,
+      "textlint-rule-spellcheck-tech-word": true,
+      "textlint-rule-ja-hiragana-keishikimeishi": true,
+      "textlint-rule-ja-hiragana-fukushi": true,
+      "textlint-rule-ja-hiragana-hojodoushi": true
   }
 }

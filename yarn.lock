@@ -9335,7 +9335,7 @@ js-tokens@^3.0.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
   integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
-js-yaml@^3.11.0, js-yaml@^3.12.0, js-yaml@^3.13.1, js-yaml@^3.2.4, js-yaml@^3.9.1:
+js-yaml@^3.11.0, js-yaml@^3.12.0, js-yaml@^3.13.1, js-yaml@^3.2.4, js-yaml@^3.8.2, js-yaml@^3.9.1:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
@@ -13801,6 +13801,14 @@ speedometer@~1.0.0:
   resolved "https://registry.yarnpkg.com/speedometer/-/speedometer-1.0.0.tgz#cd671cb06752c22bca3370e2f334440be4fc62e2"
   integrity sha1-zWccsGdSwivKM3Di8zREC+T8YuI=
 
+spellcheck-technical-word@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/spellcheck-technical-word/-/spellcheck-technical-word-2.0.0.tgz#cb0376b8bbda6239b6be009878cf81cf17080503"
+  integrity sha1-ywN2uLvaYjm2vgCYeM+BzxcIBQM=
+  dependencies:
+    structured-source "^3.0.2"
+    technical-word-rules "^1.4.2"
+
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/split-string/-/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
@@ -14349,6 +14357,11 @@ tapable@^1.0.0, tapable@^1.1.3:
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
   integrity sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==
 
+technical-word-rules@^1.4.2:
+  version "1.9.5"
+  resolved "https://registry.yarnpkg.com/technical-word-rules/-/technical-word-rules-1.9.5.tgz#49f0a9e78c6b2ef02a1a404790ddd8f5310aafbc"
+  integrity sha512-2sqzeb3aE23GtIO9fL9sDbqdt4vnoks7nWZRUgqEvYkjEmmQjrnVfl3WTURBZFrpgAXBNk0AMhWCj+17mzYXhw==
+
 telejson@^3.2.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/telejson/-/telejson-3.3.0.tgz#6d814f3c0d254d5c4770085aad063e266b56ad03"
@@ -14458,7 +14471,7 @@ textlint-rule-helper@2.0.1:
   dependencies:
     unist-util-visit "^1.1.0"
 
-textlint-rule-helper@^1.1.4, textlint-rule-helper@^1.1.5:
+textlint-rule-helper@^1.1.2, textlint-rule-helper@^1.1.4, textlint-rule-helper@^1.1.5:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/textlint-rule-helper/-/textlint-rule-helper-1.2.0.tgz#be68d47a5146b16dd116278c9aeb7bd35631ccda"
   integrity sha1-vmjUelFGsW3RFieMmut701YxzNo=
@@ -14474,6 +14487,33 @@ textlint-rule-helper@^2.0.0, textlint-rule-helper@^2.1.1:
     "@textlint/types" "^1.1.2"
     structured-source "^3.0.2"
     unist-util-visit "^1.1.0"
+
+textlint-rule-ja-hiragana-fukushi@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-ja-hiragana-fukushi/-/textlint-rule-ja-hiragana-fukushi-1.2.0.tgz#ba0ccfd0d5aaaa12b76c28ae9c808e6630517d47"
+  integrity sha512-UlbYWXSWaAzJOuWZyCESSkUSNXwgr4+bTjQQZQMPNZ86BTRed7uIaAJCq8SqJbhKfBUdcPjvqq43kPYpo/DDhA==
+  dependencies:
+    js-yaml "^3.8.2"
+    kuromojin "^1.3.2"
+    morpheme-match-all "^1.1.0"
+    untildify "^4.0.0"
+
+textlint-rule-ja-hiragana-hojodoushi@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/textlint-rule-ja-hiragana-hojodoushi/-/textlint-rule-ja-hiragana-hojodoushi-1.0.4.tgz#39495f512a50b873e034b55d33df8d9c68b9e64d"
+  integrity sha1-OUlfUSpQuHPgNLVdM9+NnGi55k0=
+  dependencies:
+    js-yaml "^3.8.2"
+    kuromojin "^1.3.2"
+    morpheme-match-all "^1.1.0"
+
+textlint-rule-ja-hiragana-keishikimeishi@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/textlint-rule-ja-hiragana-keishikimeishi/-/textlint-rule-ja-hiragana-keishikimeishi-1.0.2.tgz#d17329e105a9fe9f0fc943c60414e0e6679dcd98"
+  integrity sha512-tu9z5PGNtAsoHwR/UgIYuLQ/JPHmpCJAJOG0yjscj9Y5unAkU1Yb1mL4im218WRZ7XRBqCFwWLmicX2IbvVXWw==
+  dependencies:
+    kuromojin "^1.3.2"
+    morpheme-match-all "^1.1.0"
 
 textlint-rule-ja-no-abusage@^2.0.0:
   version "2.0.1"
@@ -14697,6 +14737,14 @@ textlint-rule-sentence-length@^2.1.1:
     sentence-splitter "^3.0.11"
     textlint-rule-helper "^2.1.1"
     textlint-util-to-string "^3.0.0"
+
+textlint-rule-spellcheck-tech-word@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-spellcheck-tech-word/-/textlint-rule-spellcheck-tech-word-5.0.0.tgz#279be31fd4b395e1f87b4a1ef6392f1504894c42"
+  integrity sha1-J5vjH9SzleH4e0oe9jkvFQSJTEI=
+  dependencies:
+    spellcheck-technical-word "^2.0.0"
+    textlint-rule-helper "^1.1.2"
 
 textlint-tester@5.0.1:
   version "5.0.1"
@@ -15260,6 +15308,11 @@ untildify@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/untildify/-/untildify-3.0.3.tgz#1e7b42b140bcfd922b22e70ca1265bfe3634c7c9"
   integrity sha512-iSk/J8efr8uPT/Z4eSUywnqyrQU7DSdMfdqK4iWEaUVVmcP5JcnpRqmVMwcwcnmI1ATFNgC5V90u09tBynNFKA==
+
+untildify@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/untildify/-/untildify-4.0.0.tgz#2bc947b953652487e4600949fb091e3ae8cd919b"
+  integrity sha512-KK8xQ1mkzZeg9inewmFVDNkg3l5LUhoq9kN6iWYB/CC9YMG8HA+c1Q8HwDe6dEX7kErrEVNVBO3fWsVq5iDgtw==
 
 upath@^1.1.1:
   version "1.2.0"

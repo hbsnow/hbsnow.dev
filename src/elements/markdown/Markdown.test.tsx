@@ -6,6 +6,7 @@ import Markdown from './Markdown'
 describe('Markdown Component', () => {
   it('render the markdown', () => {
     render(<Markdown source="markdown" />)
-    expect(screen.getByTestId('Markdown')).toHaveTextContent('markdown')
+    const target = screen.getByTestId('Markdown')
+    expect(target).toHaveTextContent('markdown')
   })
 })

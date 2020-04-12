@@ -1,4 +1,6 @@
-import { configure, addParameters } from '@storybook/react'
+import { configure, addParameters, addDecorator } from '@storybook/react'
+import 'normalize.css'
+import globalStyles from '../src/styles/globalStyles'
 
 addParameters({
   options: {
@@ -16,6 +18,16 @@ addParameters({
     },
   },
 })
+
+addDecorator((storyFn) => (
+  <>
+    {storyFn()}
+
+    <style jsx global>
+      {globalStyles}
+    </style>
+  </>
+))
 
 const req = require.context('../src/elements', true, /(.stories.tsx$)/)
 

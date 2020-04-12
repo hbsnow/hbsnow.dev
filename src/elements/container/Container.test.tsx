@@ -6,6 +6,7 @@ import Container from './Container'
 describe('Container Component', () => {
   it('render the container', () => {
     render(<Container>container</Container>)
-    expect(screen.getByTestId('Container')).toHaveTextContent('container')
+    const target = screen.getByTestId('Container')
+    expect(target).toHaveTextContent('container')
   })
 })

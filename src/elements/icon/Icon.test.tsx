@@ -6,15 +6,17 @@ import Icon from './Icon'
 describe('Icon Component', () => {
   it('render the icon', () => {
     render(<Icon name="github" />)
-    expect(screen.getByRole('img')).toHaveAttribute('width', '24')
-    expect(screen.getByRole('img')).toHaveAttribute('height', '24')
-    expect(screen.getByRole('img')).toHaveAttribute('fill', 'currentColor')
+    const target = screen.getByRole('img')
+    expect(target).toHaveAttribute('width', '24')
+    expect(target).toHaveAttribute('height', '24')
+    expect(target).toHaveAttribute('fill', 'currentColor')
   })
 
   it('change color', () => {
     render(<Icon name="github" fill="red" />)
-    expect(screen.getByRole('img')).toHaveAttribute('width', '24')
-    expect(screen.getByRole('img')).toHaveAttribute('height', '24')
-    expect(screen.getByRole('img')).toHaveAttribute('fill', 'red')
+    const target = screen.getByRole('img')
+    expect(target).toHaveAttribute('width', '24')
+    expect(target).toHaveAttribute('height', '24')
+    expect(target).toHaveAttribute('fill', 'red')
   })
 })

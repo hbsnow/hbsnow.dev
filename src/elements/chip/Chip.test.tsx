@@ -5,8 +5,8 @@ import Chip from './Chip'
 
 describe('Chip Component', () => {
   it('render the container', () => {
-    render(<Chip href="/">chip</Chip>)
-    const target = screen.getByRole('link')
+    render(<Chip>chip</Chip>)
+    const target = screen.getByTestId('Chip')
     expect(target).toHaveTextContent('chip')
   })
 })

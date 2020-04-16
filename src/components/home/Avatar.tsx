@@ -18,7 +18,7 @@ const Avatar: React.FC<Props> = ({ size = 256 }) => {
           fallback=""
           width={size}
           height={size}
-          src="/assets/img/avatar/hbsnow.jpg"
+          src="/assets/img/avatar/hbsnow.png"
         ></amp-img>
       </amp-img>
       <style jsx>{`

@@ -25,18 +25,18 @@ const Accent: React.FC<Props> = ({ children, ...restProps }) => {
         .accent::before {
           background-image: linear-gradient(
             to right,
-            transparent 0%,
+            var(--color-transparent) 0%,
             var(--color-default-surface) 50%,
-            transparent 100%
+            var(--color-transparent) 100%
           );
           transform: skew(0, var(--layout-deg));
         }
         .accent::after {
           background-image: linear-gradient(
             to right,
-            transparent 0%,
+            var(--color-transparent) 0%,
             var(--color-default-bg) 50%,
-            transparent 100%
+            var(--color-transparent) 100%
           );
           opacity: 0.6;
         }

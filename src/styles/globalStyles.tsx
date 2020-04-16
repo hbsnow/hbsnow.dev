@@ -13,6 +13,7 @@ const globalStyles = css.global`
     --color-primary-text: ${textColor(colors.primary.light)};
     --color-primary-variant-bg: ${colors.primaryVariant.light};
     --color-primary-variant-text: ${textColor(colors.primaryVariant.light)};
+    --color-transparent: rgba(255, 255, 255, 0);
     --font-family-default: sans-serif;
     --font-family-code: '_', monospace;
     --gap-size: ${gapSize};
@@ -30,6 +31,7 @@ const globalStyles = css.global`
       --color-primary-text: ${textColor(colors.primary.dark)};
       --color-primary-variant-bg: ${colors.primaryVariant.dark};
       --color-primary-variant-text: ${textColor(colors.primaryVariant.dark)};
+      --color-transparent: rgba(0, 0, 0, 0);
     }
   }
 

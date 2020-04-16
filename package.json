@@ -13,8 +13,7 @@
     "lint": "eslint 'src/**/*.{ts,tsx}' && prettier --check --ignore-path .gitignore '**/*.{js,json,md}' && secretlint '**/*' && textlint 'src/posts/**'",
     "lintfix": "eslint --fix 'src/**/*.{ts,tsx}' && prettier --write --ignore-path .gitignore '**/*.{js,json,md}'",
     "test": "jest --watch --silent",
-    "test:ci": "jest --ci --silent",
-    "contentful-typescript-codegen": "npx contentful-typescript-codegen --output src/models/contentful.d.ts"
+    "test:ci": "jest --ci --silent"
   },
   "husky": {
     "hooks": {

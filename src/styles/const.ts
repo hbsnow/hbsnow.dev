@@ -35,8 +35,8 @@ export const colors = Object.freeze({
     dark: '#9C94A8',
   },
   secondary: {
-    light: '#6F5571',
-    dark: '#fd9547',
+    light: '#CB737B',
+    dark: '#CB737B',
   },
   error: {
     light: '#b00020',

@@ -11,14 +11,14 @@ const Avatar: React.FC<Props> = ({ size = 256 }) => {
         alt="hbsnow"
         width={size}
         height={size}
-        src="/assets/img/hbsnow.webp"
+        src="/assets/img/avatar/hbsnow.webp"
       >
         <amp-img
           alt="hbsnow"
           fallback=""
           width={size}
           height={size}
-          src="/assets/img/hbsnow.jpg"
+          src="/assets/img/avatar/hbsnow.jpg"
         ></amp-img>
       </amp-img>
       <style jsx>{`

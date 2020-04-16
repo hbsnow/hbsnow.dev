@@ -12,3 +12,9 @@ yarn dev
 # webpackのパフォーマンス計測をする場合
 MEASURE=true yarn build
 ```
+
+## Update models
+
+```
+npx contentful-typescript-codegen --output src/models/contentful.d.ts
+```

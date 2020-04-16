@@ -38,7 +38,7 @@ const Page: NextPage<Props> = ({ bookList }) => {
                   <td>
                     <Rating rate={3} />
                   </td>
-                  <td>何度も読み返したり、辞書のようにつかっているような本</td>
+                  <td>複数回読み返したり、辞書のようにつかっているような本</td>
                 </tr>
                 <tr>
                   <td>

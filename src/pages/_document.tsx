@@ -17,6 +17,31 @@ class BaseDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
+          <link rel="manifest" href="/manifest.webmanifest" />
+          <link
+            rel="icon"
+            type="image/svg+xml"
+            sizes="any"
+            href="/assets/img/site-icons/icon.svg"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="256x256"
+            href="/assets/img/site-icons/icon-256x256.png"
+          />
+          <link
+            rel="apple-touch-icon"
+            type="image/png"
+            sizes="256x256"
+            href="/assets/img/site-icons/icon-256x256.png"
+          />
+          <link
+            rel="mask-icon"
+            color="#335BC4"
+            href="/assets/img/site-icons/mask.svg"
+          />
+
           <link
             rel="stylesheet"
             // https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap

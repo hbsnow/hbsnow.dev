@@ -6,12 +6,13 @@ type Props = {
 
 const Avatar: React.FC<Props> = ({ size = 256 }) => {
   return (
-    <div className="avatar">
+    <div className="avatar" data-amp-auto-lightbox-disable>
       <amp-img
         alt="hbsnow"
         width={size}
         height={size}
         src="/assets/img/avatar/hbsnow.webp"
+        layout="fixed"
       >
         <amp-img
           alt="hbsnow"
@@ -19,6 +20,7 @@ const Avatar: React.FC<Props> = ({ size = 256 }) => {
           width={size}
           height={size}
           src="/assets/img/avatar/hbsnow.png"
+          layout="fixed"
         ></amp-img>
       </amp-img>
       <style jsx>{`

@@ -3506,10 +3506,10 @@
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
 
-"@welldone-software/why-did-you-render@4.0.7":
-  version "4.0.7"
-  resolved "https://registry.yarnpkg.com/@welldone-software/why-did-you-render/-/why-did-you-render-4.0.7.tgz#13c81eef665a34911c029dff821b23cd2495567b"
-  integrity sha512-Equ+x6Tp8ZaDcypdP36Ag/bzjIsYAUSQVScXWtRuOkBknP1UPM0Gc5plEeADLYRgrO8IEF/WGxJ7442EGbdyEA==
+"@welldone-software/why-did-you-render@4.0.8":
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/@welldone-software/why-did-you-render/-/why-did-you-render-4.0.8.tgz#a685e7496421b44723f9342046f1b0dbbb39ad39"
+  integrity sha512-32B1YFqgEOO5fIBKT0uBIjuBAGxov/pwlxEqRZhmtvlyWTl927ouOP4PaxE6RAKuGAkkl6qoTF3yke3CokbZEQ==
   dependencies:
     lodash "^4"
 
@@ -5592,10 +5592,10 @@ contentful-sdk-core@^6.4.0:
     lodash "^4.17.10"
     qs "^6.5.2"
 
-contentful@7.14.2:
-  version "7.14.2"
-  resolved "https://registry.yarnpkg.com/contentful/-/contentful-7.14.2.tgz#377de66379baaf915b564330d31bbc0823af8d11"
-  integrity sha512-g4CQuQUMBlvx7igaAYVZ6jyMl4C1pcKNa2gu86XapaJSI0eG+0V6YfkMPc/gaTxfIj4055YAs+kB0sPRNZ/hrQ==
+contentful@7.14.3:
+  version "7.14.3"
+  resolved "https://registry.yarnpkg.com/contentful/-/contentful-7.14.3.tgz#bc4986f6163462168b6e51b06104cb0b6931a6af"
+  integrity sha512-4ggdJkRUM+hi8D2kQEap/iT2OtJf6wTyj+zWOI6hCarPjfmEjYDSsZ7hMt9lxmnkEllPRgUww+e47uMiGgzcwQ==
   dependencies:
     axios "^0.19.1"
     contentful-resolve-response "^1.1.4"

@@ -11,8 +11,8 @@ type Props = {
 }
 
 const BlogListItem: React.FC<Props> = ({ post }) => {
-  const createdAt = useFormattedDate(post.createdAt)
-  const updatedAt = useFormattedDate(post.updatedAt)
+  const createdAt = useFormattedDate({ date: post.createdAt })
+  const updatedAt = useFormattedDate({ date: post.updatedAt })
 
   return (
     <div className={classNames('blogListItem', { update: Boolean(updatedAt) })}>

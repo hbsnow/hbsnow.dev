@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react'
 import { NextPage } from 'next'
-import Head from 'next/head'
 import Link from 'next/link'
 import { Entry } from 'contentful'
 import { IBookFields } from '../models/contentful'
@@ -15,6 +14,7 @@ import { useSortBlog } from '../hooks/blog'
 import HomeAbout from '../components/home/HomeAbout'
 import Accent from '../elements/accent/Accent'
 import Icon from '../elements/icon/Icon'
+import Meta from '../components/head/Meta'
 
 export const config = { amp: true }
 
@@ -35,13 +35,14 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
 
   return (
     <>
-      <Head>
-        <title>hbsnow.dev</title>
-        <meta
-          name="description"
-          content="hbsnow の技術メモ置き場を兼ねた実験場。"
-        />
-      </Head>
+      <Meta
+        type="article"
+        title="hbsnow.dev"
+        path="/"
+        description="hbsnow の技術メモ置き場を兼ねた実験場。"
+        createdAt="2020-04-17"
+      />
+
       <DefaultTemplate>
         <div className="main">
           <div className="section about">

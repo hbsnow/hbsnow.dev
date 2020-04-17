@@ -75,7 +75,7 @@
     "babel-loader": "8.1.0",
     "babel-preset-react-app": "9.1.2",
     "contentful": "7.14.3",
-    "contentful-management": "5.21.1",
+    "contentful-management": "5.23.0",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.10.1",

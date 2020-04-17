@@ -3,6 +3,7 @@ title: JSON-LD による構造化データ
 tags: [amp]
 description: JSON-LD による構造化データの記述方法についての解説。
 createdAt: 2017-12-01
+updatedAt: 2020-04-17
 ---
 
 JSON-LD とは、[Linked Data](https://www.w3.org/DesignIssues/LinkedData.html) を JSON で記述するための軽量シンタックスです。Google は構造化データを、 [JSON-LD での記述を推奨](https://developers.google.com/search/docs/guides/intro-structured-data#structured-data-format)しています。
@@ -112,7 +113,7 @@ IRI や blank node identifier (`_:` ではじまる文字列) を用いて一意
 
 ## AMP で使用する場合のサンプル
 
-AMP で JSON-LD を使用する場合には、いくつかの記述が必須となる項目があり、それらは公式の [Google Search のドキュメント](https://developers.google.com/search/docs/guides/)で確認できます。
+AMP で JSON-LD を使用する場合には、いくつかの記述が必須となる項目があり、[構造化データの記事](hhttps://developers.google.com/search/docs/data-types/article)で確認できます。
 
 ### ブログ記事
 
@@ -121,7 +122,7 @@ AMP で JSON-LD を使用する場合には、いくつかの記述が必須と�
   "@context": "http://schema.org",
   "@type": "http://schema.org/BlogPosting",
   "mainEntityOfPage": {
-    "@type":"WebPage",
+    "@type":"BlogPosting",
     "@id":"https://example.com/blog/"
   },
   "headline": "サンプル",
@@ -152,10 +153,10 @@ AMP で JSON-LD を使用する場合には、いくつかの記述が必須と�
 
 | 内容     | 制限          |
 | -------- | ------------- |
-| 幅       | 696px 以上    |
+| 幅       | 1200px 以上   |
 | 画像形式 | jpg, gif, png |
 
-また最良の結果を得るためには `width * height` の結果が `300000` 以下となる、縦横比 `16:9, 4:3, 1:1` の複数の高解像度画像を複数用意する必要があります。
+また最良の結果を得るためには `width * height` の結果が `800000` 以下となる、縦横比 `16:9, 4:3, 1:1` の複数の高解像度画像を複数用意する必要があります。
 
 `publisher` は `Organization` しか指定できません。よって個人ブログのような場合には `name` にサイト名、`logo` にはバナーなどを入れるしかないように思えます。
 

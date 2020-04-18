@@ -1,15 +1,15 @@
 import React from 'react'
 
 import { NextPage, GetStaticProps } from 'next'
-import Head from 'next/head'
 
-import BlogHeader from '../../components/blog/BlogHeader'
-import Container from '../../elements/container/Container'
-import Margin from '../../elements/margin/Margin'
-import Markdown from '../../elements/markdown/Markdown'
-import { BlogType, loadBlog, loadBlogList } from '../../modules/blog'
-import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
-import { toSlugString } from '../../utils/url'
+import BlogHeader from '../../../components/blog/BlogHeader'
+import Meta from '../../../components/head/Meta'
+import Container from '../../../elements/container/Container'
+import Margin from '../../../elements/margin/Margin'
+import Markdown from '../../../elements/markdown/Markdown'
+import { BlogType, loadBlog, loadBlogList } from '../../../modules/blog'
+import DefaultTemplate from '../../../templates/DefaultTemplate/DefaultTemplate'
+import { toSlugString } from '../../../utils/url'
 
 export const config = { amp: true }
 
@@ -20,10 +20,14 @@ type Props = {
 const Page: NextPage<Props> = ({ blog }) => {
   return (
     <>
-      <Head>
-        <title>{blog.data.title} - hbsnow.dev</title>
-        <meta name="description" content={blog.data.description} />
-      </Head>
+      <Meta
+        type="blog"
+        title={`${blog.data.title} | hbsnow.dev`}
+        path={`/blog/${blog.slug}/`}
+        description={blog.data.description}
+        createdAt={blog.data.createdAt}
+        updatedAt={blog.data?.updatedAt}
+      />
       <DefaultTemplate>
         <Container>
           <Margin bottom={6}>
@@ -46,7 +50,7 @@ export const getStaticPaths = (): {
 
   return {
     fallback: false,
-    paths: blogList.map((blog) => `/blog/${blog.slug}`),
+    paths: blogList.map((blog) => `/blog/${blog.slug}/`),
   }
 }
 

@@ -24,23 +24,21 @@ const Meta: React.FC<Props> = ({
   updatedAt,
 }) => {
   const dateFormat = 'YYYY-MM-DDTHH:mm:ss+09:00'
+  const datePublished = useFormattedDate(createdAt, dateFormat)
+  const dateModified = useFormattedDate(updatedAt, dateFormat)
+
   const page = Object.freeze({
     url: useFullPath(path),
     cover: useFullPath('assets/img/og/cover.png'),
     images: [useFullPath('assets/img/og/site-icons/icon-1200x1200.png')],
-    datePublished: useFormattedDate({
-      format: dateFormat,
-      date: createdAt,
-    }),
-    dateModified: useFormattedDate({
-      format: dateFormat,
-      date: updatedAt,
-    }),
+    datePublished,
+    dateModified: dateModified ?? datePublished,
     author: {
       name: 'hbsnow',
       logo: useFullPath('assets/img/og/logo.png'),
     },
   })
+
   const jsonLd = Object.freeze({
     type,
     url: page.url,

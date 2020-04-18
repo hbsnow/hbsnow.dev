@@ -12,7 +12,8 @@ import Accent from '../elements/accent/Accent'
 import Container from '../elements/container/Container'
 import Icon from '../elements/icon/Icon'
 import Margin from '../elements/margin/Margin'
-import { useSortBlog } from '../hooks/blog'
+import { useSortBlog, useMaxBlogUpdatedAt } from '../hooks/blog'
+import { useMaxBookUpdatedAt } from '../hooks/book'
 import { IBookFields } from '../models/contentful'
 import { BlogType, loadBlogList } from '../modules/blog'
 import { fetchBookList } from '../modules/book'
@@ -35,6 +36,11 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
     return bookList.slice(0, 3)
   }, [bookList])
 
+  const blogUpdatedAt = useMaxBlogUpdatedAt(blogList)
+  const bookUpdatedAt = useMaxBookUpdatedAt(bookList)
+  const updatedAt =
+    blogUpdatedAt > bookUpdatedAt ? bookUpdatedAt : blogUpdatedAt
+
   return (
     <>
       <Meta
@@ -42,7 +48,8 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
         title="hbsnow.dev"
         path="/"
         description="hbsnow の技術メモ置き場を兼ねた実験場。"
-        createdAt="2020-04-17"
+        createdAt="2017-12-01"
+        updatedAt={updatedAt}
       />
 
       <DefaultTemplate>
@@ -68,7 +75,7 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
 
                 <Margin y={2}>
                   <div className="allView">
-                    <Link href="/blog">
+                    <Link href="/blog/">
                       <a className="link">
                         All {blogList.length} Posts <Icon name="arrowRight" />
                       </a>
@@ -90,7 +97,7 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
 
                 <Margin y={2}>
                   <div className="allView">
-                    <Link href="/book">
+                    <Link href="/book/">
                       <a className="link">
                         All {bookList.length} Read Books{' '}
                         <Icon name="arrowRight" />

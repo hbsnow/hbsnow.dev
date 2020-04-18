@@ -1,14 +1,19 @@
 /* eslint-env jest */
 import { renderHook } from '@testing-library/react-hooks'
 
-import { useSortBlog } from '../blog'
+import {
+  useSortBlog,
+  useFilterBlogBy,
+  useMinBlogCreatedAt,
+  useMaxBlogUpdatedAt,
+} from '../blog'
 
 describe('blog hooks', () => {
   const blog = [
     {
       slug: 'test1',
       title: 'test1 title',
-      tags: ['test1-1', 'test1-2'],
+      tags: ['1-1', '1-2'],
       description: 'test1 description',
       createdAt: '2019-06-01T00:00:00.000Z',
       updatedAt: '2019-07-26T00:00:00.000Z',
@@ -16,7 +21,7 @@ describe('blog hooks', () => {
     {
       slug: 'test2',
       title: 'test2 title',
-      tags: ['2-1'],
+      tags: ['1-1', '2-1'],
       description: 'test1 description',
       createdAt: '2018-05-10T00:00:00.000Z',
     },
@@ -30,13 +35,13 @@ describe('blog hooks', () => {
     },
   ]
 
-  it('sort blog', () => {
+  it('order by createdAt desc', () => {
     const { result } = renderHook(() => useSortBlog(blog))
     expect(result.current).toEqual([
       {
         slug: 'test1',
         title: 'test1 title',
-        tags: ['test1-1', 'test1-2'],
+        tags: ['1-1', '1-2'],
         description: 'test1 description',
         createdAt: '2019-06-01T00:00:00.000Z',
         updatedAt: '2019-07-26T00:00:00.000Z',
@@ -52,10 +57,41 @@ describe('blog hooks', () => {
       {
         slug: 'test2',
         title: 'test2 title',
-        tags: ['2-1'],
+        tags: ['1-1', '2-1'],
         description: 'test1 description',
         createdAt: '2018-05-10T00:00:00.000Z',
       },
     ])
+  })
+
+  it('filter by tag', () => {
+    const { result } = renderHook(() => useFilterBlogBy(blog, '1-1'))
+    expect(result.current).toEqual([
+      {
+        slug: 'test1',
+        title: 'test1 title',
+        tags: ['1-1', '1-2'],
+        description: 'test1 description',
+        createdAt: '2019-06-01T00:00:00.000Z',
+        updatedAt: '2019-07-26T00:00:00.000Z',
+      },
+      {
+        slug: 'test2',
+        title: 'test2 title',
+        tags: ['1-1', '2-1'],
+        description: 'test1 description',
+        createdAt: '2018-05-10T00:00:00.000Z',
+      },
+    ])
+  })
+
+  it('most old post date', () => {
+    const { result } = renderHook(() => useMinBlogCreatedAt(blog))
+    expect(result.current).toBe('2018-05-10T00:00:00.000Z')
+  })
+
+  it('most new post date', () => {
+    const { result } = renderHook(() => useMaxBlogUpdatedAt(blog))
+    expect(result.current).toBe('2019-10-02T00:00:00.000Z')
   })
 })

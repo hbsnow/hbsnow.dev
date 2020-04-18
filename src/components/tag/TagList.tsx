@@ -14,7 +14,7 @@ const TagList: React.FC<Props> = ({ tagList }) => {
       {tagList?.map((tag) => {
         return (
           <li key={tag} className="tagListItem">
-            <Link href="/blog/tag/[slug]" as={`/blog/tag/${tag}`}>
+            <Link href="/blog/tag/[slug]/" as={`/blog/tag/${tag}/`}>
               <a>
                 <Chip icon={tag}>{tag}</Chip>
               </a>

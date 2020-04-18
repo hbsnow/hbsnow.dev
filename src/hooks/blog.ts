@@ -22,3 +22,26 @@ export const useFilterBlogBy = (
       ),
     [blogList, tagSlug]
   )
+
+export const useMinBlogCreatedAt = (blogList: BlogType[]): string =>
+  useMemo(() => {
+    return blogList.reduce((prev, current) => {
+      if (prev === '') return current.createdAt
+      return prev < current.createdAt ? prev : current.createdAt
+    }, '')
+  }, [blogList])
+
+export const useMaxBlogUpdatedAt = (blogList: BlogType[]): string =>
+  useMemo(() => {
+    const maxCreatedDate = blogList.reduce((prev, current) => {
+      if (prev === '') return current.createdAt
+      return prev > current.createdAt ? prev : current.createdAt
+    }, '')
+
+    const hoge = blogList.reduce((prev, current) => {
+      if (!current?.updatedAt) return prev
+      return prev > current.updatedAt ? prev : current.updatedAt
+    }, maxCreatedDate)
+
+    return hoge
+  }, [blogList])

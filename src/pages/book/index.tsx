@@ -2,12 +2,13 @@ import React from 'react'
 
 import { Entry } from 'contentful'
 import { NextPage, GetStaticProps } from 'next'
-import Head from 'next/head'
 
 import Book from '../../components/book/Book'
+import Meta from '../../components/head/Meta'
 import Container from '../../elements/container/Container'
 import Margin from '../../elements/margin/Margin'
 import Rating from '../../elements/rating/Rating'
+import { useMinBookCreatedAt, useMaxBookUpdatedAt } from '../../hooks/book'
 import { IBookFields } from '../../models/contentful'
 import { fetchBookList } from '../../modules/book'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
@@ -19,15 +20,20 @@ type Props = {
 }
 
 const Page: NextPage<Props> = ({ bookList }) => {
+  const createdAt = useMinBookCreatedAt(bookList)
+  const updatedAt = useMaxBookUpdatedAt(bookList)
+
   return (
     <>
-      <Head>
-        <title>hbsnow.dev</title>
-        <meta
-          name="description"
-          content="hbsnow の読んだ本の感想と積んでる本の記録。"
-        />
-      </Head>
+      <Meta
+        type="article"
+        title="Book | hbsnow.dev"
+        path="/book/"
+        description="hbsnow の読んだ本の感想と積んでる本の記録。"
+        createdAt={createdAt}
+        updatedAt={updatedAt}
+      />
+
       <DefaultTemplate>
         <Container>
           <Margin bottom={6}>
@@ -65,6 +71,7 @@ const Page: NextPage<Props> = ({ bookList }) => {
                 今のところ、このコンテンツ自体作成中なので持っている本をすべて記載できているわけではありません。
               </p>
             </Margin>
+
             {bookList.map((book) => (
               <Margin key={book.sys.id} bottom={4}>
                 <Book book={book} />

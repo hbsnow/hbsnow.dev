@@ -13,13 +13,13 @@ type Props = {
 }
 
 const BlogListItem: React.FC<Props> = ({ post }) => {
-  const createdAt = useFormattedDate({ date: post.createdAt })
-  const updatedAt = useFormattedDate({ date: post.updatedAt })
+  const createdAt = useFormattedDate(post.createdAt)
+  const updatedAt = useFormattedDate(post.updatedAt)
 
   return (
     <div className={classNames('blogListItem', { update: Boolean(updatedAt) })}>
       <div className="title">
-        <Link href="/blog/[slug]" as={`/blog/${post.slug}`}>
+        <Link href="/blog/[slug]/" as={`/blog/${post.slug}/`}>
           <a>{post.title}</a>
         </Link>
       </div>

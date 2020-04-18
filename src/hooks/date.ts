@@ -6,11 +6,11 @@ import dayjs from 'dayjs'
 
 dayjs.locale('ja')
 
-export const useFormattedDate = ({
-  date,
-  format = 'YYYY-MM-DD',
-}: {
-  date?: dayjs.ConfigType
-  format?: string
-}): string =>
-  useMemo(() => dayjs(date ?? new Date()).format(format), [date, format])
+export const useFormattedDate = (
+  date?: dayjs.ConfigType,
+  format = 'YYYY-MM-DD'
+): string => {
+  return useMemo(() => {
+    return date ? dayjs(date).format(format) : ''
+  }, [date, format])
+}

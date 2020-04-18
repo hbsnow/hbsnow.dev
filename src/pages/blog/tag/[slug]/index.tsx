@@ -1,14 +1,14 @@
 import React from 'react'
 
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
-import Head from 'next/head'
 
-import BlogList from '../../../components/blog/BlogList'
-import Container from '../../../elements/container/Container'
-import { useFilterBlogBy } from '../../../hooks/blog'
-import { BlogType, loadBlogList } from '../../../modules/blog'
-import DefaultTemplate from '../../../templates/DefaultTemplate/DefaultTemplate'
-import { toSlugString } from '../../../utils/url'
+import BlogList from '../../../../components/blog/BlogList'
+import Meta from '../../../../components/head/Meta'
+import Container from '../../../../elements/container/Container'
+import { useFilterBlogBy } from '../../../../hooks/blog'
+import { BlogType, loadBlogList } from '../../../../modules/blog'
+import DefaultTemplate from '../../../../templates/DefaultTemplate/DefaultTemplate'
+import { toSlugString } from '../../../../utils/url'
 
 export const config = { amp: true }
 
@@ -21,13 +21,14 @@ const Page: NextPage<Props> = ({ slug, blogList }) => {
   const filteredBlogList = useFilterBlogBy(blogList, slug)
   return (
     <>
-      <Head>
-        <title>{slug} - hbsnow.dev</title>
-        <meta
-          name="description"
-          content={`${slug} のタグが含まれるブログ記事。`}
-        />
-      </Head>
+      <Meta
+        type="article"
+        title={`${slug} | hbsnow.dev`}
+        path={`/blog/tag/${slug}/`}
+        description={`${slug} のタグが含まれるブログ記事。`}
+        createdAt="2020-04-17"
+        updatedAt={filteredBlogList?.[0].updatedAt}
+      />
       <DefaultTemplate>
         <Container>
           <BlogList blogList={filteredBlogList} />
@@ -45,7 +46,7 @@ export const getStaticPaths: GetStaticPaths = async (): Promise<{
   const paths = blogList
     .flatMap((blog) => blog.tags)
     .filter((blog, i, self) => self.indexOf(blog) === i)
-    .map((tag) => `/blog/tag/${tag}`)
+    .map((tag) => `/blog/tag/${tag}/`)
 
   return {
     fallback: false,

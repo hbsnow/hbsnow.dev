@@ -1,12 +1,16 @@
 import React from 'react'
 
 import { NextPage, GetStaticProps } from 'next'
-import Head from 'next/head'
 
 import BlogList from '../../components/blog/BlogList'
+import Meta from '../../components/head/Meta'
 import Container from '../../elements/container/Container'
 import Margin from '../../elements/margin/Margin'
-import { useSortBlog } from '../../hooks/blog'
+import {
+  useSortBlog,
+  useMinBlogCreatedAt,
+  useMaxBlogUpdatedAt,
+} from '../../hooks/blog'
 import { BlogType, loadBlogList } from '../../modules/blog'
 import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 
@@ -18,13 +22,19 @@ type Props = {
 
 const Page: NextPage<Props> = ({ blogList }) => {
   const sortedBlogList = useSortBlog(blogList)
+  const createdAt = useMinBlogCreatedAt(blogList)
+  const updatedAt = useMaxBlogUpdatedAt(blogList)
 
   return (
     <>
-      <Head>
-        <title>hbsnow.dev</title>
-        <meta name="description" content="hbsnow のブログ記事一覧。" />
-      </Head>
+      <Meta
+        type="article"
+        title="Blog | hbsnow.dev"
+        path="/blog/"
+        description="hbsnow のブログ記事一覧。"
+        createdAt={createdAt}
+        updatedAt={updatedAt}
+      />
       <DefaultTemplate>
         <Container>
           <Margin bottom={6}>

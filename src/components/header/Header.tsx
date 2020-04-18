@@ -23,12 +23,12 @@ const Header: React.FC<Props> = () => {
           <nav className="navContainer">
             <ul className="navList">
               <li className="navListItem">
-                <Link href="/blog">
+                <Link href="/blog/">
                   <a className="link">blog</a>
                 </Link>
               </li>
               <li className="navListItem">
-                <Link href="/book">
+                <Link href="/book/">
                   <a className="link">book</a>
                 </Link>
               </li>

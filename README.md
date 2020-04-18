@@ -7,10 +7,10 @@ https://hbsnow.dev
 ## Run
 
 ```
-yarn dev
+NODE_ENV=development yarn dev
 
 # webpackのパフォーマンス計測をする場合
-MEASURE=true yarn build
+NODE_ENV=development MEASURE=true yarn build
 ```
 
 ## Update models

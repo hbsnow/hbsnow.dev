@@ -1,10 +1,11 @@
 import { createClient } from 'contentful'
+
 import { StateType } from '.'
 
 export const fetchBookList = async (): Promise<StateType['bookList']> => {
   const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_API_ACCESS_TOKEN,
+    space: process.env.CONTENTFUL_SPACE_ID ?? '',
+    accessToken: process.env.CONTENTFUL_API_ACCESS_TOKEN ?? '',
   })
 
   // eslint-disable-next-line @typescript-eslint/camelcase

@@ -1,10 +1,11 @@
 import React from 'react'
+
 import Document, {
-  Html,
+  DocumentInitialProps,
   Head,
+  Html,
   Main,
   NextScript,
-  DocumentInitialProps,
 } from 'next/document'
 
 class BaseDocument extends Document {
@@ -17,6 +18,7 @@ class BaseDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
+          <meta name="theme-color" content="#fff" />
           <link rel="manifest" href="/manifest.webmanifest" />
           <link
             rel="icon"

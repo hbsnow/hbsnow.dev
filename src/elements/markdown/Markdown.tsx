@@ -1,32 +1,33 @@
 import React from 'react'
+
+import { imageSize } from 'image-size'
 import ReactMarkdown from 'react-markdown'
 import remarkSectionize from 'remark-sectionize'
+
 import Blockcode from '../blockcode/Blockcode'
 import Heading from '../heading/Heading'
-import { imageSize } from 'image-size'
 
 type Props = {
   source: string
 } & JSX.IntrinsicElements['div']
 
 const Markdown: React.FC<Props> = ({ source, ...restProps }) => {
-  const code = ({ language, value }): JSX.Element => {
+  const code: React.FC<{ language: string; value: string }> = ({
+    language,
+    value,
+  }) => {
     return <Blockcode language={language}>{value}</Blockcode>
   }
 
-  const section = ({ children }): JSX.Element => {
+  const section: React.FC = ({ children }) => {
     return <section>{children}</section>
   }
 
-  const heading = ({ level, children, ...rest }): JSX.Element => {
-    return (
-      <Heading level={parseInt(level)} {...rest}>
-        {children}
-      </Heading>
-    )
+  const heading: React.FC<{ level: string }> = ({ level, children }) => {
+    return <Heading level={parseInt(level)}>{children}</Heading>
   }
 
-  const image = ({ src, alt }): JSX.Element => {
+  const image: React.FC<{ src: string; alt: string }> = ({ src, alt }) => {
     const dimensions = imageSize(`public/${src}`)
 
     return (

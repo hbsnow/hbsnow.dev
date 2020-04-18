@@ -1,6 +1,7 @@
 import React, { createElement } from 'react'
-import { onlyText } from 'react-children-utilities'
+
 import { slug } from 'github-slugger'
+import { onlyText } from 'react-children-utilities'
 
 type Props = {
   level?: number

@@ -1,5 +1,7 @@
 import React from 'react'
+
 import Link from 'next/link'
+
 import Chip from '../../elements/chip/Chip'
 
 type Props = {

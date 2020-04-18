@@ -1,7 +1,9 @@
 import React from 'react'
+
 import { Entry } from 'contentful'
-import { IBookFields } from '../../models/contentful'
+
 import Rating from '../../elements/rating/Rating'
+import { IBookFields } from '../../models/contentful'
 
 type Props = {
   book: Entry<IBookFields>

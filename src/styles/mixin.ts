@@ -1,5 +1,6 @@
-import { colors } from './const'
 import Color from 'color'
+
+import { colors } from './const'
 
 /**
  * 背景色の明るさをから、最適なフォントカラーを戻す

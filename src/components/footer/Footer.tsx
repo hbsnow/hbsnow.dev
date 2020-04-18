@@ -1,9 +1,11 @@
 import React from 'react'
+
 import Link from 'next/link'
+
 import Container from '../../elements/container/Container'
+import Icon, { IconType } from '../../elements/icon/Icon'
 import ExternalLink from '../../elements/link/ExternalLink'
 import { ExternalLinkType } from '../../models/link'
-import Icon, { IconType } from '../../elements/icon/Icon'
 
 type SnsLink = {
   label: string

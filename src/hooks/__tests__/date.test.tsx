@@ -1,5 +1,6 @@
 /* eslint-env jest */
 import { renderHook } from '@testing-library/react-hooks'
+
 import { useFormattedDate } from '../date'
 
 describe('date hooks', () => {

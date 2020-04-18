@@ -1,7 +1,12 @@
 /**
  * @link https://material.io/resources/color/#!/?view.left=1&view.right=1&primary.color=559dff&secondary.color=fd9547
  */
-export const colors = Object.freeze({
+export const colors: {
+  [key: string]: {
+    light: string
+    dark: string
+  }
+} = Object.freeze({
   bg: {
     light: '#fefefe',
     dark: '#2B2842',

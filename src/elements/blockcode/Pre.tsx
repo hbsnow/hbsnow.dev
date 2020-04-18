@@ -1,4 +1,5 @@
 import React from 'react'
+
 import css from 'styled-jsx/css'
 
 const styles = css.global`

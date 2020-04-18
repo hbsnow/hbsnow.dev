@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { ArticleJsonLd, BlogJsonLd } from 'next-seo'
 
 export type JsonLdType = 'article' | 'blog'

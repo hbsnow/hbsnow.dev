@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const tagList = Object.freeze({
+export const tagList: { [key: string]: string } = Object.freeze({
   amp: '#005AF0',
   angular: '#DD0031',
   aws: '#232F3E',
@@ -160,6 +160,8 @@ const Icon: React.FC<Props> = ({ name, ...restProps }) => {
         </svg>
       )
   }
+
+  throw new Error('指定されたアイコンが存在しません。')
 }
 
 export default Icon

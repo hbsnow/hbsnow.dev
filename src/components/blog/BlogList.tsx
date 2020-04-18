@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { BlogType } from '../../modules/blog'
 import BlogListItem from './BlogListItem'
 

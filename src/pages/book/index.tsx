@@ -1,14 +1,16 @@
 import React from 'react'
-import { NextPage } from 'next'
-import Head from 'next/head'
-import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
+
 import { Entry } from 'contentful'
-import { IBookFields } from '../../models/contentful'
-import { fetchBookList } from '../../modules/book'
+import { NextPage, GetStaticProps } from 'next'
+import Head from 'next/head'
+
 import Book from '../../components/book/Book'
 import Container from '../../elements/container/Container'
 import Margin from '../../elements/margin/Margin'
 import Rating from '../../elements/rating/Rating'
+import { IBookFields } from '../../models/contentful'
+import { fetchBookList } from '../../modules/book'
+import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 
 export const config = { amp: true }
 
@@ -75,14 +77,14 @@ const Page: NextPage<Props> = ({ bookList }) => {
   )
 }
 
-export const getStaticProps = async (): Promise<{
+export const getStaticProps: GetStaticProps = async (): Promise<{
   props: Props
 }> => {
   const bookList = await fetchBookList()
 
   return {
     props: {
-      bookList: bookList.items,
+      bookList: bookList?.items ?? [],
     },
   }
 }

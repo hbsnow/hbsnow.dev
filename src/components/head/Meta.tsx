@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { NextSeo } from 'next-seo'
+
 import { useFormattedDate } from '../../hooks/date'
 import { useFullPath } from '../../hooks/url'
 import JsonLd, { JsonLdType } from './JsonLd'

@@ -32,9 +32,28 @@ module.exports = {
           jsx: true,
         },
       },
-      plugins: ['@typescript-eslint', 'react', 'react-hooks'],
+      plugins: ['@typescript-eslint', 'react', 'react-hooks', 'import'],
       rules: {
         'no-unused-vars': 'off',
+        'import/order': [
+          'error',
+          {
+            groups: ['builtin', 'external', 'internal'],
+            pathGroups: [
+              {
+                pattern: 'react',
+                group: 'external',
+                position: 'before',
+              },
+            ],
+            pathGroupsExcludedImportTypes: ['react'],
+            'newlines-between': 'always',
+            alphabetize: {
+              order: 'asc',
+              caseInsensitive: true,
+            },
+          },
+        ],
         '@typescript-eslint/no-unused-vars': 'error',
         'react/prop-types': 'off',
         'react-hooks/rules-of-hooks': 'error',

@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+
 import { BlogType } from '../modules/blog'
 
 export const useSortBlog = (blogList: BlogType[]): BlogType[] =>
@@ -15,6 +16,9 @@ export const useFilterBlogBy = (
   tagSlug: string
 ): BlogType[] =>
   useMemo(
-    () => blogList.filter((blog) => blog.tags.some((tag) => tag === tagSlug)),
+    () =>
+      blogList.filter((blog) =>
+        blog.tags.some((tag: string) => tag === tagSlug)
+      ),
     [blogList, tagSlug]
   )

@@ -1,6 +1,8 @@
 /* eslint-env jest */
 import React from 'react'
+
 import { render, screen } from '@testing-library/react'
+
 import Code from './Code'
 
 describe('Blockcode Component', () => {

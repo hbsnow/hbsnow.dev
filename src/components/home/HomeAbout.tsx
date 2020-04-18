@@ -1,6 +1,7 @@
 import React from 'react'
-import Avatar from './Avatar'
+
 import { mediaQuery } from '../../styles/const'
+import Avatar from './Avatar'
 
 type Props = {}
 

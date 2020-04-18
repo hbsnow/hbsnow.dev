@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { Entry } from 'contentful'
+
 import { IBookFields } from '../../models/contentful'
 import BookListItem from './BookListItem'
 

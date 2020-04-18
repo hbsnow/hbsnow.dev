@@ -1,20 +1,22 @@
 import React, { useMemo } from 'react'
-import { NextPage } from 'next'
-import Link from 'next/link'
+
 import { Entry } from 'contentful'
-import { IBookFields } from '../models/contentful'
-import { loadBlogList, BlogType } from '../modules/blog'
-import { fetchBookList } from '../modules/book'
-import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
-import Container from '../elements/container/Container'
+import { NextPage, GetStaticProps } from 'next'
+import Link from 'next/link'
+
 import BlogList from '../components/blog/BlogList'
 import BookList from '../components/book/BookList'
-import Margin from '../elements/margin/Margin'
-import { useSortBlog } from '../hooks/blog'
+import Meta from '../components/head/Meta'
 import HomeAbout from '../components/home/HomeAbout'
 import Accent from '../elements/accent/Accent'
+import Container from '../elements/container/Container'
 import Icon from '../elements/icon/Icon'
-import Meta from '../components/head/Meta'
+import Margin from '../elements/margin/Margin'
+import { useSortBlog } from '../hooks/blog'
+import { IBookFields } from '../models/contentful'
+import { BlogType, loadBlogList } from '../modules/blog'
+import { fetchBookList } from '../modules/book'
+import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
 
 export const config = { amp: true }
 
@@ -144,7 +146,7 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
   )
 }
 
-export const getStaticProps = async (): Promise<{
+export const getStaticProps: GetStaticProps = async (): Promise<{
   props: Props
 }> => {
   const blogList = loadBlogList()
@@ -153,7 +155,7 @@ export const getStaticProps = async (): Promise<{
   return {
     props: {
       blogList,
-      bookList: bookList.items,
+      bookList: bookList?.items ?? [],
     },
   }
 }

@@ -1,12 +1,14 @@
 import React from 'react'
-import { NextPage } from 'next'
+
+import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
-import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
-import { BlogType, loadBlogList } from '../../modules/blog'
-import Container from '../../elements/container/Container'
+
 import BlogList from '../../components/blog/BlogList'
-import { useSortBlog } from '../../hooks/blog'
+import Container from '../../elements/container/Container'
 import Margin from '../../elements/margin/Margin'
+import { useSortBlog } from '../../hooks/blog'
+import { BlogType, loadBlogList } from '../../modules/blog'
+import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 
 export const config = { amp: true }
 
@@ -34,7 +36,7 @@ const Page: NextPage<Props> = ({ blogList }) => {
   )
 }
 
-export const getStaticProps = async (): Promise<{
+export const getStaticProps: GetStaticProps = async (): Promise<{
   props: Props
 }> => {
   const blogList = loadBlogList()

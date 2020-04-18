@@ -1,4 +1,5 @@
 import path from 'path'
+
 import matter from 'gray-matter'
 
 export const loadBlogList = (): BlogType[] => {

@@ -1,7 +1,8 @@
 import React from 'react'
-import Heading from './Heading'
+
 import Container from '../container/Container'
 import Margin from '../margin/Margin'
+import Heading from './Heading'
 
 export default { title: 'Heading' }
 

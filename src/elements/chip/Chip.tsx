@@ -1,6 +1,7 @@
 import React from 'react'
-import Icon, { TagType, tagList } from '../icon/Icon'
+
 import { textColor } from '../../styles/mixin'
+import Icon, { tagList, TagType } from '../icon/Icon'
 
 type Props = {
   icon?: TagType

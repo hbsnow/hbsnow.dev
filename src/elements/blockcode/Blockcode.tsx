@@ -1,7 +1,9 @@
 import React from 'react'
+
 import SyntaxHighlighter from 'react-syntax-highlighter'
-import Pre from './Pre'
+
 import Code from './Code'
+import Pre from './Pre'
 
 type Props = {
   language?: string

@@ -1,7 +1,8 @@
 import React from 'react'
-import Accent from './Accent'
+
 import Container from '../container/Container'
 import Margin from '../margin/Margin'
+import Accent from './Accent'
 
 export default { title: 'Accent' }
 

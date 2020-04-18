@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css'
+
 import { colors, gapSize, mediaQuery } from './const'
 import { textColor } from './mixin'
 

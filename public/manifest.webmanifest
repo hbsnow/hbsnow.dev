@@ -1,6 +1,6 @@
 {
-  "name": "hbsnow.dev",
   "short_name": "hbsnow.dev",
+  "name": "hbsnow.dev Website",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fff",

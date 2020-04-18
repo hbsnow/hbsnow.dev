@@ -1,6 +1,8 @@
-import React from 'react'
 // import { containerSize, gapSize } from '../../styles/const'
+import React from 'react'
+
 import classNames from 'classnames'
+
 import Icon from '../icon/Icon'
 
 type Props = {

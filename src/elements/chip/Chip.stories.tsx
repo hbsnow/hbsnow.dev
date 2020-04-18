@@ -1,7 +1,8 @@
 import React from 'react'
-import Chip from './Chip'
+
 import Container from '../container/Container'
 import Margin from '../margin/Margin'
+import Chip from './Chip'
 
 export default { title: 'Chip' }
 

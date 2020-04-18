@@ -1,11 +1,14 @@
 import React from 'react'
-import { NextPage } from 'next'
+
+import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
-import DefaultTemplate from '../../../templates/DefaultTemplate/DefaultTemplate'
-import { loadBlogList, BlogType } from '../../../modules/blog'
-import Container from '../../../elements/container/Container'
+
 import BlogList from '../../../components/blog/BlogList'
+import Container from '../../../elements/container/Container'
 import { useFilterBlogBy } from '../../../hooks/blog'
+import { BlogType, loadBlogList } from '../../../modules/blog'
+import DefaultTemplate from '../../../templates/DefaultTemplate/DefaultTemplate'
+import { toSlugString } from '../../../utils/url'
 
 export const config = { amp: true }
 
@@ -34,10 +37,10 @@ const Page: NextPage<Props> = ({ slug, blogList }) => {
   )
 }
 
-export const getStaticPaths = (): {
+export const getStaticPaths: GetStaticPaths = async (): Promise<{
   fallback: boolean
   paths: string[]
-} => {
+}> => {
   const blogList = loadBlogList()
   const paths = blogList
     .flatMap((blog) => blog.tags)
@@ -50,8 +53,10 @@ export const getStaticPaths = (): {
   }
 }
 
-export const getStaticProps = ({ params }): { props: Props } => {
-  const slug = params.slug
+export const getStaticProps: GetStaticProps = async ({
+  params,
+}): Promise<{ props: Props }> => {
+  const slug = toSlugString(params?.slug ?? [])
   const blogList = loadBlogList()
 
   return {

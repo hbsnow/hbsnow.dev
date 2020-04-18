@@ -1,7 +1,8 @@
 import React from 'react'
-import Rating from './Rating'
+
 import Container from '../container/Container'
 import Margin from '../margin/Margin'
+import Rating from './Rating'
 
 export default { title: 'Rating' }
 

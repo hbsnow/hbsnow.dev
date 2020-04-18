@@ -33,8 +33,10 @@ const nextSettings = {
       use: 'raw-loader',
     })
 
-    // localでビルド時にバンドルサイズ/時間を計測
-    if (process.env.MEASURE && process.env.NODE_ENV !== 'development') {
+    if (
+      process.env.MEASURE.toLowerCase() === 'true' &&
+      process.env.NODE_ENV !== 'development'
+    ) {
       config.plugins.push(
         new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
           analyzerMode: 'static',

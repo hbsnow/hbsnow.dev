@@ -14,7 +14,6 @@ export const useMinBookCreatedAt = (bookList: Entry<IBookFields>[]): string =>
 
 export const useMaxBookUpdatedAt = (bookList: Entry<IBookFields>[]): string =>
   useMemo(() => {
-    console.log(bookList)
     return bookList.reduce((prev, current) => {
       if (prev === '') return current.sys.updatedAt
       return prev > current.sys.updatedAt ? prev : current.sys.updatedAt

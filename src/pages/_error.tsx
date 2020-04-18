@@ -42,6 +42,7 @@ const Page: NextPage<Props> = () => {
           justify-content: center;
           align-items: center;
           flex-direction: column;
+          overflow: hidden;
         }
 
         .statusCode {

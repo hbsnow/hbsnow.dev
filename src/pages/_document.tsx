@@ -6,10 +6,13 @@ import Document, {
   Html,
   Main,
   NextScript,
+  DocumentContext,
 } from 'next/document'
 
 class BaseDocument extends Document {
-  static async getInitialProps(ctx): Promise<DocumentInitialProps> {
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
     const initialProps = await Document.getInitialProps(ctx)
     return { ...initialProps }
   }

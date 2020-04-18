@@ -82,7 +82,7 @@ JSON-LD にはいくつかの keyword がありますが、ここで紹介して
 }
 ```
 
-```person.jsonld
+```json
 {
   "@vocab": "http://schema.org/"
 }
@@ -113,7 +113,7 @@ IRI や blank node identifier (`_:` ではじまる文字列) を用いて一意
 
 ## AMP で使用する場合のサンプル
 
-AMP で JSON-LD を使用する場合には、いくつかの記述が必須となる項目があり、[構造化データの記事](hhttps://developers.google.com/search/docs/data-types/article)で確認できます。
+AMP で JSON-LD を使用する場合には、いくつかの記述が必須となる項目があり、[構造化データの記事](https://developers.google.com/search/docs/data-types/article)で確認できます。
 
 ### ブログ記事
 

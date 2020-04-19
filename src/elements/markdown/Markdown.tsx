@@ -6,6 +6,7 @@ import remarkSectionize from 'remark-sectionize'
 
 import Blockcode from '../blockcode/Blockcode'
 import Heading from '../heading/Heading'
+import ExternalLink from '../link/ExternalLink'
 
 type Props = {
   source: string
@@ -48,6 +49,14 @@ const Markdown: React.FC<Props> = ({ source, ...restProps }) => {
     )
   }
 
+  const link: React.FC<{ href: string }> = ({ children, href }) => {
+    if (href.startsWith('http')) {
+      return <ExternalLink href={href}>{children}</ExternalLink>
+    }
+    // SSGなのでLinkでなくても問題なさそう
+    return <a href={href}>{children}</a>
+  }
+
   return (
     <div data-testid="Markdown" className="markdown" {...restProps}>
       <ReactMarkdown
@@ -58,6 +67,7 @@ const Markdown: React.FC<Props> = ({ source, ...restProps }) => {
           section,
           heading,
           image,
+          link,
         }}
       />
     </div>

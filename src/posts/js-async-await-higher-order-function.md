@@ -81,7 +81,7 @@ let promiseChain = Promise.resolve()
 }, Promise.resolve())
 ```
 
-ただこの方法だと何が目的でこういう記述になっているのか、すぐにわかりにくいのではないかと感じます。この理由についての話は[reduce の使いどころ](/blog/js-async-await-higher-order-function)に書いています。
+ただこの方法だと何が目的でこういう記述になっているのか、すぐにわかりにくいのではないかと感じます。この理由についての話は[reduce の使いどころ](/blog/js-async-await-higher-order-function/)に書いています。
 
 ## 並列処理して全部終わるまで待つ
 

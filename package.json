@@ -107,7 +107,7 @@
     "textlint-rule-preset-ja-technical-writing": "4.0.0-beta.0",
     "textlint-rule-spellcheck-tech-word": "5.0.0",
     "typescript": "3.8.3",
-    "webpack": "4.42.1",
+    "webpack": "4.43.0",
     "webpack-bundle-analyzer": "3.7.0",
     "webpack-visualizer-plugin": "0.1.11"
   },

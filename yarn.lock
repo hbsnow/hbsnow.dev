@@ -12952,10 +12952,10 @@ rc-config-loader@^3.0.0:
     json5 "^2.1.1"
     require-from-string "^2.0.2"
 
-react-children-utilities@2.0.13:
-  version "2.0.13"
-  resolved "https://registry.yarnpkg.com/react-children-utilities/-/react-children-utilities-2.0.13.tgz#ed7c745735174513968c4113d4fc22c505a09c85"
-  integrity sha512-3U7d2nfcnvAmz3LAShejHcKF4tzkOiY5HVteji+M8rjPkIxiyi0RkI3eqswHlGJ5Po/1nE71QKOz7mRxF2QHaQ==
+react-children-utilities@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-children-utilities/-/react-children-utilities-2.1.0.tgz#6bf1787865a6b8de8e9489ec0352c73348d4e033"
+  integrity sha512-SzGr1GYwbhkLEtfzgNcJwQoWwvPbzZsLU16Qo3TVD9couq3K50sqWcRyONmhBsxLvB3ReTSBKsAXKSZHGxzNAQ==
 
 react-clientside-effect@^1.2.2:
   version "1.2.2"

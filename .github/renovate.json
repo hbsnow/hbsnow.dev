@@ -4,6 +4,7 @@
   "labels": ["renovate"],
   "schedule": "every weekend",
   "patch": { "automerge": true },
+  "baseBranches": ["chore/renovate"],
   "packageRules": [
     {
       "depTypeList": ["devDependencies"],

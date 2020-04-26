@@ -6,13 +6,13 @@ createdAt: 2019-07-22
 updatedAt: 2020-04-02
 ---
 
-JavaScript の `reduce` は便利だけれども、普段使いで別言語をやっていたりすると少し使いどころがわかりにくいらしい。
+JavaScript の `reduce` は便利だけれども、少し使いどころがわかりにくいと感じる人もいるらしい。
 
-[MDN にわかりやすいサンプル](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)もあるんだけど、自分の整理もかねてこのブログでよくある使用方法をまとめておくことにする。
+[MDN にわかりやすいサンプル](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)もあるんだけど、自分の整理もかねてこのブログでよくある使用方法をまとめておきます。
 
 ## reduce の使用例
 
-ここでは上記 5 つの例をみていく。
+ここでは上記 5 つの例をみていきます。
 
 ### 1. 配列の合計を計算する
 
@@ -66,7 +66,7 @@ const minItem = cart.reduce((accumulator, currentValue) =>
 console.log(sum) // => { itemId: 3, quantity: 1 }
 ```
 
-単純に値だけを求めたいのであれば `Math.max(...cart.map(item => item.quantity))` とすればいい。
+単純に値だけを求めたいのであれば `Math.max(...cart.map(item => item.quantity))` とすればいいでしょう。
 
 ### 3. 集計する
 
@@ -81,7 +81,7 @@ const items = [
 ]
 ```
 
-このような配列から `taxRate` ごとに集計をとりたくなったときには、以下のように記述できる。
+このような配列から `taxRate` ごとに集計をとりたくなったときには、以下のように記述できます。
 
 ```js
 const groupByTaxRate = (items) => {
@@ -135,7 +135,7 @@ const groupByTaxRate = (items) => {
 
 ### 4. flatten
 
-[flat](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) が使えるのであればこんなことをする必要はない。
+[flat](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) が使えるのであればこんなことをする必要はありません。
 
 ```js
 const arr = [1, 2, [3, 4]]
@@ -153,7 +153,7 @@ console.log(
 ) // => [1, 2, 3, 4]
 ```
 
-こうなる。
+こうなります。
 
 ただ、2 次元より大きな配列に対応するためにはもう少し複雑な処理が必要になって、[MDN の flat の項目](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flat#reduce_and_concat)にもあるのでそちらにまかせることとします。
 
@@ -165,7 +165,7 @@ console.log(
 
 - [Is reduce() bad? - HTTP 203](https://www.youtube.com/watch?v=qaGjS7-qWzg)
 
-[Jake Archibald が Twitter で reduce について言及して](https://twitter.com/jaffathecake/status/1213077702300852224) 少し話題になっていて、自分も考えさせられた。合計や最大値を求めるといった以外のループとしての用途で使うことがそれなりにあったからだ。
+[Jake Archibald が Twitter で reduce について言及して](https://twitter.com/jaffathecake/status/1213077702300852224) 少し話題になっていて、自分も考えさせられました。合計や最大値を求めるといった以外のループとしての用途で使うことってそれなりにあるんですよね。
 
 前述のサンプルだと『async/await で配列の順次処理』がまさにこれに該当するし、『配列の合計を計算する』の最後の例。
 
@@ -177,7 +177,7 @@ const sum = cart.reduce((accumulator, currentValue) => {
 }, 0)
 ```
 
-これは合計のために `reduce` は残るが、次のように書き直せる。
+これは合計のために `reduce` は残りますが、次のように書き直せます。
 
 ```js
 const sum = cart
@@ -189,7 +189,7 @@ const sum = cart
 
 ### reduce をループとして使う例
 
-`reduce` をループとして使うシンプルな例を示そう。
+`reduce` をループとして使うシンプルな例を示していきます。
 
 ```js
 const items = [
@@ -200,7 +200,7 @@ const items = [
 ]
 ```
 
-さきほどのサンプルの配列で、amount が 1000 以上のものについてそれぞれ`+100`した結果のオブジェクトの配列。
+さきほどのサンプルの配列で、amount が 1000 以上のものについてそれぞれ `+100` した結果のオブジェクトの配列。
 
 ```
 [
@@ -209,7 +209,7 @@ const items = [
 ]
 ```
 
-このような結果がほしいとき、`reduce` を使った場合にはこうなる。
+このような結果がほしいとき、`reduce` を使った場合にはこうなります。
 
 ```js
 const result = items.reduce((accumulator, currentValue) => {
@@ -224,7 +224,7 @@ const result = items.reduce((accumulator, currentValue) => {
 }, [])
 ```
 
-でもこれは実際にこんな書き方をする必要はない。
+でもこれは実際にこんな書き方をする必要はありません。
 
 ```js
 const result = items
@@ -235,13 +235,13 @@ const result = items
   }))
 ```
 
-`map` と `filter` で書き直すことができる。
+`map` と `filter` で書き直すことができます。
 
-このコードを `reduce` で記述するのはなんだか賢くなった気分になる、というのは確かにあるが、この例は明らかに `map` と `filter` のほうが何をしたいのかが明確で可読性が高い。
+このコードを `reduce` で記述するのはなんだか賢くなった気分になる、というのは確かにありますが、この例は明らかに `map` と `filter` のほうが何をしたいのかが明確で可読性が高いはずです。
 
 ### オブジェクトの指定 key を Omit する
 
-オブジェクトで特定 key を除外したいときにも reduce を使うことができる。
+オブジェクトで特定 key を除外したいとき、reduce を使うことができます。
 
 ```js
 const example = {
@@ -263,7 +263,7 @@ const result = Object.keys(example)
 console.log(result) // => { baz: 2 }
 ```
 
-でも、これも `reduce` を使う必要はない。
+でも、これも `reduce` を使う必要はありません。
 
 ```js
 Object.fromEntries(
@@ -271,7 +271,7 @@ Object.fromEntries(
 )
 ```
 
-`Object.fromEntries` と `Object.entries` で記述できるし、この例だともっとシンプルに次のように書くことができる。
+`Object.fromEntries` と `Object.entries` で記述できるし、この例だともっとシンプルに次のように書くことができます。
 
 ```js
 const { foo, bar, ...result } = example

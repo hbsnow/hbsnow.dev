@@ -3,21 +3,25 @@ title: React の portal を使ってスタック可能なモーダルを作成�
 tags: [react]
 description: React の portal を使ってスタック可能なモーダルを作成する。
 createdAt: 2020-04-25
+createdAt: 2020-04-29
 ---
 
 React で普通のモーダルを作るのであれば、素直にスターが多めの以下を使うのがよさそう。
 
 - https://github.com/reactjs/react-modal
 
-ただモーダルをスタック、ようするにモーダルの中からモーダルを追加で呼び出したりしたくなったりした場合、このライブラリだと難しくなる。
+ただモーダルをスタック、ようするにモーダルの中からモーダルを追加で呼び出したりしたくなったりした場合、このライブラリだと難しくなりそうです。
 
+そのため、スタック可能なモーダルのサンプルを自作してみました。
+
+- https://github.com/hbsnow/react-portal-stackable-modal
 - [サンプル](https://hbsnow-react-portal-stackable-modal.netlify.app/)
 
-動作サンプルは上記のページにあげてあります。
+作成したコードと動作サンプルは上記のページにあげてあります。
 
 ## React の portal でモーダルを作る
 
-モーダルを出すためには画面をすべて覆う必要がある。しかし `position: fixed` で覆おうとしても、途中のコンポーネントに `overflow: hidden` などの設定があるとモーダルが画面全体を覆うことができなくなる。
+モーダルを出すためには画面をすべて覆う必要があります。しかし `position: fixed` で覆おうとしても、途中のコンポーネントに `overflow: hidden` などの設定があるとモーダルが画面全体を覆うことができなくなります。
 
 - https://ja.reactjs.org/docs/portals.html
 
@@ -49,24 +53,20 @@ export default Modal
 
 モーダルをスタックさせるには、どこかでモーダルとその順序を持つ配列を何らかの形でもつ必要があります。
 
-[store に React のコンポーネントを入れるわけにもいかない](https://github.com/reduxjs/redux/issues/1248) ので、コンポーネントをそのまま配列に入れて順番を保持できない。
+[store に React のコンポーネントをそのまま配列に入れて順番を保持する](https://github.com/reduxjs/redux/issues/1248)ようなことは推奨されていません。
 
-なので、モーダル用の props をつくってそれを配列として持つか、そういったことも難しいようであれば Enum とか Union 型を props で渡して条件分岐させる方法が考えられる。サンプルで採用したのは後者。
+なので、モーダル用の props をつくってそれを配列として持つか、そういったことも難しいようであれば Enum とか Union 型を props で渡して条件分岐させる方法が考えられます。ここのサンプルでは後者を採用しました。
 
 ```tsx
 import React, { useContext } from 'react'
-
-import { DispatchContext } from '../modules/modules'
 
 type Props = {
   type: string
 }
 
 const ModalContent: React.FC<Props> = ({ type }) => {
-  const dispatch = useContext(DispatchContext)
-
   switch (type) {
-    case 'dialog':
+    case 'DIALOG_NAME':
     default:
       return (
         <button onClick={(): void => console.log('close'))}>
@@ -85,7 +85,7 @@ export default ModalContent
 
 ## モーダルの情報をもった配列の変更
 
-モーダルの状態をもった配列はどこのコンポーネントからも変更できる必要がある。Redux を使っていればそれでいいし、今回のようなサンプル程度のものであれば `useReducer` と `useContext` でなんとかする。
+モーダルの状態をもった配列はどのコンポーネントからも変更できる必要があります。Redux を使っていればそれでいいし、今回のようなサンプル程度のものであれば `useReducer` と `useContext` を使えばいいでしょう。
 
 ```tsx
 import { createContext, Dispatch } from 'react'
@@ -129,6 +129,33 @@ export const reducer = (state: StateType, action): StateType => {
 }
 ```
 
-サンプルで用意したのは push, shift, unshift の 3 つ。配列操作の名前の通りの挙動なので特に説明はいらないはず。
+サンプルで用意したのは PUSH, SHIFT, UNSHIFT の 3 つ。配列操作の名前の通りの挙動なので特に説明はいらないはず。
 
-用意しておいてなんだけど unshift とかやらないほうがいいし、スタックできるモーダル自体そもそも不要としか思わない。
+## モーダルを呼び出す
+
+モーダルを呼び出すには以下のような感じで dispatch するだけです。
+
+```tsx
+import React, { useContext } from 'react'
+
+import { Context } from '../modules'
+
+const ExampleButton: React.FC = () => {
+  const { dispatch } = useContext(Context)
+
+  return (
+    <button
+      onClick={(): void =>
+        dispatch({
+          type: 'PUSH',
+          modal: 'DIALOG_NAME',
+        })
+      }
+    >
+      add modal
+    </button>
+  )
+}
+
+export default Page
+```

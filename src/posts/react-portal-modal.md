@@ -3,7 +3,7 @@ title: React の portal を使ってスタック可能なモーダルを作成�
 tags: [react]
 description: React の portal を使ってスタック可能なモーダルを作成する。
 createdAt: 2020-04-25
-updateddAt: 2020-04-29
+updatedAt: 2020-04-29
 ---
 
 React で普通のモーダルを作るのであれば、素直にスターが多めの以下を使うのがよさそう。

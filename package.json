@@ -51,7 +51,7 @@
     "react-use": "14.2.0"
   },
   "devDependencies": {
-    "@babel/core": "7.9.0",
+    "@babel/core": "7.9.6",
     "@secretlint/secretlint-rule-preset-recommend": "1.1.0",
     "@storybook/addon-actions": "5.3.18",
     "@storybook/addon-storysource": "5.3.18",

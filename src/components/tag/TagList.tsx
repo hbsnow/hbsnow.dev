@@ -3,15 +3,19 @@ import React from 'react'
 import Link from 'next/link'
 
 import Chip from '../../elements/chip/Chip'
+import { useSortedTagList } from '../../hooks/tag'
 
 type Props = {
   tagList: string[]
+  preferredTag?: string
 }
 
-const TagList: React.FC<Props> = ({ tagList }) => {
+const TagList: React.FC<Props> = ({ tagList, preferredTag }) => {
+  const sortedTagList = useSortedTagList(tagList, preferredTag)
+
   return (
     <ul className="tagList">
-      {tagList?.map((tag) => {
+      {sortedTagList?.map((tag) => {
         return (
           <li key={tag} className="tagListItem">
             <Link href="/blog/tag/[slug]/" as={`/blog/tag/${tag}/`}>

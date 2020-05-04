@@ -1,10 +1,14 @@
 import React from 'react'
 
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
+import Link from 'next/link'
 
 import BlogList from '../../../../components/blog/BlogList'
 import Meta from '../../../../components/head/Meta'
+import Accent from '../../../../elements/accent/Accent'
 import Container from '../../../../elements/container/Container'
+import Icon from '../../../../elements/icon/Icon'
+import Margin from '../../../../elements/margin/Margin'
 import { useFilterBlogBy } from '../../../../hooks/blog'
 import { BlogType, loadBlogList } from '../../../../modules/blog'
 import DefaultTemplate from '../../../../templates/DefaultTemplate/DefaultTemplate'
@@ -31,9 +35,27 @@ const Page: NextPage<Props> = ({ slug, blogList }) => {
       />
       <DefaultTemplate>
         <Container>
-          <BlogList blogList={filteredBlogList} />
+          <h2>
+            <Accent>{slug}</Accent>
+          </h2>
+
+          <BlogList blogList={filteredBlogList} preferredTag={slug} />
+
+          <Margin y={4}>
+            <Link href="/blog/">
+              <a className="link">
+                <Icon name="arrowLeft" /> All Posts
+              </a>
+            </Link>
+          </Margin>
         </Container>
       </DefaultTemplate>
+      <style jsx>{`
+        .link {
+          color: var(--color-primary);
+        }
+      `}</style>
+      `
     </>
   )
 }

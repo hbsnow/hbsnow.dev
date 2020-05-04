@@ -10,6 +10,7 @@ import HomeAbout from '../components/home/HomeAbout'
 import Accent from '../elements/accent/Accent'
 import Container from '../elements/container/Container'
 import Icon from '../elements/icon/Icon'
+import ExternalLink from '../elements/link/ExternalLink'
 import Margin from '../elements/margin/Margin'
 import { useSortBlog, useMaxBlogUpdatedAt } from '../hooks/blog'
 import { useMaxBookUpdatedAt } from '../hooks/book'
@@ -54,6 +55,17 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
               <Margin y={6}>
                 <HomeAbout>
                   <p>札幌ではたらく Front End Developer です。</p>
+                  <p>
+                    このサイトは{' '}
+                    <ExternalLink href="https://nextjs.org/">
+                      Next.js
+                    </ExternalLink>{' '}
+                    で SSG され、ソースコードは{' '}
+                    <ExternalLink href="https://github.com/hbsnow/hbsnow.dev">
+                      GitHub
+                    </ExternalLink>{' '}
+                    にて公開されています。
+                  </p>
                 </HomeAbout>
               </Margin>
             </Container>

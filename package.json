@@ -12,8 +12,9 @@
     "build-storybook": "build-storybook",
     "lint": "eslint 'src/**/*.{ts,tsx}' && prettier --check --ignore-path .gitignore '**/*.{js,json,md}' && secretlint '**/*' && textlint 'src/posts/**'",
     "lintfix": "eslint --fix 'src/**/*.{ts,tsx}' && prettier --write --ignore-path .gitignore '**/*.{js,json,md}'",
-    "test": "jest --watch --silent",
-    "test:ci": "jest --ci --silent"
+    "test": "jest --watch --silent=false --verbose false",
+    "test:ci": "jest --ci --silent",
+    "build:model": "contentful-typescript-codegen --output src/models/contentful.d.ts"
   },
   "husky": {
     "hooks": {
@@ -77,6 +78,7 @@
     "babel-preset-react-app": "9.1.2",
     "contentful": "7.14.4",
     "contentful-management": "5.26.0",
+    "contentful-typescript-codegen": "3.2.1",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.11.0",

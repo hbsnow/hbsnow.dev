@@ -16,5 +16,5 @@ NODE_ENV=development MEASURE=true yarn build
 ## Update models
 
 ```
-npx contentful-typescript-codegen --output src/models/contentful.d.ts
+yarn build:model
 ```

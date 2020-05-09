@@ -4,6 +4,7 @@ on:
     types: [opened, synchronize, reopened]
     branches:
       - master
+      - chore/renovate
 env:
   cache-version: v1
 jobs:

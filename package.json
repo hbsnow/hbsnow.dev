@@ -78,7 +78,7 @@
     "contentful": "7.14.4",
     "contentful-management": "5.26.1",
     "dotenv": "8.2.0",
-    "eslint": "6.8.0",
+    "eslint": "7.0.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.20.2",
     "eslint-plugin-prettier": "3.1.3",

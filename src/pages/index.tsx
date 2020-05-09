@@ -5,12 +5,12 @@ import { NextPage, GetStaticProps } from 'next'
 import Link from 'next/link'
 
 import BlogList from '../components/blog/BlogList'
-import BookList from '../components/book/BookList'
 import Meta from '../components/head/Meta'
 import HomeAbout from '../components/home/HomeAbout'
 import Accent from '../elements/accent/Accent'
 import Container from '../elements/container/Container'
 import Icon from '../elements/icon/Icon'
+import ExternalLink from '../elements/link/ExternalLink'
 import Margin from '../elements/margin/Margin'
 import { useSortBlog, useMaxBlogUpdatedAt } from '../hooks/blog'
 import { useMaxBookUpdatedAt } from '../hooks/book'
@@ -31,10 +31,6 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
   const latestBlogList = useMemo(() => {
     return sortedBlogList.slice(0, 3)
   }, [sortedBlogList])
-
-  const latestBookList = useMemo(() => {
-    return bookList.slice(0, 3)
-  }, [bookList])
 
   const blogUpdatedAt = useMaxBlogUpdatedAt(blogList)
   const bookUpdatedAt = useMaxBookUpdatedAt(bookList)
@@ -59,6 +55,17 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
               <Margin y={6}>
                 <HomeAbout>
                   <p>札幌ではたらく Front End Developer です。</p>
+                  <p>
+                    このサイトは{' '}
+                    <ExternalLink href="https://nextjs.org/">
+                      Next.js
+                    </ExternalLink>{' '}
+                    で SSG され、ソースコードは{' '}
+                    <ExternalLink href="https://github.com/hbsnow/hbsnow.dev">
+                      GitHub
+                    </ExternalLink>{' '}
+                    にて公開されています。
+                  </p>
                 </HomeAbout>
               </Margin>
             </Container>
@@ -78,29 +85,6 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
                     <Link href="/blog/">
                       <a className="link">
                         All {blogList.length} Posts <Icon name="arrowRight" />
-                      </a>
-                    </Link>
-                  </div>
-                </Margin>
-              </Margin>
-            </Container>
-          </section>
-
-          <section className="section">
-            <Container>
-              <Margin y={6}>
-                <h2 id="latest-read-books">
-                  <Accent>Latest Read Books</Accent>
-                </h2>
-
-                <BookList bookList={latestBookList} />
-
-                <Margin y={2}>
-                  <div className="allView">
-                    <Link href="/book/">
-                      <a className="link">
-                        All {bookList.length} Read Books{' '}
-                        <Icon name="arrowRight" />
                       </a>
                     </Link>
                   </div>

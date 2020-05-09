@@ -6,21 +6,21 @@ import Rating from '../../elements/rating/Rating'
 import { IBookFields } from '../../models/contentful'
 
 type Props = {
-  book: Entry<IBookFields>
+  book: Entry<IBookFields>['fields']
 }
 
 const Book: React.FC<Props> = ({ book }) => {
   return (
     <div className="book">
       <header className="header">
-        <h3 className="name">{book.fields.name}</h3>
+        <h3 className="name">{book.name}</h3>
       </header>
 
       <div className="rate">
-        <Rating rate={book.fields.rate} />
+        <Rating rate={book.isRead ? book.rate : 0} />
       </div>
 
-      <div className="body">{book.fields.body}</div>
+      <div className="body">{book.body}</div>
       <style jsx>{`
         .book {
           display: grid;

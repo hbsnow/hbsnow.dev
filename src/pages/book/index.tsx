@@ -3,7 +3,7 @@ import React from 'react'
 import { Entry } from 'contentful'
 import { NextPage, GetStaticProps } from 'next'
 
-import Book from '../../components/book/Book'
+import BookList from '../../components/book/BookList'
 import Meta from '../../components/head/Meta'
 import Container from '../../elements/container/Container'
 import Margin from '../../elements/margin/Margin'
@@ -39,20 +39,20 @@ const Page: NextPage<Props> = ({ bookList }) => {
           <Margin bottom={6}>
             <Margin bottom={4}>
               <p>
-                読んだ本の感想と積んでる本を崩す意思表示としてのリスト。星の表示はおすすめ度、とかではなく自分の読んだ回数と頻度を基準にしています。感想はどんなに長くなっても256文字を超えないようにしたい。
+                読んだ本の感想と積んでる本を崩す意思表示としてのリスト。星の表示はおすすめ度、とかではなく自分の読んだ回数と参照する頻度を基準にしています。感想はどんなに長くなっても256文字を超えないようにしたい。
               </p>
               <table>
                 <tr>
                   <td>
                     <Rating rate={3} />
                   </td>
-                  <td>複数回読み返したり、辞書のようにつかっているような本</td>
+                  <td>何度も読み返したり、辞書のようにつかっているような本</td>
                 </tr>
                 <tr>
                   <td>
                     <Rating rate={2} />
                   </td>
-                  <td>二回以上読んだが、ほとんど読み返すことがない本</td>
+                  <td>数回読んだが、ほとんど読み返すことがない本</td>
                 </tr>
                 <tr>
                   <td>
@@ -72,11 +72,7 @@ const Page: NextPage<Props> = ({ bookList }) => {
               </p>
             </Margin>
 
-            {bookList.map((book) => (
-              <Margin key={book.sys.id} bottom={4}>
-                <Book book={book} />
-              </Margin>
-            ))}
+            <BookList bookList={bookList} />
           </Margin>
         </Container>
       </DefaultTemplate>

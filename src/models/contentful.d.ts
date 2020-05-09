@@ -16,8 +16,8 @@ export interface IBookFields {
   /** Body */
   body?: string | undefined
 
-  /** Tag */
-  tag?: ITag[] | undefined
+  /** category */
+  category?: ICategory | undefined
 
   /** isRead */
   isRead?: boolean | undefined
@@ -46,15 +46,15 @@ export interface IBook extends Entry<IBookFields> {
   }
 }
 
-export interface ITagFields {
-  /** Name */
-  name: string
+export interface ICategoryFields {
+  /** title */
+  title: string
 
-  /** Slug */
+  /** slug */
   slug: string
 }
 
-export interface ITag extends Entry<ITagFields> {
+export interface ICategory extends Entry<ICategoryFields> {
   sys: {
     id: string
     type: string
@@ -63,7 +63,7 @@ export interface ITag extends Entry<ITagFields> {
     locale: string
     contentType: {
       sys: {
-        id: 'tag'
+        id: 'category'
         linkType: 'ContentType'
         type: 'Link'
       }
@@ -71,8 +71,8 @@ export interface ITag extends Entry<ITagFields> {
   }
 }
 
-type CONTENT_TYPE = 'book' | 'tag'
+export type CONTENT_TYPE = 'book' | 'category'
 
-type LOCALE_CODE = 'ja-JP'
+export type LOCALE_CODE = 'ja-JP'
 
-type CONTENTFUL_DEFAULT_LOCALE_CODE = 'ja-JP'
+export type CONTENTFUL_DEFAULT_LOCALE_CODE = 'ja-JP'

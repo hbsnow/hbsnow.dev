@@ -3,7 +3,7 @@ import React from 'react'
 import { NextSeo } from 'next-seo'
 
 import { useFormattedDate } from '../../hooks/date'
-import { useFullPath } from '../../hooks/url'
+import { useFullPath, useOgpImagePath } from '../../hooks/url'
 import JsonLd, { JsonLdType } from './JsonLd'
 
 type Props = {
@@ -62,7 +62,7 @@ const Meta: React.FC<Props> = ({
           url: page.url,
           images: [
             {
-              url: page.cover,
+              url: useOgpImagePath(title),
             },
           ],
         }}

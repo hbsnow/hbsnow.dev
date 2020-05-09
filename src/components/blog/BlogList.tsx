@@ -5,15 +5,16 @@ import BlogListItem from './BlogListItem'
 
 type Props = {
   blogList: BlogType[]
+  preferredTag?: string
 }
 
-const BlogList: React.FC<Props> = ({ blogList }) => {
+const BlogList: React.FC<Props> = ({ blogList, preferredTag }) => {
   return (
     <ul className="blogList">
       {blogList?.map((post) => {
         return (
           <li key={post.slug} className="blogListItem">
-            <BlogListItem post={post} />
+            <BlogListItem post={post} preferredTag={preferredTag} />
           </li>
         )
       })}

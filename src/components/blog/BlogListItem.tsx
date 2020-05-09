@@ -10,9 +10,10 @@ import TagList from '../tag/TagList'
 
 type Props = {
   post: BlogType
+  preferredTag?: string
 }
 
-const BlogListItem: React.FC<Props> = ({ post }) => {
+const BlogListItem: React.FC<Props> = ({ post, preferredTag }) => {
   const createdAt = useFormattedDate(post.createdAt)
   const updatedAt = useFormattedDate(post.updatedAt)
 
@@ -35,7 +36,7 @@ const BlogListItem: React.FC<Props> = ({ post }) => {
         <time dateTime={post.createdAt}>{createdAt}</time>
       </div>
       <div className="tags">
-        <TagList tagList={post.tags} />
+        <TagList tagList={post.tags} preferredTag={preferredTag} />
       </div>
       <style jsx>{`
         .blogListItem {

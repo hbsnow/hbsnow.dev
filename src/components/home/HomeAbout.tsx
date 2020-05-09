@@ -38,12 +38,6 @@ const HomeAbout: React.FC<Props> = ({ children }) => {
           grid-row: 2 / 3;
         }
 
-        .description {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
         @media ${mediaQuery.sm} {
           .homeAbout {
             grid-template-columns: auto 1fr;

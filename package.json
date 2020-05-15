@@ -43,7 +43,7 @@
   "dependencies": {
     "classnames": "2.2.6",
     "color": "3.1.2",
-    "dayjs": "1.8.26",
+    "dayjs": "1.8.27",
     "normalize.css": "8.0.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",

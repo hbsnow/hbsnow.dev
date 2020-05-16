@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkSectionize from 'remark-sectionize'
 
 import Blockcode from '../blockcode/Blockcode'
+import Blockquote from '../blockquote/Blockquote'
 import Heading from '../heading/Heading'
 import ExternalLink from '../link/ExternalLink'
 
@@ -57,6 +58,10 @@ const Markdown: React.FC<Props> = ({ source, ...restProps }) => {
     return <a href={href}>{children}</a>
   }
 
+  const blockquote: React.FC = ({ children }) => {
+    return <Blockquote>{children}</Blockquote>
+  }
+
   return (
     <div data-testid="Markdown" className="markdown" {...restProps}>
       <ReactMarkdown
@@ -68,6 +73,7 @@ const Markdown: React.FC<Props> = ({ source, ...restProps }) => {
           heading,
           image,
           link,
+          blockquote,
         }}
       />
     </div>

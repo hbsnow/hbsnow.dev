@@ -1,7 +1,7 @@
 ---
-title: JavaScript でオブジェクトの sort をする
+title: JavaScript でオブジェクトの配列を sort をする
 tags: [javascript]
-description: JavaScript でオブジェクトの sort をする方法。
+description: JavaScript でオブジェクトの配列を sort をする方法。
 createdAt: 2020-05-06
 ---
 

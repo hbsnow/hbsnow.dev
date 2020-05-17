@@ -17,8 +17,8 @@ import { toSlugString } from '../../../../utils/url'
 export const config = { amp: true }
 
 type Props = {
-  slug: string
-  blogList: BlogType[]
+  readonly slug: string
+  readonly blogList: BlogType[]
 }
 
 const Page: NextPage<Props> = ({ slug, blogList }) => {

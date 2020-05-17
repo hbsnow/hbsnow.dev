@@ -7,9 +7,9 @@ https://hbsnow.dev
 ## Run
 
 ```
-NODE_ENV=development yarn dev
+yarn dev
 
-# webpackのパフォーマンス計測をする場合
+# webpack のパフォーマンス計測をする場合
 NODE_ENV=development MEASURE=true yarn build
 ```
 

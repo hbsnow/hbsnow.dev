@@ -6,8 +6,8 @@ import Code from './Code'
 import Pre from './Pre'
 
 type Props = {
-  language?: string
-} & JSX.IntrinsicElements['div']
+  readonly language?: string
+} & Omit<JSX.IntrinsicElements['div'], 'className'>
 
 const Blockcode: React.FC<Props> = ({ children, language, ...restProps }) => {
   return (

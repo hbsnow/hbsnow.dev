@@ -2,7 +2,7 @@ import React from 'react'
 
 import { containerSize } from '../../styles/const'
 
-type Props = {} & JSX.IntrinsicElements['div']
+type Props = Omit<JSX.IntrinsicElements['div'], 'className'>
 
 const Container: React.FC<Props> = ({ children, ...restProps }) => {
   return (

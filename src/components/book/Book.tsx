@@ -6,7 +6,7 @@ import Rating from '../../elements/rating/Rating'
 import { IBookFields } from '../../models/contentful'
 
 type Props = {
-  book: Entry<IBookFields>['fields']
+  readonly book: Entry<IBookFields>['fields']
 }
 
 const Book: React.FC<Props> = ({ book }) => {

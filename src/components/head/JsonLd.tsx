@@ -5,16 +5,16 @@ import { ArticleJsonLd, BlogJsonLd } from 'next-seo'
 export type JsonLdType = 'article' | 'blog'
 
 type Props = {
-  type: JsonLdType
-  url: string
-  title: string
-  images: string[]
-  datePublished: string
-  dateModified: string
-  authorName: string
-  publisherName: string
-  publisherLogo: string
-  description: string
+  readonly type: JsonLdType
+  readonly url: string
+  readonly title: string
+  readonly images: string[]
+  readonly datePublished: string
+  readonly dateModified: string
+  readonly authorName: string
+  readonly publisherName: string
+  readonly publisherLogo: string
+  readonly description: string
 }
 
 const JsonLd: React.FC<Props> = ({ type, ...restProps }) => {

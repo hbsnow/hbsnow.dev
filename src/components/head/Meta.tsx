@@ -7,12 +7,12 @@ import { useFullPath, useOgpImagePath } from '../../hooks/url'
 import JsonLd, { JsonLdType } from './JsonLd'
 
 type Props = {
-  type: JsonLdType
-  title: string
-  path: string
-  description: string
-  createdAt: string
-  updatedAt?: string
+  readonly type: JsonLdType
+  readonly title: string
+  readonly path: string
+  readonly description: string
+  readonly createdAt: string
+  readonly updatedAt?: string
 }
 
 const Meta: React.FC<Props> = ({

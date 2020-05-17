@@ -1,7 +1,7 @@
 import React from 'react'
 
 type Props = {
-  size?: number
+  readonly size?: number
 }
 
 const Avatar: React.FC<Props> = ({ size = 256 }) => {

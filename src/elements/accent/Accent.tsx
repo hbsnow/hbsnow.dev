@@ -1,6 +1,6 @@
 import React from 'react'
 
-type Props = {} & JSX.IntrinsicElements['div']
+type Props = Omit<JSX.IntrinsicElements['div'], 'className'>
 
 const Accent: React.FC<Props> = ({ children, ...restProps }) => {
   return (

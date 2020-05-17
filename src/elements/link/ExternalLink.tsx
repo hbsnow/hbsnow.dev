@@ -1,9 +1,9 @@
 import React from 'react'
 
-type NoTargetElement = Omit<JSX.IntrinsicElements['a'], 'target'>
+type NoTargetElement = Omit<JSX.IntrinsicElements['a'], 'target' | 'className'>
 
 type Props = {
-  disableVisited?: boolean
+  readonly disableVisited?: boolean
 } & NoTargetElement
 
 const addRel = (props: NoTargetElement): NoTargetElement => {

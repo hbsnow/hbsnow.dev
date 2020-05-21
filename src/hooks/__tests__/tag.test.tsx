@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react-hooks'
 
 import { useSortedTagList } from '../tag'
 
-describe('tag hooks', () => {
+describe(useSortedTagList.name, () => {
   it('sort tag default', () => {
     const { result } = renderHook(() =>
       useSortedTagList(['zzz', 'z', 'a', 'c', 'bb'])

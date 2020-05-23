@@ -2,20 +2,22 @@ import React from 'react'
 
 import { ArticleJsonLd, BlogJsonLd } from 'next-seo'
 
-export type JsonLdType = 'article' | 'blog'
+export type JsonLdPageType = 'article' | 'blog'
 
-type Props = {
-  readonly type: JsonLdType
-  readonly url: string
-  readonly title: string
-  readonly images: string[]
-  readonly datePublished: string
-  readonly dateModified: string
-  readonly authorName: string
-  readonly publisherName: string
-  readonly publisherLogo: string
-  readonly description: string
+export type JsonLdType = {
+  type: JsonLdPageType
+  url: string
+  title: string
+  images: string[]
+  datePublished: string
+  dateModified: string
+  authorName: string
+  publisherName: string
+  publisherLogo: string
+  description: string
 }
+
+type Props = Readonly<JsonLdType>
 
 const JsonLd: React.FC<Props> = ({ type, ...restProps }) => {
   switch (type) {

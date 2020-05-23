@@ -80,7 +80,7 @@
     "contentful-management": "5.26.3",
     "contentful-typescript-codegen": "3.2.1",
     "dotenv": "8.2.0",
-    "eslint": "7.0.0",
+    "eslint": "7.1.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.20.2",
     "eslint-plugin-prettier": "3.1.3",

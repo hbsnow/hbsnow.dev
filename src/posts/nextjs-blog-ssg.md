@@ -185,10 +185,9 @@ JSON-LD の出力には [next-seo](https://github.com/garmeeh/next-seo) を使�
 
 結局 style-jsx にしたのですが、style-jsx も次のように Media Queries に変数を使用してしまうと VSCode でエラーが表示されてしまいます。
 
-```tsx
+```
 <style jsx>
-  @media ${mediaQuery.sm}{' '}
-  {
+  @media ${mediaQuery.sm} {
     // ここ以降うまくパースできてない
   }
 </style>

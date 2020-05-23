@@ -2,6 +2,10 @@ import path from 'path'
 
 import matter from 'gray-matter'
 
+export type BlogType = {
+  slug: string
+} & matter.GrayMatterFile<string>['data']
+
 export const loadBlogList = (): BlogType[] => {
   const blogList = ((context): BlogType[] => {
     const keys = context.keys()
@@ -28,7 +32,3 @@ export const loadBlog = async (slug: string): Promise<BlogType> => {
     })
   )
 }
-
-export type BlogType = {
-  slug: string
-} & matter.GrayMatterFile<string>['data']

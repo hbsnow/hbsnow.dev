@@ -14,7 +14,7 @@ import { toSlugString } from '../../../utils/url'
 export const config = { amp: true }
 
 type Props = {
-  blog: BlogType
+  readonly blog: BlogType
 }
 
 const Page: NextPage<Props> = ({ blog }) => {

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const tagList: { [key: string]: string } = Object.freeze({
+export const tagList: Readonly<{ [key: string]: string }> = {
   amp: '#005AF0',
   angular: '#DD0031',
   aws: '#232F3E',
@@ -20,7 +20,7 @@ export const tagList: { [key: string]: string } = Object.freeze({
   vercel: '#000000',
   vuejs: '#4FC08D',
   wordpress: '#21759B',
-})
+}
 
 const tagNameList = [...Object.keys(tagList)] as const
 
@@ -29,8 +29,8 @@ export type TagType = typeof tagNameList[number]
 export type IconType = 'twitter' | 'arrowRight' | 'star' | TagType
 
 type Props = {
-  name: IconType
-} & JSX.IntrinsicElements['svg']
+  readonly name: IconType
+} & Omit<JSX.IntrinsicElements['svg'], 'className'>
 
 const Icon: React.FC<Props> = ({ name, ...restProps }) => {
   const svgRestProps = {

@@ -2,10 +2,10 @@ import React from 'react'
 
 import { ArticleJsonLd, BlogJsonLd } from 'next-seo'
 
-export type JsonLdType = 'article' | 'blog'
+export type JsonLdPageType = 'article' | 'blog'
 
-type Props = {
-  type: JsonLdType
+export type JsonLdType = {
+  type: JsonLdPageType
   url: string
   title: string
   images: string[]
@@ -16,6 +16,8 @@ type Props = {
   publisherLogo: string
   description: string
 }
+
+type Props = Readonly<JsonLdType>
 
 const JsonLd: React.FC<Props> = ({ type, ...restProps }) => {
   switch (type) {

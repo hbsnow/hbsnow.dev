@@ -11,7 +11,7 @@ type SnsLink = {
   label: string
 } & ExternalLinkType<IconType>
 
-const sns: SnsLink[] = [
+const sns: Readonly<SnsLink[]> = [
   {
     name: 'github',
     label: 'GitHub',
@@ -24,9 +24,7 @@ const sns: SnsLink[] = [
   },
 ]
 
-type Props = {}
-
-const Footer: React.FC<Props> = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <Container>

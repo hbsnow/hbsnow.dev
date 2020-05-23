@@ -10,8 +10,8 @@ import Heading from '../heading/Heading'
 import ExternalLink from '../link/ExternalLink'
 
 type Props = {
-  source: string
-} & JSX.IntrinsicElements['div']
+  readonly source: string
+} & Omit<JSX.IntrinsicElements['div'], 'className'>
 
 const Markdown: React.FC<Props> = ({ source, ...restProps }) => {
   const code: React.FC<{ language: string; value: string }> = ({

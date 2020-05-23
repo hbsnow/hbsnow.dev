@@ -4,8 +4,8 @@ import { BlogType } from '../../modules/blog'
 import BlogListItem from './BlogListItem'
 
 type Props = {
-  blogList: BlogType[]
-  preferredTag?: string
+  readonly blogList: BlogType[]
+  readonly preferredTag?: string
 }
 
 const BlogList: React.FC<Props> = ({ blogList, preferredTag }) => {

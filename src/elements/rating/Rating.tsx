@@ -1,4 +1,3 @@
-// import { containerSize, gapSize } from '../../styles/const'
 import React from 'react'
 
 import classNames from 'classnames'
@@ -6,9 +5,9 @@ import classNames from 'classnames'
 import Icon from '../icon/Icon'
 
 type Props = {
-  rate: number
-  maxRate?: number
-} & JSX.IntrinsicElements['div']
+  readonly rate: number
+  readonly maxRate?: number
+} & Omit<JSX.IntrinsicElements['div'], 'className'>
 
 const Rating: React.FC<Props> = ({ rate, maxRate = 3, ...restProps }) => {
   if (rate > maxRate) {

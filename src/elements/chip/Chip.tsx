@@ -4,8 +4,8 @@ import { textColor } from '../../styles/mixin'
 import Icon, { tagList, TagType } from '../icon/Icon'
 
 type Props = {
-  icon?: TagType
-} & JSX.IntrinsicElements['div']
+  readonly icon?: TagType
+} & Omit<JSX.IntrinsicElements['div'], 'className'>
 
 const Chip: React.FC<Props> = ({ children, icon, ...restProps }) => {
   return (

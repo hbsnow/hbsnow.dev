@@ -3,9 +3,7 @@ import React from 'react'
 import Footer from '../../components/footer/Footer'
 import Header from '../../components/header/Header'
 
-type Props = {}
-
-const DefaultTemplate: React.FC<Props> = ({ children }) => {
+const DefaultTemplate: React.FC = ({ children }) => {
   return (
     <div className="root">
       <div className="header">

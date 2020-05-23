@@ -4,15 +4,15 @@ import { NextSeo } from 'next-seo'
 
 import { useFormattedDate } from '../../hooks/date'
 import { useFullPath, useOgpImagePath } from '../../hooks/url'
-import JsonLd, { JsonLdType } from './JsonLd'
+import JsonLd, { JsonLdPageType, JsonLdType } from './JsonLd'
 
 type Props = {
-  type: JsonLdType
-  title: string
-  path: string
-  description: string
-  createdAt: string
-  updatedAt?: string
+  readonly type: JsonLdPageType
+  readonly title: string
+  readonly path: string
+  readonly description: string
+  readonly createdAt: string
+  readonly updatedAt?: string
 }
 
 const Meta: React.FC<Props> = ({
@@ -23,34 +23,23 @@ const Meta: React.FC<Props> = ({
   createdAt,
   updatedAt,
 }) => {
+  const pageUrl = useFullPath(path)
   const dateFormat = 'YYYY-MM-DDTHH:mm:ss+09:00'
   const datePublished = useFormattedDate(createdAt, dateFormat)
   const dateModified = useFormattedDate(updatedAt, dateFormat)
 
-  const page = Object.freeze({
-    url: useFullPath(path),
-    cover: useFullPath('assets/img/og/cover.png'),
+  const jsonLd: Readonly<JsonLdType> = {
+    type,
+    url: pageUrl,
+    title,
     images: [useFullPath('assets/img/og/site-icons/icon-1200x1200.png')],
     datePublished,
     dateModified: dateModified ?? datePublished,
-    author: {
-      name: 'hbsnow',
-      logo: useFullPath('assets/img/og/logo.png'),
-    },
-  })
-
-  const jsonLd = Object.freeze({
-    type,
-    url: page.url,
-    title,
-    images: page.images,
-    datePublished: page.datePublished,
-    dateModified: page.dateModified,
-    authorName: page.author.name,
-    publisherName: page.author.name,
-    publisherLogo: page.author.logo,
+    authorName: 'hbsnow',
+    publisherName: 'hbsnow',
+    publisherLogo: useFullPath('assets/img/og/logo.png'),
     description,
-  })
+  }
 
   return (
     <>
@@ -59,7 +48,7 @@ const Meta: React.FC<Props> = ({
         description={description}
         openGraph={{
           type: 'website',
-          url: page.url,
+          url: pageUrl,
           images: [
             {
               url: useOgpImagePath(title),

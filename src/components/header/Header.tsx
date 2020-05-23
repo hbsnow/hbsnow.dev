@@ -5,9 +5,7 @@ import Link from 'next/link'
 import Container from '../../elements/container/Container'
 import { mediaQuery } from '../../styles/const'
 
-type Props = {}
-
-const Header: React.FC<Props> = () => {
+const Header: React.FC = () => {
   return (
     <header className="header">
       <Container>

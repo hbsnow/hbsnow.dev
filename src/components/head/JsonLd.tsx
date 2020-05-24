@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { ArticleJsonLd, BlogJsonLd } from 'next-seo'
 
@@ -19,7 +19,7 @@ export type JsonLdType = {
 
 type Props = Readonly<JsonLdType>
 
-const JsonLd: React.FC<Props> = ({ type, ...restProps }) => {
+const JsonLd: FC<Props> = ({ type, ...restProps }) => {
   switch (type) {
     case 'article': {
       return <ArticleJsonLd {...restProps} />

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 type Props = Omit<JSX.IntrinsicElements['div'], 'className'>
 
-const Accent: React.FC<Props> = ({ children, ...restProps }) => {
+const Accent: FC<Props> = ({ children, ...restProps }) => {
   return (
     <div data-testid="Accent" className="accent" {...restProps}>
       {children}

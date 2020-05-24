@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { containerSize } from '../../styles/const'
 
 type Props = Omit<JSX.IntrinsicElements['div'], 'className'>
 
-const Container: React.FC<Props> = ({ children, ...restProps }) => {
+const Container: FC<Props> = ({ children, ...restProps }) => {
   return (
     <div data-testid="Container" className="container" {...restProps}>
       <div className="inner">{children}</div>

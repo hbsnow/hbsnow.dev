@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { NextSeo } from 'next-seo'
 
@@ -15,7 +15,7 @@ type Props = {
   readonly updatedAt?: string
 }
 
-const Meta: React.FC<Props> = ({
+const Meta: FC<Props> = ({
   type,
   title,
   path,

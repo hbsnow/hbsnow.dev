@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { textColor } from '../../styles/mixin'
 import Icon, { tagList, TagType } from '../icon/Icon'
@@ -7,7 +7,7 @@ type Props = {
   readonly icon?: TagType
 } & Omit<JSX.IntrinsicElements['div'], 'className'>
 
-const Chip: React.FC<Props> = ({ children, icon, ...restProps }) => {
+const Chip: FC<Props> = ({ children, icon, ...restProps }) => {
   return (
     <div data-testid="Chip" className="chip" {...restProps}>
       {icon ? (

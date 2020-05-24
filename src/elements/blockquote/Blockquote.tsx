@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import Icon from '../icon/Icon'
 
 type Props = {} & JSX.IntrinsicElements['div']
 
-const Blockquote: React.FC<Props> = ({ children, ...restProps }) => {
+const Blockquote: FC<Props> = ({ children, ...restProps }) => {
   return (
     <div data-testid="Blockquote" className="blockquote" {...restProps}>
       <div className="icon">

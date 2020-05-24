@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { Entry } from 'contentful'
 
@@ -9,7 +9,7 @@ type Props = {
   readonly book: Entry<IBookFields>['fields']
 }
 
-const Book: React.FC<Props> = ({ book }) => {
+const Book: FC<Props> = ({ book }) => {
   return (
     <div className="book">
       <header className="header">

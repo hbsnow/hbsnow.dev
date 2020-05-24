@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import Link from 'next/link'
 
@@ -10,7 +10,7 @@ type Props = {
   readonly preferredTag?: string
 }
 
-const TagList: React.FC<Props> = ({ tagList, preferredTag }) => {
+const TagList: FC<Props> = ({ tagList, preferredTag }) => {
   const sortedTagList = useSortedTagList(tagList, preferredTag)
 
   return (

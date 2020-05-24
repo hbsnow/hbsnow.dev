@@ -165,11 +165,11 @@ JSON-LD の出力には [next-seo](https://github.com/garmeeh/next-seo) を使�
 
 ただそのまま fork するだけでは画像も変更できず、日本語も使用できないためいくつか修正が必要です。
 
-- https://github.com/hbsnow/og-image/commit/3af90ae921cd4ce0ed2063074c45e85d8873d518
+- [commit 3af90ae9](https://github.com/hbsnow/og-image/commit/3af90ae921cd4ce0ed2063074c45e85d8873d518)
 
 上記がアイコンの差し替えのコミットです。そのまま使ってしまうと `https://assets.vercel.com/` から始まるアドレス以外の画像をデフォルトの画像に置き換える処理が含まれているので、その箇所の削除が必要になります。fork して使うことが前提なのに、なぜこうなっているのかよくわかりません。
 
-- https://github.com/hbsnow/og-image/commit/598b68f11601840d534833da9878b992e1aa0772
+- [commit 598b68f1](https://github.com/hbsnow/og-image/commit/598b68f11601840d534833da9878b992e1aa0772)
 
 上記がフォントの差し替えです。デフォルトだと日本語が豆腐になります。
 

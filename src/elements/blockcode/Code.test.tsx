@@ -1,14 +1,13 @@
 /* eslint-env jest */
 import React from 'react'
 
-import { render, screen } from '@testing-library/react'
+import renderer from 'react-test-renderer'
 
 import Code from './Code'
 
-describe('Blockcode Component', () => {
-  it('render the code', () => {
-    render(<Code>code</Code>)
-    const target = screen.getByTestId('Code')
-    expect(target).toHaveTextContent('code')
+describe(Code.name, () => {
+  it('renders correctly', () => {
+    const tree = renderer.create(<Code>blockcode</Code>).toJSON()
+    expect(tree).toMatchSnapshot()
   })
 })

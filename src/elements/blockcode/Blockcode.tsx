@@ -12,15 +12,24 @@ type Props = {
 const Blockcode: React.FC<Props> = ({ children, language, ...restProps }) => {
   return (
     <div data-testid="Blockcode" className="blockcode" {...restProps}>
-      {language && <div className="language">{language}</div>}
-      <SyntaxHighlighter
-        language={language}
-        style={false}
-        PreTag={Pre}
-        CodeTag={Code}
-      >
-        {children}
-      </SyntaxHighlighter>
+      {language ? (
+        <>
+          <div className="language">{language}</div>
+          <SyntaxHighlighter
+            language={language}
+            style={false}
+            PreTag={Pre}
+            CodeTag={Code}
+          >
+            {children}
+          </SyntaxHighlighter>
+        </>
+      ) : (
+        <Pre>
+          <Code>{children}</Code>
+        </Pre>
+      )}
+
       <style jsx>{`
         .blockcode {
           background-color: var(--color-default-surface);

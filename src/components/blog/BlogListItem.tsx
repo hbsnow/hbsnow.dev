@@ -9,8 +9,8 @@ import { mediaQuery } from '../../styles/const'
 import TagList from '../tag/TagList'
 
 type Props = {
-  post: BlogType
-  preferredTag?: string
+  readonly post: BlogType
+  readonly preferredTag?: string
 }
 
 const BlogListItem: React.FC<Props> = ({ post, preferredTag }) => {

@@ -1,12 +1,10 @@
-/**
- * @link https://material.io/resources/color/#!/?view.left=1&view.right=1&primary.color=559dff&secondary.color=fd9547
- */
-export const colors: {
+// @link https://material.io/resources/color/#!/?view.left=1&view.right=1&primary.color=559dff&secondary.color=fd9547
+export const colors: Readonly<{
   [key: string]: {
     light: string
     dark: string
   }
-} = Object.freeze({
+}> = {
   bg: {
     light: '#fefefe',
     dark: '#2B2842',
@@ -47,7 +45,7 @@ export const colors: {
     light: '#b00020',
     dark: '#cf6679',
   },
-})
+}
 
 export const mediaQuery = Object.freeze({
   xs: '(min-width: 36rem)',

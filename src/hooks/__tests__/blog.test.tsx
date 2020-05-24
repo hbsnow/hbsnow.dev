@@ -8,7 +8,7 @@ import {
   useMaxBlogUpdatedAt,
 } from '../blog'
 
-describe('blog hooks', () => {
+describe(useSortBlog.name, () => {
   const blog = [
     {
       slug: 'test1',

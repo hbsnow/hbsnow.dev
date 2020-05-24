@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react-hooks'
 
 import { useFormattedDate } from '../date'
 
-describe('date hooks', () => {
+describe(useFormattedDate.name, () => {
   it('formatted date default', () => {
     const { result } = renderHook(() =>
       useFormattedDate('2019-06-01T00:00:00.000Z')

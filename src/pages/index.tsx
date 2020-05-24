@@ -22,8 +22,8 @@ import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
 export const config = { amp: true }
 
 type Props = {
-  blogList: BlogType[]
-  bookList: Entry<IBookFields>[]
+  readonly blogList: BlogType[]
+  readonly bookList: Entry<IBookFields>[]
 }
 
 const Page: NextPage<Props> = ({ blogList, bookList }) => {

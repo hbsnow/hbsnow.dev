@@ -10,7 +10,7 @@ import {
   useGroupByCategory,
 } from '../book'
 
-describe('book date hooks', () => {
+describe(useMinBookCreatedAt.name, () => {
   const fakeBookList = [
     {
       sys: {
@@ -180,7 +180,7 @@ describe('sorted book hooks', () => {
   })
 })
 
-describe('categorized bookList hooks', () => {
+describe(useGroupByCategory.name, () => {
   const fakeBookList = [
     {
       fields: {

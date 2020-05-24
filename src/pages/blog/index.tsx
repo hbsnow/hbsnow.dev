@@ -17,7 +17,7 @@ import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
 export const config = { amp: true }
 
 type Props = {
-  blogList: BlogType[]
+  readonly blogList: BlogType[]
 }
 
 const Page: NextPage<Props> = ({ blogList }) => {

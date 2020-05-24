@@ -1,8 +1,8 @@
 import React from 'react'
 
-type ButtonProps = {} & JSX.IntrinsicElements['button']
+type Props = Omit<JSX.IntrinsicElements['button'], 'className'>
 
-const Button: React.FC<ButtonProps> = ({ children, ...restProps }) => {
+const Button: React.FC<Props> = ({ children, ...restProps }) => {
   return (
     <button className="button" {...restProps}>
       {children}

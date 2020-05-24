@@ -3,9 +3,7 @@ import React from 'react'
 import { mediaQuery } from '../../styles/const'
 import Avatar from './Avatar'
 
-type Props = {}
-
-const HomeAbout: React.FC<Props> = ({ children }) => {
+const HomeAbout: React.FC = ({ children }) => {
   return (
     <div className="homeAbout">
       <div className="avatarCell">

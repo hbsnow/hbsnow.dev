@@ -6,8 +6,8 @@ import Chip from '../../elements/chip/Chip'
 import { useSortedTagList } from '../../hooks/tag'
 
 type Props = {
-  tagList: string[]
-  preferredTag?: string
+  readonly tagList: string[]
+  readonly preferredTag?: string
 }
 
 const TagList: React.FC<Props> = ({ tagList, preferredTag }) => {

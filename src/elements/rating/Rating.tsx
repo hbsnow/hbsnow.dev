@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import classNames from 'classnames'
 
@@ -9,7 +9,7 @@ type Props = {
   readonly maxRate?: number
 } & Omit<JSX.IntrinsicElements['div'], 'className'>
 
-const Rating: React.FC<Props> = ({ rate, maxRate = 3, ...restProps }) => {
+const Rating: FC<Props> = ({ rate, maxRate = 3, ...restProps }) => {
   if (rate > maxRate) {
     throw new Error('rateにmaxRateよりも大きい数値が設定されています。')
   }

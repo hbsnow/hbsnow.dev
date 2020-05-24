@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import classNames from 'classnames'
 
@@ -10,7 +10,7 @@ type Props = {
   readonly post: BlogType
 }
 
-const BlogHeader: React.FC<Props> = ({ post }) => {
+const BlogHeader: FC<Props> = ({ post }) => {
   const createdAt = useFormattedDate(post.createdAt)
   const updatedAt = useFormattedDate(post.updatedAt)
 

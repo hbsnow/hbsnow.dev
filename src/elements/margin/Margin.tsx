@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 // @todo hooksにすること
 export const toRem = (val?: number): string => {
@@ -16,7 +16,7 @@ type Props = {
   readonly right?: number
 } & Omit<JSX.IntrinsicElements['div'], 'className'>
 
-const Margin: React.FC<Props> = ({
+const Margin: FC<Props> = ({
   children,
   all,
   x,

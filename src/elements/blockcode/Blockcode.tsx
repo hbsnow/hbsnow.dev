@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
@@ -9,7 +9,7 @@ type Props = {
   readonly language?: string
 } & Omit<JSX.IntrinsicElements['div'], 'className'>
 
-const Blockcode: React.FC<Props> = ({ children, language, ...restProps }) => {
+const Blockcode: FC<Props> = ({ children, language, ...restProps }) => {
   return (
     <div data-testid="Blockcode" className="blockcode" {...restProps}>
       {language ? (

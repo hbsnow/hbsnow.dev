@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 type NoTargetElement = Omit<JSX.IntrinsicElements['a'], 'target' | 'className'>
 
@@ -16,7 +16,7 @@ const addRel = (props: NoTargetElement): NoTargetElement => {
   }
 }
 
-const ExternalLink: React.FC<Props> = ({
+const ExternalLink: FC<Props> = ({
   children,
   disableVisited = false,
   ...restProps

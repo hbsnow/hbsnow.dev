@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { BlogType } from '../../modules/blog'
 import BlogListItem from './BlogListItem'
@@ -8,7 +8,7 @@ type Props = {
   readonly preferredTag?: string
 }
 
-const BlogList: React.FC<Props> = ({ blogList, preferredTag }) => {
+const BlogList: FC<Props> = ({ blogList, preferredTag }) => {
   return (
     <ul className="blogList">
       {blogList?.map((post) => {

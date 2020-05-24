@@ -95,7 +95,7 @@ Markdown の変換には `react-markdown` を使っています。[Marked](https
 import { slug } from 'github-slugger'
 import { onlyText } from 'react-children-utilities'
 
-const Heading: React.FC<Props> = ({ level = 1, children, ...restProps }) => {
+const Heading: FC<Props> = ({ level = 1, children, ...restProps }) => {
   const text = onlyText(children)
   const id = slug(text)
 

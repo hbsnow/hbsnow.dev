@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 export const tagList: Readonly<{ [key: string]: string }> = {
   amp: '#005AF0',
@@ -32,7 +32,7 @@ type Props = {
   readonly name: IconType
 } & Omit<JSX.IntrinsicElements['svg'], 'className'>
 
-const Icon: React.FC<Props> = ({ name, ...restProps }) => {
+const Icon: FC<Props> = ({ name, ...restProps }) => {
   const svgRestProps = {
     width: 24,
     height: 24,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { imageSize } from 'image-size'
 import ReactMarkdown from 'react-markdown'
@@ -13,23 +13,23 @@ type Props = {
   readonly source: string
 } & Omit<JSX.IntrinsicElements['div'], 'className'>
 
-const Markdown: React.FC<Props> = ({ source, ...restProps }) => {
-  const code: React.FC<{ language: string; value: string }> = ({
+const Markdown: FC<Props> = ({ source, ...restProps }) => {
+  const code: FC<{ language: string; value: string }> = ({
     language,
     value,
   }) => {
     return <Blockcode language={language}>{value}</Blockcode>
   }
 
-  const section: React.FC = ({ children }) => {
+  const section: FC = ({ children }) => {
     return <section>{children}</section>
   }
 
-  const heading: React.FC<{ level: string }> = ({ level, children }) => {
+  const heading: FC<{ level: string }> = ({ level, children }) => {
     return <Heading level={parseInt(level)}>{children}</Heading>
   }
 
-  const image: React.FC<{ src: string; alt: string }> = ({ src, alt }) => {
+  const image: FC<{ src: string; alt: string }> = ({ src, alt }) => {
     const dimensions = imageSize(`public/${src}`)
 
     return (
@@ -50,7 +50,7 @@ const Markdown: React.FC<Props> = ({ source, ...restProps }) => {
     )
   }
 
-  const link: React.FC<{ href: string }> = ({ children, href }) => {
+  const link: FC<{ href: string }> = ({ children, href }) => {
     if (href.startsWith('http')) {
       return <ExternalLink href={href}>{children}</ExternalLink>
     }
@@ -58,7 +58,7 @@ const Markdown: React.FC<Props> = ({ source, ...restProps }) => {
     return <a href={href}>{children}</a>
   }
 
-  const blockquote: React.FC = ({ children }) => {
+  const blockquote: FC = ({ children }) => {
     return <Blockquote>{children}</Blockquote>
   }
 

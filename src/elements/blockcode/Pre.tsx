@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import css from 'styled-jsx/css'
 
@@ -134,7 +134,7 @@ const styles = css.global`
   }
 `
 
-const Pre: React.FC = ({ children }) => {
+const Pre: FC = ({ children }) => {
   return (
     <pre data-testid="Pre" className="hljs">
       {children}

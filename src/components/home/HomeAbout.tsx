@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { mediaQuery } from '../../styles/const'
 import Avatar from './Avatar'
 
-const HomeAbout: React.FC = ({ children }) => {
+const HomeAbout: FC = ({ children }) => {
   return (
     <div className="homeAbout">
       <div className="avatarCell">

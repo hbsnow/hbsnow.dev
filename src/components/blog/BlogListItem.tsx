@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import classNames from 'classnames'
 import Link from 'next/link'
@@ -13,7 +13,7 @@ type Props = {
   readonly preferredTag?: string
 }
 
-const BlogListItem: React.FC<Props> = ({ post, preferredTag }) => {
+const BlogListItem: FC<Props> = ({ post, preferredTag }) => {
   const createdAt = useFormattedDate(post.createdAt)
   const updatedAt = useFormattedDate(post.updatedAt)
 

@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 type Props = {
   readonly size?: number
 }
 
-const Avatar: React.FC<Props> = ({ size = 256 }) => {
+const Avatar: FC<Props> = ({ size = 256 }) => {
   return (
     <div className="avatar" data-amp-auto-lightbox-disable>
       <amp-img

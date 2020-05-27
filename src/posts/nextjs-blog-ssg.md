@@ -3,6 +3,7 @@ title: Next.js の SSG で AMP-only のブログを作った
 tags: [nextjs, amp]
 description: Next.js の SSG で AMP-only のブログを作ったのでそのメモ。
 createdAt: 2020-05-23
+updatedAt: 2020-05-28
 ---
 
 Next.js が 9.3 で SSG を正式にサポートしました。この記事はこのブログの作成方法の記録になります。
@@ -87,9 +88,9 @@ export const getStaticPaths: GetStaticPaths = async (): Promise<{
 
 ### ブログ記事
 
-Markdown の変換には `react-markdown` を使っています。[Marked](https://github.com/markedjs/marked) が使われているので、特別困ることはありません。
+Markdown の変換には `react-markdown` を使っています。[Marked](https://github.com/markedjs/marked) が使われているので、特別困ることはありませんでした。
 
-今回少し面倒だったのが、header にアンカーリンクを設定するところになります。
+少し面倒だったのが、header にアンカーリンクを設定するところになります。
 
 ```tsx
 import { slug } from 'github-slugger'
@@ -124,6 +125,19 @@ const nextSettings = {}
 
 module.exports = withTM(nextSettings)
 ```
+
+エラーは他にも画像の長さを取得するために [image-size](https://github.com/image-size/image-size) を使ったときに遭遇しました。
+
+```
+Prerendered Page
+Failed to compile
+./node_modules/image-size/dist/index.js
+Module not found: Can't resolve 'fs' in '/PATH/TO/...'
+```
+
+これについては下記の Issue についているコメントが参考になります。
+
+- [Module not found: Can't resolve 'fs' #7755](https://github.com/zeit/next.js/issues/7755#issuecomment-508633125)
 
 ## contentful で所持している本の一覧を作る
 

@@ -165,7 +165,8 @@ const sortedItems = sortBy(sortedItemsByNameDesc, [
 ここまで必要になるのであれば、素直に orderBy がわかりやすいです。
 
 ```js
-const orderBy = require('lodash.orderby')
+import orderBy from 'lodash.orderBy'
+
 const sortedItems = orderBy(
   items,
   [(item) => 'amount' in item, 'amount', 'name'],
@@ -181,6 +182,22 @@ const sortedItems = orderBy(
 //   { name: 'suger' }
 // ]
 ```
+
+### name を指定順でソート
+
+`name` を指定順に並べたいときには並べたい順の配列をあらかじめ作っておき、`indexOf` を比較します。
+
+```js
+import sortBy from 'lodash.sortby'
+const desiredSort = ['lunch-a', 'lunch-b', 'juice']
+
+const sortedItems = sortBy(items, (item) => {
+  const index = desiredSort.indexOf(item.name)
+  return index === -1 ? undefined : index
+})
+```
+
+上記の例では希望する順序の配列 `desiredSort` に含まれないものを後ろにしていますが、前にするのであれば `indexOf` の戻りをそのまま戻すだけになります。
 
 ## sort を使う
 

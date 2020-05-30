@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "next build && next export",
+    "build": "next build && next export && node genarateSitemap.js",
     "start": "next start",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

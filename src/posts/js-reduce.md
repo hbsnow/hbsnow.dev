@@ -3,12 +3,20 @@ title: reduce の使いどころ
 tags: [javascript]
 description: JavaScript の reduce の使いどころについて。
 createdAt: 2019-07-22
-updatedAt: 2020-04-02
+updatedAt: 2020-05-30
 ---
 
-JavaScript の `reduce` は便利だけれども、少し使いどころがわかりにくいと感じる人もいるらしい。
+## まとめ
 
-[MDN にわかりやすいサンプル](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)もあるんだけど、自分の整理もかねてこのブログでよくある使用方法をまとめておきます。
+- 配列の合計を計算する
+- オブジェクトの配列から最大、最小値をもつオブジェクトを取得する
+- ループとして使わないようにする
+
+## まえがき
+
+JavaScript の `reduce` は便利だけれども、少し使いどころがわかりにくいと感じる人もいるようです。
+
+[MDN にわかりやすいサンプル](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)もありますが、自分の整理もかねてこのブログでよくある使用方法をまとめておきます。
 
 ## reduce の使用例
 
@@ -277,6 +285,6 @@ Object.fromEntries(
 const { foo, bar, ...result } = example
 ```
 
-これでいい。
+これで問題ないはずです。
 
 また、こういった配列処理の例は[動画](https://www.youtube.com/watch?v=qaGjS7-qWzg)の最後に紹介されている [Underdash](https://surma.github.io/underdash/) にまとまっているので、ここでもおすすめしておきます。

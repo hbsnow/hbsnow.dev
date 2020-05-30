@@ -37,7 +37,7 @@ const Markdown: FC<Props> = ({ source, ...restProps }) => {
         <amp-img
           src={src}
           alt={alt}
-          layout="responsive"
+          layout="intrinsic"
           width={dimensions.width}
           height={dimensions.height}
         />

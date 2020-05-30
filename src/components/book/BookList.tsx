@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import { Entry } from 'contentful'
 
@@ -12,7 +12,7 @@ type Props = {
   readonly bookList: Entry<IBookFields>[]
 }
 
-const BookList: React.FC<Props> = ({ bookList }) => {
+const BookList: FC<Props> = ({ bookList }) => {
   const sortedBookList = useSort(bookList)
   const groupByCategoryBookList = useGroupByCategory(sortedBookList)
 

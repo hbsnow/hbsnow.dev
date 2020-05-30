@@ -1,13 +1,13 @@
-import React, { createElement } from 'react'
+import React, { FC, createElement, HTMLAttributes } from 'react'
 
 import { slug } from 'github-slugger'
 import { onlyText } from 'react-children-utilities'
 
 type Props = {
   readonly level?: number
-} & Omit<React.HTMLAttributes<HTMLHeadingElement>, 'className'>
+} & Omit<HTMLAttributes<HTMLHeadingElement>, 'className'>
 
-const Heading: React.FC<Props> = ({ level = 1, children, ...restProps }) => {
+const Heading: FC<Props> = ({ level = 1, children, ...restProps }) => {
   const text = onlyText(children)
   const id = slug(text)
 

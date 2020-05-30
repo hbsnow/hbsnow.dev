@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { FC } from 'react'
 
-const Code: React.FC = ({ children }) => {
+const Code: FC = ({ children }) => {
   return (
     <code data-testid="Code" className="code">
       {children}

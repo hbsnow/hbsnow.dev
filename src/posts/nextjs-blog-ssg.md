@@ -3,6 +3,7 @@ title: Next.js の SSG で AMP-only のブログを作った
 tags: [nextjs, amp]
 description: Next.js の SSG で AMP-only のブログを作ったのでそのメモ。
 createdAt: 2020-05-23
+updatedAt: 2020-05-28
 ---
 
 Next.js が 9.3 で SSG を正式にサポートしました。この記事はこのブログの作成方法の記録になります。
@@ -87,15 +88,15 @@ export const getStaticPaths: GetStaticPaths = async (): Promise<{
 
 ### ブログ記事
 
-Markdown の変換には `react-markdown` を使っています。[Marked](https://github.com/markedjs/marked) が使われているので、特別困ることはありません。
+Markdown の変換には `react-markdown` を使っています。[Marked](https://github.com/markedjs/marked) が使われているので、特別困ることはありませんでした。
 
-今回少し面倒だったのが、header にアンカーリンクを設定するところになります。
+少し面倒だったのが、header にアンカーリンクを設定するところになります。
 
 ```tsx
 import { slug } from 'github-slugger'
 import { onlyText } from 'react-children-utilities'
 
-const Heading: React.FC<Props> = ({ level = 1, children, ...restProps }) => {
+const Heading: FC<Props> = ({ level = 1, children, ...restProps }) => {
   const text = onlyText(children)
   const id = slug(text)
 
@@ -124,6 +125,19 @@ const nextSettings = {}
 
 module.exports = withTM(nextSettings)
 ```
+
+エラーは他にも画像の長さを取得するために [image-size](https://github.com/image-size/image-size) を使ったときに遭遇しました。
+
+```
+Prerendered Page
+Failed to compile
+./node_modules/image-size/dist/index.js
+Module not found: Can't resolve 'fs' in '/PATH/TO/...'
+```
+
+これについては下記の Issue についているコメントが参考になります。
+
+- [Module not found: Can't resolve 'fs' #7755](https://github.com/zeit/next.js/issues/7755#issuecomment-508633125)
 
 ## contentful で所持している本の一覧を作る
 
@@ -165,11 +179,11 @@ JSON-LD の出力には [next-seo](https://github.com/garmeeh/next-seo) を使�
 
 ただそのまま fork するだけでは画像も変更できず、日本語も使用できないためいくつか修正が必要です。
 
-- https://github.com/hbsnow/og-image/commit/3af90ae921cd4ce0ed2063074c45e85d8873d518
+- [commit 3af90ae9](https://github.com/hbsnow/og-image/commit/3af90ae921cd4ce0ed2063074c45e85d8873d518)
 
 上記がアイコンの差し替えのコミットです。そのまま使ってしまうと `https://assets.vercel.com/` から始まるアドレス以外の画像をデフォルトの画像に置き換える処理が含まれているので、その箇所の削除が必要になります。fork して使うことが前提なのに、なぜこうなっているのかよくわかりません。
 
-- https://github.com/hbsnow/og-image/commit/598b68f11601840d534833da9878b992e1aa0772
+- [commit 598b68f1](https://github.com/hbsnow/og-image/commit/598b68f11601840d534833da9878b992e1aa0772)
 
 上記がフォントの差し替えです。デフォルトだと日本語が豆腐になります。
 

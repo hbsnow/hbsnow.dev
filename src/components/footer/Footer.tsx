@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 
 import Link from 'next/link'
 
@@ -24,7 +24,7 @@ const sns: Readonly<SnsLink[]> = [
   },
 ]
 
-const Footer: React.FC = () => {
+const Footer: FC = () => {
   return (
     <footer className="footer">
       <Container>

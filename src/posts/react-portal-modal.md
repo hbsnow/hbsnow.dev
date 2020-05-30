@@ -28,11 +28,11 @@ React で普通のモーダルを作るのであれば、素直にスターが�
 こういった問題を解決するために React では、子のコンポーネントを親の DOM 階層下以外の場所に描画できる portal というものが用意されています。
 
 ```tsx
-import React, { useRef, useState, useEffect } from 'react'
+import React, { FC, useRef, useState, useEffect } from 'react'
 
 import { createPortal } from 'react-dom'
 
-const Modal: React.FC = () => {
+const Modal: FC = () => {
   const ref = useRef()
   const [mounted, setMounted] = useState(false)
 
@@ -64,7 +64,7 @@ type Props = {
   type: string
 }
 
-const ModalContent: React.FC<Props> = ({ type }) => {
+const ModalContent: FC<Props> = ({ type }) => {
   switch (type) {
     case 'DIALOG_NAME':
     default:
@@ -140,7 +140,7 @@ import React, { useContext } from 'react'
 
 import { Context } from '../modules'
 
-const ExampleButton: React.FC = () => {
+const ExampleButton: FC = () => {
   const { dispatch } = useContext(Context)
 
   return (

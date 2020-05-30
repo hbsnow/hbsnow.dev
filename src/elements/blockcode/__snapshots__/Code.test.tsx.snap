@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Code renders correctly 1`] = `
+<code
+  className="jsx-4275953942 code"
+  data-testid="Code"
+>
+  blockcode
+</code>
+`;

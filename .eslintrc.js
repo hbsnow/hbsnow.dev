@@ -13,9 +13,9 @@ module.exports = {
     {
       files: ['**/*.{ts,tsx}'],
       extends: [
+        'eslint:recommended',
         'plugin:react/recommended',
         'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/eslint-recommended',
         'prettier/@typescript-eslint',
       ],
       parser: '@typescript-eslint/parser',

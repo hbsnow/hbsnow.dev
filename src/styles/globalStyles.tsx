@@ -42,10 +42,6 @@ const globalStyles = css.global`
     }
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
   *,
   *::before,
   *::after {

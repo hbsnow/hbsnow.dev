@@ -34,10 +34,7 @@ const nextSettings = {
       use: 'raw-loader',
     })
 
-    if (
-      process.env.MEASURE === 'true' &&
-      process.env.NODE_ENV !== 'development'
-    ) {
+    if (process.env.MEASURE === 'true') {
       config.plugins.push(
         new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
           analyzerMode: 'static',

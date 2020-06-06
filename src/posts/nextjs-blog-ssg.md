@@ -3,7 +3,7 @@ title: Next.js の SSG で AMP-only のブログを作った
 tags: [nextjs, amp]
 description: Next.js の SSG で AMP-only のブログを作ったのでそのメモ。
 createdAt: 2020-05-23
-updatedAt: 2020-05-28
+updatedAt: 2020-05-30
 ---
 
 Next.js が 9.3 で SSG を正式にサポートしました。この記事はこのブログの作成方法の記録になります。
@@ -210,3 +210,25 @@ JSON-LD の出力には [next-seo](https://github.com/garmeeh/next-seo) を使�
 - https://github.com/Grimones/vscode-styled-jsx-languageserver/issues/15
 
 上記 issue にもあるように Language Server がメンテナンスされておらず、[フォークされたもの](https://github.com/Southclaws/vscode-styled-jsx-languageserver)でも大量のエラーで OUTPUT のログが埋まってしまう状態になりました。さすがに CSS をこの状態で記述することは厳しすぎるため、自分で好んで style-jsx を使うことはしばらくなさそうです。
+
+## sitemap.xml
+
+- [[Feature Request] native static sitemaps #12354](https://github.com/vercel/next.js/issues/12354)
+
+上記の Isuue にあるようにそのうちなにか簡単に実装できるかなともおもいましたが、なにもないというのも若干不安だったのでとりあえず暫定的に出力できるようにしておきました。
+
+```js
+const readPathList = async (target, base) => {
+  try {
+    const posts = await fs.promises.readdir(target, {
+      withFileTypes: true,
+    })
+
+    return posts.map((dirent) => `${base}/${dirent.name}/`)
+  } catch (err) {
+    Promise.reject(err)
+  }
+}
+```
+
+ブログの一覧は上記のコードで取得し、適切な文字列に返還した後 `fs.promises.writeFile` で出力しただけです。

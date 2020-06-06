@@ -63,9 +63,14 @@ const InputText: FC = () => {
 export default InputText
 ```
 
-上記のコードは一見うまくいきそうに思えますが、これはカーソル位置で移動して backspace をしたときに正しく機能しません。
+上記のコードは一見うまくいきそうに思えますが、これはカーソル位置を移動して backspace をしたときに正しく機能しません。
 
 ![カーソル移動後のbackspaceで正しく動作しないテキスト入力フォームの動作](/assets/img/posts/js-input-text-politespace/bug.gif)
+
+1. 4 つ区切りになっていない
+2. カーソルが空白の箇所で最後尾にとんでしまう
+
+この 2 点が問題です。
 
 ```tsx
 import React, { FC, useState, useRef, useEffect } from 'react'
@@ -120,6 +125,6 @@ const InputText: FC = () => {
 export default InputText
 ```
 
-とりあえず作ってはみたのですが、ちょっと自信がありません。
-
 この方法では `chunkedValue` の文字列が変化するため、削除時にカーソルが最後尾に飛ばされます。`useEffect` では `selectionEnd` の補正をしています。
+
+とりあえず作ってはみたのですが、ちょっと自信がありません。素直にプラグインを使ったほうが良さそうです。

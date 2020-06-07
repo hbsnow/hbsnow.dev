@@ -11,7 +11,7 @@ import Rating from '../../elements/rating/Rating'
 import { useMinBookCreatedAt, useMaxBookUpdatedAt } from '../../hooks/book'
 import { IBookFields } from '../../models/contentful'
 import { fetchBookList } from '../../modules/book'
-import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
+import DefaultTemplate from '../../templates/DefaultTemplate'
 
 export const config = { amp: true }
 

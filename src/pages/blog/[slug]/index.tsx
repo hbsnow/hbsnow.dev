@@ -8,7 +8,7 @@ import Container from '../../../elements/container/Container'
 import Margin from '../../../elements/margin/Margin'
 import Markdown from '../../../elements/markdown/Markdown'
 import { BlogType, loadBlog, loadBlogList } from '../../../modules/blog'
-import DefaultTemplate from '../../../templates/DefaultTemplate/DefaultTemplate'
+import DefaultTemplate from '../../../templates/DefaultTemplate'
 import { toSlugString } from '../../../utils/url'
 
 export const config = { amp: true }

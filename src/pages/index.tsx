@@ -17,7 +17,7 @@ import { useMaxBookUpdatedAt } from '../hooks/book'
 import { IBookFields } from '../models/contentful'
 import { BlogType, loadBlogList } from '../modules/blog'
 import { fetchBookList } from '../modules/book'
-import DefaultTemplate from '../templates/DefaultTemplate/DefaultTemplate'
+import DefaultTemplate from '../templates/DefaultTemplate'
 
 export const config = { amp: true }
 

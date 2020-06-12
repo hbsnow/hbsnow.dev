@@ -2558,7 +2558,7 @@
     traverse "^0.6.6"
     unified "^6.1.6"
 
-"@textlint/module-interop@^1.0.1", "@textlint/module-interop@^1.0.2":
+"@textlint/module-interop@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@textlint/module-interop/-/module-interop-1.0.2.tgz#8342b1a10048e3e9ce624c0000e477a8870a1d4b"
   integrity sha512-qQ6dqlg4SYywCywimIbkveQZu1MG6ugf6fcJuWDi3D51FbdkSRsMrPusJ1YoW6Y3XBp0ww9fJjXWtlUStGeQsw==
@@ -13276,7 +13276,7 @@ textlint-rule-ja-hiragana-keishikimeishi@1.0.2:
     kuromojin "^1.3.2"
     morpheme-match-all "^1.1.0"
 
-textlint-rule-ja-no-abusage@^2.0.0:
+textlint-rule-ja-no-abusage@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/textlint-rule-ja-no-abusage/-/textlint-rule-ja-no-abusage-2.0.1.tgz#cd07bea78a2dec65b4128f8d49e104d44f9084d9"
   integrity sha512-HUAi0vpjoE+8Jl0OzuhgqYlPzGbHjNr7sQuEFQWmrKUF7LdKTdP0dDcmcJ5rbKKLXZ4eV+6Tf2VfWfQrlIRkGg==
@@ -13435,15 +13435,15 @@ textlint-rule-no-nfd@^1.0.1:
     textlint-rule-helper "^2.1.1"
     unorm "^1.4.1"
 
-textlint-rule-preset-ja-technical-writing@4.0.0-beta.0:
-  version "4.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/textlint-rule-preset-ja-technical-writing/-/textlint-rule-preset-ja-technical-writing-4.0.0-beta.0.tgz#2a71845adb7bc203d1983bc17aad9d022b91efb1"
-  integrity sha512-UXc4vij6QiH61A3Yw7HfAT1+skhJUyKCNKoPW+vaAVJMz3rKxDJBfgACoHxGdyuf2F6dC6EHYc5eBIdrYZS8Xw==
+textlint-rule-preset-ja-technical-writing@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/textlint-rule-preset-ja-technical-writing/-/textlint-rule-preset-ja-technical-writing-4.0.0.tgz#3aed8c00f0c98f5c2318b531b1a660e6312c48b8"
+  integrity sha512-Ji7QSPSsmkmrKWtWPEUlC/sGQD90ATQX4M6/DTWuErBveYD0OOA3f3VMvA5M56QDO7zXRkWKkcpFvfLt/P3LFA==
   dependencies:
     "@textlint-rule/textlint-rule-no-invalid-control-character" "^1.2.0"
     "@textlint-rule/textlint-rule-no-unmatched-pair" "^1.0.7"
-    "@textlint/module-interop" "^1.0.1"
-    textlint-rule-ja-no-abusage "^2.0.0"
+    "@textlint/module-interop" "^1.0.2"
+    textlint-rule-ja-no-abusage "^2.0.1"
     textlint-rule-ja-no-mixed-period "^2.1.1"
     textlint-rule-ja-no-redundant-expression "^3.0.1"
     textlint-rule-ja-no-successive-word "^1.1.0"
@@ -13462,7 +13462,7 @@ textlint-rule-preset-ja-technical-writing@4.0.0-beta.0:
     textlint-rule-no-mix-dearu-desumasu "^4.0.0"
     textlint-rule-no-nfd "^1.0.1"
     textlint-rule-preset-jtf-style "^2.3.3"
-    textlint-rule-sentence-length "^2.1.1"
+    textlint-rule-sentence-length "^2.1.2"
 
 textlint-rule-preset-jtf-style@^2.3.3:
   version "2.3.4"
@@ -13489,7 +13489,7 @@ textlint-rule-prh@^5.2.1:
     textlint-rule-helper "^2.1.1"
     untildify "^3.0.3"
 
-textlint-rule-sentence-length@^2.1.1:
+textlint-rule-sentence-length@^2.1.2:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/textlint-rule-sentence-length/-/textlint-rule-sentence-length-2.2.0.tgz#5554dab081153af889a967b8670fbb3e6bb4f109"
   integrity sha512-0C7XZvqcdDwBQC1Sfyr47uDAChH0dO3O4gjxG4C/cwRFK8cyjIic8h7g+xaN7c9x+4OoMz+89SksuaHLo5UvqQ==

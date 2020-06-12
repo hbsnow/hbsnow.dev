@@ -87,7 +87,7 @@
     "husky": "4.2.5",
     "image-size": "0.8.3",
     "jest": "26.0.1",
-    "lint-staged": "10.2.9",
+    "lint-staged": "10.2.10",
     "next": "9.4.4",
     "next-seo": "4.5.0",
     "next-transpile-modules": "3.3.0",

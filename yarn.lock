@@ -4988,14 +4988,15 @@ content-type@~1.0.4:
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
 
-contentful-management@5.26.6:
-  version "5.26.6"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-5.26.6.tgz#e3ee96f1c9c08ecbb8dc038524d1727adb4a9860"
-  integrity sha512-E8kCH/J4gBtbIjFxE4pWJQqbGnW1NpbzKRw0wpvoSwpzvGNo+EZzuXF60CGgIoNsl7a/hyNXBYHJIRAF6EypJA==
+contentful-management@5.26.8:
+  version "5.26.8"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-5.26.8.tgz#0f34b79beb48b2d162d510a8bef1926d94c0e82a"
+  integrity sha512-kqzjOAxtkpK26dbfP3Yqn8AMPe0WzLA5gqY/uQ3eaQYSSlqU6aqNWv8VWGhdEemUbQXqVCMyYv86GBoutMI1GQ==
   dependencies:
     axios "^0.19.0"
     contentful-sdk-core "^6.4.0"
     lodash "^4.17.11"
+    type-fest "0.15.1"
 
 contentful-resolve-response@^1.1.4:
   version "1.1.4"
@@ -13809,6 +13810,11 @@ type-detect@4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/type-detect/-/type-detect-4.0.8.tgz#7646fb5f18871cfbb7749e69bd39a6388eb7450c"
   integrity sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==
+
+type-fest@0.15.1:
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.15.1.tgz#d2c4e73d3e4a53cf1a906396dd460a1c5178ca00"
+  integrity sha512-n+UXrN8i5ioo7kqT/nF8xsEzLaqFra7k32SEsSPwvXVGyAcRgV/FUQN/sgfptJTR1oRmmq7z4IXMFSM7im7C9A==
 
 type-fest@^0.11.0:
   version "0.11.0"

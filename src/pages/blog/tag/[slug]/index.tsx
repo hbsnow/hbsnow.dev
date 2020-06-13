@@ -11,7 +11,7 @@ import Icon from '../../../../elements/icon/Icon'
 import Margin from '../../../../elements/margin/Margin'
 import { useFilterBlogBy } from '../../../../hooks/blog'
 import { BlogType, loadBlogList } from '../../../../modules/blog'
-import DefaultTemplate from '../../../../templates/DefaultTemplate/DefaultTemplate'
+import DefaultTemplate from '../../../../templates/DefaultTemplate'
 import { toSlugString } from '../../../../utils/url'
 
 export const config = { amp: true }

@@ -12,7 +12,7 @@ import {
   useMaxBlogUpdatedAt,
 } from '../../hooks/blog'
 import { BlogType, loadBlogList } from '../../modules/blog'
-import DefaultTemplate from '../../templates/DefaultTemplate/DefaultTemplate'
+import DefaultTemplate from '../../templates/DefaultTemplate'
 
 export const config = { amp: true }
 

@@ -232,3 +232,11 @@ const readPathList = async (target, base) => {
 ```
 
 ブログの一覧は上記のコードで取得し、適切な文字列に返還した後 `fs.promises.writeFile` で出力しただけです。
+
+## デプロイ
+
+サーバは[ちょうど料金改定もあった](https://vercel.com/blog/simpler-pricing)ので Vercel を使用しています。
+
+とにかく設定が簡単で Poject Settings の General から使用している Framework の Preset を選択するだけです。今回は Contentful の環境変数を設定する必要があったので、Environment Variables に設定を追加しています。
+
+また Contentful の更新でもデプロイがはしるように設定をする必要がありましたが、こちらも非常に簡単です。[Vercel でデプロイフックを作成](https://vercel.com/docs/v2/more/deploy-hooks)して POST 先をコピー、Contentful の Webhook に貼り付けるだけです。トリガーは Publish/Unpublish 時のみに変更しました。

@@ -14,7 +14,8 @@
     "lintfix": "eslint --fix 'src/**/*.{ts,tsx}' && prettier --write --ignore-path .gitignore '**/*.{js,json,md}'",
     "test": "jest --watch --silent=false --verbose false",
     "test:ci": "jest --ci --silent",
-    "build:model": "contentful-typescript-codegen --output src/models/contentful.d.ts"
+    "build:model": "contentful-typescript-codegen --output src/models/contentful.d.ts",
+    "yarn-deduplicate": "npx yarn-deduplicate yarn.lock"
   },
   "husky": {
     "hooks": {

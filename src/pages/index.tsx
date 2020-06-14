@@ -66,6 +66,13 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
                     </ExternalLink>{' '}
                     にて公開されています。
                   </p>
+                  <p>
+                    Blog の記事にするまでもない簡易な技術メモについては{' '}
+                    <ExternalLink href="https://scrapbox.io/hbsnow/">
+                      Scrapbox
+                    </ExternalLink>{' '}
+                    にとっています。
+                  </p>
                 </HomeAbout>
               </Margin>
             </Container>

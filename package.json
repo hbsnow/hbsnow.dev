@@ -54,7 +54,7 @@
   "devDependencies": {
     "@babel/core": "7.10.3",
     "@secretlint/secretlint-rule-preset-recommend": "2.1.0",
-    "@storybook/addon-storysource": "5.3.19",
+    "@storybook/addon-docs": "5.3.19",
     "@storybook/core": "5.3.19",
     "@storybook/react": "5.3.19",
     "@storybook/source-loader": "5.3.19",

@@ -1,3 +1,3 @@
 module.exports = {
-  addons: ['@storybook/addon-storysource'],
+  addons: ['@storybook/addon-docs'],
 }

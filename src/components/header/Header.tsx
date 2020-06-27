@@ -60,6 +60,7 @@ const Header: FC = () => {
         }
 
         .siteTitle {
+          font-family: 'Nunito', sans-serif;
           font-size: 1.5rem;
           margin: 0;
         }

@@ -49,9 +49,7 @@ class BaseDocument extends Document {
 
           <link
             rel="stylesheet"
-            // https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap
-            // 上記の新APIだとAMP Validationでエラーになる
-            href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&amp;display=swap&amp;text=hbsnow.dev"
           />
         </Head>
         <body>

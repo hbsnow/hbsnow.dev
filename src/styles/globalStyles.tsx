@@ -57,7 +57,7 @@ const globalStyles = css.global`
   body {
     color: var(--color-default-text);
     background-color: var(--color-default-bg);
-    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-family: sans-serif;
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);

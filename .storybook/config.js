@@ -5,12 +5,7 @@ import globalStyles from '../src/styles/globalStyles'
 addParameters({
   options: {
     storySort: (a, b) => {
-      // Welcomeのページを一番上にしたい
-      if (a[1].kind === 'Welcome') {
-        return -1
-      }
-
-      // 他のストーリーをID順にソート
+      // ストーリーをID順にソート
       // https://github.com/storybookjs/storybook/issues/548#issuecomment-530305279
       return a[1].kind === b[1].kind
         ? 0
@@ -29,6 +24,6 @@ addDecorator((storyFn) => (
   </>
 ))
 
-const req = require.context('../src/elements', true, /(.stories.tsx$)/)
+const req = require.context('../src/elements', true, /(.stories.mdx$)/)
 
 configure(req, module)

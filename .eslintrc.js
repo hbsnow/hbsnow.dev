@@ -3,12 +3,11 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es2020: true,
+    es6: true,
   },
   parserOptions: {
     ecmaVersion: 2020,
   },
-  rules: {},
   overrides: [
     {
       files: ['**/*.{ts,tsx}'],
@@ -55,6 +54,7 @@ module.exports = {
           },
         ],
         '@typescript-eslint/no-unused-vars': 'error',
+        'react/jsx-no-target-blank': 'error',
         'react/prop-types': 'off',
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',

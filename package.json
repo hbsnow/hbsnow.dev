@@ -12,6 +12,7 @@
     "build-storybook": "build-storybook",
     "lint": "eslint 'src/**/*.{ts,tsx}' && prettier --check --ignore-path .gitignore '**/*.{js,json,md}' && secretlint '**/*' && textlint 'src/posts/**'",
     "lintfix": "eslint --fix 'src/**/*.{ts,tsx}' && prettier --write --ignore-path .gitignore '**/*.{js,json,md}'",
+    "typecheck": "tsc --noEmit",
     "test": "jest --watch --silent=false --verbose false",
     "test:ci": "jest --ci --silent",
     "build:model": "contentful-typescript-codegen --output src/models/contentful.d.ts",
@@ -27,11 +28,11 @@
       "secretlint"
     ],
     "*.{js,json,md}": [
-      "prettier --write --ignore-path .gitignore '**/*.{js,json,md}'",
+      "prettier --write --ignore-path .gitignore '**/*.{js,json,md}' && textlint 'src/posts/**'",
       "git add"
     ],
     "*.{ts,tsx}": [
-      "eslint --fix",
+      "tsc --noEmit && eslint --fix",
       "git add"
     ]
   },

@@ -60,7 +60,7 @@
     "@storybook/react": "5.3.19",
     "@storybook/source-loader": "5.3.19",
     "@testing-library/jest-dom": "5.11.0",
-    "@testing-library/react": "10.4.4",
+    "@testing-library/react": "10.4.5",
     "@testing-library/react-hooks": "3.3.0",
     "@types/classnames": "2.2.10",
     "@types/color": "3.0.1",

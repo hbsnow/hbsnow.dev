@@ -64,27 +64,9 @@ SerializableError: Error serializing `.blogList[0].createdAt` returned from `get
 Reason: `object` ("[object Date]") cannot be serialized as JSON. Please only return JSON serializable data types.
 ```
 
-これについては[いくつか issue](https://github.com/zeit/next.js/issues/11993) もあるようです。
+これについては[いくつか issue](https://github.com/zeit/next.js/issues/11993) もあるため、とりあえず現状はしばらくこの対応で保留してあります。
 
-`matter.GrayMatterFile<string>['data']` には YAML front matter のデータが含まれていて、以下のようにタグでフィルタされた記事一覧も取得できます。
-
-```ts
-export const getStaticPaths: GetStaticPaths = async (): Promise<{
-  fallback: boolean
-  paths: string[]
-}> => {
-  const blogList = loadBlogList()
-  const paths = blogList
-    .flatMap((blog) => blog.tags)
-    .filter((blog, i, self) => self.indexOf(blog) === i)
-    .map((tag) => `/blog/tag/${tag}/`)
-
-  return {
-    fallback: false,
-    paths,
-  }
-}
-```
+`matter.GrayMatterFile<string>['data']` には YAML front matter のデータが含まれ、特定のタグを持つ一覧ページを作るための配列を作成できます。
 
 ### ブログ記事
 
@@ -143,7 +125,7 @@ Module not found: Can't resolve 'fs' in '/PATH/TO/...'
 
 [contentful](https://www.contentful.com/) のような Headless CMS を使うことが目的だったので、使う必要があったかどうかはちょっと微妙です。最初は [GraphCMS](https://graphcms.com/) を考えていたのですが、そもそも GraphQL である必要性がなかったので無料でできる範囲の広い contentful にしました。好みもありますが、管理画面の使いやすさなどは contentful は他の類似サービスと比べると若干劣る印象はあります。
 
-無料枠では 5000 レコードまでになるので、ブログ用途で記事を入れると 1 つの記事で 10 レコードを使うことを想定しても 500 記事くらいまではいけるので、収まる人は多そうです。無料枠でも Webhooks も使えるのですが、まだ試していないのでそのうちやろうかと思っています。
+無料枠では 5000 レコードまでになるので、ブログ用途で記事を入れると 1 つの記事で 10 レコードを使うことを想定しても 500 記事くらいまではいけるので、収まる人は多そうです。無料枠でも Webhooks を使えます。
 
 データは一度すべて取得してから、フロントでカテゴリ分類やソートをしています。
 

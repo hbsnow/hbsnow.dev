@@ -28,11 +28,13 @@
       "secretlint"
     ],
     "*.{js,json,md}": [
-      "prettier --write --ignore-path .gitignore '**/*.{js,json,md}' && textlint 'src/posts/**'",
+      "prettier --write --ignore-path .gitignore '**/*.{js,json,md}'",
+      "textlint 'src/posts/**'",
       "git add"
     ],
     "*.{ts,tsx}": [
-      "tsc --noEmit && eslint --fix",
+      "tsc --noEmit",
+      "eslint --fix",
       "git add"
     ]
   },
@@ -112,6 +114,7 @@
     "webpack-visualizer-plugin": "0.1.11"
   },
   "engines": {
-    "node": "^12"
+    "node": "^12",
+    "npm": "please-use-yarn"
   }
 }

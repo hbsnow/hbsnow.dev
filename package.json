@@ -114,6 +114,7 @@
     "webpack-visualizer-plugin": "0.1.11"
   },
   "engines": {
-    "node": "^12"
+    "node": "^12",
+    "npm": "please-use-yarn"
   }
 }

@@ -55,7 +55,7 @@
     "react-test-renderer": "16.13.1"
   },
   "devDependencies": {
-    "@babel/core": "7.10.4",
+    "@babel/core": "7.10.5",
     "@secretlint/secretlint-rule-preset-recommend": "2.1.0",
     "@storybook/addon-docs": "5.3.19",
     "@storybook/core": "5.3.19",

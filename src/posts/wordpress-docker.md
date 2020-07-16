@@ -39,10 +39,4 @@ volumes:
 
 WorpPress を使用するうえで、[WP-CLI](https://wp-cli.org/ja/) はあると非常に便利です。
 
-```sh
-docker run -it --rm wordpress:cli --info
-```
-
-上記コマンドで `wp` 情報が表示されます。
-
-`docker-compose.yml` で `command: /bin/sh -c 'sleep 10;'` をしているのはデータベースの初期化を待つためです。他にいい解決策が思いつかなかったため、妥協で `sleep` しています。
+WP-CLI について詳しくは [WP-CLI をハンズオン形式で学ぶ](/blog/wordpress-cli/) で解説しています。

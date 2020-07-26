@@ -50,11 +50,13 @@ wp scaffold post-type item --theme=example --label="Item"
 ただし、カスタム投稿タイプの数が増えてくると「メディア」が途中に挟まってしまいます。管理画面のメニューの順序は `menu_order` で変更が可能で、このとき `menu_position` を変更する必要はありません。
 
 ```php
-add_filter('custom_menu_order', '__return_true');
+add_filter( 'custom_menu_order', '__return_true' );
 add_filter(
 	'menu_order',
-	function ($menu_ord) {
-		if (!$menu_ord) return true;
+	function ( $menu_ord ) {
+		if ( ! $menu_ord ) {
+			return true;
+		}
 
 		return array(
 			'index.php',

@@ -45,22 +45,9 @@ wp scaffold post-type item --theme=example --label="Item"
 
 ### 管理画面のメニューの位置を変更する
 
-作成したカスタム投稿を管理メニューの表示位置で投稿の下にしたい場合、単純に `menu_position` を `5` にするだけです。ただし、カスタム投稿タイプの数が増えてくると「メディア」が途中に挟まってしまいます。
+作成したカスタム投稿を管理メニューの表示位置で投稿の下にしたい場合、単純に `menu_position` を `5` にするだけです。
 
-```php
-// あまり良くない例
-add_action(
-	'admin_menu',
-	function () {
-		global $menu;
-		// phpcs:ignore
-		$menu[14] = $menu[10];
-		unset( $menu[10] );
-	}
-);
-```
-
-global の `$menu` を直接変更するような方法は Lint でも警告が出るとおりで、これは良い方法ではありません。`menu_order` で表示順の変更ができます。
+ただし、カスタム投稿タイプの数が増えてくると「メディア」が途中に挟まってしまいます。管理画面のメニューの順序は `menu_order` で変更が可能で、このとき `menu_position` を変更する必要はありません。
 
 ```php
 add_filter('custom_menu_order', '__return_true');

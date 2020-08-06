@@ -3,6 +3,7 @@ title: 文字数によって区切りのあるテキストフォームを作る
 tags: [react, javascript]
 description: 文字数によって区切りのあるテキスト用のフォームを作成します。
 createdAt: 2020-06-06
+updatedAt: 2020-08-06
 ---
 
 タイトルだと少しわかりにくいですが、下記の画像を見ていただければ伝わるはずです。クレジットカードの入力でみかけることが多いでしょうか。
@@ -35,20 +36,20 @@ yarn add -DE @types/cleave.js
 自分で頑張る場合は少し面倒です。
 
 ```tsx
-import React, { FC, useState, useRef } from 'react'
+import React, { FC, useState, useCallback, useRef } from 'react'
 
 const InputText: FC = () => {
   const inputRef = useRef<HTMLInputElement>(null)
   const [value, setValue] = useState('')
 
-  const handleChange = () => {
+  const handleChange = useCallback(() => {
     const target = inputRef.current
     if (target && target.value.length >= 0) {
       const chunkedValue =
         target.value.match(/[\da-zA-Z]{1,4}/g)?.join(' ') ?? ''
       setValue(chunkedValue)
     }
-  }
+  }, [])
 
   return (
     <input
@@ -73,7 +74,7 @@ export default InputText
 この 2 点が問題です。
 
 ```tsx
-import React, { FC, useState, useRef, useEffect } from 'react'
+import React, { FC, useState, useCallback, useRef, useEffect } from 'react'
 
 const InputText: FC = () => {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -82,7 +83,7 @@ const InputText: FC = () => {
     HTMLInputElement['selectionEnd']
   >(null)
 
-  const handleChange = () => {
+  const handleChange = useCallback(() => {
     const target = inputRef.current
     if (target === null) return
 
@@ -93,7 +94,7 @@ const InputText: FC = () => {
 
     setPrevPosition(target.selectionEnd)
     setValue(chunkedValue)
-  }
+  }, [])
 
   useEffect(() => {
     const target = inputRef.current

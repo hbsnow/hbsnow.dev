@@ -3,10 +3,8 @@ title: WordPress のカスタム投稿とカスタムタクソノミー、カス
 tags: [wordpress]
 description: WordPress のカスタム投稿とカスタムタクソノミー、カスタムフィールドを作成する。
 createdAt: 2020-07-27
-updatedAt: 2020-08-02
+updatedAt: 2020-08-08
 ---
-
-** WIP **
 
 ## まとめ
 
@@ -23,7 +21,7 @@ wp scaffold post-type item --theme=example --label="Item"
 
 `functions.php` に `require get_template_directory() . '/post-types/item.php';` を追加するとカスタム投稿タイプが追加されます。
 
-- [register_post_type](https://developer.wordpress.org/reference/functions/register_post_type/)
+- [register_post_type()](https://developer.wordpress.org/reference/functions/register_post_type/)
 
 すべての設定は上記のリンク先に記載されています。
 
@@ -82,8 +80,8 @@ add_filter(
 
 カスタム投稿アーカイブ > カスタム投稿ポスト > 固定ページがデフォルトの表示優先順になります。細かい優先順については `wp rewrite list` で確認でき、変更が必要な場合には `add_rewrite_rule` で変更できます。
 
-- [register_post_type](https://developer.wordpress.org/reference/functions/register_post_type/)
-- [add_rewrite_rule](https://developer.wordpress.org/reference/functions/add_rewrite_rule/)
+- [register_post_type()](https://developer.wordpress.org/reference/functions/register_post_type/)
+- [add_rewrite_rule()](https://developer.wordpress.org/reference/functions/add_rewrite_rule/)
 
 ## カスタムタクソノミーを作る
 
@@ -103,7 +101,7 @@ wp scaffold taxonomy item-category --post_types=item --theme=example --label="It
 wp plugin install advanced-custom-fields --activate
 ```
 
-### カスタムフィールドで追加した項目を検索可能にする
+### 検索語句と AND 検索で検索可能にする
 
 商品に価格のカスタムフィールドを追加して、その範囲でメインクエリの検索ができるようにしてみます。デフォルトではカスタムフィールドは検索対象とならないため、検索対象に加える場合にはひと手間必要になります。
 
@@ -123,6 +121,8 @@ add_filter(
 );
 ```
 
+管理者ページと、メインクエリ以外のページでは不要な処理なので早期リターン。あとは検索時でありかつ商品のカスタム投稿ページのときにのみ、クエリを追加しています。
+
 ```php
 add_action(
 	'pre_get_posts',
@@ -130,6 +130,8 @@ add_action(
 		if ( is_admin() || ! $query->is_main_query() ) {
 			return;
 		}
+
+		$meta_query = array();
 
 		if ( $query->is_search && $query->is_post_type_archive( 'item' ) ) {
 			$min_price = $query->query_vars['minPrice'];
@@ -153,6 +155,7 @@ add_action(
 				);
 			}
 		}
+
 		$query->set( 'meta_query', $meta_query );
 	}
 );
@@ -160,3 +163,100 @@ add_action(
 
 - [query_vars](https://developer.wordpress.org/reference/hooks/query_vars/)
 - [pre_get_posts](https://developer.wordpress.org/reference/hooks/pre_get_posts/)
+- [WP_Query](https://developer.wordpress.org/reference/classes/wp_query/)
+- [WP_Query::set](https://developer.wordpress.org/reference/classes/wp_query/set/)
+
+### 検索語句と OR 検索で検索可能にする
+
+OR 検索の条件がつくと `WP_Query::set` では難しくなります。例えば `検索語句` を検索したときには次のような SQL が叩かれます。
+
+```sql
+SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts
+  WHERE 1=1
+    AND (((wp_posts.post_title LIKE '%検索語句%')
+    OR (wp_posts.post_excerpt LIKE '%検索語句%')
+    OR (wp_posts.post_content LIKE '%検索語句%')))
+    -- ここでカスタムフィールドを OR 検索したい
+    AND wp_posts.post_type = 'item'
+    AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'private')
+  ORDER BY wp_posts.post_title LIKE '%検索語句%' DESC, wp_posts.post_date DESC
+  LIMIT 0, 10
+```
+
+先ほどの AND 検索の方法では、下記のような SQL が叩かれることになります。
+
+```sql
+SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts
+  INNER JOIN wp_postmeta ON ( wp_posts.ID = wp_postmeta.post_id )
+  WHERE 1=1
+  AND (((wp_posts.post_title LIKE '%検索語句%')
+  OR (wp_posts.post_excerpt LIKE '%検索語句%')
+  OR (wp_posts.post_content LIKE '%検索語句%')))
+  -- ここで AND 検索してしまう
+  AND (
+    ( wp_postmeta.meta_key = 'info' AND wp_postmeta.meta_value LIKE '%検索語句%' )
+  )
+  AND wp_posts.post_type = 'item'
+  AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'private')
+  GROUP BY wp_posts.ID
+  ORDER BY wp_posts.post_title LIKE '%検索語句%' DESC, wp_posts.post_date DESC
+  LIMIT 0, 10
+```
+
+そのため、`posts_where` と `posts_join` を使って直接 SQL を書き換える必要があります。
+
+```php
+add_filter(
+	'posts_where',
+	function ( $where ) {
+		global $wp_query, $wpdb;
+
+		if ( is_admin() || ! $wp_query->is_main_query() ) {
+			return $where;
+		}
+
+		if ( $wp_query->is_post_type_archive( 'item' ) && $wp_query->query_vars['s'] ) {
+			$where = preg_replace(
+				"/\(\s*{$wpdb->posts}.post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
+				"({$wpdb->posts}.post_title LIKE $1) OR ({$wpdb->postmeta}.meta_key='<key>' AND {$wpdb->postmeta}.meta_value LIKE $1)",
+				$where
+			);
+		}
+
+		return $where;
+	}
+);
+
+add_filter(
+	'posts_join',
+	function ( $join ) {
+		global $wp_query, $wpdb;
+
+		if ( is_admin() || ! $wp_query->is_main_query() ) {
+			return $join;
+		}
+
+		if ( $wp_query->is_post_type_archive( 'item' ) && $wp_query->query_vars['s'] ) {
+			$join .= "LEFT JOIN $wpdb->postmeta ON $wpdb->posts.ID = $wpdb->postmeta.post_id ";
+		}
+
+		return $join;
+	}
+);
+```
+
+上記のコードは [Search WordPress by Custom Fields without a Plugin](https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/) を参考にしています。
+
+```sql
+SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts
+  LEFT JOIN wp_postmeta ON wp_posts.ID = wp_postmeta.post_id
+  WHERE 1=1
+    AND (((wp_posts.post_title LIKE '%検索語句%') OR (wp_postmeta.meta_key = '<key>' AND wp_postmeta.meta_value LIKE '%検索語句%') OR (wp_posts.post_excerpt LIKE '%検索語句%') OR (wp_posts.post_content LIKE '%検索語句%')))
+    AND wp_posts.post_type = 'item'
+    AND (wp_posts.post_status = 'publish' OR wp_posts.post_status = 'acf-disabled' OR wp_posts.post_status = 'private')
+    ORDER BY wp_posts.post_title LIKE '%検索語句%' DESC, wp_posts.post_date DESC
+    LIMIT 0, 10
+```
+
+- [posts_where](https://developer.wordpress.org/reference/hooks/posts_where/)
+- [posts_join](https://developer.wordpress.org/reference/hooks/posts_join/)

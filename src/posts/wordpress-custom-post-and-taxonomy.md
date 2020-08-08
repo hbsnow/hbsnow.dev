@@ -247,6 +247,8 @@ add_filter(
 
 上記のコードは [Search WordPress by Custom Fields without a Plugin](https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/) を参考にしています。
 
+これによって以下のように SQL が書き換わります。
+
 ```sql
 SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts
   LEFT JOIN wp_postmeta ON wp_posts.ID = wp_postmeta.post_id

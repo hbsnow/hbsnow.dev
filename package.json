@@ -94,7 +94,7 @@
     "lint-staged": "10.2.11",
     "next": "9.5.2",
     "next-seo": "4.7.3",
-    "next-transpile-modules": "4.0.2",
+    "next-transpile-modules": "4.0.3",
     "prettier": "2.0.5",
     "raw-loader": "4.0.1",
     "react-children-utilities": "2.1.5",

@@ -95,7 +95,7 @@
     "next": "9.5.2",
     "next-seo": "4.7.3",
     "next-transpile-modules": "4.1.0",
-    "prettier": "2.1.0",
+    "prettier": "2.1.1",
     "raw-loader": "4.0.1",
     "react-children-utilities": "2.1.5",
     "regenerator-runtime": "0.13.7",

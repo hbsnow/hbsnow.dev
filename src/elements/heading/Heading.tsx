@@ -18,18 +18,7 @@ const Heading: FC<Props> = ({ level = 1, children, ...restProps }) => {
       {children}
       <style jsx>{`
         .headingLink {
-          position: relative;
-          display: inline-block;
           text-shadow: 0 0 3px var(--color-default-bg);
-        }
-
-        .headingLink::before {
-          position: absolute;
-          content: '#';
-          top: 0;
-          left: 0;
-          transform: scale(3) translateX(calc(-1.5rem / 4));
-          opacity: ${level >= 3 ? 0 : 0.1};
         }
       `}</style>
     </a>

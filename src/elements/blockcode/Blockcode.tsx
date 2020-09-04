@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 
 import SyntaxHighlighter from 'react-syntax-highlighter'
 
+import { mediaQuery } from '../../styles/const'
 import Code from './Code'
 import Pre from './Pre'
 
@@ -33,10 +34,10 @@ const Blockcode: FC<Props> = ({ children, language, ...restProps }) => {
       <style jsx>{`
         .blockcode {
           background-color: var(--color-default-surface);
-          margin-left: calc(var(--gap-size) * -2);
-          margin-right: calc(var(--gap-size) * -2);
+          margin-left: calc(var(--gap-size) * -1);
+          margin-right: calc(var(--gap-size) * -1);
           margin-bottom: calc(var(--gap-size) * 2);
-          padding: calc(var(--gap-size) * 1.5) calc(var(--gap-size) * 2);
+          padding: calc(var(--gap-size) * 1.5) calc(var(--gap-size));
           ${language ? `padding-top: 0;` : ''}
         }
 
@@ -49,6 +50,14 @@ const Blockcode: FC<Props> = ({ children, language, ...restProps }) => {
           margin-bottom: var(--gap-size);
           padding: 0.125rem 0.5rem;
           transform: translateX(-0.5rem);
+        }
+
+        @media ${mediaQuery.sm} {
+          .blockcode {
+            margin-left: calc(var(--gap-size) * -2);
+            margin-right: calc(var(--gap-size) * -2);
+            padding: calc(var(--gap-size) * 1.5) calc(var(--gap-size) * 2);
+          }
         }
       `}</style>
     </div>

@@ -109,7 +109,7 @@ const globalStyles = css.global`
   }
 
   li {
-    margin: 0 0 var(--gap-size);
+    margin: 0 0 var(--gap-size / 2);
     padding: 0;
   }
 

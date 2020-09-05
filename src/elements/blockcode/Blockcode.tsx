@@ -34,6 +34,7 @@ const Blockcode: FC<Props> = ({ children, language, ...restProps }) => {
       <style jsx>{`
         .blockcode {
           background-color: var(--color-default-surface);
+          font-size: 0.875rem;
           margin-left: calc(var(--gap-size) * -1);
           margin-right: calc(var(--gap-size) * -1);
           margin-bottom: calc(var(--gap-size) * 2);
@@ -57,6 +58,7 @@ const Blockcode: FC<Props> = ({ children, language, ...restProps }) => {
             margin-left: calc(var(--gap-size) * -2);
             margin-right: calc(var(--gap-size) * -2);
             padding: calc(var(--gap-size) * 1.5) calc(var(--gap-size) * 2);
+            ${language ? `padding-top: 0;` : ''}
           }
         }
       `}</style>

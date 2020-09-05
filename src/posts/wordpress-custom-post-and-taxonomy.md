@@ -21,26 +21,26 @@ wp scaffold post-type item --theme=example --label="Item"
 
 `functions.php` に `require get_template_directory() . '/post-types/item.php';` を追加するとカスタム投稿タイプが追加されます。
 
+| `$args`                 | description                                                                                                                                                                                                                                  |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `labels`                | ラベルの配列。                                                                                                                                                                                                                               |
+| `public`                | `false` にするとメインループの対象ページが非公開になる。上記の例では `/item/` になる。初期値は `true`                                                                                                                                        |
+| `hierarchical`          | `true` にする場合、 `supports` に `page-attributes` を追加しないと管理画面で表示されない。初期値は `false`                                                                                                                                   |
+| `show_ui`               | `false` にすると管理画面から表示が消える。初期値は `true`                                                                                                                                                                                     |
+| `show_in_nav_menus`     | `false` にするとテーマ編集のメニューにある項目追加から選択できなくなる。初期値は `true`                                                                                                                                                      |
+| `supports`              | `'title', 'editor', 'comments', 'revisions', 'trackbacks', 'author', 'excerpt', 'page-attributes', 'thumbnail', 'custom-fields', 'post-formats'` から選択する。ここで選んだものが管理画面で表示される。初期値は `array( 'title', 'editor' )` |
+| `has_archive`           | アーカイブページを持たせなくていい場合には `false` にする。初期値は `true`                                                                                                                                                                   |
+| `rewrite`               | rewrite rule を書き換える。配列で設定が可能で、`slug` を `foo/bar` のようにすることで擬似的に階層の子のような URL を表現できる。初期値は `true`                                                                                               |
+| `query_var`             | `true` にすると `?{query_var}={post_slug}` で表示されなくなる。初期値は `true`                                                                                                                                                               |
+| `menu_position`         | 管理画面のメニューの位置を変更する。初期値は `null`                                                                                                                                                                                          |
+| `menu_icon`             | メニューに使用されるアイコン。初期値は `'dashicons-admin-post'`                                                                                                                                                                              |
+| `show_in_rest`          | REST API で公開するかどうか。Gutenberg であれば true にする必要がある。初期値は `true`                                                                                                                                                       |
+| `rest_base`             | REST API で使用される slug。初期値は `<pot-type>`                                                                                                                                                                                            |
+| `rest_controller_class` | REST API コントローラーのクラス名。初期値は `'WP_REST_Posts_Controller'`                                                                                                                                                                     |
+
+すべての設定は下記のリンク先に記載されています。
+
 - [register_post_type()](https://developer.wordpress.org/reference/functions/register_post_type/)
-
-すべての設定は上記のリンク先に記載されています。
-
-| `$args`                 | 設定される値                 | description                                                                                                                                                                                             |
-| ----------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `labels`                | 多いので略                   | ラベルの配列。                                                                                                                                                                                          |
-| `public`                | `true`                       | `false` にするとメインループの対象ページが非公開になる。上記の例では `/item/` になる。                                                                                                                  |
-| `hierarchical`          | `false`                      | `true` にする場合、 `supports` に `page-attributes` を追加しないと管理画面で表示されない。                                                                                                              |
-| `show_ui`               | `true`                       | `false` にすると管理画面から表示が消える。                                                                                                                                                              |
-| `show_in_nav_menus`     | `true`                       | `false` にするとテーマ編集のメニューにある項目追加から選択できなくなる。                                                                                                                                |
-| `supports`              | `array( 'title', 'editor' )` | `'title', 'editor', 'comments', 'revisions', 'trackbacks', 'author', 'excerpt', 'page-attributes', 'thumbnail', 'custom-fields', 'post-formats'` から選択する。ここで選んだものが管理画面で表示される。 |
-| `has_archive`           | `true`                       | アーカイブページを持たせなくていい場合には `false` にする。                                                                                                                                             |
-| `rewrite`               | `true`                       | rewrite rule を書き換える。配列で設定が可能で、`slug` を `foo/bar` のようにすることで擬似的に階層の子のような URL を表現できる。                                                                        |
-| `query_var`             | `true`                       | `true` にすると `?{query_var}={post_slug}` で表示されなくなる。                                                                                                                                         |
-| `menu_position`         | `null`                       | 管理画面のメニューの位置を変更する。                                                                                                                                                                    |
-| `menu_icon`             | `'dashicons-admin-post'`     | メニューに使用されるアイコン。                                                                                                                                                                          |
-| `show_in_rest`          | `true`                       | REST API で公開するかどうか。Gutenberg であれば true にする必要がある。                                                                                                                                 |
-| `rest_base`             | `<pot-type>`                 | REST API で使用される slug。                                                                                                                                                                            |
-| `rest_controller_class` | `'WP_REST_Posts_Controller'` | REST API コントローラーのクラス名。                                                                                                                                                                     |
 
 ### 管理画面のメニューの位置を変更する
 

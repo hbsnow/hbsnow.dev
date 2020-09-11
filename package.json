@@ -26,16 +26,6 @@
   "lint-staged": {
     "*": [
       "secretlint"
-    ],
-    "*.{js,json,md}": [
-      "prettier --write --ignore-path .gitignore '**/*.{js,json,md}'",
-      "textlint 'src/posts/**'",
-      "git add"
-    ],
-    "*.{ts,tsx}": [
-      "tsc --noEmit",
-      "eslint --fix",
-      "git add"
     ]
   },
   "browserslist": [

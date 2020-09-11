@@ -108,8 +108,15 @@ const globalStyles = css.global`
     padding: 0;
   }
 
+  ul ul,
+  ul ol,
+  ol ul,
+  ol ol {
+    margin: 0 0 0 calc(var(--gap-size) * 2);
+  }
+
   li {
-    margin: 0 0 var(--gap-size);
+    margin: 0 0 var(--gap-size / 2);
     padding: 0;
   }
 

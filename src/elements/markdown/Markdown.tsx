@@ -8,6 +8,7 @@ import Blockcode from '../blockcode/Blockcode'
 import Blockquote from '../blockquote/Blockquote'
 import Heading from '../heading/Heading'
 import ExternalLink from '../link/ExternalLink'
+import ResponsiveTable from '../table/ResponsiveTable'
 
 type Props = {
   readonly source: string
@@ -62,6 +63,10 @@ const Markdown: FC<Props> = ({ source, ...restProps }) => {
     return <Blockquote>{children}</Blockquote>
   }
 
+  const table: FC = ({ children }) => {
+    return <ResponsiveTable>{children}</ResponsiveTable>
+  }
+
   return (
     <div data-testid="Markdown" className="markdown" {...restProps}>
       <ReactMarkdown
@@ -74,6 +79,7 @@ const Markdown: FC<Props> = ({ source, ...restProps }) => {
           image,
           link,
           blockquote,
+          table,
         }}
       />
     </div>

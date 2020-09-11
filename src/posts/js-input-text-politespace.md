@@ -71,7 +71,7 @@ export default InputText
 1. 4 つ区切りになっていない
 2. カーソルが空白の箇所で最後尾にとんでしまう
 
-この 2 点が問題です。
+この 2 点が問題になります。
 
 ```tsx
 import React, { FC, useState, useCallback, useRef, useEffect } from 'react'
@@ -126,6 +126,6 @@ const InputText: FC = () => {
 export default InputText
 ```
 
-この方法では `chunkedValue` の文字列が変化するため、削除時にカーソルが最後尾に飛ばされます。`useEffect` では `selectionEnd` の補正をしています。
+この方法では `chunkedValue` の文字列が変化するため、削除時にカーソルが最後尾に飛ばされます。そのため `useEffect` で `selectionEnd` の補正をしています。
 
 とりあえず作ってはみたのですが、ちょっと自信がありません。素直にプラグインを使ったほうが良さそうです。

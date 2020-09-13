@@ -70,7 +70,7 @@
     "contentful": "7.14.6",
     "contentful-management": "6.1.2",
     "contentful-typescript-codegen": "3.2.1",
-    "eslint": "7.8.1",
+    "eslint": "7.9.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.22.0",
     "eslint-plugin-prettier": "3.1.4",

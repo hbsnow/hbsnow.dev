@@ -34,7 +34,7 @@ WP-CLI とそれに必要な `mysql-client` などを追加でインストール
 
 WorpPress を使用するうえで、[WP-CLI](https://wp-cli.org/ja/) はあると非常に便利です。
 
-WP-CLI について詳しくは [WP-CLI をハンズオン形式で学ぶ](/blog/wordpress-cli/) で解説しています。
+WP-CLI について詳しくは [WP-CLI まとめ](/blog/wordpress-cli/) で解説しています。
 
 ## MySQL
 

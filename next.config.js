@@ -15,7 +15,7 @@ const nextSettings = {
       '/book': { page: '/book' },
     }
   },
-  exportTrailingSlash: true,
+  trailingSlash: true,
   pageExtensions: ['tsx'],
   env: {
     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,

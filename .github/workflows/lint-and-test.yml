@@ -16,7 +16,7 @@ jobs:
         node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/cache@v1.0.3
+      - uses: actions/cache@v1.2.0
         with:
           path: ~/.cache/yarn/
           key: ${{ env.cache-version }}-node-${{ hashFiles('**/yarn.lock') }}

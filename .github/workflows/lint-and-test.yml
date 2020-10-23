@@ -5,29 +5,21 @@ on:
     branches:
       - master
       - chore/renovate
-env:
-  cache-version: v1
 jobs:
   test:
-    name: Lint and Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [12.x]
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/cache@v1.2.0
+      - uses: actions/cache@v2
         with:
-          path: ~/.cache/yarn/
-          key: ${{ env.cache-version }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ env.cache-version }}-node-
-      - uses: actions/setup-node@v1
-        name: Set Node.js ${{ matrix.node-version }}
-        with:
-          node-version: ${{ matrix.node-version }}
-          run: |
-            yarn install
-            yarn build
-            yarn lint
-            yarn test:ci
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: test
+        run: |
+          yarn install
+          yarn build
+          yarn lint
+          yarn test:ci

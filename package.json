@@ -42,6 +42,7 @@
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-markdown": "5.0.2",
+    "react-syntax-highlighter": "15.2.1",
     "react-test-renderer": "16.14.0"
   },
   "devDependencies": {

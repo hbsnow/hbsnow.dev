@@ -4733,6 +4733,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/hast@^2.0.0":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@types/hast/-/hast-2.3.1.tgz#b16872f2a6144c7025f296fb9636a667ebb79cd9"
+  integrity sha512-viwwrB+6xGzw+G1eWpF9geV3fnsDgXqHG+cqgiHrvQfDUW5hzhCyV7Sy3UJxhfRFBsgky2SSW33qi/YrIkjX5Q==
+  dependencies:
+    "@types/unist" "*"
+
 "@types/history@*":
   version "4.7.6"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.6.tgz#ed8fc802c45b8e8f54419c2d054e55c9ea344356"
@@ -8779,10 +8786,10 @@ eslint-plugin-prettier@3.1.4:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-react-hooks@4.1.2:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.1.2.tgz#2eb53731d11c95826ef7a7272303eabb5c9a271e"
-  integrity sha512-ykUeqkGyUGgwTtk78C0o8UG2fzwmgJ0qxBGPp2WqRKsTwcLuVf01kTDRAtOsd4u6whX2XOC8749n2vPydP82fg==
+eslint-plugin-react-hooks@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-4.2.0.tgz#8c229c268d468956334c943bb45fc860280f5556"
+  integrity sha512-623WEiZJqxR7VdxFCKLI6d6LLpwJkGPYKODnkH3D7WpOG5KM8yWueBd8TLsNAetEJNF5iJmolaAKO3F8yzyVBQ==
 
 eslint-plugin-react@7.21.5:
   version "7.21.5"
@@ -9215,7 +9222,7 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
-fault@^1.0.1, fault@^1.0.2:
+fault@^1.0.0, fault@^1.0.1, fault@^1.0.2:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/fault/-/fault-1.0.4.tgz#eafcfc0a6d214fc94601e170df29954a4f842f13"
   integrity sha512-CJ0HCB5tL5fYTEA7ToAq5+kTwd++Borf1/bifxd9iT70QcXr4MRrO3Llf8Ifs70q+SJcGHFtnIE/Nw6giCtECA==
@@ -10028,6 +10035,17 @@ hastscript@^5.0.0:
     property-information "^5.0.0"
     space-separated-tokens "^1.0.0"
 
+hastscript@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/hastscript/-/hastscript-6.0.0.tgz#e8768d7eac56c3fdeac8a92830d58e811e5bf640"
+  integrity sha512-nDM6bvd7lIqDUiYEiu5Sl/+6ReP0BMk/2f4U/Rooccxkj0P5nm+acM5PrGJ/t5I8qPGiqZSE6hVAwZEdZIvP4w==
+  dependencies:
+    "@types/hast" "^2.0.0"
+    comma-separated-tokens "^1.0.0"
+    hast-util-parse-selector "^2.0.0"
+    property-information "^5.0.0"
+    space-separated-tokens "^1.0.0"
+
 he@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
@@ -10042,6 +10060,11 @@ hex-color-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/hex-color-regex/-/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
+
+highlight.js@^10.1.1, highlight.js@~10.3.0:
+  version "10.3.1"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-10.3.1.tgz#3ca6bf007377faae347e8135ff25900aac734b9a"
+  integrity sha512-jeW8rdPdhshYKObedYg5XGbpVgb1/DT4AHvDFXhkU7UnGSIjy9kkJ7zHG7qplhFHMitTSzh5/iClKQk3Kb2RFQ==
 
 highlight.js@~9.15.0, highlight.js@~9.15.1:
   version "9.15.10"
@@ -11992,6 +12015,14 @@ lowlight@1.12.1:
   dependencies:
     fault "^1.0.2"
     highlight.js "~9.15.0"
+
+lowlight@^1.14.0:
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/lowlight/-/lowlight-1.16.0.tgz#9d904370d0b20bca0893d73559cf27428fecbf7e"
+  integrity sha512-ECLdzIJvBEjK4ef51sWiGZyz21yx4IEPaF/62DRxLehoOHkWqN3OsLB1GUMfc6Mcf87rR5eW7z6lI9cNEXZDsQ==
+  dependencies:
+    fault "^1.0.0"
+    highlight.js "~10.3.0"
 
 lru-cache@5.1.1, lru-cache@^5.1.1:
   version "5.1.1"
@@ -14050,6 +14081,13 @@ prh@^5.4.4:
     diff "^4.0.1"
     js-yaml "^3.9.1"
 
+prismjs@^1.21.0, prismjs@~1.22.0:
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.22.0.tgz#73c3400afc58a823dd7eed023f8e1ce9fd8977fa"
+  integrity sha512-lLJ/Wt9yy0AiSYBf212kK3mM5L8ycwlyTlSxHBAneXLR0nzFMlZ5y7riFPF3E33zXOF2IH95xdY5jIyZbM9z/w==
+  optionalDependencies:
+    clipboard "^2.0.0"
+
 prismjs@^1.8.4:
   version "1.20.0"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.20.0.tgz#9b685fc480a3514ee7198eac6a3bf5024319ff03"
@@ -14427,10 +14465,10 @@ react-docgen@^5.0.0:
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
 
-react-dom@16.13.1, react-dom@^16.8.3:
-  version "16.13.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
-  integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
+react-dom@16.14.0:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
+  integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -14441,6 +14479,16 @@ react-dom@^0.14.0:
   version "0.14.9"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.14.9.tgz#05064a3dcf0fb1880a3b2bfc9d58c55d8d9f6293"
   integrity sha1-BQZKPc8PsYgKOyv8nVjFXY2fYpM=
+
+react-dom@^16.8.3:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
+  integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.19.1"
 
 react-draggable@^4.0.3:
   version "4.4.3"
@@ -14553,6 +14601,17 @@ react-sizeme@^2.6.7:
     shallowequal "^1.1.0"
     throttle-debounce "^2.1.0"
 
+react-syntax-highlighter@15.2.1:
+  version "15.2.1"
+  resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-15.2.1.tgz#63a42be96a645407a394cd7b93b99622f3ea179f"
+  integrity sha512-xrSfqX5Rztf9x4Fa6W+DbbKaJmi5zvh+tAvG2MnktZPDLeX/iMkumwxJdGYn5M1jM3d4+EJTloVAB8UvD7O0nA==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    highlight.js "^10.1.1"
+    lowlight "^1.14.0"
+    prismjs "^1.21.0"
+    refractor "^3.1.0"
+
 react-syntax-highlighter@^12.2.1:
   version "12.2.1"
   resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-12.2.1.tgz#14d78352da1c1c3f93c6698b70ec7c706b83493e"
@@ -14564,10 +14623,10 @@ react-syntax-highlighter@^12.2.1:
     prismjs "^1.8.4"
     refractor "^2.4.1"
 
-react-test-renderer@16.13.1:
-  version "16.13.1"
-  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.13.1.tgz#de25ea358d9012606de51e012d9742e7f0deabc1"
-  integrity sha512-Sn2VRyOK2YJJldOqoh8Tn/lWQ+ZiKhyZTPtaO0Q6yNj+QDbmRkVFap6pZPy3YQk8DScRDfyqm/KxKYP9gCMRiQ==
+react-test-renderer@16.14.0:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.14.0.tgz#e98360087348e260c56d4fe2315e970480c228ae"
+  integrity sha512-L8yPjqPE5CZO6rKsKXRO/rVPiaCOy0tQQJbC+UjPNlobl5mad59lvPjwFsQHTvL03caVDIVr9x9/OSgDe6I5Eg==
   dependencies:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
@@ -14583,10 +14642,10 @@ react-textarea-autosize@^8.1.1:
     use-composed-ref "^1.0.0"
     use-latest "^1.0.0"
 
-react@16.13.1, react@^16.8.3:
-  version "16.13.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
-  integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
+react@16.14.0:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -14599,6 +14658,15 @@ react@^0.14.0:
   dependencies:
     envify "^3.0.0"
     fbjs "^0.6.1"
+
+react@^16.8.3:
+  version "16.13.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
+  integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 reactcss@^1.2.0:
   version "1.2.3"
@@ -14760,6 +14828,15 @@ refractor@^2.4.1:
     hastscript "^5.0.0"
     parse-entities "^1.1.2"
     prismjs "~1.17.0"
+
+refractor@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/refractor/-/refractor-3.2.0.tgz#bc46f7cfbb6adbf45cd304e8e299b7fa854804e0"
+  integrity sha512-hSo+EyMIZTLBvNNgIU5lW4yjCzNYMZ4dcEhBq/3nReGfqzd2JfVhdlPDfU9rEsgcAyWx+OimIIUoL4ZU7NtYHQ==
+  dependencies:
+    hastscript "^6.0.0"
+    parse-entities "^2.0.0"
+    prismjs "~1.22.0"
 
 regenerate-unicode-properties@^8.2.0:
   version "8.2.0"

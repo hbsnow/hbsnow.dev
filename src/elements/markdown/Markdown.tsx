@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 
 import { imageSize } from 'image-size'
 import ReactMarkdown from 'react-markdown'
+import gfm from 'remark-gfm'
 import remarkSectionize from 'remark-sectionize'
 
 import Blockcode from '../blockcode/Blockcode'
@@ -71,7 +72,7 @@ const Markdown: FC<Props> = ({ source, ...restProps }) => {
     <div data-testid="Markdown" className="markdown" {...restProps}>
       <ReactMarkdown
         source={source}
-        plugins={[remarkSectionize]}
+        plugins={[gfm, remarkSectionize]}
         renderers={{
           code,
           section,

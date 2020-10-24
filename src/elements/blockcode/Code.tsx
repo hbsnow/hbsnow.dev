@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
 const Code: FC = ({ children }) => {
   return (
@@ -10,7 +10,7 @@ const Code: FC = ({ children }) => {
         }
       `}</style>
     </code>
-  )
-}
+  );
+};
 
-export default Code
+export default Code;

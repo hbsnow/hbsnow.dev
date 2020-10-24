@@ -1,11 +1,11 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import { textColor } from '../../styles/mixin'
-import Icon, { tagList, TagType } from '../icon/Icon'
+import { textColor } from "../../styles/mixin";
+import Icon, { tagList, TagType } from "../icon/Icon";
 
 type Props = {
-  readonly icon?: TagType
-} & Omit<JSX.IntrinsicElements['div'], 'className'>
+  readonly icon?: TagType;
+} & Omit<JSX.IntrinsicElements["div"], "className">;
 
 const Chip: FC<Props> = ({ children, icon, ...restProps }) => {
   return (
@@ -44,7 +44,7 @@ const Chip: FC<Props> = ({ children, icon, ...restProps }) => {
                 color: ${textColor(tagList[icon])};
                 background-color: ${tagList[icon]};
               `
-            : ''}
+            : ""}
         }
 
         .spacer {
@@ -52,7 +52,7 @@ const Chip: FC<Props> = ({ children, icon, ...restProps }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Chip
+export default Chip;

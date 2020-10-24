@@ -36,20 +36,20 @@ yarn add -DE @types/cleave.js
 自分で頑張る場合は少し面倒です。
 
 ```tsx
-import React, { FC, useState, useCallback, useRef } from 'react'
+import React, { FC, useState, useCallback, useRef } from "react";
 
 const InputText: FC = () => {
-  const inputRef = useRef<HTMLInputElement>(null)
-  const [value, setValue] = useState('')
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [value, setValue] = useState("");
 
   const handleChange = useCallback(() => {
-    const target = inputRef.current
+    const target = inputRef.current;
     if (target && target.value.length >= 0) {
       const chunkedValue =
-        target.value.match(/[\da-zA-Z]{1,4}/g)?.join(' ') ?? ''
-      setValue(chunkedValue)
+        target.value.match(/[\da-zA-Z]{1,4}/g)?.join(" ") ?? "";
+      setValue(chunkedValue);
     }
-  }, [])
+  }, []);
 
   return (
     <input
@@ -58,10 +58,10 @@ const InputText: FC = () => {
       onChange={handleChange}
       maxLength={4 * 3 + 3}
     />
-  )
-}
+  );
+};
 
-export default InputText
+export default InputText;
 ```
 
 上記のコードは一見うまくいきそうに思えますが、これはカーソル位置を移動して backspace をしたときに正しく機能しません。
@@ -74,44 +74,44 @@ export default InputText
 この 2 点が問題になります。
 
 ```tsx
-import React, { FC, useState, useCallback, useRef, useEffect } from 'react'
+import React, { FC, useState, useCallback, useRef, useEffect } from "react";
 
 const InputText: FC = () => {
-  const inputRef = useRef<HTMLInputElement>(null)
-  const [value, setValue] = useState('')
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [value, setValue] = useState("");
   const [prevPosition, setPrevPosition] = useState<
-    HTMLInputElement['selectionEnd']
-  >(null)
+    HTMLInputElement["selectionEnd"]
+  >(null);
 
   const handleChange = useCallback(() => {
-    const target = inputRef.current
-    if (target === null) return
+    const target = inputRef.current;
+    if (target === null) return;
 
     const chunkedValue = target.value
-      .replace(/[^\da-zA-Z]/g, '')
-      .replace(/(.{4})/g, '$1 ')
-      .trim()
+      .replace(/[^\da-zA-Z]/g, "")
+      .replace(/(.{4})/g, "$1 ")
+      .trim();
 
-    setPrevPosition(target.selectionEnd)
-    setValue(chunkedValue)
-  }, [])
+    setPrevPosition(target.selectionEnd);
+    setValue(chunkedValue);
+  }, []);
 
   useEffect(() => {
-    const target = inputRef.current
-    if (target === null || prevPosition === null) return
+    const target = inputRef.current;
+    if (target === null || prevPosition === null) return;
 
-    const currentPosition = target.selectionEnd
-    if (currentPosition === null || prevPosition === null) return
+    const currentPosition = target.selectionEnd;
+    if (currentPosition === null || prevPosition === null) return;
 
     // 半角空白が追加されたときのカーソルを補正する
     const nextPositionDiff =
       prevPosition + 1 === currentPosition &&
-      value.charAt(prevPosition - 1) === ' '
+      value.charAt(prevPosition - 1) === " "
         ? 1
-        : 0
+        : 0;
 
-    target.selectionEnd = prevPosition + nextPositionDiff
-  }, [prevPosition, value])
+    target.selectionEnd = prevPosition + nextPositionDiff;
+  }, [prevPosition, value]);
 
   return (
     <input
@@ -120,10 +120,10 @@ const InputText: FC = () => {
       onChange={handleChange}
       maxLength={4 * 3 + 3}
     />
-  )
-}
+  );
+};
 
-export default InputText
+export default InputText;
 ```
 
 この方法では `chunkedValue` の文字列が変化するため、削除時にカーソルが最後尾に飛ばされます。そのため `useEffect` で `selectionEnd` の補正をしています。

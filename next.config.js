@@ -1,22 +1,22 @@
-const withTM = require('next-transpile-modules')(['react-children-utilities'])
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+const withTM = require("next-transpile-modules")(["react-children-utilities"]);
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer");
 
-if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config()
+if (process.env.NODE_ENV === "development") {
+  require("dotenv").config();
 }
 
 const nextSettings = {
-  target: 'serverless',
+  target: "serverless",
   exportPathMap: async () => {
     return {
-      '/': { page: '/' },
-      '/blog': { page: '/blog' },
-      '/book': { page: '/book' },
-    }
+      "/": { page: "/" },
+      "/blog": { page: "/blog" },
+      "/book": { page: "/book" },
+    };
   },
   trailingSlash: true,
-  pageExtensions: ['tsx'],
+  pageExtensions: ["tsx"],
   env: {
     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
     CONTENTFUL_API_ACCESS_TOKEN: process.env.CONTENTFUL_API_ACCESS_TOKEN,
@@ -25,27 +25,27 @@ const nextSettings = {
     // Fixes npm packages that depend on `fs` module
     if (!isServer) {
       config.node = {
-        fs: 'empty',
-      }
+        fs: "empty",
+      };
     }
 
     config.module.rules.push({
       test: /\.md$/,
-      use: 'raw-loader',
-    })
+      use: "raw-loader",
+    });
 
-    if (process.env.MEASURE === 'true') {
+    if (process.env.MEASURE === "true") {
       config.plugins.push(
         new BundleAnalyzerPlugin.BundleAnalyzerPlugin({
-          analyzerMode: 'static',
+          analyzerMode: "static",
         })
-      )
+      );
 
-      return new SpeedMeasurePlugin().wrap(config)
+      return new SpeedMeasurePlugin().wrap(config);
     }
 
-    return config
+    return config;
   },
-}
+};
 
-module.exports = withTM(nextSettings)
+module.exports = withTM(nextSettings);

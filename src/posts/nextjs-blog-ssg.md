@@ -37,24 +37,24 @@ mdx の場合、あまり考えずに [Next.js のリポジトリにある examp
 
 ```ts
 export type BlogType = {
-  slug: string
-} & matter.GrayMatterFile<string>['data']
+  slug: string;
+} & matter.GrayMatterFile<string>["data"];
 
 export const loadBlogList = (): BlogType[] => {
   const blogList = ((context): BlogType[] => {
-    const keys = context.keys()
-    const values = keys.map<{ [key: string]: string }>(context)
+    const keys = context.keys();
+    const values = keys.map<{ [key: string]: string }>(context);
 
     return keys.map((key, i) => {
-      const slug = path.basename(key, '.md')
-      const blog = matter(values[i].default)
+      const slug = path.basename(key, ".md");
+      const blog = matter(values[i].default);
 
-      return { slug, ...blog.data }
-    })
-  })(require.context(`../posts`, true, /\.md$/))
+      return { slug, ...blog.data };
+    });
+  })(require.context(`../posts`, true, /\.md$/));
 
-  return JSON.parse(JSON.stringify(blogList))
-}
+  return JSON.parse(JSON.stringify(blogList));
+};
 ```
 
 `JSON.parse(JSON.stringify(blogList))` の部分は Date 型を string に変換しています。これをしないと下記のようなエラーが発生します。
@@ -75,12 +75,12 @@ Markdown の変換には `react-markdown` を使っています。[Marked](https
 少し面倒だったのが、header にアンカーリンクを設定するところになります。
 
 ```tsx
-import { slug } from 'github-slugger'
-import { onlyText } from 'react-children-utilities'
+import { slug } from "github-slugger";
+import { onlyText } from "react-children-utilities";
 
 const Heading: FC<Props> = ({ level = 1, children, ...restProps }) => {
-  const text = onlyText(children)
-  const id = slug(text)
+  const text = onlyText(children);
+  const id = slug(text);
 
   return createElement(
     `h${level}`,
@@ -88,8 +88,8 @@ const Heading: FC<Props> = ({ level = 1, children, ...restProps }) => {
     <a href={`#${id}`} className="headingLink">
       {children}
     </a>
-  )
-}
+  );
+};
 ```
 
 [react-children-utilities](https://github.com/fernandopasik/react-children-utilities) の `onlyText` で `children` からテキストを取得して slug 用に変換しています。しかし、このまま使うと以下のようにエラーとなります。
@@ -102,10 +102,10 @@ Error: Must use import to load ES Module: ...
 これは `next.config.js` で react-children-utilities をトランスパイルすることで解決できます。
 
 ```js
-const withTM = require('next-transpile-modules')(['react-children-utilities'])
-const nextSettings = {}
+const withTM = require("next-transpile-modules")(["react-children-utilities"]);
+const nextSettings = {};
 
-module.exports = withTM(nextSettings)
+module.exports = withTM(nextSettings);
 ```
 
 エラーは他にも画像の長さを取得するために [image-size](https://github.com/image-size/image-size) を使ったときに遭遇しました。
@@ -130,17 +130,17 @@ Module not found: Can't resolve 'fs' in '/PATH/TO/...'
 データは一度すべて取得してから、フロントでカテゴリ分類やソートをしています。
 
 ```ts
-export const fetchBookList = async (): Promise<StateType['bookList']> => {
+export const fetchBookList = async (): Promise<StateType["bookList"]> => {
   const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID ?? '',
-    accessToken: process.env.CONTENTFUL_API_ACCESS_TOKEN ?? '',
-  })
+    space: process.env.CONTENTFUL_SPACE_ID ?? "",
+    accessToken: process.env.CONTENTFUL_API_ACCESS_TOKEN ?? "",
+  });
 
   // eslint-disable-next-line @typescript-eslint/camelcase
-  const query = { content_type: 'book' }
+  const query = { content_type: "book" };
 
-  return client.getEntries(query)
-}
+  return client.getEntries(query);
+};
 ```
 
 取得件数の上限もあったようなきがするので、今後データが増えてきたらこのあたりの改修は必要になってきそうです。
@@ -204,13 +204,13 @@ const readPathList = async (target, base) => {
   try {
     const posts = await fs.promises.readdir(target, {
       withFileTypes: true,
-    })
+    });
 
-    return posts.map((dirent) => `${base}/${dirent.name}/`)
+    return posts.map((dirent) => `${base}/${dirent.name}/`);
   } catch (err) {
-    Promise.reject(err)
+    Promise.reject(err);
   }
-}
+};
 ```
 
 ブログの一覧は上記のコードで取得し、適切な文字列に返還した後 `fs.promises.writeFile` で出力しただけです。

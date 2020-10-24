@@ -1,21 +1,21 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import classNames from 'classnames'
+import classNames from "classnames";
 
-import Icon from '../icon/Icon'
+import Icon from "../icon/Icon";
 
 type Props = {
-  readonly rate: number
-  readonly maxRate?: number
-} & Omit<JSX.IntrinsicElements['div'], 'className'>
+  readonly rate: number;
+  readonly maxRate?: number;
+} & Omit<JSX.IntrinsicElements["div"], "className">;
 
 const Rating: FC<Props> = ({ rate, maxRate = 3, ...restProps }) => {
   if (rate > maxRate) {
-    throw new Error('rateにmaxRateよりも大きい数値が設定されています。')
+    throw new Error("rateにmaxRateよりも大きい数値が設定されています。");
   }
 
   if (rate < 0) {
-    throw new Error('rateに負の値が設定されています。')
+    throw new Error("rateに負の値が設定されています。");
   }
 
   return (
@@ -27,10 +27,10 @@ const Rating: FC<Props> = ({ rate, maxRate = 3, ...restProps }) => {
     >
       {[...Array(maxRate)].map((_, i) => {
         return (
-          <div key={i} className={classNames('star', { disable: rate <= i })}>
+          <div key={i} className={classNames("star", { disable: rate <= i })}>
             <Icon name="star" />
           </div>
-        )
+        );
       })}
 
       <style jsx>{`
@@ -47,7 +47,7 @@ const Rating: FC<Props> = ({ rate, maxRate = 3, ...restProps }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Rating
+export default Rating;

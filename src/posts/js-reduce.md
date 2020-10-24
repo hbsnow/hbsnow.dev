@@ -27,7 +27,7 @@ JavaScript の `reduce` は便利だけれども、少し使いどころがわ�
 `reduce` のよくある例としてありがちなのが合計値の計算。
 
 ```js
-;[3, 7, 1, 2].reduce((accumulator, currentValue) => accumulator + currentValue) // => 13
+[3, 7, 1, 2].reduce((accumulator, currentValue) => accumulator + currentValue); // => 13
 ```
 
 こういった単純な一次配列を合計できるし、以下のようなオブジェクトの特定プロパティの総数を数えることもできる。
@@ -37,13 +37,13 @@ const cart = [
   { itemId: 1, quantity: 3 },
   { itemId: 2, quantity: 2 },
   { itemId: 3, quantity: 1 },
-]
+];
 
 const sum = cart.reduce((accumulator, currentValue) => {
-  return accumulator + currentValue.quantity
-}, 0)
+  return accumulator + currentValue.quantity;
+}, 0);
 
-console.log(sum) // => 6
+console.log(sum); // => 6
 ```
 
 また、特定のプロパティ名のある値を除外するようなこともできる。
@@ -52,10 +52,10 @@ console.log(sum) // => 6
 const sum = cart.reduce((accumulator, currentValue) => {
   return currentValue.itemId !== 2
     ? accumulator + currentValue.quantity
-    : accumulator
-}, 0)
+    : accumulator;
+}, 0);
 
-console.log(sum) // => 4
+console.log(sum); // => 4
 ```
 
 ### 2. オブジェクトの配列から最大、最小値をもつオブジェクトを取得する
@@ -65,13 +65,13 @@ console.log(sum) // => 4
 ```js
 const maxItem = cart.reduce((accumulator, currentValue) =>
   accumulator.quantity > currentValue.quantity ? accumulator : currentValue
-)
-console.log(sum) // => { itemId: 1, quantity: 3 }
+);
+console.log(sum); // => { itemId: 1, quantity: 3 }
 
 const minItem = cart.reduce((accumulator, currentValue) =>
   accumulator.quantity < currentValue.quantity ? accumulator : currentValue
-)
-console.log(sum) // => { itemId: 3, quantity: 1 }
+);
+console.log(sum); // => { itemId: 3, quantity: 1 }
 ```
 
 単純に値だけを求めたいのであれば `Math.max(...cart.map(item => item.quantity))` とすればいいでしょう。
@@ -86,7 +86,7 @@ const items = [
   { amount: 1000, taxRate: 8 },
   { amount: 1200, taxRate: 10 },
   { amount: 0, taxRate: 0 },
-]
+];
 ```
 
 このような配列から `taxRate` ごとに集計をとりたくなったときには、以下のように記述できます。
@@ -94,19 +94,19 @@ const items = [
 ```js
 const groupByTaxRate = (items) => {
   const taxes = items.reduce((accumulator, currentValue) => {
-    const key = currentValue.taxRate
+    const key = currentValue.taxRate;
     accumulator[key] = !accumulator[key]
       ? currentValue.amount
-      : accumulator[key] + currentValue.amount
+      : accumulator[key] + currentValue.amount;
 
-    return accumulator
-  }, {})
+    return accumulator;
+  }, {});
 
   return Object.keys(taxes).map((taxKey) => ({
     taxRate: parseInt(taxKey),
     amount: taxes[taxKey],
-  }))
-}
+  }));
+};
 ```
 
 `groupByTaxRate(items)` の出力結果は以下の通り。
@@ -123,20 +123,20 @@ const groupByTaxRate = (items) => {
 
 ```js
 const groupByTaxRate = (items) => {
-  let taxes = {}
+  let taxes = {};
   for (const item of items) {
     if (!taxes[item.taxRate]) {
-      taxes[item.taxRate] = item.amount
-      continue
+      taxes[item.taxRate] = item.amount;
+      continue;
     }
-    taxes[item.taxRate] = taxes[item.taxRate] + item.amount
+    taxes[item.taxRate] = taxes[item.taxRate] + item.amount;
   }
 
   return Object.keys(taxes).map((taxKey) => ({
     taxRate: parseInt(taxKey),
     amount: taxes[taxKey],
-  }))
-}
+  }));
+};
 ```
 
 こんな感じになるだろうか。どちらが読みやすいかはちょっと迷うところ。
@@ -146,8 +146,8 @@ const groupByTaxRate = (items) => {
 [flat](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flat) が使えるのであればこんなことをする必要はありません。
 
 ```js
-const arr = [1, 2, [3, 4]]
-console.log(arr.flat()) // => [1, 2, 3, 4]
+const arr = [1, 2, [3, 4]];
+console.log(arr.flat()); // => [1, 2, 3, 4]
 ```
 
 これを `reduce` で同じことをしてみよう。
@@ -158,7 +158,7 @@ console.log(
     (accumulator, currentValue) => accumulator.concat(currentValue),
     []
   )
-) // => [1, 2, 3, 4]
+); // => [1, 2, 3, 4]
 ```
 
 こうなります。
@@ -181,8 +181,8 @@ console.log(
 const sum = cart.reduce((accumulator, currentValue) => {
   return currentValue.itemId !== 2
     ? accumulator + currentValue.quantity
-    : accumulator
-}, 0)
+    : accumulator;
+}, 0);
 ```
 
 これは合計のために `reduce` は残りますが、次のように書き直せます。
@@ -191,8 +191,8 @@ const sum = cart.reduce((accumulator, currentValue) => {
 const sum = cart
   .filter((item) => item.itemId !== 2)
   .reduce((accumulator, currentValue) => {
-    return accumulator + currentValue.quantity
-  }, 0)
+    return accumulator + currentValue.quantity;
+  }, 0);
 ```
 
 ### reduce をループとして使う例
@@ -205,7 +205,7 @@ const items = [
   { amount: 1000, taxRate: 8 },
   { amount: 1200, taxRate: 10 },
   { amount: 0, taxRate: 0 },
-]
+];
 ```
 
 さきほどのサンプルの配列で、amount が 1000 以上のものについてそれぞれ `+100` した結果のオブジェクトの配列。
@@ -225,11 +225,11 @@ const result = items.reduce((accumulator, currentValue) => {
     accumulator.push({
       ...currentValue,
       amount: currentValue.amount + 100,
-    })
+    });
   }
 
-  return accumulator
-}, [])
+  return accumulator;
+}, []);
 ```
 
 でもこれは実際にこんな書き方をする必要はありません。
@@ -240,7 +240,7 @@ const result = items
   .map((item) => ({
     ...item,
     amount: item.amount + 100,
-  }))
+  }));
 ```
 
 `map` と `filter` で書き直すことができます。
@@ -256,33 +256,33 @@ const example = {
   foo: 0,
   bar: 1,
   baz: 2,
-}
+};
 
 const result = Object.keys(example)
-  .filter((key) => !['foo', 'bar'].includes(key))
+  .filter((key) => !["foo", "bar"].includes(key))
   .reduce(
     (newObj, key) => ({
       ...newObj,
       [key]: example[key],
     }),
     {}
-  )
+  );
 
-console.log(result) // => { baz: 2 }
+console.log(result); // => { baz: 2 }
 ```
 
 でも、これも `reduce` を使う必要はありません。
 
 ```js
 Object.fromEntries(
-  Object.entries(example).filter(([key]) => !['foo', 'bar'].includes(key))
-)
+  Object.entries(example).filter(([key]) => !["foo", "bar"].includes(key))
+);
 ```
 
 `Object.fromEntries` と `Object.entries` で記述できるし、この例だともっとシンプルに次のように書くことができます。
 
 ```js
-const { foo, bar, ...result } = example
+const { foo, bar, ...result } = example;
 ```
 
 これで問題ないはずです。

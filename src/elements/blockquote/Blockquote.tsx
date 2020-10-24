@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import Icon from '../icon/Icon'
+import Icon from "../icon/Icon";
 
-type Props = JSX.IntrinsicElements['div']
+type Props = JSX.IntrinsicElements["div"];
 
 const Blockquote: FC<Props> = ({ children, ...restProps }) => {
   return (
@@ -27,7 +27,7 @@ const Blockquote: FC<Props> = ({ children, ...restProps }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Blockquote
+export default Blockquote;

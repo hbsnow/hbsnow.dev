@@ -1,27 +1,27 @@
-import React from 'react'
+import React from "react";
 
-import { Entry } from 'contentful'
-import { NextPage, GetStaticProps } from 'next'
+import { Entry } from "contentful";
+import { NextPage, GetStaticProps } from "next";
 
-import BookList from '../../components/book/BookList'
-import Meta from '../../components/head/Meta'
-import Container from '../../elements/container/Container'
-import Margin from '../../elements/margin/Margin'
-import Rating from '../../elements/rating/Rating'
-import { useMinBookCreatedAt, useMaxBookUpdatedAt } from '../../hooks/book'
-import { IBookFields } from '../../models/contentful'
-import { fetchBookList } from '../../modules/book'
-import DefaultTemplate from '../../templates/DefaultTemplate'
+import BookList from "../../components/book/BookList";
+import Meta from "../../components/head/Meta";
+import Container from "../../elements/container/Container";
+import Margin from "../../elements/margin/Margin";
+import Rating from "../../elements/rating/Rating";
+import { useMinBookCreatedAt, useMaxBookUpdatedAt } from "../../hooks/book";
+import { IBookFields } from "../../models/contentful";
+import { fetchBookList } from "../../modules/book";
+import DefaultTemplate from "../../templates/DefaultTemplate";
 
-export const config = { amp: true }
+export const config = { amp: true };
 
 type Props = {
-  readonly bookList: Entry<IBookFields>[]
-}
+  readonly bookList: Entry<IBookFields>[];
+};
 
 const Page: NextPage<Props> = ({ bookList }) => {
-  const createdAt = useMinBookCreatedAt(bookList)
-  const updatedAt = useMaxBookUpdatedAt(bookList)
+  const createdAt = useMinBookCreatedAt(bookList);
+  const updatedAt = useMaxBookUpdatedAt(bookList);
 
   return (
     <>
@@ -77,19 +77,19 @@ const Page: NextPage<Props> = ({ bookList }) => {
         </Container>
       </DefaultTemplate>
     </>
-  )
-}
+  );
+};
 
 export const getStaticProps: GetStaticProps = async (): Promise<{
-  props: Props
+  props: Props;
 }> => {
-  const bookList = await fetchBookList()
+  const bookList = await fetchBookList();
 
   return {
     props: {
       bookList: bookList?.items ?? [],
     },
-  }
-}
+  };
+};
 
-export default Page
+export default Page;

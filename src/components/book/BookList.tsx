@@ -1,20 +1,20 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import { Entry } from 'contentful'
+import { Entry } from "contentful";
 
-import Accent from '../../elements/accent/Accent'
-import Margin from '../../elements/margin/Margin'
-import { useSort, useGroupByCategory } from '../../hooks/book'
-import { IBookFields } from '../../models/contentful'
-import Book from './Book'
+import Accent from "../../elements/accent/Accent";
+import Margin from "../../elements/margin/Margin";
+import { useSort, useGroupByCategory } from "../../hooks/book";
+import { IBookFields } from "../../models/contentful";
+import Book from "./Book";
 
 type Props = {
-  readonly bookList: Entry<IBookFields>[]
-}
+  readonly bookList: Entry<IBookFields>[];
+};
 
 const BookList: FC<Props> = ({ bookList }) => {
-  const sortedBookList = useSort(bookList)
-  const groupByCategoryBookList = useGroupByCategory(sortedBookList)
+  const sortedBookList = useSort(bookList);
+  const groupByCategoryBookList = useGroupByCategory(sortedBookList);
 
   return (
     <>
@@ -35,10 +35,10 @@ const BookList: FC<Props> = ({ bookList }) => {
               </Margin>
             ))}
           </section>
-        )
+        );
       })}
     </>
-  )
-}
+  );
+};
 
-export default BookList
+export default BookList;

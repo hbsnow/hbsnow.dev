@@ -1,19 +1,19 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import { NextSeo } from 'next-seo'
+import { NextSeo } from "next-seo";
 
-import { useFormattedDate } from '../../hooks/date'
-import { useFullPath, useOgpImagePath } from '../../hooks/url'
-import JsonLd, { JsonLdPageType, JsonLdType } from './JsonLd'
+import { useFormattedDate } from "../../hooks/date";
+import { useFullPath, useOgpImagePath } from "../../hooks/url";
+import JsonLd, { JsonLdPageType, JsonLdType } from "./JsonLd";
 
 type Props = {
-  readonly type: JsonLdPageType
-  readonly title: string
-  readonly path: string
-  readonly description: string
-  readonly createdAt: string
-  readonly updatedAt?: string
-}
+  readonly type: JsonLdPageType;
+  readonly title: string;
+  readonly path: string;
+  readonly description: string;
+  readonly createdAt: string;
+  readonly updatedAt?: string;
+};
 
 const Meta: FC<Props> = ({
   type,
@@ -23,23 +23,23 @@ const Meta: FC<Props> = ({
   createdAt,
   updatedAt,
 }) => {
-  const pageUrl = useFullPath(path)
-  const dateFormat = 'YYYY-MM-DDTHH:mm:ss+09:00'
-  const datePublished = useFormattedDate(createdAt, dateFormat)
-  const dateModified = useFormattedDate(updatedAt, dateFormat)
+  const pageUrl = useFullPath(path);
+  const dateFormat = "YYYY-MM-DDTHH:mm:ss+09:00";
+  const datePublished = useFormattedDate(createdAt, dateFormat);
+  const dateModified = useFormattedDate(updatedAt, dateFormat);
 
   const jsonLd: Readonly<JsonLdType> = {
     type,
     url: pageUrl,
     title,
-    images: [useFullPath('assets/img/og/site-icons/icon-1200x1200.png')],
+    images: [useFullPath("assets/img/og/site-icons/icon-1200x1200.png")],
     datePublished,
     dateModified: dateModified ?? datePublished,
-    authorName: 'hbsnow',
-    publisherName: 'hbsnow',
-    publisherLogo: useFullPath('assets/img/og/logo.png'),
+    authorName: "hbsnow",
+    publisherName: "hbsnow",
+    publisherLogo: useFullPath("assets/img/og/logo.png"),
     description,
-  }
+  };
 
   return (
     <>
@@ -47,7 +47,7 @@ const Meta: FC<Props> = ({
         title={title}
         description={description}
         openGraph={{
-          type: 'website',
+          type: "website",
           url: pageUrl,
           images: [
             {
@@ -58,7 +58,7 @@ const Meta: FC<Props> = ({
       />
       <JsonLd {...jsonLd} />
     </>
-  )
-}
+  );
+};
 
-export default Meta
+export default Meta;

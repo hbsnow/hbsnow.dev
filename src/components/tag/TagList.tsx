@@ -1,17 +1,17 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import Link from 'next/link'
+import Link from "next/link";
 
-import Chip from '../../elements/chip/Chip'
-import { useSortedTagList } from '../../hooks/tag'
+import Chip from "../../elements/chip/Chip";
+import { useSortedTagList } from "../../hooks/tag";
 
 type Props = {
-  readonly tagList: string[]
-  readonly preferredTag?: string
-}
+  readonly tagList: string[];
+  readonly preferredTag?: string;
+};
 
 const TagList: FC<Props> = ({ tagList, preferredTag }) => {
-  const sortedTagList = useSortedTagList(tagList, preferredTag)
+  const sortedTagList = useSortedTagList(tagList, preferredTag);
 
   return (
     <ul className="tagList">
@@ -24,7 +24,7 @@ const TagList: FC<Props> = ({ tagList, preferredTag }) => {
               </a>
             </Link>
           </li>
-        )
+        );
       })}
       <style jsx>{`
         .tagList {
@@ -39,7 +39,7 @@ const TagList: FC<Props> = ({ tagList, preferredTag }) => {
         }
       `}</style>
     </ul>
-  )
-}
+  );
+};
 
-export default TagList
+export default TagList;

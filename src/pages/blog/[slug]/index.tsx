@@ -1,21 +1,21 @@
-import React from 'react'
+import React from "react";
 
-import { NextPage, GetStaticProps } from 'next'
+import { NextPage, GetStaticProps } from "next";
 
-import BlogHeader from '../../../components/blog/BlogHeader'
-import Meta from '../../../components/head/Meta'
-import Container from '../../../elements/container/Container'
-import Margin from '../../../elements/margin/Margin'
-import Markdown from '../../../elements/markdown/Markdown'
-import { BlogType, loadBlog, loadBlogList } from '../../../modules/blog'
-import DefaultTemplate from '../../../templates/DefaultTemplate'
-import { toSlugString } from '../../../utils/url'
+import BlogHeader from "../../../components/blog/BlogHeader";
+import Meta from "../../../components/head/Meta";
+import Container from "../../../elements/container/Container";
+import Margin from "../../../elements/margin/Margin";
+import Markdown from "../../../elements/markdown/Markdown";
+import { BlogType, loadBlog, loadBlogList } from "../../../modules/blog";
+import DefaultTemplate from "../../../templates/DefaultTemplate";
+import { toSlugString } from "../../../utils/url";
 
-export const config = { amp: true }
+export const config = { amp: true };
 
 type Props = {
-  readonly blog: BlogType
-}
+  readonly blog: BlogType;
+};
 
 const Page: NextPage<Props> = ({ blog }) => {
   return (
@@ -39,27 +39,27 @@ const Page: NextPage<Props> = ({ blog }) => {
         </Container>
       </DefaultTemplate>
     </>
-  )
-}
+  );
+};
 
 export const getStaticPaths = (): {
-  fallback: boolean
-  paths: string[]
+  fallback: boolean;
+  paths: string[];
 } => {
-  const blogList = loadBlogList()
+  const blogList = loadBlogList();
 
   return {
     fallback: false,
     paths: blogList.map((blog) => `/blog/${blog.slug}/`),
-  }
-}
+  };
+};
 
 export const getStaticProps: GetStaticProps = async ({
   params,
 }): Promise<{ props: Props }> => {
-  const blog = await loadBlog(toSlugString(params?.slug ?? []))
+  const blog = await loadBlog(toSlugString(params?.slug ?? []));
 
-  return { props: { blog } }
-}
+  return { props: { blog } };
+};
 
-export default Page
+export default Page;

@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import css from 'styled-jsx/css'
+import css from "styled-jsx/css";
 
 const styles = css.global`
   /* a11y-light theme */
@@ -132,7 +132,7 @@ const styles = css.global`
       color: #dcc6e0;
     }
   }
-`
+`;
 
 const Pre: FC = ({ children }) => {
   return (
@@ -145,7 +145,7 @@ const Pre: FC = ({ children }) => {
       `}</style>
       <style jsx>{styles}</style>
     </pre>
-  )
-}
+  );
+};
 
-export default Pre
+export default Pre;

@@ -39,7 +39,7 @@ JavaScript での実装は説明が不要なのでここでは省略します。
 
 ```css
 *:not([href])[id]::before {
-  content: ' ';
+  content: " ";
   display: block;
   height: 65px;
   margin-top: -65px;

@@ -1,20 +1,20 @@
-import 'normalize.css'
+import "normalize.css";
 
-import React from 'react'
+import React from "react";
 
-import { NextPage } from 'next'
-import { DefaultSeo } from 'next-seo'
-import { AppProps } from 'next/app'
+import { NextPage } from "next";
+import { DefaultSeo } from "next-seo";
+import { AppProps } from "next/app";
 
-import globalStyles from '../styles/globalStyles'
+import globalStyles from "../styles/globalStyles";
 
 const App: NextPage<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <DefaultSeo
         twitter={{
-          cardType: 'summary',
-          site: '@hbsnow',
+          cardType: "summary",
+          site: "@hbsnow",
         }}
       />
       <Component {...pageProps} />
@@ -22,7 +22,7 @@ const App: NextPage<AppProps> = ({ Component, pageProps }) => {
         {globalStyles}
       </style>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

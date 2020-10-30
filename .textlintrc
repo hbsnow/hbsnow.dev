@@ -1,9 +1,10 @@
 {
+  "filters": {},
   "rules": {
+    "ja-hiragana-fukushi": true,
+    "ja-hiragana-hojodoushi": true,
+    "ja-hiragana-keishikimeishi": true,
     "preset-ja-technical-writing": true,
-    "textlint-rule-spellcheck-tech-word": true,
-    "textlint-rule-ja-hiragana-keishikimeishi": true,
-    "textlint-rule-ja-hiragana-fukushi": true,
-    "textlint-rule-ja-hiragana-hojodoushi": true
+    "spellcheck-tech-word": true
   }
 }

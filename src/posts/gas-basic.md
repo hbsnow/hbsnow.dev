@@ -62,7 +62,7 @@ https://github.com/hbsnow-sandbox/gas-read-example
 『ファイルのプロジェクト』->『プロジェクトのプロパティ』にあるスクリプトのプロパティから追加できます。
 
 ```js
-const value = PropertiesService.getScriptProperties().getProperty('KEY')
+const value = PropertiesService.getScriptProperties().getProperty("KEY");
 ```
 
 追加した値は上記のように取得できます。

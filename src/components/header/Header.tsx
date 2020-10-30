@@ -1,9 +1,9 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import Link from 'next/link'
+import Link from "next/link";
 
-import Container from '../../elements/container/Container'
-import { mediaQuery } from '../../styles/const'
+import Container from "../../elements/container/Container";
+import { mediaQuery } from "../../styles/const";
 
 const Header: FC = () => {
   return (
@@ -60,7 +60,7 @@ const Header: FC = () => {
         }
 
         .siteTitle {
-          font-family: 'Nunito', sans-serif;
+          font-family: "Nunito", sans-serif;
           font-size: 1.5rem;
           margin: 0;
         }
@@ -104,7 +104,7 @@ const Header: FC = () => {
         }
       `}</style>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

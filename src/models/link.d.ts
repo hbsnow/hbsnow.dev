@@ -1,8 +1,8 @@
 export type LinkType = {
-  to?: string
-} & ExternalLinkType
+  to?: string;
+} & ExternalLinkType;
 
 export type ExternalLinkType<T = string> = {
-  name: T
-  href: string
-}
+  name: T;
+  href: string;
+};

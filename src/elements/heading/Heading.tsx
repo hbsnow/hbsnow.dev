@@ -1,15 +1,15 @@
-import React, { FC, createElement, HTMLAttributes } from 'react'
+import React, { FC, createElement, HTMLAttributes } from "react";
 
-import { slug } from 'github-slugger'
-import { onlyText } from 'react-children-utilities'
+import { slug } from "github-slugger";
+import { onlyText } from "react-children-utilities";
 
 type Props = {
-  readonly level?: number
-} & Omit<HTMLAttributes<HTMLHeadingElement>, 'className'>
+  readonly level?: number;
+} & Omit<HTMLAttributes<HTMLHeadingElement>, "className">;
 
 const Heading: FC<Props> = ({ level = 1, children, ...restProps }) => {
-  const text = onlyText(children)
-  const id = slug(text)
+  const text = onlyText(children);
+  const id = slug(text);
 
   return createElement(
     `h${level}`,
@@ -22,7 +22,7 @@ const Heading: FC<Props> = ({ level = 1, children, ...restProps }) => {
         }
       `}</style>
     </a>
-  )
-}
+  );
+};
 
-export default Heading
+export default Heading;

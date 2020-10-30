@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import { mediaQuery } from '../../styles/const'
-import Avatar from './Avatar'
+import { mediaQuery } from "../../styles/const";
+import Avatar from "./Avatar";
 
 const HomeAbout: FC = ({ children }) => {
   return (
@@ -53,7 +53,7 @@ const HomeAbout: FC = ({ children }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default HomeAbout
+export default HomeAbout;

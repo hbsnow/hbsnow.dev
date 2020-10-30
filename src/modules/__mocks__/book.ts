@@ -1,1 +1,1 @@
-export const book = {}
+export const book = {};

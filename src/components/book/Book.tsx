@@ -1,13 +1,13 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import { Entry } from 'contentful'
+import { Entry } from "contentful";
 
-import Rating from '../../elements/rating/Rating'
-import { IBookFields } from '../../models/contentful'
+import Rating from "../../elements/rating/Rating";
+import { IBookFields } from "../../models/contentful";
 
 type Props = {
-  readonly book: Entry<IBookFields>['fields']
-}
+  readonly book: Entry<IBookFields>["fields"];
+};
 
 const Book: FC<Props> = ({ book }) => {
   return (
@@ -52,7 +52,7 @@ const Book: FC<Props> = ({ book }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Book
+export default Book;

@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
 type Props = {
-  readonly size?: number
-}
+  readonly size?: number;
+};
 
 const Avatar: FC<Props> = ({ size = 256 }) => {
   return (
@@ -37,7 +37,7 @@ const Avatar: FC<Props> = ({ size = 256 }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Avatar
+export default Avatar;

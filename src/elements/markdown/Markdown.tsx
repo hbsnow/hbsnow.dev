@@ -1,38 +1,38 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import { imageSize } from 'image-size'
-import ReactMarkdown from 'react-markdown'
-import gfm from 'remark-gfm'
-import remarkSectionize from 'remark-sectionize'
+import { imageSize } from "image-size";
+import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
+import remarkSectionize from "remark-sectionize";
 
-import Blockcode from '../blockcode/Blockcode'
-import Blockquote from '../blockquote/Blockquote'
-import Heading from '../heading/Heading'
-import ExternalLink from '../link/ExternalLink'
-import ResponsiveTable from '../table/ResponsiveTable'
+import Blockcode from "../blockcode/Blockcode";
+import Blockquote from "../blockquote/Blockquote";
+import Heading from "../heading/Heading";
+import ExternalLink from "../link/ExternalLink";
+import ResponsiveTable from "../table/ResponsiveTable";
 
 type Props = {
-  readonly source: string
-} & Omit<JSX.IntrinsicElements['div'], 'className'>
+  readonly source: string;
+} & Omit<JSX.IntrinsicElements["div"], "className">;
 
 const Markdown: FC<Props> = ({ source, ...restProps }) => {
   const code: FC<{ language: string; value: string }> = ({
     language,
     value,
   }) => {
-    return <Blockcode language={language}>{value}</Blockcode>
-  }
+    return <Blockcode language={language}>{value}</Blockcode>;
+  };
 
   const section: FC = ({ children }) => {
-    return <section>{children}</section>
-  }
+    return <section>{children}</section>;
+  };
 
   const heading: FC<{ level: string }> = ({ level, children }) => {
-    return <Heading level={parseInt(level)}>{children}</Heading>
-  }
+    return <Heading level={parseInt(level)}>{children}</Heading>;
+  };
 
   const image: FC<{ src: string; alt: string }> = ({ src, alt }) => {
-    const dimensions = imageSize(`public/${src}`)
+    const dimensions = imageSize(`public/${src}`);
 
     return (
       <div className="ampImage">
@@ -49,24 +49,24 @@ const Markdown: FC<Props> = ({ source, ...restProps }) => {
           }
         `}</style>
       </div>
-    )
-  }
+    );
+  };
 
   const link: FC<{ href: string }> = ({ children, href }) => {
-    if (href.startsWith('http')) {
-      return <ExternalLink href={href}>{children}</ExternalLink>
+    if (href.startsWith("http")) {
+      return <ExternalLink href={href}>{children}</ExternalLink>;
     }
     // SSGなのでLinkでなくても問題なさそう
-    return <a href={href}>{children}</a>
-  }
+    return <a href={href}>{children}</a>;
+  };
 
   const blockquote: FC = ({ children }) => {
-    return <Blockquote>{children}</Blockquote>
-  }
+    return <Blockquote>{children}</Blockquote>;
+  };
 
   const table: FC = ({ children }) => {
-    return <ResponsiveTable>{children}</ResponsiveTable>
-  }
+    return <ResponsiveTable>{children}</ResponsiveTable>;
+  };
 
   return (
     <div data-testid="Markdown" className="markdown" {...restProps}>
@@ -84,7 +84,7 @@ const Markdown: FC<Props> = ({ source, ...restProps }) => {
         }}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Markdown
+export default Markdown;

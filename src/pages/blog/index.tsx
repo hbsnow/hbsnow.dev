@@ -1,29 +1,29 @@
-import React from 'react'
+import React from "react";
 
-import { NextPage, GetStaticProps } from 'next'
+import { NextPage, GetStaticProps } from "next";
 
-import BlogList from '../../components/blog/BlogList'
-import Meta from '../../components/head/Meta'
-import Container from '../../elements/container/Container'
-import Margin from '../../elements/margin/Margin'
+import BlogList from "../../components/blog/BlogList";
+import Meta from "../../components/head/Meta";
+import Container from "../../elements/container/Container";
+import Margin from "../../elements/margin/Margin";
 import {
   useSortBlog,
   useMinBlogCreatedAt,
   useMaxBlogUpdatedAt,
-} from '../../hooks/blog'
-import { BlogType, loadBlogList } from '../../modules/blog'
-import DefaultTemplate from '../../templates/DefaultTemplate'
+} from "../../hooks/blog";
+import { BlogType, loadBlogList } from "../../modules/blog";
+import DefaultTemplate from "../../templates/DefaultTemplate";
 
-export const config = { amp: true }
+export const config = { amp: true };
 
 type Props = {
-  readonly blogList: BlogType[]
-}
+  readonly blogList: BlogType[];
+};
 
 const Page: NextPage<Props> = ({ blogList }) => {
-  const sortedBlogList = useSortBlog(blogList)
-  const createdAt = useMinBlogCreatedAt(blogList)
-  const updatedAt = useMaxBlogUpdatedAt(blogList)
+  const sortedBlogList = useSortBlog(blogList);
+  const createdAt = useMinBlogCreatedAt(blogList);
+  const updatedAt = useMaxBlogUpdatedAt(blogList);
 
   return (
     <>
@@ -43,19 +43,19 @@ const Page: NextPage<Props> = ({ blogList }) => {
         </Container>
       </DefaultTemplate>
     </>
-  )
-}
+  );
+};
 
 export const getStaticProps: GetStaticProps = async (): Promise<{
-  props: Props
+  props: Props;
 }> => {
-  const blogList = loadBlogList()
+  const blogList = loadBlogList();
 
   return {
     props: {
       blogList: JSON.parse(JSON.stringify(blogList)),
     },
-  }
-}
+  };
+};
 
-export default Page
+export default Page;

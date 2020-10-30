@@ -1,28 +1,28 @@
-import React from 'react'
+import React from "react";
 
-import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
-import Link from 'next/link'
+import { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import Link from "next/link";
 
-import BlogList from '../../../../components/blog/BlogList'
-import Meta from '../../../../components/head/Meta'
-import Accent from '../../../../elements/accent/Accent'
-import Container from '../../../../elements/container/Container'
-import Icon from '../../../../elements/icon/Icon'
-import Margin from '../../../../elements/margin/Margin'
-import { useFilterBlogBy } from '../../../../hooks/blog'
-import { BlogType, loadBlogList } from '../../../../modules/blog'
-import DefaultTemplate from '../../../../templates/DefaultTemplate'
-import { toSlugString } from '../../../../utils/url'
+import BlogList from "../../../../components/blog/BlogList";
+import Meta from "../../../../components/head/Meta";
+import Accent from "../../../../elements/accent/Accent";
+import Container from "../../../../elements/container/Container";
+import Icon from "../../../../elements/icon/Icon";
+import Margin from "../../../../elements/margin/Margin";
+import { useFilterBlogBy } from "../../../../hooks/blog";
+import { BlogType, loadBlogList } from "../../../../modules/blog";
+import DefaultTemplate from "../../../../templates/DefaultTemplate";
+import { toSlugString } from "../../../../utils/url";
 
-export const config = { amp: true }
+export const config = { amp: true };
 
 type Props = {
-  readonly slug: string
-  readonly blogList: BlogType[]
-}
+  readonly slug: string;
+  readonly blogList: BlogType[];
+};
 
 const Page: NextPage<Props> = ({ slug, blogList }) => {
-  const filteredBlogList = useFilterBlogBy(blogList, slug)
+  const filteredBlogList = useFilterBlogBy(blogList, slug);
   return (
     <>
       <Meta
@@ -57,37 +57,37 @@ const Page: NextPage<Props> = ({ slug, blogList }) => {
       `}</style>
       `
     </>
-  )
-}
+  );
+};
 
 export const getStaticPaths: GetStaticPaths = async (): Promise<{
-  fallback: boolean
-  paths: string[]
+  fallback: boolean;
+  paths: string[];
 }> => {
-  const blogList = loadBlogList()
+  const blogList = loadBlogList();
   const paths = blogList
     .flatMap((blog) => blog.tags)
     .filter((blog, i, self) => self.indexOf(blog) === i)
-    .map((tag) => `/blog/tag/${tag}/`)
+    .map((tag) => `/blog/tag/${tag}/`);
 
   return {
     fallback: false,
     paths,
-  }
-}
+  };
+};
 
 export const getStaticProps: GetStaticProps = async ({
   params,
 }): Promise<{ props: Props }> => {
-  const slug = toSlugString(params?.slug ?? [])
-  const blogList = loadBlogList()
+  const slug = toSlugString(params?.slug ?? []);
+  const blogList = loadBlogList();
 
   return {
     props: {
       slug,
       blogList: JSON.parse(JSON.stringify(blogList)),
     },
-  }
-}
+  };
+};
 
-export default Page
+export default Page;

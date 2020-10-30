@@ -19,13 +19,13 @@ createdAt: 2020-05-06
 
 ```js
 const items = [
-  { name: 'juice', amount: 500 },
-  { name: 'suger' },
-  { name: 'lunch-b', amount: 1200 },
-  { name: 'coffee', amount: 500 },
-  { name: 'smile', amount: 0 },
-  { name: 'lunch-a', amount: 1000 },
-]
+  { name: "juice", amount: 500 },
+  { name: "suger" },
+  { name: "lunch-b", amount: 1200 },
+  { name: "coffee", amount: 500 },
+  { name: "smile", amount: 0 },
+  { name: "lunch-a", amount: 1000 },
+];
 ```
 
 基本的なことになるのですが JavaScript の sort は破壊的で、非破壊ソートがありません。
@@ -41,9 +41,9 @@ const items = [
 name をアルファベットの昇順でソートするの場合、特に考えることはありません。
 
 ```js
-import sortBy from 'lodash.sortby'
+import sortBy from "lodash.sortby";
 
-const sortedItems = sortBy(items, 'name')
+const sortedItems = sortBy(items, "name");
 // =>
 // [
 //   { name: 'coffee', amount: 500 },
@@ -58,13 +58,13 @@ const sortedItems = sortBy(items, 'name')
 降順にしたい場合、そのためだけにわざわざ `lodash.orderBy` をもってくる必要はありません。
 
 ```js
-const sortedItems = sortBy(items, 'name').reverse()
+const sortedItems = sortBy(items, "name").reverse();
 ```
 
 アルファベット順以外の基準で並べたい場合には、ただ第二引数に key を与えるだけでは足りません。ここでは例として文字数でソートしてみます。
 
 ```js
-const sortedItems = sortBy(items, (item) => item.name.length)
+const sortedItems = sortBy(items, (item) => item.name.length);
 // =>
 // [
 //   { name: 'suger' },
@@ -81,9 +81,9 @@ const sortedItems = sortBy(items, (item) => item.name.length)
 amount は suger で定義されていません。そのまま amount を指定すると次のような結果になります。
 
 ```js
-import sortBy from 'lodash.sortby'
+import sortBy from "lodash.sortby";
 
-const sortedItems = sortBy(items, 'amount')
+const sortedItems = sortBy(items, "amount");
 // =>
 // [
 //   { name: 'smile', amount: 0 },
@@ -100,9 +100,9 @@ key を持たないオブジェクトがあってもエラーになることは�
 この例では、suger は無料なので配列の先頭にあるほうが自然です。key が存在しない場合には、そのオブジェクトを配列の先頭にしてみます。
 
 ```js
-import sortBy from 'lodash.sortby'
+import sortBy from "lodash.sortby";
 
-const sortedItems = sortBy(items, [(item) => 'amount' in item, 'amount'])
+const sortedItems = sortBy(items, [(item) => "amount" in item, "amount"]);
 // =>
 // [
 //   { name: 'suger' },
@@ -121,13 +121,13 @@ amount の key がある場合には後ろにまわしています。
 条件が複数ある場合、どちらも昇順であれば条件を優先したい順に列挙するだけで問題ありません。
 
 ```js
-import sortBy from 'lodash.sortby'
+import sortBy from "lodash.sortby";
 
 const sortedItems = sortBy(items, [
-  (item) => 'amount' in item,
-  'amount',
-  'name',
-])
+  (item) => "amount" in item,
+  "amount",
+  "name",
+]);
 // =>
 // [
 //   { name: 'suger' },
@@ -142,13 +142,13 @@ const sortedItems = sortBy(items, [
 ただし、amount を降順、name を昇順のようにソート順が key によって異なる場合には複雑になります。
 
 ```js
-import sortBy from 'lodash.sortby'
+import sortBy from "lodash.sortby";
 
-const sortedItemsByNameDesc = sortBy(items, 'name').reverse()
+const sortedItemsByNameDesc = sortBy(items, "name").reverse();
 const sortedItems = sortBy(sortedItemsByNameDesc, [
-  (item) => 'amount' in item,
-  'amount',
-]).reverse()
+  (item) => "amount" in item,
+  "amount",
+]).reverse();
 // =>
 // [
 //   { name: 'lunch-b', amount: 1200 },
@@ -165,13 +165,13 @@ const sortedItems = sortBy(sortedItemsByNameDesc, [
 ここまで必要になるのであれば、素直に orderBy がわかりやすいです。
 
 ```js
-import orderBy from 'lodash.orderBy'
+import orderBy from "lodash.orderBy";
 
 const sortedItems = orderBy(
   items,
-  [(item) => 'amount' in item, 'amount', 'name'],
-  ['desc', 'desc', 'asc']
-)
+  [(item) => "amount" in item, "amount", "name"],
+  ["desc", "desc", "asc"]
+);
 // =>
 // [
 //   { name: 'lunch-b', amount: 1200 },
@@ -188,13 +188,13 @@ const sortedItems = orderBy(
 `name` を指定順に並べたいときには並べたい順の配列をあらかじめ作っておき、`indexOf` を比較します。
 
 ```js
-import sortBy from 'lodash.sortby'
-const desiredSort = ['lunch-a', 'lunch-b', 'juice']
+import sortBy from "lodash.sortby";
+const desiredSort = ["lunch-a", "lunch-b", "juice"];
 
 const sortedItems = sortBy(items, (item) => {
-  const index = desiredSort.indexOf(item.name)
-  return index === -1 ? undefined : index
-})
+  const index = desiredSort.indexOf(item.name);
+  return index === -1 ? undefined : index;
+});
 ```
 
 上記の例では希望する順序の配列 `desiredSort` に含まれないものを後ろにしていますが、前にするのであれば `indexOf` の戻りをそのまま戻すだけになります。
@@ -206,7 +206,7 @@ const sortedItems = sortBy(items, (item) => {
 最初に書いたように JavaScript の sort は破壊的ソートなので、直接配列を sort できません。そのため name の昇順は下記のように記述する必要があります。
 
 ```js
-const sortedItems = [...items].sort((a, b) => (a.name < b.name ? -1 : 1))
+const sortedItems = [...items].sort((a, b) => (a.name < b.name ? -1 : 1));
 // =>
 // [
 //   { name: 'coffee', amount: 500 },
@@ -222,7 +222,7 @@ amount のように key が存在しない場合には少し注意が必要で�
 
 ```js
 // ダメな例
-const sortedItems = [...items].sort((a, b) => (a.amount < b.amount ? -1 : 1))
+const sortedItems = [...items].sort((a, b) => (a.amount < b.amount ? -1 : 1));
 ```
 
 これは `undefined` の比較が発生してしまうため正しくソートされません。
@@ -232,17 +232,17 @@ const sortedItems = [...items].sort((a, b) => (a.amount < b.amount ? -1 : 1))
 ```js
 const sortedItems = [...items].sort((a, b) => {
   if (a.amount !== undefined || b.amount !== undefined) {
-    if (a.amount === undefined) return -1
-    if (b.amount === undefined) return 1
+    if (a.amount === undefined) return -1;
+    if (b.amount === undefined) return 1;
   }
 
   if (a.amount !== undefined && b.amount !== undefined) {
-    if (a.amount < b.amount) return -1
-    if (a.amount > b.amount) return 1
+    if (a.amount < b.amount) return -1;
+    if (a.amount > b.amount) return 1;
   }
 
-  return 0
-})
+  return 0;
+});
 // =>
 // [
 //   { name: 'suger' },
@@ -261,20 +261,20 @@ const sortedItems = [...items].sort((a, b) => {
 ```js
 const sortedItems = [...items].sort((a, b) => {
   if (a.amount !== undefined || b.amount !== undefined) {
-    if (a.amount === undefined) return 1
-    if (b.amount === undefined) return -1
+    if (a.amount === undefined) return 1;
+    if (b.amount === undefined) return -1;
   }
 
   if (a.amount !== undefined && b.amount !== undefined) {
-    if (a.amount < b.amount) return 1
-    if (a.amount > b.amount) return -1
+    if (a.amount < b.amount) return 1;
+    if (a.amount > b.amount) return -1;
   }
 
-  if (a.name < b.name) return -1
-  if (a.name > b.name) return 1
+  if (a.name < b.name) return -1;
+  if (a.name > b.name) return 1;
 
-  return 0
-})
+  return 0;
+});
 // =>
 // [
 //   { name: 'lunch-b', amount: 1200 },

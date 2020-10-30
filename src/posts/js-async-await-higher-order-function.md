@@ -18,15 +18,15 @@ updatedAt: 2019-04-21
 const timer = (delay) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      console.log(`timer ${delay}ms`)
-      resolve(delay)
-    }, delay)
-  })
-}
+      console.log(`timer ${delay}ms`);
+      resolve(delay);
+    }, delay);
+  });
+};
 
-;[100, 300, 200].forEach(async (delay) => {
-  await timer(delay)
-})
+[100, 300, 200].forEach(async (delay) => {
+  await timer(delay);
+});
 ```
 
 上記のコードで期待する結果にならなかったことを相談されたことが発表の経緯です。
@@ -50,11 +50,11 @@ $ timer 300ms
 ## 順次処理をするためには
 
 ```js
-;(async () => {
+(async () => {
   for (const delay of [100, 300, 200]) {
-    await timer(delay)
+    await timer(delay);
   }
-})()
+})();
 ```
 
 `for...of` で書くのが、おそらくもっともシンプルでわかりやすいはずです。
@@ -64,21 +64,21 @@ $ timer 300ms
 そういった場合には `then` を使用することで解決できます。
 
 ```js
-import { timer } from './timer'
+import { timer } from "./timer";
 
-let promiseChain = Promise.resolve()
-;[100, 300, 200].forEach((delay) => {
-  promiseChain = promiseChain.then(() => timer(delay))
-})
+let promiseChain = Promise.resolve();
+[100, 300, 200].forEach((delay) => {
+  promiseChain = promiseChain.then(() => timer(delay));
+});
 ```
 
 `then` を使うのが微妙と感じるのであれば `reduce` でも実現可能です。
 
 ```js
-;[100, 300, 200].reduce(async (accumulator, delay) => {
-  await accumulator
-  return timer(delay)
-}, Promise.resolve())
+[100, 300, 200].reduce(async (accumulator, delay) => {
+  await accumulator;
+  return timer(delay);
+}, Promise.resolve());
 ```
 
 ただこの方法だと何が目的でこういう記述になっているのか、すぐにわかりにくいのではないかと感じます。この理由についての話は[reduce の使いどころ](/blog/js-async-await-higher-order-function/)に書いています。
@@ -88,7 +88,7 @@ let promiseChain = Promise.resolve()
 今回のスライドの趣旨とはあまり関係ありませんが、普通に並列処理して全部終わるまで待ちたいのであれば、`Promise.all()` と `map` を使います。
 
 ```js
-;(async () => {
-  await Promise.all([100, 300, 200].map(async (delay) => await timer(delay)))
-})()
+(async () => {
+  await Promise.all([100, 300, 200].map(async (delay) => await timer(delay)));
+})();
 ```

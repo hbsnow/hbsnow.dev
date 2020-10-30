@@ -1,12 +1,12 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import { BlogType } from '../../modules/blog'
-import BlogListItem from './BlogListItem'
+import { BlogType } from "../../modules/blog";
+import BlogListItem from "./BlogListItem";
 
 type Props = {
-  readonly blogList: BlogType[]
-  readonly preferredTag?: string
-}
+  readonly blogList: BlogType[];
+  readonly preferredTag?: string;
+};
 
 const BlogList: FC<Props> = ({ blogList, preferredTag }) => {
   return (
@@ -16,7 +16,7 @@ const BlogList: FC<Props> = ({ blogList, preferredTag }) => {
           <li key={post.slug} className="blogListItem">
             <BlogListItem post={post} preferredTag={preferredTag} />
           </li>
-        )
+        );
       })}
       <style jsx>{`
         .blogList {
@@ -29,7 +29,7 @@ const BlogList: FC<Props> = ({ blogList, preferredTag }) => {
         }
       `}</style>
     </ul>
-  )
-}
+  );
+};
 
-export default BlogList
+export default BlogList;

@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import { containerSize } from '../../styles/const'
+import { containerSize } from "../../styles/const";
 
-type Props = Omit<JSX.IntrinsicElements['div'], 'className'>
+type Props = Omit<JSX.IntrinsicElements["div"], "className">;
 
 const Container: FC<Props> = ({ children, ...restProps }) => {
   return (
@@ -21,7 +21,7 @@ const Container: FC<Props> = ({ children, ...restProps }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Container
+export default Container;

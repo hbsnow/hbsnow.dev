@@ -1,14 +1,14 @@
-import css from 'styled-jsx/css'
+import css from "styled-jsx/css";
 
-import { colors, gapSize, mediaQuery } from './const'
-import { textColor } from './mixin'
+import { colors, gapSize, mediaQuery } from "./const";
+import { textColor } from "./mixin";
 
 const globalStyles = css.global`
   :root {
     --color-default-bg: ${colors.bg.light};
     --color-default-surface: ${colors.surface.light};
     --color-default-text: ${textColor(colors.bg.light)};
-    --color-default-text-muted: ${textColor(colors.bg.light, 'textMuted')};
+    --color-default-text-muted: ${textColor(colors.bg.light, "textMuted")};
     --color-default-divider: ${colors.divider.light};
     --color-primary: ${colors.primary.light};
     --color-primary-text: ${textColor(colors.primary.light)};
@@ -16,7 +16,7 @@ const globalStyles = css.global`
     --color-primary-variant-text: ${textColor(colors.primaryVariant.light)};
     --color-transparent: rgba(255, 255, 255, 0);
     --font-family-default: sans-serif;
-    --font-family-code: '_', monospace;
+    --font-family-code: "_", monospace;
     --gap-size: ${gapSize};
     --layout-deg: -30deg;
   }
@@ -26,7 +26,7 @@ const globalStyles = css.global`
       --color-default-bg: ${colors.bg.dark};
       --color-default-surface: ${colors.surface.dark};
       --color-default-text: ${textColor(colors.bg.dark)};
-      --color-default-text-muted: ${textColor(colors.bg.dark, 'textMuted')};
+      --color-default-text-muted: ${textColor(colors.bg.dark, "textMuted")};
       --color-default-divider: ${colors.divider.dark};
       --color-primary: ${colors.primary.dark};
       --color-primary-text: ${textColor(colors.primary.dark)};
@@ -146,7 +146,7 @@ const globalStyles = css.global`
   a:visited {
     color: var(--color-primary-variant-bg);
   }
-  a[href^='#']:visited {
+  a[href^="#"]:visited {
     color: var(--color-primary);
   }
 
@@ -173,6 +173,6 @@ const globalStyles = css.global`
   i {
     font-style: normal;
   }
-`
+`;
 
-export default globalStyles
+export default globalStyles;

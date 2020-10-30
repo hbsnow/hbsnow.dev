@@ -1,41 +1,41 @@
-import React, { useMemo } from 'react'
+import React, { useMemo } from "react";
 
-import { Entry } from 'contentful'
-import { NextPage, GetStaticProps } from 'next'
-import Link from 'next/link'
+import { Entry } from "contentful";
+import { NextPage, GetStaticProps } from "next";
+import Link from "next/link";
 
-import BlogList from '../components/blog/BlogList'
-import Meta from '../components/head/Meta'
-import HomeAbout from '../components/home/HomeAbout'
-import Accent from '../elements/accent/Accent'
-import Container from '../elements/container/Container'
-import Icon from '../elements/icon/Icon'
-import ExternalLink from '../elements/link/ExternalLink'
-import Margin from '../elements/margin/Margin'
-import { useSortBlog, useMaxBlogUpdatedAt } from '../hooks/blog'
-import { useMaxBookUpdatedAt } from '../hooks/book'
-import { IBookFields } from '../models/contentful'
-import { BlogType, loadBlogList } from '../modules/blog'
-import { fetchBookList } from '../modules/book'
-import DefaultTemplate from '../templates/DefaultTemplate'
+import BlogList from "../components/blog/BlogList";
+import Meta from "../components/head/Meta";
+import HomeAbout from "../components/home/HomeAbout";
+import Accent from "../elements/accent/Accent";
+import Container from "../elements/container/Container";
+import Icon from "../elements/icon/Icon";
+import ExternalLink from "../elements/link/ExternalLink";
+import Margin from "../elements/margin/Margin";
+import { useSortBlog, useMaxBlogUpdatedAt } from "../hooks/blog";
+import { useMaxBookUpdatedAt } from "../hooks/book";
+import { IBookFields } from "../models/contentful";
+import { BlogType, loadBlogList } from "../modules/blog";
+import { fetchBookList } from "../modules/book";
+import DefaultTemplate from "../templates/DefaultTemplate";
 
-export const config = { amp: true }
+export const config = { amp: true };
 
 type Props = {
-  readonly blogList: BlogType[]
-  readonly bookList: Entry<IBookFields>[]
-}
+  readonly blogList: BlogType[];
+  readonly bookList: Entry<IBookFields>[];
+};
 
 const Page: NextPage<Props> = ({ blogList, bookList }) => {
-  const sortedBlogList = useSortBlog(blogList)
+  const sortedBlogList = useSortBlog(blogList);
   const latestBlogList = useMemo(() => {
-    return sortedBlogList.slice(0, 3)
-  }, [sortedBlogList])
+    return sortedBlogList.slice(0, 3);
+  }, [sortedBlogList]);
 
-  const blogUpdatedAt = useMaxBlogUpdatedAt(blogList)
-  const bookUpdatedAt = useMaxBookUpdatedAt(bookList)
+  const blogUpdatedAt = useMaxBlogUpdatedAt(blogList);
+  const bookUpdatedAt = useMaxBookUpdatedAt(bookList);
   const updatedAt =
-    blogUpdatedAt > bookUpdatedAt ? bookUpdatedAt : blogUpdatedAt
+    blogUpdatedAt > bookUpdatedAt ? bookUpdatedAt : blogUpdatedAt;
 
   return (
     <>
@@ -56,21 +56,21 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
                 <HomeAbout>
                   <p>札幌ではたらく Front End Developer です。</p>
                   <p>
-                    このサイトは{' '}
+                    このサイトは{" "}
                     <ExternalLink href="https://nextjs.org/">
                       Next.js
-                    </ExternalLink>{' '}
-                    で SSG され、ソースコードは{' '}
+                    </ExternalLink>{" "}
+                    で SSG され、ソースコードは{" "}
                     <ExternalLink href="https://github.com/hbsnow/hbsnow.dev">
                       GitHub
-                    </ExternalLink>{' '}
+                    </ExternalLink>{" "}
                     にて公開されています。
                   </p>
                   <p>
-                    Blog の記事にするまでもない簡易な技術メモについては{' '}
+                    Blog の記事にするまでもない簡易な技術メモについては{" "}
                     <ExternalLink href="https://scrapbox.io/hbsnow/">
                       Scrapbox
-                    </ExternalLink>{' '}
+                    </ExternalLink>{" "}
                     にとっています。
                   </p>
                 </HomeAbout>
@@ -110,7 +110,7 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
           position: relative;
         }
         .section.about::before {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           bottom: 0;
@@ -121,7 +121,7 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
           z-index: -1;
         }
         .section.about::after {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           bottom: 0;
@@ -141,21 +141,21 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
 export const getStaticProps: GetStaticProps = async (): Promise<{
-  props: Props
+  props: Props;
 }> => {
-  const blogList = loadBlogList()
-  const bookList = await fetchBookList()
+  const blogList = loadBlogList();
+  const bookList = await fetchBookList();
 
   return {
     props: {
       blogList,
       bookList: bookList?.items ?? [],
     },
-  }
-}
+  };
+};
 
-export default Page
+export default Page;

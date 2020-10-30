@@ -1,14 +1,14 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import SyntaxHighlighter from 'react-syntax-highlighter'
+import SyntaxHighlighter from "react-syntax-highlighter";
 
-import { mediaQuery } from '../../styles/const'
-import Code from './Code'
-import Pre from './Pre'
+import { mediaQuery } from "../../styles/const";
+import Code from "./Code";
+import Pre from "./Pre";
 
 type Props = {
-  readonly language?: string
-} & Omit<JSX.IntrinsicElements['div'], 'className'>
+  readonly language?: string;
+} & Omit<JSX.IntrinsicElements["div"], "className">;
 
 const Blockcode: FC<Props> = ({ children, language, ...restProps }) => {
   return (
@@ -39,7 +39,7 @@ const Blockcode: FC<Props> = ({ children, language, ...restProps }) => {
           margin-right: calc(var(--gap-size) * -1);
           margin-bottom: calc(var(--gap-size) * 2);
           padding: calc(var(--gap-size) * 1.5) calc(var(--gap-size));
-          ${language ? `padding-top: 0;` : ''}
+          ${language ? `padding-top: 0;` : ""}
         }
 
         .language {
@@ -58,12 +58,12 @@ const Blockcode: FC<Props> = ({ children, language, ...restProps }) => {
             margin-left: calc(var(--gap-size) * -2);
             margin-right: calc(var(--gap-size) * -2);
             padding: calc(var(--gap-size) * 1.5) calc(var(--gap-size) * 2);
-            ${language ? `padding-top: 0;` : ''}
+            ${language ? `padding-top: 0;` : ""}
           }
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Blockcode
+export default Blockcode;

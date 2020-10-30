@@ -1,8 +1,8 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
 type Props = {
-  readonly language?: string
-} & Omit<JSX.IntrinsicElements['table'], 'className'>
+  readonly language?: string;
+} & Omit<JSX.IntrinsicElements["table"], "className">;
 
 const ResponsiveTable: FC<Props> = ({ children, ...restProps }) => {
   return (
@@ -28,7 +28,7 @@ const ResponsiveTable: FC<Props> = ({ children, ...restProps }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default ResponsiveTable
+export default ResponsiveTable;

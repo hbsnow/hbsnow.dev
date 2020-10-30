@@ -1,6 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-type Props = Omit<JSX.IntrinsicElements['div'], 'className'>
+type Props = Omit<JSX.IntrinsicElements["div"], "className">;
 
 const Accent: FC<Props> = ({ children, ...restProps }) => {
   return (
@@ -14,7 +14,7 @@ const Accent: FC<Props> = ({ children, ...restProps }) => {
         }
         .accent::before,
         .accent::after {
-          content: '';
+          content: "";
           position: absolute;
           top: 0;
           left: calc(var(--gap-size) * -16);
@@ -42,7 +42,7 @@ const Accent: FC<Props> = ({ children, ...restProps }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Accent
+export default Accent;

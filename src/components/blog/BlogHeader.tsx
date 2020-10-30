@@ -1,22 +1,22 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import classNames from 'classnames'
+import classNames from "classnames";
 
-import { useFormattedDate } from '../../hooks/date'
-import { BlogType } from '../../modules/blog'
-import TagList from '../tag/TagList'
+import { useFormattedDate } from "../../hooks/date";
+import { BlogType } from "../../modules/blog";
+import TagList from "../tag/TagList";
 
 type Props = {
-  readonly post: BlogType
-}
+  readonly post: BlogType;
+};
 
 const BlogHeader: FC<Props> = ({ post }) => {
-  const createdAt = useFormattedDate(post.createdAt)
-  const updatedAt = useFormattedDate(post.updatedAt)
+  const createdAt = useFormattedDate(post.createdAt);
+  const updatedAt = useFormattedDate(post.updatedAt);
 
   return (
     <header
-      className={classNames('header', {
+      className={classNames("header", {
         update: Boolean(post.updatedAt),
       })}
     >
@@ -66,7 +66,7 @@ const BlogHeader: FC<Props> = ({ post }) => {
         }
       `}</style>
     </header>
-  )
-}
+  );
+};
 
-export default BlogHeader
+export default BlogHeader;

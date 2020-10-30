@@ -1,20 +1,20 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-type NoTargetElement = Omit<JSX.IntrinsicElements['a'], 'target' | 'className'>
+type NoTargetElement = Omit<JSX.IntrinsicElements["a"], "target" | "className">;
 
 type Props = {
-  readonly disableVisited?: boolean
-} & NoTargetElement
+  readonly disableVisited?: boolean;
+} & NoTargetElement;
 
 const addRel = (props: NoTargetElement): NoTargetElement => {
-  const rel = props?.rel?.split(' ') || []
-  rel.push(...['noopener', 'noreferrer'])
+  const rel = props?.rel?.split(" ") || [];
+  rel.push(...["noopener", "noreferrer"]);
 
   return {
     ...props,
-    rel: Array.from(new Set(rel)).join(' '),
-  }
-}
+    rel: Array.from(new Set(rel)).join(" "),
+  };
+};
 
 const ExternalLink: FC<Props> = ({
   children,
@@ -26,11 +26,11 @@ const ExternalLink: FC<Props> = ({
       {children}
       <style jsx>{`
         .link {
-          ${disableVisited ? `color: var(--color-primary)` : ''}
+          ${disableVisited ? `color: var(--color-primary)` : ""}
         }
       `}</style>
     </a>
-  )
-}
+  );
+};
 
-export default ExternalLink
+export default ExternalLink;

@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import { NextPage } from 'next'
-import Link from 'next/link'
+import { NextPage } from "next";
+import Link from "next/link";
 
-import Accent from '../elements/accent/Accent'
-import Icon from '../elements/icon/Icon'
+import Accent from "../elements/accent/Accent";
+import Icon from "../elements/icon/Icon";
 
 type Props = {
-  readonly statusCode: number
-}
+  readonly statusCode: number;
+};
 
 const Page: NextPage<Props> = () => {
   return (
@@ -56,7 +56,7 @@ const Page: NextPage<Props> = () => {
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

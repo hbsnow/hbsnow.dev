@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  extends: ["eslint:recommended"],
   env: {
     browser: true,
     node: true,
@@ -10,58 +10,58 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.{ts,tsx}'],
+      files: ["**/*.{ts,tsx}"],
       extends: [
-        'eslint:recommended',
-        'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended',
-        'prettier/@typescript-eslint',
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
       ],
-      parser: '@typescript-eslint/parser',
+      parser: "@typescript-eslint/parser",
       settings: {
         react: {
-          pragma: 'React',
-          version: 'detect',
+          pragma: "React",
+          version: "detect",
         },
       },
       parserOptions: {
-        sourceType: 'module',
-        project: './tsconfig.json',
+        sourceType: "module",
+        project: "./tsconfig.json",
         ecmaFeatures: {
           jsx: true,
         },
       },
-      plugins: ['@typescript-eslint', 'react', 'react-hooks', 'import'],
+      plugins: ["@typescript-eslint", "react", "react-hooks", "import"],
       rules: {
-        'no-unused-vars': 'off',
-        'import/order': [
-          'error',
+        "no-unused-vars": "off",
+        "import/order": [
+          "error",
           {
-            groups: ['builtin', 'external', 'internal'],
+            groups: ["builtin", "external", "internal"],
             pathGroups: [
               {
-                pattern: 'react',
-                group: 'external',
-                position: 'before',
+                pattern: "react",
+                group: "external",
+                position: "before",
               },
             ],
-            pathGroupsExcludedImportTypes: ['react'],
-            'newlines-between': 'always',
+            pathGroupsExcludedImportTypes: ["react"],
+            "newlines-between": "always",
             alphabetize: {
-              order: 'asc',
+              order: "asc",
               caseInsensitive: true,
             },
           },
         ],
-        '@typescript-eslint/no-unused-vars': 'error',
-        'react/jsx-no-target-blank': 'error',
-        'react/prop-types': 'off',
-        'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'error',
+        "@typescript-eslint/no-unused-vars": "error",
+        "react/jsx-no-target-blank": "error",
+        "react/prop-types": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
       },
     },
   ],
   globals: {
-    React: 'writable',
+    React: "writable",
   },
-}
+};

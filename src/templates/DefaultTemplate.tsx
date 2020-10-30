@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import Footer from '../components/footer/Footer'
-import Header from '../components/header/Header'
+import Footer from "../components/footer/Footer";
+import Header from "../components/header/Header";
 
 const DefaultTemplate: FC = ({ children }) => {
   return (
@@ -26,7 +26,7 @@ const DefaultTemplate: FC = ({ children }) => {
           bottom: 0;
           right: 0;
           left: 0;
-          content: '';
+          content: "";
           z-index: -1;
           background-color: var(--color-default-surface);
           transform: skew(0, var(--layout-deg));
@@ -38,7 +38,7 @@ const DefaultTemplate: FC = ({ children }) => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default DefaultTemplate
+export default DefaultTemplate;

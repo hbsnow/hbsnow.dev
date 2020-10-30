@@ -1,28 +1,28 @@
-import React, { FC } from 'react'
+import React, { FC } from "react";
 
-import Link from 'next/link'
+import Link from "next/link";
 
-import Container from '../../elements/container/Container'
-import Icon, { IconType } from '../../elements/icon/Icon'
-import ExternalLink from '../../elements/link/ExternalLink'
-import { ExternalLinkType } from '../../models/link'
+import Container from "../../elements/container/Container";
+import Icon, { IconType } from "../../elements/icon/Icon";
+import ExternalLink from "../../elements/link/ExternalLink";
+import { ExternalLinkType } from "../../models/link";
 
 type SnsLink = {
-  label: string
-} & ExternalLinkType<IconType>
+  label: string;
+} & ExternalLinkType<IconType>;
 
 const sns: Readonly<SnsLink[]> = [
   {
-    name: 'github',
-    label: 'GitHub',
-    href: 'https://github.com/hbsnow',
+    name: "github",
+    label: "GitHub",
+    href: "https://github.com/hbsnow",
   },
   {
-    name: 'twitter',
-    label: 'Twitter',
-    href: 'https://twitter.com/hbsnow',
+    name: "twitter",
+    label: "Twitter",
+    href: "https://twitter.com/hbsnow",
   },
-]
+];
 
 const Footer: FC = () => {
   return (
@@ -64,7 +64,7 @@ const Footer: FC = () => {
           bottom: 0;
           right: 0;
           left: 0;
-          content: '';
+          content: "";
           z-index: -1;
           background-color: var(--color-default-bg);
           opacity: 0.6;
@@ -108,7 +108,7 @@ const Footer: FC = () => {
         }
       `}</style>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

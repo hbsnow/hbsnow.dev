@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo } from "react";
 
 export const useSortedTagList = (
   tagList: string[],
@@ -6,9 +6,9 @@ export const useSortedTagList = (
 ): string[] =>
   useMemo(() => {
     return [...tagList].sort((a, b) => {
-      if (a === preferredTag) return -1
-      if (b === preferredTag) return 1
+      if (a === preferredTag) return -1;
+      if (b === preferredTag) return 1;
 
-      return a < b ? -1 : 1
-    })
-  }, [preferredTag, tagList])
+      return a < b ? -1 : 1;
+    });
+  }, [preferredTag, tagList]);

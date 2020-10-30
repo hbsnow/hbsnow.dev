@@ -1,20 +1,20 @@
 ---
 title: 斜線を含む SVG のコンポーネントを作成する
 tags: [svg, react]
-description: 斜線を含む SVG のコンポーネントを作成する方法。stroke を使用すると斜め線が太くなりすぎるため使用しません。
+description: 斜線を含む SVG のコンポーネントを作成する方法。
 createdAt: 2020-10-24
 ---
 
 ## まとめ
 
-- `stroke` で斜め線を引くと、斜め線だけ太くなるため使用しない
-- `path` で 2 つの線を時計まわりと反時計まわりとそれぞれ異なる方向にひき、`fill` することで線を引く
+- stroke は path の中心に線を引くので、図形によっては欠けることがある
+- path で 2 つの線を時計まわりと反時計まわりとそれぞれ異なる方向にひき、fill することで線を引くこともできる
 
 ## 斜線に stroke を使う
 
 ![理想の三角形](/assets/img/posts/svg-slash-line/triangle-0.png)
 
-上のような三角形を作成するために stroke を使ってコンポーネントを作ってみます。
+上のような三角形を作成するために `stroke` を使ってコンポーネントを作ってみます。
 
 ```tsx
 import React, { useMemo } from "react";
@@ -55,9 +55,22 @@ export const Triangle: React.FC<Props> = (props) => {
 
 ![斜線の太い三角形](/assets/img/posts/svg-slash-line/triangle-1.png)
 
+これは斜線が太くなったわけではなく、直線部分が viewBox からはみ出てしまったため欠けている状態になっていることが原因です。viewBox を少し大きくしてみると、期待する図形が表示されることを確認できます。
+
+これは SVG の path の stroke が path の中心から描かれることが原因です。stroke は path の内側や外側を通るような指定をすることが今のところできません。つまり線の欠けない正しい path にするためには、以下のようなコードにする必要があります。
+
+```tsx
+const d = useMemo(() => {
+  const x = width - strokeWidth / 2;
+  const y = height - strokeWidth / 2;
+
+  return `M ${x} 0 H ${x} V ${y} H 0 L 0 ${y} L ${x} 0 Z`;
+}, [height, width, strokeWidth]);
+```
+
 ## 線を path で描く
 
-stroke を使用すると斜線が太くなってしまうことがわかったので、2 本の線を引いて fill してみます。
+stroke を使用せず、2 本の線を引いて fill してみます。
 
 ```tsx
 import React, { useMemo } from "react";
@@ -100,4 +113,4 @@ export const Triangle: React.FC<Props> = (props) => {
 
 ![斜線の太い三角形](/assets/img/posts/svg-slash-line/triangle-2.png)
 
-これでうまくいきました。基本的に stroke を検討し、この例のような太さが気になるようであれば線を path で表現する必要がありそうです。
+この方法でも三角形を描くことができます。

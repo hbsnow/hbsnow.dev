@@ -5204,10 +5204,10 @@ content-type@~1.0.4:
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
 
-contentful-management@6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-6.2.0.tgz#1e4b77e0735583c34eaab4496da6b695f22f58e3"
-  integrity sha512-yu0zEvd4A9Ylw2EmTywsyPz++JK3yvgQkUBMtz8dZNwNI5Gjb2GUkLRk4dv66O/TyB+GbUHhUK2q4qvGK9bdxw==
+contentful-management@6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-6.3.0.tgz#a6c0b2b6cfb2f3ae7a55dbce7d070996b99ae7f4"
+  integrity sha512-DrMSja/K4fYTRCx9wdSPQ+b/cJc7Cj9OMjTmcJxjwLIj7jtZiDSYnLeEVRhuoqJ7yOGfAeT8HYOzG0peEHTMfQ==
   dependencies:
     axios "^0.19.0"
     contentful-sdk-core "^6.4.0"

@@ -5238,10 +5238,10 @@ contentful-typescript-codegen@3.2.1:
     lodash "^4.17.15"
     meow "^5.0.0"
 
-contentful@7.14.10:
-  version "7.14.10"
-  resolved "https://registry.yarnpkg.com/contentful/-/contentful-7.14.10.tgz#b716bdef0f490930b8df3b62681e6d42d9218719"
-  integrity sha512-xzRhJEnfAt/T2NKB+zjrnsMwTGrrcBlxPRtIiLibsvk2pc2+G5Uiwo+aHT6C0MGCITTbLOCtSL/4cMUoldoznQ==
+contentful@7.14.11:
+  version "7.14.11"
+  resolved "https://registry.yarnpkg.com/contentful/-/contentful-7.14.11.tgz#9929bf9e4f988a7280b36d544400b713bccba1a7"
+  integrity sha512-coJlVxLV4u7ipAG0rg8UAZlJkbIKh1wb2X0RfVEg7NnKGTj9bNSHFLuAWOl/mnliNRS0Bwc3gPQAYpXivkPOzw==
   dependencies:
     axios "^0.20.0"
     contentful-resolve-response "^1.2.2"

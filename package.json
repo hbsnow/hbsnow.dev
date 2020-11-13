@@ -54,7 +54,7 @@
     "@secretlint/secretlint-rule-preset-recommend": "2.1.1",
     "@storybook/core": "6.0.28",
     "@storybook/react": "6.0.28",
-    "@testing-library/jest-dom": "5.11.5",
+    "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.1.2",
     "@testing-library/react-hooks": "3.4.2",
     "@types/classnames": "2.2.11",

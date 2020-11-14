@@ -8,15 +8,14 @@ updatedAt: 2020-05-30
 
 ## まとめ
 
-- 配列の合計を計算する
-- オブジェクトの配列から最大、最小値をもつオブジェクトを取得する
+- 使う場面は以下の二点
+  - 配列の合計を計算する
+  - オブジェクトの配列から最大、最小値をもつオブジェクトを取得する
 - ループとして使わないようにする
 
 ## まえがき
 
-JavaScript の `reduce` は便利だけれども、少し使いどころがわかりにくいと感じる人もいるようです。
-
-[MDN にわかりやすいサンプル](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)もありますが、自分の整理もかねてこのブログでよくある使用方法をまとめておきます。
+[MDN にわかりやすいサンプル](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)もありますが、自分の整理もかねて `reduce` のよくある使用方法と、使うべき場面について考えてみます。
 
 ## reduce の使用例
 
@@ -24,13 +23,13 @@ JavaScript の `reduce` は便利だけれども、少し使いどころがわ�
 
 ### 1. 配列の合計を計算する
 
-`reduce` のよくある例としてありがちなのが合計値の計算。
+`reduce` の例として、よくあるものが合計値の計算です。
 
 ```js
 [3, 7, 1, 2].reduce((accumulator, currentValue) => accumulator + currentValue); // => 13
 ```
 
-こういった単純な一次配列を合計できるし、以下のようなオブジェクトの特定プロパティの総数を数えることもできる。
+こういった単純な一次配列を合計できるし、以下のようなオブジェクトの特定プロパティの総数を数えることもできます。
 
 ```js
 const cart = [
@@ -46,7 +45,7 @@ const sum = cart.reduce((accumulator, currentValue) => {
 console.log(sum); // => 6
 ```
 
-また、特定のプロパティ名のある値を除外するようなこともできる。
+また、特定のプロパティ名のある値を除外するようなこともできます。以下は、itemId が 2 であれば合計値に含めないコードです。
 
 ```js
 const sum = cart.reduce((accumulator, currentValue) => {
@@ -78,7 +77,7 @@ console.log(sum); // => { itemId: 3, quantity: 1 }
 
 ### 3. 集計する
 
-SQL でいう `group by` のような集計を取りたいときに便利。
+SQL でいう `group by` のような集計を取りたいときに便利です。
 
 ```js
 const items = [
@@ -139,7 +138,7 @@ const groupByTaxRate = (items) => {
 };
 ```
 
-こんな感じになるだろうか。どちらが読みやすいかはちょっと迷うところ。
+こんな感じになるでしょうか。どちらが読みやすいかはちょっと迷います。
 
 ### 4. flatten
 
@@ -150,7 +149,7 @@ const arr = [1, 2, [3, 4]];
 console.log(arr.flat()); // => [1, 2, 3, 4]
 ```
 
-これを `reduce` で同じことをしてみよう。
+これを `reduce` で同じことをしてみます。
 
 ```js
 console.log(

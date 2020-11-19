@@ -5299,13 +5299,13 @@ content-type@~1.0.4:
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
   integrity sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
 
-contentful-management@6.3.2:
-  version "6.3.2"
-  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-6.3.2.tgz#270f28514888284344aa74e0614b75f98277f63b"
-  integrity sha512-YRiIiS3gZ6qt5W14/MLJ7/nmBVZxGOm1hs8TGyKRbpnsHCQZdNctKQAk5UUwHIaVX9gGjG7cFg+fwe4FA/0Kng==
+contentful-management@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/contentful-management/-/contentful-management-7.0.0.tgz#4691a8d5b2994f01471ba8371076cae78371ce3c"
+  integrity sha512-v+If8zX/WT7I2mrFHhHPywogMaLnMWknuZtsQ00fN0h72CooBIXudAbQhnASri/NOipJY4pz+dC5ooYqFrjR5g==
   dependencies:
     axios "^0.21.0"
-    contentful-sdk-core "^6.4.0"
+    contentful-sdk-core "^6.4.5"
     lodash "^4.17.20"
     type-fest "0.16.0"
 
@@ -5316,7 +5316,7 @@ contentful-resolve-response@^1.2.2:
   dependencies:
     lodash "^4.17.15"
 
-contentful-sdk-core@^6.4.0, contentful-sdk-core@^6.4.5:
+contentful-sdk-core@^6.4.5:
   version "6.4.6"
   resolved "https://registry.yarnpkg.com/contentful-sdk-core/-/contentful-sdk-core-6.4.6.tgz#a94b1355afd292dfddb0cdc16b565980f9a03c47"
   integrity sha512-6KVLeCdn1akqjGvVMUgMxQ3B+zNIYeq3MUlqWsSLLJozr++0ZYWU76XmHf4n5MPTMoX9RGbRSR8hJAaKcUNDFw==

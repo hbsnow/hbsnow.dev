@@ -52,8 +52,8 @@
   "devDependencies": {
     "@babel/core": "7.12.9",
     "@secretlint/secretlint-rule-preset-recommend": "2.1.1",
-    "@storybook/core": "6.1.6",
-    "@storybook/react": "6.1.6",
+    "@storybook/core": "6.1.7",
+    "@storybook/react": "6.1.7",
     "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.2.2",
     "@testing-library/react-hooks": "3.4.2",

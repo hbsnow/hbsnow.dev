@@ -4,9 +4,9 @@ import Icon from "../icon/Icon";
 
 export type Props = JSX.IntrinsicElements["div"];
 
-const Blockquote: FC<Props> = ({ children, ...restProps }) => {
+const Blockquote: FC<Props> = ({ children, ...rest }) => {
   return (
-    <div data-testid="Blockquote" className="blockquote" {...restProps}>
+    <div data-testid="Blockquote" className="blockquote" {...rest}>
       <div className="icon">
         <Icon name="quote" />
       </div>

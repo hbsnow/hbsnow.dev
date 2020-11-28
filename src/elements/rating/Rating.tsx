@@ -9,7 +9,7 @@ export type Props = {
   readonly maxRate?: number;
 } & Omit<JSX.IntrinsicElements["div"], "className">;
 
-const Rating: FC<Props> = ({ rate, maxRate = 3, ...restProps }) => {
+const Rating: FC<Props> = ({ rate, maxRate = 3, ...rest }) => {
   if (rate > maxRate) {
     throw new Error("rateにmaxRateよりも大きい数値が設定されています。");
   }
@@ -23,7 +23,7 @@ const Rating: FC<Props> = ({ rate, maxRate = 3, ...restProps }) => {
       data-testid="Rating"
       className="rating"
       title={`Rate ${rate}/${maxRate}`}
-      {...restProps}
+      {...rest}
     >
       {[...Array(maxRate)].map((_, i) => {
         return (

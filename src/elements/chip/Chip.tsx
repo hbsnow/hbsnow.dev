@@ -7,9 +7,9 @@ export type Props = {
   readonly icon?: TagType;
 } & Omit<JSX.IntrinsicElements["div"], "className">;
 
-const Chip: FC<Props> = ({ children, icon, ...restProps }) => {
+const Chip: FC<Props> = ({ children, icon, ...rest }) => {
   return (
-    <div data-testid="Chip" className="chip" {...restProps}>
+    <div data-testid="Chip" className="chip" {...rest}>
       {icon ? (
         <span className="icon">
           <Icon name={icon} width={14} height={14} />

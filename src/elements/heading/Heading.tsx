@@ -7,13 +7,13 @@ export type Props = {
   readonly level?: number;
 } & Omit<HTMLAttributes<HTMLHeadingElement>, "className">;
 
-const Heading: FC<Props> = ({ level = 1, children, ...restProps }) => {
+const Heading: FC<Props> = ({ level = 1, children, ...rest }) => {
   const text = onlyText(children);
   const id = slug(text);
 
   return createElement(
     `h${level}`,
-    { id, ...restProps },
+    { id, ...rest },
     <a href={`#${id}`} className="headingLink">
       {children}
       <style jsx>{`

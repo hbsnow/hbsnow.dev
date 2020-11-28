@@ -19,13 +19,13 @@ export type JsonLdType = {
 
 type Props = Readonly<JsonLdType>;
 
-const JsonLd: FC<Props> = ({ type, ...restProps }) => {
+const JsonLd: FC<Props> = ({ type, ...rest }) => {
   switch (type) {
     case "article": {
-      return <ArticleJsonLd {...restProps} />;
+      return <ArticleJsonLd {...rest} />;
     }
     case "blog": {
-      return <BlogJsonLd {...restProps} />;
+      return <BlogJsonLd {...rest} />;
     }
   }
 };

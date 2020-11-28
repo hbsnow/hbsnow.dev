@@ -15,7 +15,7 @@ type Props = {
   readonly source: string;
 } & Omit<JSX.IntrinsicElements["div"], "className">;
 
-const Markdown: FC<Props> = ({ source, ...restProps }) => {
+const Markdown: FC<Props> = ({ source, ...rest }) => {
   const code: FC<{ language: string; value: string }> = ({
     language,
     value,
@@ -69,7 +69,7 @@ const Markdown: FC<Props> = ({ source, ...restProps }) => {
   };
 
   return (
-    <div data-testid="Markdown" className="markdown" {...restProps}>
+    <div data-testid="Markdown" className="markdown" {...rest}>
       <ReactMarkdown
         source={source}
         plugins={[gfm, remarkSectionize]}

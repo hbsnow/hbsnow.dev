@@ -12,9 +12,9 @@ export type Props = {
   readonly language?: SyntaxHighlighterProps["language"];
 } & Omit<JSX.IntrinsicElements["div"], "className">;
 
-const Blockcode: FC<Props> = ({ children, language, ...restProps }) => {
+const Blockcode: FC<Props> = ({ children, language, ...rest }) => {
   return (
-    <div data-testid="Blockcode" className="blockcode" {...restProps}>
+    <div data-testid="Blockcode" className="blockcode" {...rest}>
       {language ? (
         <>
           <div className="language">{language}</div>

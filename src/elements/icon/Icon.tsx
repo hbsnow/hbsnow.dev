@@ -36,12 +36,12 @@ type Props = {
   readonly name: IconType;
 } & Omit<JSX.IntrinsicElements["svg"], "className">;
 
-const Icon: FC<Props> = ({ name, ...restProps }) => {
+const Icon: FC<Props> = ({ name, ...rest }) => {
   const svgRestProps = {
     width: 24,
     height: 24,
     fill: "currentColor",
-    ...restProps,
+    ...rest,
   };
 
   switch (name) {

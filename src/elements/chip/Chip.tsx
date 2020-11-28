@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { textColor } from "../../styles/mixin";
 import Icon, { tagList, TagType } from "../icon/Icon";
 
-type Props = {
+export type Props = {
   readonly icon?: TagType;
 } & Omit<JSX.IntrinsicElements["div"], "className">;
 

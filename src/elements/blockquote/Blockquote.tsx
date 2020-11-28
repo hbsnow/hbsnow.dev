@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import Icon from "../icon/Icon";
 
-type Props = JSX.IntrinsicElements["div"];
+export type Props = JSX.IntrinsicElements["div"];
 
 const Blockquote: FC<Props> = ({ children, ...restProps }) => {
   return (

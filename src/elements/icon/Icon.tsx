@@ -24,7 +24,7 @@ export const tagList: Readonly<{ [key: string]: string }> = {
   vercel: "#000000",
   vuejs: "#4FC08D",
   wordpress: "#21759B",
-};
+} as const;
 
 const tagNameList = [...Object.keys(tagList)] as const;
 

@@ -3,7 +3,7 @@ import React, { FC, createElement, HTMLAttributes } from "react";
 import { slug } from "github-slugger";
 import { onlyText } from "react-children-utilities";
 
-type Props = {
+export type Props = {
   readonly level?: number;
 } & Omit<HTMLAttributes<HTMLHeadingElement>, "className">;
 

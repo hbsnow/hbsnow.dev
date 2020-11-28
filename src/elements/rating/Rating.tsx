@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import Icon from "../icon/Icon";
 
-type Props = {
+export type Props = {
   readonly rate: number;
   readonly maxRate?: number;
 } & Omit<JSX.IntrinsicElements["div"], "className">;

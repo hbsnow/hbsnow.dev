@@ -1,9 +1,11 @@
 import { useMemo } from "react";
 
+import { TagType } from "../elements/icon/Icon";
+
 export const useSortedTagList = (
-  tagList: string[],
-  preferredTag?: string
-): string[] =>
+  tagList: TagType[],
+  preferredTag?: TagType
+): TagType[] =>
   useMemo(() => {
     return [...tagList].sort((a, b) => {
       if (a === preferredTag) return -1;

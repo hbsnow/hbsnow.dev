@@ -3,11 +3,12 @@ import React, { FC } from "react";
 import Link from "next/link";
 
 import Chip from "../../elements/chip/Chip";
+import { TagType } from "../../elements/icon/Icon";
 import { useSortedTagList } from "../../hooks/tag";
 
 type Props = {
-  readonly tagList: string[];
-  readonly preferredTag?: string;
+  readonly tagList: TagType[];
+  readonly preferredTag?: TagType;
 };
 
 const TagList: FC<Props> = ({ tagList, preferredTag }) => {

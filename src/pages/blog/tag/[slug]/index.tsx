@@ -7,7 +7,7 @@ import BlogList from "../../../../components/blog/BlogList";
 import Meta from "../../../../components/head/Meta";
 import Accent from "../../../../elements/accent/Accent";
 import Container from "../../../../elements/container/Container";
-import Icon from "../../../../elements/icon/Icon";
+import Icon, { TagType } from "../../../../elements/icon/Icon";
 import Margin from "../../../../elements/margin/Margin";
 import { useFilterBlogBy } from "../../../../hooks/blog";
 import { BlogType, loadBlogList } from "../../../../modules/blog";
@@ -17,7 +17,7 @@ import { toSlugString } from "../../../../utils/url";
 export const config = { amp: true };
 
 type Props = {
-  readonly slug: string;
+  readonly slug: TagType;
   readonly blogList: BlogType[];
 };
 
@@ -79,7 +79,8 @@ export const getStaticPaths: GetStaticPaths = async (): Promise<{
 export const getStaticProps: GetStaticProps = async ({
   params,
 }): Promise<{ props: Props }> => {
-  const slug = toSlugString(params?.slug ?? []);
+  // TODO: toSlugStringがTagTypeを戻すようにする
+  const slug = toSlugString(params?.slug ?? []) as TagType;
   const blogList = loadBlogList();
 
   return {

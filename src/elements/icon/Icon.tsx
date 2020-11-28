@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-export const tagList: Readonly<{ [key: string]: string }> = {
+export const tagList = {
   amp: "#005AF0",
   angular: "#DD0031",
   aws: "#232F3E",
@@ -26,11 +26,15 @@ export const tagList: Readonly<{ [key: string]: string }> = {
   wordpress: "#21759B",
 } as const;
 
-const tagNameList = [...Object.keys(tagList)] as const;
+export type TagType = Array<keyof typeof tagList>[number];
 
-export type TagType = typeof tagNameList[number];
-
-export type IconType = "twitter" | "arrowRight" | "star" | TagType;
+export type IconType =
+  | "twitter"
+  | "arrowLeft"
+  | "arrowRight"
+  | "quote"
+  | "star"
+  | TagType;
 
 type Props = {
   readonly name: IconType;
@@ -213,8 +217,6 @@ const Icon: FC<Props> = ({ name, ...rest }) => {
         </svg>
       );
   }
-
-  throw new Error("指定されたアイコンが存在しません。");
 };
 
 export default Icon;

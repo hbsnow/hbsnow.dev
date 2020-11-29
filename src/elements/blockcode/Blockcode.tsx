@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 
-import SyntaxHighlighter, {
+import {
+  Prism as SyntaxHighlighter,
   SyntaxHighlighterProps,
 } from "react-syntax-highlighter";
 

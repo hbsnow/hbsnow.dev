@@ -6,17 +6,32 @@ import { useSortedTagList } from "../tag";
 describe(useSortedTagList.name, () => {
   it("sort tag default", () => {
     const { result } = renderHook(() =>
-      useSortedTagList(["zzz", "z", "a", "c", "bb"])
+      useSortedTagList(["wordpress", "docker", "svg", "nextjs", "amp"])
     );
 
-    expect(result.current).toEqual(["a", "bb", "c", "z", "zzz"]);
+    expect(result.current).toEqual([
+      "amp",
+      "docker",
+      "nextjs",
+      "svg",
+      "wordpress",
+    ]);
   });
 
   it("sort tag with preferredTag", () => {
     const { result } = renderHook(() =>
-      useSortedTagList(["zzz", "z", "a", "c", "bb"], "c")
+      useSortedTagList(
+        ["wordpress", "docker", "svg", "nextjs", "amp"],
+        "nextjs"
+      )
     );
 
-    expect(result.current).toEqual(["c", "a", "bb", "z", "zzz"]);
+    expect(result.current).toEqual([
+      "nextjs",
+      "amp",
+      "docker",
+      "svg",
+      "wordpress",
+    ]);
   });
 });

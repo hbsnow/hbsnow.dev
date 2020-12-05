@@ -1,18 +1,21 @@
 import React, { FC } from "react";
 
-import SyntaxHighlighter from "react-syntax-highlighter";
+import {
+  Prism as SyntaxHighlighter,
+  SyntaxHighlighterProps,
+} from "react-syntax-highlighter";
 
 import { mediaQuery } from "../../styles/const";
 import Code from "./Code";
 import Pre from "./Pre";
 
-type Props = {
-  readonly language?: string;
+export type Props = {
+  readonly language?: SyntaxHighlighterProps["language"];
 } & Omit<JSX.IntrinsicElements["div"], "className">;
 
-const Blockcode: FC<Props> = ({ children, language, ...restProps }) => {
+const Blockcode: FC<Props> = ({ children, language, ...rest }) => {
   return (
-    <div data-testid="Blockcode" className="blockcode" {...restProps}>
+    <div data-testid="Blockcode" className="blockcode" {...rest}>
       {language ? (
         <>
           <div className="language">{language}</div>

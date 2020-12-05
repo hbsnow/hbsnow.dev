@@ -78,13 +78,13 @@ Markdown の変換には `react-markdown` を使っています。[Marked](https
 import { slug } from "github-slugger";
 import { onlyText } from "react-children-utilities";
 
-const Heading: FC<Props> = ({ level = 1, children, ...restProps }) => {
+const Heading: FC<Props> = ({ level = 1, children, ...rest }) => {
   const text = onlyText(children);
   const id = slug(text);
 
   return createElement(
     `h${level}`,
-    { id, ...restProps },
+    { id, ...rest },
     <a href={`#${id}`} className="headingLink">
       {children}
     </a>

@@ -19,10 +19,10 @@ const addRel = (props: NoTargetElement): NoTargetElement => {
 const ExternalLink: FC<Props> = ({
   children,
   disableVisited = false,
-  ...restProps
+  ...rest
 }) => {
   return (
-    <a target="_blank" className="link" {...addRel(restProps)}>
+    <a target="_blank" className="link" {...addRel(rest)}>
       {children}
       <style jsx>{`
         .link {

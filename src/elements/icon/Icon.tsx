@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-export const tagList: Readonly<{ [key: string]: string }> = {
+export const tagList = {
   amp: "#005AF0",
   angular: "#DD0031",
   aws: "#232F3E",
@@ -24,24 +24,28 @@ export const tagList: Readonly<{ [key: string]: string }> = {
   vercel: "#000000",
   vuejs: "#4FC08D",
   wordpress: "#21759B",
-};
+} as const;
 
-const tagNameList = [...Object.keys(tagList)] as const;
+export type TagType = Array<keyof typeof tagList>[number];
 
-export type TagType = typeof tagNameList[number];
-
-export type IconType = "twitter" | "arrowRight" | "star" | TagType;
+export type IconType =
+  | "twitter"
+  | "arrowLeft"
+  | "arrowRight"
+  | "quote"
+  | "star"
+  | TagType;
 
 type Props = {
   readonly name: IconType;
 } & Omit<JSX.IntrinsicElements["svg"], "className">;
 
-const Icon: FC<Props> = ({ name, ...restProps }) => {
+const Icon: FC<Props> = ({ name, ...rest }) => {
   const svgRestProps = {
     width: 24,
     height: 24,
     fill: "currentColor",
-    ...restProps,
+    ...rest,
   };
 
   switch (name) {
@@ -213,8 +217,6 @@ const Icon: FC<Props> = ({ name, ...restProps }) => {
         </svg>
       );
   }
-
-  throw new Error("指定されたアイコンが存在しません。");
 };
 
 export default Icon;

@@ -3,6 +3,7 @@ import React, { FC } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 
+import { TagType } from "../../elements/icon/Icon";
 import { useFormattedDate } from "../../hooks/date";
 import { BlogType } from "../../modules/blog";
 import { mediaQuery } from "../../styles/const";
@@ -10,7 +11,7 @@ import TagList from "../tag/TagList";
 
 type Props = {
   readonly post: BlogType;
-  readonly preferredTag?: string;
+  readonly preferredTag?: TagType;
 };
 
 const BlogListItem: FC<Props> = ({ post, preferredTag }) => {

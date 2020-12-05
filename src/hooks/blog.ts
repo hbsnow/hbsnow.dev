@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 
+import { TagType } from "../elements/icon/Icon";
 import { BlogType } from "../modules/blog";
 
 export const useSortBlog = (blogList: BlogType[]): BlogType[] =>
@@ -13,7 +14,7 @@ export const useSortBlog = (blogList: BlogType[]): BlogType[] =>
 
 export const useFilterBlogBy = (
   blogList: BlogType[],
-  tagSlug: string
+  tagSlug: TagType
 ): BlogType[] =>
   useMemo(
     () =>

@@ -4,10 +4,10 @@ type Props = {
   readonly language?: string;
 } & Omit<JSX.IntrinsicElements["table"], "className">;
 
-const ResponsiveTable: FC<Props> = ({ children, ...restProps }) => {
+const ResponsiveTable: FC<Props> = ({ children, ...rest }) => {
   return (
     <div className="responsiveTable">
-      <table className="table" {...restProps}>
+      <table className="table" {...rest}>
         {children}
       </table>
 

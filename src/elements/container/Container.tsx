@@ -4,9 +4,9 @@ import { containerSize } from "../../styles/const";
 
 type Props = Omit<JSX.IntrinsicElements["div"], "className">;
 
-const Container: FC<Props> = ({ children, ...restProps }) => {
+const Container: FC<Props> = ({ children, ...rest }) => {
   return (
-    <div data-testid="Container" className="container" {...restProps}>
+    <div data-testid="Container" className="container" {...rest}>
       <div className="inner">{children}</div>
       <style jsx>{`
         .container {

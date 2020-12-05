@@ -13,7 +13,7 @@
     "lint": "eslint 'src/**/*.{ts,tsx}' && prettier --check --ignore-path .gitignore '**/*.{js,ts,tsx,json,md}' && secretlint '**/*' && textlint 'src/posts/**'",
     "lintfix": "eslint --fix 'src/**/*.{ts,tsx}' && prettier --write --ignore-path .gitignore '**/*.{js,ts,tsx,json,md}'",
     "typecheck": "tsc --noEmit",
-    "test": "jest --watch --silent=false --verbose false",
+    "test": "jest --watch --silent",
     "test:ci": "jest --ci --silent",
     "build:model": "contentful-typescript-codegen --output src/models/contentful.d.ts",
     "yarn-deduplicate": "npx yarn-deduplicate yarn.lock"
@@ -50,9 +50,8 @@
     "remark-sectionize": "1.1.1"
   },
   "devDependencies": {
-    "@babel/core": "7.12.9",
     "@secretlint/secretlint-rule-preset-recommend": "2.1.1",
-    "@storybook/core": "6.1.10",
+    "@storybook/addon-essentials": "6.1.8",
     "@storybook/react": "6.1.10",
     "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.2.2",
@@ -69,7 +68,6 @@
     "@typescript-eslint/parser": "4.9.0",
     "babel-jest": "26.6.3",
     "babel-loader": "8.2.2",
-    "babel-preset-react-app": "10.0.0",
     "contentful": "8.0.3",
     "contentful-management": "7.4.0",
     "contentful-typescript-codegen": "3.2.1",
@@ -90,7 +88,6 @@
     "prettier": "2.2.1",
     "raw-loader": "4.0.2",
     "react-children-utilities": "2.2.0",
-    "regenerator-runtime": "0.13.7",
     "secretlint": "2.1.1",
     "speed-measure-webpack-plugin": "1.3.3",
     "textlint": "11.7.6",

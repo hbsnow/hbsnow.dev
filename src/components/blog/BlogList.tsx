@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 
+import { TagType } from "../../elements/icon/Icon";
 import { BlogType } from "../../modules/blog";
 import BlogListItem from "./BlogListItem";
 
 type Props = {
   readonly blogList: BlogType[];
-  readonly preferredTag?: string;
+  readonly preferredTag?: TagType;
 };
 
 const BlogList: FC<Props> = ({ blogList, preferredTag }) => {

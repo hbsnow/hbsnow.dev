@@ -17,6 +17,23 @@ shell は Mac で現在ではデフォルトの zsh を使っています。
 
 [iTerm2](https://www.iterm2.com/) はクロスプラットフォームではないこと、[alacritty](https://github.com/alacritty/alacritty) は日本語入力の対応がなさそうなので採用を見送っています。
 
+## anyenv
+
+- [anyenv](https://github.com/anyenv/anyenv)
+- [anyenv-update](https://github.com/znz/anyenv-update)
+- [anyenv-git](https://github.com/znz/anyenv-git)
+- [nodenv-package-json-engine](https://github.com/nodenv/nodenv-package-json-engine)
+
+[nodenv-package-json-engine](https://github.com/nodenv/nodenv-package-json-engine) を入れておくと、プロジェクトによって使用する Node.js のバージョンを変更してくれます。
+
+```json
+"engines": {
+  "node": "^8.0.0"
+}
+```
+
+package.json に上記のようにバージョンが記述するか、あるいは .node-version を置いてくことが条件になります。
+
 ## Prezto
 
 インストール方法についてはリンク先を参照してください。
@@ -61,30 +78,28 @@ zstyle ':prezto:load' pmodule \
 +zstyle ':prezto:module:prompt' theme 'pure'
 ```
 
-## anyenv
-
-- [anyenv](https://github.com/anyenv/anyenv)
-- [anyenv-update](https://github.com/znz/anyenv-update)
-- [anyenv-git](https://github.com/znz/anyenv-git)
-- [nodenv-package-json-engine](https://github.com/nodenv/nodenv-package-json-engine)
-
-[nodenv-package-json-engine](https://github.com/nodenv/nodenv-package-json-engine) を入れておくと、プロジェクトによって使用する Node.js のバージョンを変更してくれます。
-
-```json
-"engines": {
-  "node": "^8.0.0"
-}
-```
-
-package.json に上記のようにバージョンが記述するか、あるいは .node-version を置いてくことが条件になります。
-
 ## ghq
 
 - [ghq](https://github.com/x-motemen/ghq)
 
+コードを統一的に管理するツール。`ghq get` でリポジトリを取得して、fzf を使って検索ができるようになるととりあえず手元にもってくることが苦痛でなくなるので本当に便利。
+
+ssh で clone するとき `ghq get -p` とすればいいんだけど、毎回オプションを忘れてます。
+
 ## fzf
 
 - [fzf](https://github.com/junegunn/fzf)
+
+以前は [peco](https://github.com/peco/peco) を使っていたのですが、左右に表示されるのがいいなと思って fzf を使い始めました。いまのところ ghq や cdr と組み合わせて使うくらいしかしていません。
+
+ - [6歳娘｢パパ、プロジェクトフォルダを見つけるのに何時間かけるの？｣【ghq+fzf+zsh】](https://qiita.com/tomoyamachi/items/e51d2906a5bb24cf1684)
+- [fzfで捗る自作コマンド一覧(zsh)](https://www.rasukarusan.com/entry/2018/08/14/083000)
+
+## Icdiff
+
+- [Icdiff](https://www.jefftk.com/icdiff)
+
+VS Code が優秀なのであまりターミナル上で差分の確認をすることはありませんが、するときにあると便利なので入れています。
 
 ## 最終的な .zshrc
 
@@ -106,6 +121,26 @@ if [ -d $HOME/.anyenv ]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
   eval "$(anyenv init -)"
 fi
+
+# goenv
+export GO111MODULE=on
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
+
+# fzf
+export FZF_DEFAULT_OPTS="--layout=reverse"
+
+# ghq
+function _ghq-fzf() {
+  local src=$(ghq list | fzf --preview "ls -laTp $(ghq root)/{} | tail -n+4 | awk '{print \$9\"/\"\$6\"/\"\$7 \" \" \$10}'")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf _ghq-fzf
+bindkey '^]' ghq-fzf
 
 # cdr
 if is-at-least 4.3.11; then
@@ -130,5 +165,14 @@ if is-at-least 4.3.11; then
     (( $history_size == $#reply )) || chpwd_recent_filehandler $reply
   }
   _my-compact-chpwd-recent-dirs
+
+  alias cdd='_fzf-cdr'
+  function _fzf-cdr() {
+      target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
+      target_dir=`echo ${target_dir/\~/$HOME}`
+      if [ -n "$target_dir" ]; then
+          cd $target_dir
+      fi
+  }
 fi
 ```

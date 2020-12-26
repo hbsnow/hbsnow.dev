@@ -109,4 +109,74 @@ useEffect(() => {
 
 - [A Complete Guide to useEffect](https://iqkui.com/a-complete-guide-to-useeffect/)
 
-対応としてはメモリリークで怒られるパターンと同じでよさそうです。
+ただし、例えば叩いた回数を返す API があり、その結果を表示させるような場合。その API を連読で叩き、一度目の API 呼び出しの結果が二度目の API の戻りよりも遅れて返ってきた場合、`isMounted()` で判定するだけでは意図しない結果が表示されてしまいます。
+
+## useAsyncFn
+
+`isMounted()` は便利なのですが `useEffect` 内で API を叩くようなとき、loading と error の状態なども持たせたくなるため、やや大げさなコードになってしまいます。
+
+```tsx
+import React, { useState, useCallback, useEffect } from "react";
+import { useMountedState } from "react-use";
+
+export const Todo: React.FC = () => {
+  const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error>();
+  const isMounted = useMountedState();
+
+  const fetchTodo = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("https://example.com");
+      const result = await response.text();
+      if (isMounted()) {
+        setResult(result);
+      }
+    } catch (err) {
+      if (isMounted()) {
+        setError(err);
+      }
+    } finally {
+      if (isMounted()) {
+        setLoading(false);
+      }
+    }
+  }, [isMounted]);
+
+  useEffect(() => {
+    fetchTodo();
+  }, []);
+
+  if (loading) {
+    return <>Loading</>;
+  }
+  return <>{result}</>;
+};
+```
+
+これを react-use の [`useAsyncFn`](https://github.com/streamich/react-use/blob/master/docs/useAsyncFn.md) で書き換えると以下のようにすっきりと記述できます。
+
+```tsx
+import React, { useEffect } from "react";
+import { useAsyncFn } from "react-use";
+
+export const Todo: React.FC = () => {
+  const [state, fetchTodo] = useAsyncFn(async () => {
+    const response = await fetch("https://example.com");
+    const result = await response.text();
+    return result;
+  }, []);
+
+  useEffect(() => {
+    fetchTodo();
+  }, []);
+
+  if (state.loading) {
+    return <>Loading</>;
+  }
+  return <>{state.value}</>;
+};
+```
+
+ただし、`useAsyncFn` の第二引数には ESLint の `react-hooks/exhaustive-deps` がきかないので注意が必要です。

@@ -92,8 +92,8 @@ ssh で clone するとき `ghq get -p` とすればいいんだけど、毎回�
 
 以前は [peco](https://github.com/peco/peco) を使っていたのですが、左右に表示されるのがいいなと思って fzf を使い始めました。いまのところ ghq や cdr と組み合わせて使うくらいしかしていません。
 
- - [6歳娘｢パパ、プロジェクトフォルダを見つけるのに何時間かけるの？｣【ghq+fzf+zsh】](https://qiita.com/tomoyamachi/items/e51d2906a5bb24cf1684)
-- [fzfで捗る自作コマンド一覧(zsh)](https://www.rasukarusan.com/entry/2018/08/14/083000)
+- [6 歳娘｢パパ、プロジェクトフォルダを見つけるのに何時間かけるの？｣【ghq+fzf+zsh】](https://qiita.com/tomoyamachi/items/e51d2906a5bb24cf1684)
+- [fzf で捗る自作コマンド一覧(zsh)](https://www.rasukarusan.com/entry/2018/08/14/083000)
 
 ## Icdiff
 

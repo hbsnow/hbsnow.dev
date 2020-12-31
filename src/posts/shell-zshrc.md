@@ -101,6 +101,17 @@ ssh で clone するとき `ghq get -p` とすればいいんだけど、毎回�
 
 VS Code が優秀なのであまりターミナル上で差分の確認をすることはありませんが、するときにあると便利なので入れています。
 
+## AWS-CLI
+
+- [AWS-CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
+
+もともとインストールはせず [aws にエイリアスを指定していた](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-docker.html#cliv2-docker-aliases)のですが、インストールをしないと補完がきかなかったため、結局インストールして以下を追加しました。
+
+```zsh
+autoload bashcompinit && bashcompinit
+complete -C '/usr/local/bin/aws_completer' aws
+```
+
 ## 最終的な .zshrc
 
 ```zsh
@@ -110,11 +121,15 @@ export VISUAL='code -w'
 export EDITOR=$VISUAL
 
 autoload -Uz is-at-least
+autoload bashcompinit && bashcompinit
 
 # prezto
 if [ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
+
+# aws
+complete -C '/usr/local/bin/aws_completer' aws
 
 # anyenv
 if [ -d $HOME/.anyenv ]; then
@@ -168,11 +183,11 @@ if is-at-least 4.3.11; then
 
   alias cdd='_fzf-cdr'
   function _fzf-cdr() {
-      target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
-      target_dir=`echo ${target_dir/\~/$HOME}`
-      if [ -n "$target_dir" ]; then
-          cd $target_dir
-      fi
+    target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
+    target_dir=`echo ${target_dir/\~/$HOME}`
+    if [ -n "$target_dir" ]; then
+      cd $target_dir
+    fi
   }
 fi
 ```

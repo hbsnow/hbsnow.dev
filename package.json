@@ -54,7 +54,7 @@
     "@storybook/addon-essentials": "6.1.11",
     "@storybook/react": "6.1.11",
     "@testing-library/jest-dom": "5.11.8",
-    "@testing-library/react": "11.2.2",
+    "@testing-library/react": "11.2.3",
     "@testing-library/react-hooks": "4.0.0",
     "@types/classnames": "2.2.11",
     "@types/color": "3.0.1",

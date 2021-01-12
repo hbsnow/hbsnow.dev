@@ -51,8 +51,8 @@
   },
   "devDependencies": {
     "@secretlint/secretlint-rule-preset-recommend": "2.1.1",
-    "@storybook/addon-essentials": "6.1.11",
-    "@storybook/react": "6.1.11",
+    "@storybook/addon-essentials": "6.1.12",
+    "@storybook/react": "6.1.12",
     "@testing-library/jest-dom": "5.11.8",
     "@testing-library/react": "11.2.3",
     "@testing-library/react-hooks": "4.0.0",

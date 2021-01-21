@@ -99,7 +99,7 @@
     "textlint-rule-spellcheck-tech-word": "5.0.0",
     "typescript": "4.1.3",
     "webpack": "5.16.0",
-    "webpack-bundle-analyzer": "4.3.0",
+    "webpack-bundle-analyzer": "4.4.0",
     "webpack-visualizer-plugin": "0.1.11"
   },
   "engines": {

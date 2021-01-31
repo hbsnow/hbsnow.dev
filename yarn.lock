@@ -12052,10 +12052,10 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-children-utilities@2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/react-children-utilities/-/react-children-utilities-2.2.3.tgz#f4f1927071424b9e391f72a9649debc9e620028d"
-  integrity sha512-5hskfuG3tJPC0XVtbjYwT+K0gj7/+ednSimQi3Y3vbvhfTM+KMspsaK25269PSyzxs6MlmfpomWUvJG99Q6Ohw==
+react-children-utilities@2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/react-children-utilities/-/react-children-utilities-2.2.4.tgz#3785ab067fe1f8e5d71f6f100aa47b581eb129db"
+  integrity sha512-G3f79Z8qJghRl3bYO/C0PzR/gFa7qgN/4HFsqCe/yoievmj1hX9Cu463UedFxaOeMY9v79PK0MIhnVIhAFa1LA==
 
 react-color@^2.17.0:
   version "2.19.3"

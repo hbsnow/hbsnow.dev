@@ -74,7 +74,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .map((tag) => `/blog/tag/${tag}/`);
 
   return {
-    fallback: true,
+    fallback: false,
     paths,
   };
 };

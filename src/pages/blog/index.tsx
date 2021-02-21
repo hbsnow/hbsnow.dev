@@ -1,6 +1,6 @@
 import React from "react";
 
-import { NextPage, GetStaticProps } from "next";
+import { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
 
 import BlogList from "../../components/blog/BlogList";
 import Meta from "../../components/head/Meta";
@@ -16,8 +16,9 @@ import DefaultTemplate from "../../templates/DefaultTemplate";
 
 export const config = { amp: true };
 
-type Props = {
-  readonly blogList: BlogType[];
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
+type StaticProps = {
+  blogList: BlogType[];
 };
 
 const Page: NextPage<Props> = ({ blogList }) => {
@@ -46,7 +47,7 @@ const Page: NextPage<Props> = ({ blogList }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (): Promise<{
+export const getStaticProps: GetStaticProps<StaticProps> = async (): Promise<{
   props: Props;
 }> => {
   const blogList = loadBlogList();

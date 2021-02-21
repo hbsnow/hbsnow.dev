@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 
 import { Entry } from "contentful";
-import { NextPage, GetStaticProps } from "next";
+import { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
 
 import BlogList from "../components/blog/BlogList";
@@ -21,12 +21,15 @@ import DefaultTemplate from "../templates/DefaultTemplate";
 
 export const config = { amp: true };
 
-type Props = {
-  readonly blogList: BlogType[];
-  readonly bookList: Entry<IBookFields>[];
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
+type StaticProps = {
+  blogList: BlogType[];
+  bookList: Entry<IBookFields>[];
 };
 
-const Page: NextPage<Props> = ({ blogList, bookList }) => {
+const Page: NextPage<Props> = (props) => {
+  const { blogList, bookList } = props;
+
   const sortedBlogList = useSortBlog(blogList);
   const latestBlogList = useMemo(() => {
     return sortedBlogList.slice(0, 3);
@@ -71,6 +74,10 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
                     <ExternalLink href="https://scrapbox.io/hbsnow/">
                       Scrapbox
                     </ExternalLink>{" "}
+                    や{" "}
+                    <ExternalLink href="https://zenn.dev/hbsnow/scraps">
+                      Zenn のスクラップ
+                    </ExternalLink>
                     にとっています。
                   </p>
                 </HomeAbout>
@@ -144,9 +151,7 @@ const Page: NextPage<Props> = ({ blogList, bookList }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (): Promise<{
-  props: Props;
-}> => {
+export const getStaticProps: GetStaticProps<StaticProps> = async () => {
   const blogList = loadBlogList();
   const bookList = await fetchBookList();
 

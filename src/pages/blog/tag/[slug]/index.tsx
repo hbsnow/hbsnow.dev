@@ -1,13 +1,18 @@
 import React from "react";
 
-import { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import {
+  NextPage,
+  GetStaticProps,
+  GetStaticPaths,
+  InferGetStaticPropsType,
+} from "next";
 import Link from "next/link";
 
 import BlogList from "../../../../components/blog/BlogList";
 import Meta from "../../../../components/head/Meta";
 import Accent from "../../../../elements/accent/Accent";
 import Container from "../../../../elements/container/Container";
-import Icon, { TagType } from "../../../../elements/icon/Icon";
+import Icon, { tagList, TagType } from "../../../../elements/icon/Icon";
 import Margin from "../../../../elements/margin/Margin";
 import { useFilterBlogBy } from "../../../../hooks/blog";
 import { BlogType, loadBlogList } from "../../../../modules/blog";
@@ -16,9 +21,10 @@ import { toSlugString } from "../../../../utils/url";
 
 export const config = { amp: true };
 
-type Props = {
-  readonly slug: TagType;
-  readonly blogList: BlogType[];
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
+type StaticProps = {
+  slug: TagType;
+  blogList: BlogType[];
 };
 
 const Page: NextPage<Props> = ({ slug, blogList }) => {
@@ -60,10 +66,7 @@ const Page: NextPage<Props> = ({ slug, blogList }) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async (): Promise<{
-  fallback: boolean;
-  paths: string[];
-}> => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const blogList = loadBlogList();
   const paths = blogList
     .flatMap((blog) => blog.tags)
@@ -71,16 +74,22 @@ export const getStaticPaths: GetStaticPaths = async (): Promise<{
     .map((tag) => `/blog/tag/${tag}/`);
 
   return {
-    fallback: false,
+    fallback: true,
     paths,
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({
-  params,
-}): Promise<{ props: Props }> => {
+export const getStaticProps: GetStaticProps<StaticProps> = async (props) => {
+  const { params } = props;
+
+  if (
+    !(params?.slug && Object.keys(tagList).some((tag) => tag === params.slug))
+  ) {
+    throw new Error("Error: slug not found");
+  }
+
   // TODO: toSlugStringがTagTypeを戻すようにする
-  const slug = toSlugString(params?.slug ?? []) as TagType;
+  const slug = toSlugString(params.slug ?? []) as TagType;
   const blogList = loadBlogList();
 
   return {

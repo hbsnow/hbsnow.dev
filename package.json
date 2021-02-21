@@ -60,7 +60,7 @@
     "@types/color": "3.0.1",
     "@types/jest": "26.0.20",
     "@types/next": "9.0.0",
-    "@types/node": "13.13.44",
+    "@types/node": "13.13.45",
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.1",
     "@types/styled-jsx": "2.2.8",

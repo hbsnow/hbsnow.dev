@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Entry } from "contentful";
-import { NextPage, GetStaticProps } from "next";
+import { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
 
 import BookList from "../../components/book/BookList";
 import Meta from "../../components/head/Meta";
@@ -15,11 +15,14 @@ import DefaultTemplate from "../../templates/DefaultTemplate";
 
 export const config = { amp: true };
 
-type Props = {
-  readonly bookList: Entry<IBookFields>[];
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
+type StaticProps = {
+  bookList: Entry<IBookFields>[];
 };
 
-const Page: NextPage<Props> = ({ bookList }) => {
+const Page: NextPage<Props> = (props) => {
+  const { bookList } = props;
+
   const createdAt = useMinBookCreatedAt(bookList);
   const updatedAt = useMaxBookUpdatedAt(bookList);
 
@@ -80,9 +83,7 @@ const Page: NextPage<Props> = ({ bookList }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (): Promise<{
-  props: Props;
-}> => {
+export const getStaticProps: GetStaticProps<StaticProps> = async () => {
   const bookList = await fetchBookList();
 
   return {

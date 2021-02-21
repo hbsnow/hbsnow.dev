@@ -1,4 +1,4 @@
-export const toSlugString = (param: string | string[]): string => {
+export const toSlugString = <T extends string>(param: T | T[]): T => {
   if (Array.isArray(param)) {
     return param[0];
   }

@@ -1,6 +1,11 @@
 import React from "react";
 
-import { NextPage, GetStaticProps } from "next";
+import {
+  NextPage,
+  GetStaticProps,
+  InferGetStaticPropsType,
+  GetStaticPaths,
+} from "next";
 
 import BlogHeader from "../../../components/blog/BlogHeader";
 import Meta from "../../../components/head/Meta";
@@ -13,8 +18,9 @@ import { toSlugString } from "../../../utils/url";
 
 export const config = { amp: true };
 
-type Props = {
-  readonly blog: BlogType;
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
+type StaticProps = {
+  blog: BlogType;
 };
 
 const Page: NextPage<Props> = ({ blog }) => {
@@ -42,10 +48,7 @@ const Page: NextPage<Props> = ({ blog }) => {
   );
 };
 
-export const getStaticPaths = (): {
-  fallback: boolean;
-  paths: string[];
-} => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const blogList = loadBlogList();
 
   return {
@@ -54,9 +57,9 @@ export const getStaticPaths = (): {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({
-  params,
-}): Promise<{ props: Props }> => {
+export const getStaticProps: GetStaticProps<StaticProps> = async (props) => {
+  const { params } = props;
+
   const blog = await loadBlog(toSlugString(params?.slug ?? []));
 
   return { props: { blog } };

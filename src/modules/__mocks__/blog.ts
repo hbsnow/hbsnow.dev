@@ -1,6 +1,6 @@
-import { StateType } from "..";
+import { BlogType } from "../blog";
 
-export const loadBlogList = (): StateType["blogList"] => [
+export const loadBlogList = (): BlogType[] => [
   {
     slug: "test1",
     title: "test1 title",

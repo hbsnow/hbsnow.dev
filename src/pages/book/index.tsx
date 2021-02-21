@@ -88,7 +88,8 @@ export const getStaticProps: GetStaticProps<StaticProps> = async () => {
 
   return {
     props: {
-      bookList: bookList?.items ?? [],
+      bookList: bookList.items ?? [],
+      revalidate: 60 * 60 * 1,
     },
   };
 };

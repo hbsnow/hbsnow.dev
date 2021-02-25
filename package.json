@@ -87,7 +87,7 @@
     "next-transpile-modules": "6.3.0",
     "prettier": "2.2.1",
     "raw-loader": "4.0.2",
-    "react-children-utilities": "2.3.0",
+    "react-children-utilities": "2.4.0",
     "regenerator-runtime": "0.13.7",
     "secretlint": "2.1.1",
     "speed-measure-webpack-plugin": "1.4.2",

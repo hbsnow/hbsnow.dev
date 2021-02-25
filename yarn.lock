@@ -11895,10 +11895,10 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-children-utilities@2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/react-children-utilities/-/react-children-utilities-2.4.0.tgz#72dcccd431bcbf2c35f05413881be69f6c4b181c"
-  integrity sha512-2FgC/mKmxsX6G/X4Zwic2ojurjYIiTiJdLdOzNm1x46al8KF0Zu2+RnLeL3gboAmyLl0j5cgXVIGnA7zT/lo0Q==
+react-children-utilities@2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/react-children-utilities/-/react-children-utilities-2.4.1.tgz#d77cdb67b102a2d8bbebaf307ecb5be6a63f356c"
+  integrity sha512-zfLSIE7ZrFrOXEA2pEuBvRek2w12xkuR92k/FIPycHb/oWFOpj1rpWJUoII+cGdT0uYiZHpyndXoBzbeDUhj/Q==
 
 react-color@^2.17.0:
   version "2.19.3"

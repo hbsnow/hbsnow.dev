@@ -10,8 +10,8 @@ import { mediaQuery } from "../../styles/const";
 import TagList from "../tag/TagList";
 
 type Props = {
-  readonly post: BlogType;
-  readonly preferredTag?: TagType;
+  post: BlogType;
+  preferredTag?: TagType;
 };
 
 const BlogListItem: FC<Props> = ({ post, preferredTag }) => {

@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
 type Props = {
-  readonly language?: string;
+  language?: string;
 } & Omit<JSX.IntrinsicElements["table"], "className">;
 
 const ResponsiveTable: FC<Props> = ({ children, ...rest }) => {

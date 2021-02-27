@@ -9,7 +9,7 @@ import { IBookFields } from "../../models/contentful";
 import Book from "./Book";
 
 type Props = {
-  readonly bookList: Entry<IBookFields>[];
+  bookList: Entry<IBookFields>[];
 };
 
 const BookList: FC<Props> = ({ bookList }) => {

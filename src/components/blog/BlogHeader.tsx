@@ -7,7 +7,7 @@ import { BlogType } from "../../modules/blog";
 import TagList from "../tag/TagList";
 
 type Props = {
-  readonly post: BlogType;
+  post: BlogType;
 };
 
 const BlogHeader: FC<Props> = ({ post }) => {

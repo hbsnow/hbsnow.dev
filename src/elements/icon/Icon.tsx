@@ -37,7 +37,7 @@ export type IconType =
   | TagType;
 
 type Props = {
-  readonly name: IconType;
+  name: IconType;
 } & Omit<JSX.IntrinsicElements["svg"], "className">;
 
 const Icon: FC<Props> = ({ name, ...rest }) => {

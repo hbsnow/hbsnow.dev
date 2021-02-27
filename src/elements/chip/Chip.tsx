@@ -4,7 +4,7 @@ import { textColor } from "../../styles/mixin";
 import Icon, { tagList, TagType } from "../icon/Icon";
 
 export type Props = {
-  readonly icon?: TagType;
+  icon?: TagType;
 } & Omit<JSX.IntrinsicElements["div"], "className">;
 
 const Chip: FC<Props> = ({ children, icon, ...rest }) => {

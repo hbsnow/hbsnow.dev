@@ -7,8 +7,8 @@ import { TagType } from "../../elements/icon/Icon";
 import { useSortedTagList } from "../../hooks/tag";
 
 type Props = {
-  readonly tagList: TagType[];
-  readonly preferredTag?: TagType;
+  tagList: TagType[];
+  preferredTag?: TagType;
 };
 
 const TagList: FC<Props> = ({ tagList, preferredTag }) => {

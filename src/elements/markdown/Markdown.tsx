@@ -12,7 +12,7 @@ import ExternalLink from "../link/ExternalLink";
 import ResponsiveTable from "../table/ResponsiveTable";
 
 type Props = {
-  readonly source: string;
+  source: string;
 } & Omit<JSX.IntrinsicElements["div"], "className">;
 
 const Markdown: FC<Props> = ({ source, ...rest }) => {

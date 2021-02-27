@@ -10,7 +10,7 @@ import Code from "./Code";
 import Pre from "./Pre";
 
 export type Props = {
-  readonly language?: SyntaxHighlighterProps["language"];
+  language?: SyntaxHighlighterProps["language"];
 } & Omit<JSX.IntrinsicElements["div"], "className">;
 
 const Blockcode: FC<Props> = ({ children, language, ...rest }) => {

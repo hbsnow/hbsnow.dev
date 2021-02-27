@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
 import { imageSize } from "image-size";
 import ReactMarkdown from "react-markdown";
@@ -13,7 +13,7 @@ import ResponsiveTable from "../table/ResponsiveTable";
 
 type Props = {
   source: string;
-} & Omit<JSX.IntrinsicElements["div"], "className">;
+} & Omit<ComponentPropsWithoutRef<"div">, "className">;
 
 const Markdown: FC<Props> = ({ source, ...rest }) => {
   const code: FC<{ language: string; value: string }> = ({

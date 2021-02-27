@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
 import { containerSize } from "../../styles/const";
 
-type Props = Omit<JSX.IntrinsicElements["div"], "className">;
+type Props = Omit<ComponentPropsWithoutRef<"div">, "className">;
 
 const Container: FC<Props> = ({ children, ...rest }) => {
   return (

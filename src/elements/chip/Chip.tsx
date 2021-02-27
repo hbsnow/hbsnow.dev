@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
 import { textColor } from "../../styles/mixin";
 import Icon, { tagList, TagType } from "../icon/Icon";
 
 export type Props = {
   icon?: TagType;
-} & Omit<JSX.IntrinsicElements["div"], "className">;
+} & Omit<ComponentPropsWithoutRef<"div">, "className">;
 
 const Chip: FC<Props> = ({ children, icon, ...rest }) => {
   return (

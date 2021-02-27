@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
 import Icon from "../icon/Icon";
 
-export type Props = JSX.IntrinsicElements["div"];
+export type Props = ComponentPropsWithoutRef<"div">;
 
 const Blockquote: FC<Props> = ({ children, ...rest }) => {
   return (

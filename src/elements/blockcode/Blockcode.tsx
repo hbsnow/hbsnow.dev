@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
 import {
   Prism as SyntaxHighlighter,
@@ -11,7 +11,7 @@ import Pre from "./Pre";
 
 export type Props = {
   language?: SyntaxHighlighterProps["language"];
-} & Omit<JSX.IntrinsicElements["div"], "className">;
+} & Omit<ComponentPropsWithoutRef<"div">, "className">;
 
 const Blockcode: FC<Props> = ({ children, language, ...rest }) => {
   return (

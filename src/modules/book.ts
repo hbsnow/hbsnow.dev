@@ -1,8 +1,10 @@
-import { createClient } from "contentful";
+import { createClient, EntryCollection } from "contentful";
 
-import { StateType } from ".";
+import { IBookFields } from "../models/contentful";
 
-export const fetchBookList = async (): Promise<StateType["bookList"]> => {
+export const fetchBookList = async (): Promise<
+  EntryCollection<IBookFields>
+> => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID ?? "",
     accessToken: process.env.CONTENTFUL_API_ACCESS_TOKEN ?? "",
@@ -10,5 +12,7 @@ export const fetchBookList = async (): Promise<StateType["bookList"]> => {
 
   const query = { content_type: "book" };
 
-  return client.getEntries(query);
+  const bookList = client.getEntries<IBookFields>(query);
+
+  return bookList;
 };

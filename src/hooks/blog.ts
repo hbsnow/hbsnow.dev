@@ -39,10 +39,10 @@ export const useMaxBlogUpdatedAt = (blogList: BlogType[]): string =>
       return prev > current.createdAt ? prev : current.createdAt;
     }, "");
 
-    const hoge = blogList.reduce((prev, current) => {
+    const updatedAt = blogList.reduce((prev, current) => {
       if (!current?.updatedAt) return prev;
       return prev > current.updatedAt ? prev : current.updatedAt;
     }, maxCreatedDate);
 
-    return hoge;
+    return updatedAt;
   }, [blogList]);

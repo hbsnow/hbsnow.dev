@@ -179,4 +179,18 @@ export const Todo: React.FC = () => {
 };
 ```
 
-ただし、`useAsyncFn` の第二引数には ESLint の `react-hooks/exhaustive-deps` がきかないので注意が必要です。
+ただし、`useAsyncFn` の第二引数には ESLint の `react-hooks/exhaustive-deps` がきかないので注意が必要です。この問題は [`additionalHooks` の設定を追加することで解決](https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks)します。
+
+```json
+{
+  "rules": {
+    // ...
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "(useAsyncFn)"
+      }
+    ]
+  }
+}
+```

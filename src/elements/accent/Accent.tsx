@@ -1,8 +1,12 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
-export type Props = Omit<ComponentPropsWithoutRef<"div">, "className">;
+export type Props = PropsWithChildren<
+  Omit<ComponentPropsWithoutRef<"div">, "className">
+>;
 
-const Accent: FC<Props> = ({ children, ...rest }) => {
+const Accent = (props: Props): JSX.Element => {
+  const { children, ...rest } = props;
+
   return (
     <div data-testid="Accent" className="accent" {...rest}>
       {children}

@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
 import { imageSize } from "image-size";
 import ReactMarkdown from "react-markdown";
@@ -11,27 +11,35 @@ import Heading from "../heading/Heading";
 import ExternalLink from "../link/ExternalLink";
 import ResponsiveTable from "../table/ResponsiveTable";
 
-type Props = {
+type Props = PropsWithChildren<{
   source: string;
-} & Omit<ComponentPropsWithoutRef<"div">, "className">;
+}> &
+  Omit<ComponentPropsWithoutRef<"div">, "className">;
 
-const Markdown: FC<Props> = ({ source, ...rest }) => {
-  const code: FC<{ language: string; value: string }> = ({
-    language,
-    value,
-  }) => {
+const Markdown = (props: Props): JSX.Element => {
+  const { source, ...rest } = props;
+
+  const code = (props: { language: string; value: string }) => {
+    const { language, value } = props;
+
     return <Blockcode language={language}>{value}</Blockcode>;
   };
 
-  const section: FC = ({ children }) => {
+  const section = (props: PropsWithChildren<unknown>) => {
+    const { children } = props;
+
     return <section>{children}</section>;
   };
 
-  const heading: FC<{ level: string }> = ({ level, children }) => {
+  const heading = (props: PropsWithChildren<{ level: string }>) => {
+    const { level, children } = props;
+
     return <Heading level={parseInt(level)}>{children}</Heading>;
   };
 
-  const image: FC<{ src: string; alt: string }> = ({ src, alt }) => {
+  const image = (props: PropsWithChildren<{ src: string; alt: string }>) => {
+    const { src, alt } = props;
+
     const dimensions = imageSize(`public/${src}`);
 
     return (
@@ -52,7 +60,9 @@ const Markdown: FC<Props> = ({ source, ...rest }) => {
     );
   };
 
-  const link: FC<{ href: string }> = ({ children, href }) => {
+  const link = (props: PropsWithChildren<{ href: string }>) => {
+    const { children, href } = props;
+
     if (href.startsWith("http")) {
       return <ExternalLink href={href}>{children}</ExternalLink>;
     }
@@ -60,11 +70,15 @@ const Markdown: FC<Props> = ({ source, ...rest }) => {
     return <a href={href}>{children}</a>;
   };
 
-  const blockquote: FC = ({ children }) => {
+  const blockquote = (props: PropsWithChildren<unknown>) => {
+    const { children } = props;
+
     return <Blockquote>{children}</Blockquote>;
   };
 
-  const table: FC = ({ children }) => {
+  const table = (props: PropsWithChildren<unknown>) => {
+    const { children } = props;
+
     return <ResponsiveTable>{children}</ResponsiveTable>;
   };
 

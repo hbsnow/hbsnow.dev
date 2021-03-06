@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
 export const tagList = {
   amp: "#005AF0",
@@ -36,11 +36,14 @@ export type IconType =
   | "star"
   | TagType;
 
-type Props = {
+type Props = PropsWithChildren<{
   name: IconType;
-} & Omit<ComponentPropsWithoutRef<"svg">, "className">;
+}> &
+  Omit<ComponentPropsWithoutRef<"svg">, "className">;
 
-const Icon: FC<Props> = ({ name, ...rest }) => {
+const Icon = (props: Props): JSX.Element => {
+  const { name, ...rest } = props;
+
   const svgRestProps = {
     width: 24,
     height: 24,

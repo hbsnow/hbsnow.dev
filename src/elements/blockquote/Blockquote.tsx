@@ -1,10 +1,13 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
 import Icon from "../icon/Icon";
 
-export type Props = ComponentPropsWithoutRef<"div">;
+export type Props = PropsWithChildren<unknown> &
+  Omit<ComponentPropsWithoutRef<"div">, "className">;
 
-const Blockquote: FC<Props> = ({ children, ...rest }) => {
+const Blockquote = (props: Props): JSX.Element => {
+  const { children, ...rest } = props;
+
   return (
     <div data-testid="Blockquote" className="blockquote" {...rest}>
       <div className="icon">

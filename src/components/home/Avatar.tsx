@@ -1,10 +1,12 @@
-import React, { FC } from "react";
+import React from "react";
 
 type Props = {
   size?: number;
 };
 
-const Avatar: FC<Props> = ({ size = 256 }) => {
+const Avatar = (props: Props): JSX.Element => {
+  const { size = 256 } = props;
+
   return (
     <div className="avatar" data-amp-auto-lightbox-disable>
       <amp-img

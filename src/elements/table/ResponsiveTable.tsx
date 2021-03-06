@@ -1,10 +1,13 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
-type Props = {
+type Props = PropsWithChildren<{
   language?: string;
-} & Omit<ComponentPropsWithoutRef<"table">, "className">;
+}> &
+  Omit<ComponentPropsWithoutRef<"table">, "className">;
 
-const ResponsiveTable: FC<Props> = ({ children, ...rest }) => {
+const ResponsiveTable = (props: Props): JSX.Element => {
+  const { children, ...rest } = props;
+
   return (
     <div className="responsiveTable">
       <table className="table" {...rest}>

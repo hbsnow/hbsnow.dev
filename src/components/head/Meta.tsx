@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 
 import { NextSeo } from "next-seo";
 
@@ -15,14 +15,9 @@ type Props = {
   updatedAt?: string;
 };
 
-const Meta: FC<Props> = ({
-  type,
-  title,
-  path,
-  description,
-  createdAt,
-  updatedAt,
-}) => {
+const Meta = (props: Props): JSX.Element => {
+  const { type, title, path, description, createdAt, updatedAt } = props;
+
   const pageUrl = useFullPath(path);
   const dateFormat = "YYYY-MM-DDTHH:mm:ss+09:00";
   const datePublished = useFormattedDate(createdAt, dateFormat);

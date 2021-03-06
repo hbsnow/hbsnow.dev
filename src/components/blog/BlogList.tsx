@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 
 import { TagType } from "../../elements/icon/Icon";
 import { BlogType } from "../../modules/blog";
@@ -9,7 +9,9 @@ type Props = {
   preferredTag?: TagType;
 };
 
-const BlogList: FC<Props> = ({ blogList, preferredTag }) => {
+const BlogList = (props: Props): JSX.Element => {
+  const { blogList, preferredTag } = props;
+
   return (
     <ul className="blogList">
       {blogList?.map((post) => {

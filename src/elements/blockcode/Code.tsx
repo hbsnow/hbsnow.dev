@@ -1,6 +1,10 @@
-import React, { FC } from "react";
+import React, { PropsWithChildren } from "react";
 
-const Code: FC = ({ children }) => {
+type Props = PropsWithChildren<unknown>;
+
+const Code = (props: Props): JSX.Element => {
+  const { children } = props;
+
   return (
     <code data-testid="Code" className="code">
       {children}

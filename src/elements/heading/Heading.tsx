@@ -1,13 +1,16 @@
-import React, { FC, createElement, HTMLAttributes } from "react";
+import React, { createElement, HTMLAttributes, PropsWithChildren } from "react";
 
 import { slug } from "github-slugger";
 import { onlyText } from "react-children-utilities";
 
-export type Props = {
+export type Props = PropsWithChildren<{
   level?: number;
-} & Omit<HTMLAttributes<HTMLHeadingElement>, "className">;
+}> &
+  Omit<HTMLAttributes<HTMLHeadingElement>, "className">;
 
-const Heading: FC<Props> = ({ level = 1, children, ...rest }) => {
+const Heading = (props: Props): JSX.Element => {
+  const { level = 1, children, ...rest } = props;
+
   const text = onlyText(children);
   const id = slug(text);
 

@@ -1,15 +1,18 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
 import classNames from "classnames";
 
 import Icon from "../icon/Icon";
 
-export type Props = {
+export type Props = PropsWithChildren<{
   rate: number;
   maxRate?: number;
-} & Omit<ComponentPropsWithoutRef<"div">, "className">;
+}> &
+  Omit<ComponentPropsWithoutRef<"div">, "className">;
 
-const Rating: FC<Props> = ({ rate, maxRate = 3, ...rest }) => {
+const Rating = (props: Props): JSX.Element => {
+  const { rate, maxRate = 3, ...rest } = props;
+
   if (rate > maxRate) {
     throw new Error("rateにmaxRateよりも大きい数値が設定されています。");
   }

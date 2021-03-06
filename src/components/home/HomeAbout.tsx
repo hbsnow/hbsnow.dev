@@ -1,9 +1,13 @@
-import React, { FC } from "react";
+import React, { PropsWithChildren } from "react";
 
 import { mediaQuery } from "../../styles/const";
 import Avatar from "./Avatar";
 
-const HomeAbout: FC = ({ children }) => {
+type Props = PropsWithChildren<unknown>;
+
+const HomeAbout = (props: Props): JSX.Element => {
+  const { children } = props;
+
   return (
     <div className="homeAbout">
       <div className="avatarCell">

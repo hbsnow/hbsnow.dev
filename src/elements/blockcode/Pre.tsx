@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { PropsWithChildren } from "react";
 
 import css from "styled-jsx/css";
 
@@ -282,7 +282,11 @@ const styles = css.global`
   }
 `;
 
-const Pre: FC = ({ children }) => {
+type Props = PropsWithChildren<unknown>;
+
+const Pre = (props: Props): JSX.Element => {
+  const { children } = props;
+
   return (
     <pre data-testid="Pre" className="hljs">
       {children}

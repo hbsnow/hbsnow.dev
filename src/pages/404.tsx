@@ -7,7 +7,7 @@ import Accent from "../elements/accent/Accent";
 import Icon from "../elements/icon/Icon";
 
 type Props = {
-  readonly statusCode: number;
+  statusCode: number;
 };
 
 const Page: NextPage<Props> = () => {

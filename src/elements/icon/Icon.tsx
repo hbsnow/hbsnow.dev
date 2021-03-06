@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
 export const tagList = {
   amp: "#005AF0",
@@ -37,8 +37,8 @@ export type IconType =
   | TagType;
 
 type Props = {
-  readonly name: IconType;
-} & Omit<JSX.IntrinsicElements["svg"], "className">;
+  name: IconType;
+} & Omit<ComponentPropsWithoutRef<"svg">, "className">;
 
 const Icon: FC<Props> = ({ name, ...rest }) => {
   const svgRestProps = {

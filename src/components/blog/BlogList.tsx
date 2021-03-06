@@ -5,8 +5,8 @@ import { BlogType } from "../../modules/blog";
 import BlogListItem from "./BlogListItem";
 
 type Props = {
-  readonly blogList: BlogType[];
-  readonly preferredTag?: TagType;
+  blogList: BlogType[];
+  preferredTag?: TagType;
 };
 
 const BlogList: FC<Props> = ({ blogList, preferredTag }) => {

@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
-export type Props = Omit<JSX.IntrinsicElements["div"], "className">;
+export type Props = Omit<ComponentPropsWithoutRef<"div">, "className">;
 
 const Accent: FC<Props> = ({ children, ...rest }) => {
   return (

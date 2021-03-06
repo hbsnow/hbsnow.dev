@@ -1,13 +1,13 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
 import classNames from "classnames";
 
 import Icon from "../icon/Icon";
 
 export type Props = {
-  readonly rate: number;
-  readonly maxRate?: number;
-} & Omit<JSX.IntrinsicElements["div"], "className">;
+  rate: number;
+  maxRate?: number;
+} & Omit<ComponentPropsWithoutRef<"div">, "className">;
 
 const Rating: FC<Props> = ({ rate, maxRate = 3, ...rest }) => {
   if (rate > maxRate) {

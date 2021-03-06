@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
 type Props = {
-  readonly language?: string;
-} & Omit<JSX.IntrinsicElements["table"], "className">;
+  language?: string;
+} & Omit<ComponentPropsWithoutRef<"table">, "className">;
 
 const ResponsiveTable: FC<Props> = ({ children, ...rest }) => {
   return (

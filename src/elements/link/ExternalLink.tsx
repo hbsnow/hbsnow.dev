@@ -1,9 +1,12 @@
-import React, { FC } from "react";
+import React, { ComponentPropsWithoutRef, FC } from "react";
 
-type NoTargetElement = Omit<JSX.IntrinsicElements["a"], "target" | "className">;
+type NoTargetElement = Omit<
+  ComponentPropsWithoutRef<"a">,
+  "target" | "className"
+>;
 
 type Props = {
-  readonly disableVisited?: boolean;
+  disableVisited?: boolean;
 } & NoTargetElement;
 
 const addRel = (props: NoTargetElement): NoTargetElement => {

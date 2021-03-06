@@ -4,7 +4,7 @@ import { slug } from "github-slugger";
 import { onlyText } from "react-children-utilities";
 
 export type Props = {
-  readonly level?: number;
+  level?: number;
 } & Omit<HTMLAttributes<HTMLHeadingElement>, "className">;
 
 const Heading: FC<Props> = ({ level = 1, children, ...rest }) => {

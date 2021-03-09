@@ -68,7 +68,7 @@
     "@typescript-eslint/parser": "4.17.0",
     "babel-jest": "26.6.3",
     "babel-loader": "8.2.2",
-    "contentful": "8.1.9",
+    "contentful": "8.2.0",
     "contentful-management": "7.9.0",
     "contentful-typescript-codegen": "3.2.1",
     "eslint": "7.21.0",

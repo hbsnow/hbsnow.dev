@@ -70,7 +70,7 @@
     "babel-loader": "8.2.2",
     "contentful": "8.2.0",
     "contentful-management": "7.9.0",
-    "contentful-typescript-codegen": "3.2.1",
+    "contentful-typescript-codegen": "3.2.2",
     "eslint": "7.21.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-import": "2.22.1",

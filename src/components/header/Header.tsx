@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import React from "react";
 
 import Link from "next/link";
 
 import Container from "../../elements/container/Container";
 import { mediaQuery } from "../../styles/const";
 
-const Header: FC = () => {
+const Header = (): JSX.Element => {
   return (
     <header className="header">
       <Container>

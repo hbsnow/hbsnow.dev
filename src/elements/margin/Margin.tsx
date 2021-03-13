@@ -1,12 +1,11 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
-// @todo hooksにすること
 export const toRem = (val?: number): string => {
   if (!val) return "0";
   return `calc(1.5rem * ${val})`;
 };
 
-type Props = {
+type Props = PropsWithChildren<{
   all?: number;
   x?: number;
   y?: number;
@@ -14,18 +13,12 @@ type Props = {
   bottom?: number;
   left?: number;
   right?: number;
-} & Omit<ComponentPropsWithoutRef<"div">, "className">;
+}> &
+  Omit<ComponentPropsWithoutRef<"div">, "className">;
 
-const Margin: FC<Props> = ({
-  children,
-  all,
-  x,
-  y,
-  top,
-  bottom,
-  left,
-  right,
-}) => {
+const Margin = (props: Props): JSX.Element => {
+  const { children, all, x, y, top, bottom, left, right } = props;
+
   const topRem = toRem(top ?? y ?? all);
   const bottomRem = toRem(bottom ?? y ?? all);
   const leftRem = toRem(left ?? x ?? all);

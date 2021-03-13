@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 
 import Link from "next/link";
 
@@ -11,7 +11,9 @@ type Props = {
   preferredTag?: TagType;
 };
 
-const TagList: FC<Props> = ({ tagList, preferredTag }) => {
+const TagList = (props: Props): JSX.Element => {
+  const { tagList, preferredTag } = props;
+
   const sortedTagList = useSortedTagList(tagList, preferredTag);
 
   return (

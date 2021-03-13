@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
 import {
   Prism as SyntaxHighlighter,
@@ -9,11 +9,14 @@ import { mediaQuery } from "../../styles/const";
 import Code from "./Code";
 import Pre from "./Pre";
 
-export type Props = {
+export type Props = PropsWithChildren<{
   language?: SyntaxHighlighterProps["language"];
-} & Omit<ComponentPropsWithoutRef<"div">, "className">;
+}> &
+  Omit<ComponentPropsWithoutRef<"div">, "className">;
 
-const Blockcode: FC<Props> = ({ children, language, ...rest }) => {
+const Blockcode = (props: Props): JSX.Element => {
+  const { children, language, ...rest } = props;
+
   return (
     <div data-testid="Blockcode" className="blockcode" {...rest}>
       {language ? (

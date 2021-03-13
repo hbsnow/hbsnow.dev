@@ -1,9 +1,7 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
-type NoTargetElement = Omit<
-  ComponentPropsWithoutRef<"a">,
-  "target" | "className"
->;
+type NoTargetElement = PropsWithChildren<unknown> &
+  Omit<ComponentPropsWithoutRef<"a">, "target" | "className">;
 
 type Props = {
   disableVisited?: boolean;
@@ -19,11 +17,11 @@ const addRel = (props: NoTargetElement): NoTargetElement => {
   };
 };
 
-const ExternalLink: FC<Props> = ({
+const ExternalLink = ({
   children,
   disableVisited = false,
   ...rest
-}) => {
+}: Props): JSX.Element => {
   return (
     <a target="_blank" className="link" {...addRel(rest)}>
       {children}

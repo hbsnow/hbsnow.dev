@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 
 import classNames from "classnames";
 import Link from "next/link";
@@ -14,7 +14,9 @@ type Props = {
   preferredTag?: TagType;
 };
 
-const BlogListItem: FC<Props> = ({ post, preferredTag }) => {
+const BlogListItem = (props: Props): JSX.Element => {
+  const { post, preferredTag } = props;
+
   const createdAt = useFormattedDate(post.createdAt);
   const updatedAt = useFormattedDate(post.updatedAt);
 

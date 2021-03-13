@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 
 import { Entry } from "contentful";
 
@@ -9,7 +9,9 @@ type Props = {
   book: Entry<IBookFields>["fields"];
 };
 
-const Book: FC<Props> = ({ book }) => {
+const Book = (props: Props): JSX.Element => {
+  const { book } = props;
+
   return (
     <div className="book">
       <header className="header">

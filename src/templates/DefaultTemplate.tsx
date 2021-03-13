@@ -1,9 +1,13 @@
-import React, { FC } from "react";
+import React, { PropsWithChildren } from "react";
 
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 
-const DefaultTemplate: FC = ({ children }) => {
+type Props = PropsWithChildren<unknown>;
+
+const DefaultTemplate = (props: Props): JSX.Element => {
+  const { children } = props;
+
   return (
     <div className="root">
       <div className="header">

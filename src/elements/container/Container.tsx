@@ -1,10 +1,13 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
 import { containerSize } from "../../styles/const";
 
-type Props = Omit<ComponentPropsWithoutRef<"div">, "className">;
+type Props = PropsWithChildren<unknown> &
+  Omit<ComponentPropsWithoutRef<"div">, "className">;
 
-const Container: FC<Props> = ({ children, ...rest }) => {
+const Container = (props: Props): JSX.Element => {
+  const { children, ...rest } = props;
+
   return (
     <div data-testid="Container" className="container" {...rest}>
       <div className="inner">{children}</div>

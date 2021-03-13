@@ -1,13 +1,16 @@
-import React, { ComponentPropsWithoutRef, FC } from "react";
+import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
 import { textColor } from "../../styles/mixin";
 import Icon, { tagList, TagType } from "../icon/Icon";
 
-export type Props = {
+export type Props = PropsWithChildren<{
   icon?: TagType;
-} & Omit<ComponentPropsWithoutRef<"div">, "className">;
+}> &
+  Omit<ComponentPropsWithoutRef<"div">, "className">;
 
-const Chip: FC<Props> = ({ children, icon, ...rest }) => {
+const Chip = (props: Props): JSX.Element => {
+  const { children, icon, ...rest } = props;
+
   return (
     <div data-testid="Chip" className="chip" {...rest}>
       {icon ? (

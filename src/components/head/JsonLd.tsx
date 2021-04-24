@@ -17,7 +17,7 @@ export type JsonLdType = {
   description: string;
 };
 
-type Props = Readonly<JsonLdType>;
+type Props = Readonly<Readonly<JsonLdType>>;
 
 const JsonLd = (props: Props): JSX.Element => {
   const { type, ...rest } = props;

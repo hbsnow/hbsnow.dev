@@ -8,9 +8,9 @@ import { useSort, useGroupByCategory } from "../../hooks/book";
 import { IBookFields } from "../../models/contentful";
 import Book from "./Book";
 
-type Props = {
+type Props = Readonly<{
   bookList: Entry<IBookFields>[];
-};
+}>;
 
 const BookList = (props: Props): JSX.Element => {
   const { bookList } = props;

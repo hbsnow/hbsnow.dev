@@ -5,9 +5,9 @@ import { Entry } from "contentful";
 import Rating from "../../elements/rating/Rating";
 import { IBookFields } from "../../models/contentful";
 
-type Props = {
+type Props = Readonly<{
   book: Entry<IBookFields>["fields"];
-};
+}>;
 
 const Book = (props: Props): JSX.Element => {
   const { book } = props;

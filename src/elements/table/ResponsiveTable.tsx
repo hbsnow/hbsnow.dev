@@ -1,9 +1,11 @@
 import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
-type Props = PropsWithChildren<{
-  language?: string;
-}> &
-  Omit<ComponentPropsWithoutRef<"table">, "className">;
+type Props = Readonly<
+  PropsWithChildren<{
+    language?: string;
+  }> &
+    Omit<ComponentPropsWithoutRef<"table">, "className">
+>;
 
 const ResponsiveTable = (props: Props): JSX.Element => {
   const { children, ...rest } = props;

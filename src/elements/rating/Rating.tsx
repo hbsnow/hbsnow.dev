@@ -4,11 +4,13 @@ import classNames from "classnames";
 
 import Icon from "../icon/Icon";
 
-export type Props = PropsWithChildren<{
-  rate: number;
-  maxRate?: number;
-}> &
-  Omit<ComponentPropsWithoutRef<"div">, "className">;
+export type Props = Readonly<
+  PropsWithChildren<{
+    rate: number;
+    maxRate?: number;
+  }> &
+    Omit<ComponentPropsWithoutRef<"div">, "className">
+>;
 
 const Rating = (props: Props): JSX.Element => {
   const { rate, maxRate = 3, ...rest } = props;

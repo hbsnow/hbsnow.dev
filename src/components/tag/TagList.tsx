@@ -6,10 +6,10 @@ import Chip from "../../elements/chip/Chip";
 import { TagType } from "../../elements/icon/Icon";
 import { useSortedTagList } from "../../hooks/tag";
 
-type Props = {
+type Props = Readonly<{
   tagList: TagType[];
   preferredTag?: TagType;
-};
+}>;
 
 const TagList = (props: Props): JSX.Element => {
   const { tagList, preferredTag } = props;

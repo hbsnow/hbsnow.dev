@@ -4,10 +4,10 @@ import { TagType } from "../../elements/icon/Icon";
 import { BlogType } from "../../modules/blog";
 import BlogListItem from "./BlogListItem";
 
-type Props = {
+type Props = Readonly<{
   blogList: BlogType[];
   preferredTag?: TagType;
-};
+}>;
 
 const BlogList = (props: Props): JSX.Element => {
   const { blogList, preferredTag } = props;

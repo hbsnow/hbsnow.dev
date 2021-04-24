@@ -1,7 +1,7 @@
 import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
-export type Props = PropsWithChildren<
-  Omit<ComponentPropsWithoutRef<"div">, "className">
+export type Props = Readonly<
+  PropsWithChildren<Omit<ComponentPropsWithoutRef<"div">, "className">>
 >;
 
 const Accent = (props: Props): JSX.Element => {

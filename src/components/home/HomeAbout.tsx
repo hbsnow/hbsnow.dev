@@ -3,7 +3,7 @@ import React, { PropsWithChildren } from "react";
 import { mediaQuery } from "../../styles/const";
 import Avatar from "./Avatar";
 
-type Props = PropsWithChildren<unknown>;
+type Props = Readonly<PropsWithChildren<unknown>>;
 
 const HomeAbout = (props: Props): JSX.Element => {
   const { children } = props;

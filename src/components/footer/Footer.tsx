@@ -7,9 +7,11 @@ import Icon, { IconType } from "../../elements/icon/Icon";
 import ExternalLink from "../../elements/link/ExternalLink";
 import { ExternalLinkType } from "../../models/link";
 
-type SnsLink = {
-  label: string;
-} & ExternalLinkType<IconType>;
+type SnsLink = Readonly<
+  {
+    label: string;
+  } & ExternalLinkType<IconType>
+>;
 
 const sns: Readonly<SnsLink[]> = [
   {

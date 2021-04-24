@@ -36,10 +36,12 @@ export type IconType =
   | "star"
   | TagType;
 
-type Props = PropsWithChildren<{
-  name: IconType;
-}> &
-  Omit<ComponentPropsWithoutRef<"svg">, "className">;
+type Props = Readonly<
+  PropsWithChildren<{
+    name: IconType;
+  }> &
+    Omit<ComponentPropsWithoutRef<"svg">, "className">
+>;
 
 const Icon = (props: Props): JSX.Element => {
   const { name, ...rest } = props;

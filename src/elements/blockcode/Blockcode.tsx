@@ -9,10 +9,12 @@ import { mediaQuery } from "../../styles/const";
 import Code from "./Code";
 import Pre from "./Pre";
 
-export type Props = PropsWithChildren<{
-  language?: SyntaxHighlighterProps["language"];
-}> &
-  Omit<ComponentPropsWithoutRef<"div">, "className">;
+export type Props = Readonly<
+  PropsWithChildren<{
+    language?: SyntaxHighlighterProps["language"];
+  }> &
+    Omit<ComponentPropsWithoutRef<"div">, "className">
+>;
 
 const Blockcode = (props: Props): JSX.Element => {
   const { children, language, ...rest } = props;

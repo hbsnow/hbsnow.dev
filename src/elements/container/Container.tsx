@@ -2,8 +2,10 @@ import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
 import { containerSize } from "../../styles/const";
 
-type Props = PropsWithChildren<unknown> &
-  Omit<ComponentPropsWithoutRef<"div">, "className">;
+type Props = Readonly<
+  PropsWithChildren<unknown> &
+    Omit<ComponentPropsWithoutRef<"div">, "className">
+>;
 
 const Container = (props: Props): JSX.Element => {
   const { children, ...rest } = props;

@@ -9,10 +9,10 @@ import { BlogType } from "../../modules/blog";
 import { mediaQuery } from "../../styles/const";
 import TagList from "../tag/TagList";
 
-type Props = {
+type Props = Readonly<{
   post: BlogType;
   preferredTag?: TagType;
-};
+}>;
 
 const BlogListItem = (props: Props): JSX.Element => {
   const { post, preferredTag } = props;

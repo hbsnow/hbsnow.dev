@@ -6,9 +6,9 @@ import { useFormattedDate } from "../../hooks/date";
 import { BlogType } from "../../modules/blog";
 import TagList from "../tag/TagList";
 
-type Props = {
+type Props = Readonly<{
   post: BlogType;
-};
+}>;
 
 const BlogHeader = (props: Props): JSX.Element => {
   const { post } = props;

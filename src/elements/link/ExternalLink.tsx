@@ -1,11 +1,15 @@
 import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
-type NoTargetElement = PropsWithChildren<unknown> &
-  Omit<ComponentPropsWithoutRef<"a">, "target" | "className">;
+type NoTargetElement = Readonly<
+  PropsWithChildren<unknown> &
+    Omit<ComponentPropsWithoutRef<"a">, "target" | "className">
+>;
 
-type Props = {
-  disableVisited?: boolean;
-} & NoTargetElement;
+type Props = Readonly<
+  {
+    disableVisited?: boolean;
+  } & NoTargetElement
+>;
 
 const addRel = (props: NoTargetElement): NoTargetElement => {
   const rel = props?.rel?.split(" ") || [];

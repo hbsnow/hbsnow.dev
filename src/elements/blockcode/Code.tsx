@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 
-type Props = PropsWithChildren<unknown>;
+type Props = Readonly<PropsWithChildren<unknown>>;
 
 const Code = (props: Props): JSX.Element => {
   const { children } = props;

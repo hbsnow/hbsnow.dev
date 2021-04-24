@@ -3,10 +3,12 @@ import React, { createElement, HTMLAttributes, PropsWithChildren } from "react";
 import { slug } from "github-slugger";
 import { onlyText } from "react-children-utilities";
 
-export type Props = PropsWithChildren<{
-  level?: number;
-}> &
-  Omit<HTMLAttributes<HTMLHeadingElement>, "className">;
+export type Props = Readonly<
+  PropsWithChildren<{
+    level?: number;
+  }> &
+    Omit<HTMLAttributes<HTMLHeadingElement>, "className">
+>;
 
 const Heading = (props: Props): JSX.Element => {
   const { level = 1, children, ...rest } = props;

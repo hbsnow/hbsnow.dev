@@ -1,8 +1,8 @@
 import React from "react";
 
-type Props = {
+type Props = Readonly<{
   size?: number;
-};
+}>;
 
 const Avatar = (props: Props): JSX.Element => {
   const { size = 256 } = props;

@@ -5,16 +5,18 @@ export const toRem = (val?: number): string => {
   return `calc(1.5rem * ${val})`;
 };
 
-type Props = PropsWithChildren<{
-  all?: number;
-  x?: number;
-  y?: number;
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
-}> &
-  Omit<ComponentPropsWithoutRef<"div">, "className">;
+type Props = Readonly<
+  PropsWithChildren<{
+    all?: number;
+    x?: number;
+    y?: number;
+    top?: number;
+    bottom?: number;
+    left?: number;
+    right?: number;
+  }> &
+    Omit<ComponentPropsWithoutRef<"div">, "className">
+>;
 
 const Margin = (props: Props): JSX.Element => {
   const { children, all, x, y, top, bottom, left, right } = props;

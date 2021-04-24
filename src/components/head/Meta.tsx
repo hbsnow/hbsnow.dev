@@ -6,14 +6,14 @@ import { useFormattedDate } from "../../hooks/date";
 import { useFullPath, useOgpImagePath } from "../../hooks/url";
 import JsonLd, { JsonLdPageType, JsonLdType } from "./JsonLd";
 
-type Props = {
+type Props = Readonly<{
   type: JsonLdPageType;
   title: string;
   path: string;
   description: string;
   createdAt: string;
   updatedAt?: string;
-};
+}>;
 
 const Meta = (props: Props): JSX.Element => {
   const { type, title, path, description, createdAt, updatedAt } = props;

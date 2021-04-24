@@ -282,7 +282,7 @@ const styles = css.global`
   }
 `;
 
-type Props = PropsWithChildren<unknown>;
+type Props = Readonly<PropsWithChildren<unknown>>;
 
 const Pre = (props: Props): JSX.Element => {
   const { children } = props;

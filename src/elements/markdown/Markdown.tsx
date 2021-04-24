@@ -11,10 +11,12 @@ import Heading from "../heading/Heading";
 import ExternalLink from "../link/ExternalLink";
 import ResponsiveTable from "../table/ResponsiveTable";
 
-type Props = PropsWithChildren<{
-  source: string;
-}> &
-  Omit<ComponentPropsWithoutRef<"div">, "className">;
+type Props = Readonly<
+  PropsWithChildren<{
+    source: string;
+  }> &
+    Omit<ComponentPropsWithoutRef<"div">, "className">
+>;
 
 const Markdown = (props: Props): JSX.Element => {
   const { source, ...rest } = props;

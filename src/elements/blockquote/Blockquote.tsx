@@ -2,8 +2,10 @@ import React, { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
 import Icon from "../icon/Icon";
 
-export type Props = PropsWithChildren<unknown> &
-  Omit<ComponentPropsWithoutRef<"div">, "className">;
+export type Props = Readonly<
+  PropsWithChildren<unknown> &
+    Omit<ComponentPropsWithoutRef<"div">, "className">
+>;
 
 const Blockquote = (props: Props): JSX.Element => {
   const { children, ...rest } = props;

@@ -1,4 +1,6 @@
-module.exports = {
+/** @type {import('@jest/types').Config.InitialOptions} */
+
+const config = {
   collectCoverageFrom: [
     "**/*.{js,jsx,ts,tsx}",
     "!**/*.d.ts",
@@ -11,3 +13,5 @@ module.exports = {
   },
   transformIgnorePatterns: ["/node_modules/(?!react-children-utilities)"],
 };
+
+module.exports = config;

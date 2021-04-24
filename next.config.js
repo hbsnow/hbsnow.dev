@@ -1,3 +1,5 @@
+/** @type {import('next/dist/next-server/server/config-shared').NextConfig} */
+
 const withTM = require("next-transpile-modules")(["react-children-utilities"]);
 const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 const BundleAnalyzerPlugin = require("webpack-bundle-analyzer");
@@ -6,7 +8,7 @@ if (process.env.NODE_ENV === "development") {
   require("dotenv").config();
 }
 
-const nextSettings = {
+const config = {
   target: "serverless",
   exportPathMap: async () => {
     return {
@@ -48,4 +50,4 @@ const nextSettings = {
   },
 };
 
-module.exports = withTM(nextSettings);
+module.exports = withTM(config);

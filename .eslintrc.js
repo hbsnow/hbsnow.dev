@@ -1,4 +1,6 @@
-module.exports = {
+/** @type {import('@typescript-eslint/experimental-utils').TSESLint.Linter.Config} */
+
+const config = {
   extends: ["eslint:recommended"],
   env: {
     browser: true,
@@ -65,3 +67,5 @@ module.exports = {
     React: "writable",
   },
 };
+
+module.exports = config;

@@ -15,7 +15,7 @@ Warning: Can't perform a React state update on an unmounted component. This is a
 
 これはコンポーネントがアンマウントされた状態で、アンマウントされたコンポーネントの local state を変更したときに発生します。
 
-実際に人為的にこのエラーを引き起こしてみます。
+人為的にこのエラーを引き起こしてみます。
 
 ```tsx
 // App.tsx

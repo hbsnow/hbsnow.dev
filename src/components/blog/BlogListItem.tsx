@@ -23,7 +23,7 @@ const BlogListItem = (props: Props): JSX.Element => {
   return (
     <div className={classNames("blogListItem", { update: Boolean(updatedAt) })}>
       <div className="title">
-        <Link href="/blog/[slug]/" as={`/blog/${post.slug}/`}>
+        <Link href={`/blog/${encodeURIComponent(post.slug)}/`}>
           <a>{post.title}</a>
         </Link>
       </div>

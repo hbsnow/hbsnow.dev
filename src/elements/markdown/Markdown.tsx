@@ -102,7 +102,11 @@ const Markdown = (props: Props): JSX.Element => {
       return <ExternalLink href={href}>{children}</ExternalLink>;
     }
 
-    return <Link href={href}>{children}</Link>;
+    return (
+      <Link href={href}>
+        <a>{children}</a>
+      </Link>
+    );
   };
 
   const blockquote = (props: PropsWithChildren<unknown>) => {

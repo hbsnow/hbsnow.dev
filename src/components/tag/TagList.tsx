@@ -21,7 +21,7 @@ const TagList = (props: Props): JSX.Element => {
       {sortedTagList?.map((tag) => {
         return (
           <li key={tag} className="tagListItem">
-            <Link href="/blog/tag/[slug]/" as={`/blog/tag/${tag}/`}>
+            <Link href={`/blog/tag/${encodeURIComponent(tag)}/`}>
               <a>
                 <Chip icon={tag}>{tag}</Chip>
               </a>

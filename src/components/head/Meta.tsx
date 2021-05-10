@@ -41,6 +41,7 @@ const Meta = (props: Props): JSX.Element => {
       <NextSeo
         title={title}
         description={description}
+        canonical={pageUrl}
         openGraph={{
           type: "website",
           url: pageUrl,

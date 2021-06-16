@@ -79,9 +79,8 @@ import React, { FC, useState, useCallback, useRef, useEffect } from "react";
 const InputText: FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState("");
-  const [prevPosition, setPrevPosition] = useState<
-    HTMLInputElement["selectionEnd"]
-  >(null);
+  const [prevPosition, setPrevPosition] =
+    useState<HTMLInputElement["selectionEnd"]>(null);
 
   const handleChange = useCallback(() => {
     const target = inputRef.current;

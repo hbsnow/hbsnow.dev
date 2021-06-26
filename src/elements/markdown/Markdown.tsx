@@ -57,7 +57,7 @@ const Markdown = (props: Props): JSX.Element => {
 
   // HeadingComponent が NormalComponent のインデックスシグネチャに
   // 準拠していないことでエラーとなるため、強制的に string として対応
-  const fixingHeading = (heading as unknown) as string;
+  const fixingHeading = heading as unknown as string;
 
   const img: Components["img"] = (props) => {
     if (!props.node.properties) {

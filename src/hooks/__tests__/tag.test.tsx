@@ -1,4 +1,3 @@
-/* eslint-env jest */
 import { renderHook } from "@testing-library/react-hooks";
 
 import { useSortedTagList } from "../tag";

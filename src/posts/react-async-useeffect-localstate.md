@@ -17,7 +17,7 @@ Warning: Can't perform a React state update on an unmounted component. This is a
 
 人為的にこのエラーを引き起こしてみます。
 
-```tsx
+```tsx:App.tsx
 // App.tsx
 import React, { useState } from "react";
 import { CountUp } from "./CountUp";
@@ -107,7 +107,7 @@ useEffect(() => {
 
 レースコンディションで起こる問題については以下の記事が詳しいです。
 
-- [A Complete Guide to useEffect](https://iqkui.com/a-complete-guide-to-useeffect/)
+- [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
 
 ただし、例えば叩いた回数を返す API があり、その結果を表示させるような場合。その API を連読で叩き、一度目の API 呼び出しの結果が二度目の API の戻りよりも遅れて返ってきた場合、`isMounted()` で判定するだけでは意図しない結果が表示されてしまいます。
 

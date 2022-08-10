@@ -29,18 +29,6 @@ const TagList = (props: Props): JSX.Element => {
           </li>
         );
       })}
-      <style jsx>{`
-        .tagList {
-          display: flex;
-          flex-wrap: wrap;
-          list-style: none;
-          margin: calc(var(--gap-size) / 4 * -1);
-        }
-
-        .tagListItem {
-          margin: calc(var(--gap-size) / 4);
-        }
-      `}</style>
     </ul>
   );
 };

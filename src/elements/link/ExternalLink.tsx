@@ -21,11 +21,9 @@ const addRel = (props: NoTargetElement): NoTargetElement => {
   };
 };
 
-const ExternalLink = ({
-  children,
-  disableVisited = false,
-  ...rest
-}: Props): JSX.Element => {
+const ExternalLink = (props: Props): JSX.Element => {
+  const { children, disableVisited = false, ...rest } = props;
+
   return (
     <a target="_blank" className="link" {...addRel(rest)}>
       {children}

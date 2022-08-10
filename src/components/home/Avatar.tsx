@@ -25,19 +25,6 @@ const Avatar = (props: Props): JSX.Element => {
           layout="fixed"
         ></amp-img>
       </amp-img>
-      <style jsx>{`
-        .avatar {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: calc(${size}px + var(--gap-size) * 3);
-          height: calc(${size}px + var(--gap-size) * 3);
-          background-color: var(--color-default-surface);
-          border-radius: 50%;
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16),
-            0 3px 6px rgba(0, 0, 0, 0.23);
-        }
-      `}</style>
     </div>
   );
 };

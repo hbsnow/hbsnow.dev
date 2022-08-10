@@ -50,11 +50,11 @@ const Page: NextPage<Props> = ({ blogList }) => {
 export const getStaticProps: GetStaticProps<StaticProps> = async (): Promise<{
   props: Props;
 }> => {
-  const blogList = loadBlogList();
+  const blogList = await loadBlogList();
 
   return {
     props: {
-      blogList: JSON.parse(JSON.stringify(blogList)),
+      blogList,
     },
   };
 };

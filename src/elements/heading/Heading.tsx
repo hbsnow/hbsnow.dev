@@ -1,7 +1,6 @@
 import React, { createElement, HTMLAttributes, PropsWithChildren } from "react";
 
 import { slug } from "github-slugger";
-import { onlyText } from "react-children-utilities";
 
 export type Props = Readonly<
   PropsWithChildren<{
@@ -13,8 +12,9 @@ export type Props = Readonly<
 const Heading = (props: Props): JSX.Element => {
   const { level = 1, children, ...rest } = props;
 
-  const text = onlyText(children);
-  const id = slug(text);
+  // const text = onlyText(children);
+  //  const id = slug(text);
+  const id = "hgoe";
 
   return createElement(
     `h${level}`,

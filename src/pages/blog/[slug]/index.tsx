@@ -11,7 +11,10 @@ import BlogHeader from "../../../components/blog/BlogHeader";
 import Meta from "../../../components/head/Meta";
 import Container from "../../../elements/container/Container";
 import Margin from "../../../elements/margin/Margin";
-import Markdown from "../../../elements/markdown/Markdown";
+import {
+  htmlToReact,
+  markdownToHtml,
+} from "../../../elements/markdown/converter";
 import { BlogType, loadBlog, loadBlogList } from "../../../modules/blog";
 import DefaultTemplate from "../../../templates/DefaultTemplate";
 import { toSlugString } from "../../../utils/url";
@@ -39,7 +42,7 @@ const Page: NextPage<Props> = ({ blog }) => {
           <Margin bottom={6}>
             <article>
               <BlogHeader post={blog.data} />
-              <Markdown source={blog.content} />
+              {htmlToReact.processSync(blog.content).result}
             </article>
           </Margin>
         </Container>
@@ -49,7 +52,7 @@ const Page: NextPage<Props> = ({ blog }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const blogList = loadBlogList();
+  const blogList = await loadBlogList();
 
   return {
     fallback: false,
@@ -61,8 +64,16 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (props) => {
   const { params } = props;
 
   const blog = await loadBlog(toSlugString(params?.slug ?? []));
+  const vfile = await markdownToHtml(blog.content);
 
-  return { props: { blog } };
+  return {
+    props: {
+      blog: {
+        ...blog,
+        content: vfile.toString(),
+      },
+    },
+  };
 };
 
 export default Page;

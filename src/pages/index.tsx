@@ -24,11 +24,10 @@ export const config = { amp: true };
 type Props = InferGetStaticPropsType<typeof getStaticProps>;
 type StaticProps = {
   blogList: BlogType[];
-  bookList: Entry<IBookFields>[];
 };
 
 const Page: NextPage<Props> = (props) => {
-  const { blogList, bookList } = props;
+  const { blogList } = props;
 
   const sortedBlogList = useSortBlog(blogList);
   const latestBlogList = useMemo(() => {
@@ -36,9 +35,6 @@ const Page: NextPage<Props> = (props) => {
   }, [sortedBlogList]);
 
   const blogUpdatedAt = useMaxBlogUpdatedAt(blogList);
-  const bookUpdatedAt = useMaxBookUpdatedAt(bookList);
-  const updatedAt =
-    blogUpdatedAt > bookUpdatedAt ? bookUpdatedAt : blogUpdatedAt;
 
   return (
     <>
@@ -48,7 +44,6 @@ const Page: NextPage<Props> = (props) => {
         path="/"
         description="hbsnow の技術メモ置き場を兼ねた実験場。"
         createdAt="2017-12-01"
-        updatedAt={updatedAt}
       />
 
       <DefaultTemplate>
@@ -108,57 +103,16 @@ const Page: NextPage<Props> = (props) => {
           </section>
         </div>
       </DefaultTemplate>
-      <style jsx>{`
-        .section:not(:first-child):not(:last-child) {
-          border-bottom: 1px solid var(--color-default-divider);
-        }
-
-        .section.about {
-          position: relative;
-        }
-        .section.about::before {
-          content: "";
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          background-color: var(--color-default-surface);
-          transform: skew(0, var(--layout-deg));
-          z-index: -1;
-        }
-        .section.about::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          background-color: var(--color-default-bg);
-          opacity: 0.6;
-          z-index: -1;
-        }
-
-        .allView {
-          text-align: right;
-        }
-
-        .link {
-          color: var(--color-primary);
-        }
-      `}</style>
     </>
   );
 };
 
 export const getStaticProps: GetStaticProps<StaticProps> = async () => {
-  const blogList = loadBlogList();
-  const bookList = await fetchBookList();
+  const blogList: BlogType[] = await loadBlogList();
 
   return {
     props: {
       blogList,
-      bookList: bookList?.items ?? [],
     },
   };
 };

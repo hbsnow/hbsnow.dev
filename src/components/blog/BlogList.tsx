@@ -21,16 +21,6 @@ const BlogList = (props: Props): JSX.Element => {
           </li>
         );
       })}
-      <style jsx>{`
-        .blogList {
-          list-style: none;
-          margin: 0;
-        }
-
-        .blogListItem {
-          margin-bottom: calc(var(--gap-size) * 3);
-        }
-      `}</style>
     </ul>
   );
 };

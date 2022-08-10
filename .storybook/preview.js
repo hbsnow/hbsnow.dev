@@ -1,4 +1,3 @@
-import "normalize.css";
 import globalStyles from "../src/styles/globalStyles";
 
 export const parameters = {

@@ -1,3 +1,4 @@
+import fs from "fs";
 import path from "path";
 
 import matter from "gray-matter";
@@ -6,29 +7,33 @@ export type BlogType = {
   slug: string;
 } & matter.GrayMatterFile<string>["data"];
 
-export const loadBlogList = (): BlogType[] => {
-  const blogList = ((context): BlogType[] => {
-    const keys = context.keys();
-    const values = keys.map<{ [key: string]: string }>(context);
+export const loadBlogList = async (): Promise<BlogType[]> => {
+  const dirents = await fs.promises.readdir(path.resolve("src", "posts"), {
+    withFileTypes: true,
+  });
 
-    return keys.map((key, i) => {
-      const slug = path.basename(key, ".md");
-      const blog = matter(values[i].default);
+  const promises = dirents.map((dirent) => {
+    const filePath = path.resolve("src", "posts", dirent.name);
 
-      return { slug, ...blog.data };
-    });
-  })(require.context(`../posts`, true, /\.md$/));
+    return fs.promises.readFile(filePath, "utf-8");
+  });
+
+  const mdFiles = await Promise.all(promises);
+
+  const blogList: BlogType[] = mdFiles.map((mdFile, i) => {
+    return {
+      ...matter(mdFile).data,
+      slug: path.basename(dirents[i].name, ".md"),
+    };
+  });
 
   return JSON.parse(JSON.stringify(blogList));
 };
 
 export const loadBlog = async (slug: string): Promise<BlogType> => {
-  const content = await import(`../posts/${slug}.md`);
+  const filePath = path.resolve("src", "posts", `${slug}.md`);
 
-  return JSON.parse(
-    JSON.stringify({
-      ...matter(content.default),
-      slug,
-    })
-  );
+  const mdFile = await fs.promises.readFile(filePath, "utf-8");
+
+  return JSON.parse(JSON.stringify(matter(mdFile)));
 };

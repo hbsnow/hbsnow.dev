@@ -1,0 +1,12 @@
+a:where(.root) {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+a:where(.root):hover {
+  text-decoration: underline;
+}
+
+a:where(.root):visited {
+  color: var(--color-primary-variant-bg);
+}

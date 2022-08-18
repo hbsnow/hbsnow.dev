@@ -1,0 +1,35 @@
+---
+import type { BlogFrontmatter } from "../../components/BlogList";
+import { BlogList } from "../../components/BlogList";
+import { Footer } from "../../components/Footer";
+import { Header } from "../../components/Header";
+import { Container } from "../../cores/Container";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const unsortedPosts = await Astro.glob<BlogFrontmatter>("./*.md");
+const posts = unsortedPosts.sort((a, b) => {
+  return (
+    new Date(b.frontmatter.createdAt).valueOf() -
+    new Date(a.frontmatter.createdAt).valueOf()
+  );
+});
+---
+
+<BaseLayout
+  seo={{
+    title: "hbsnow.dev",
+    description: "hbsnow の技術メモ置き場を兼ねた実験場",
+  }}
+>
+  <Header />
+
+  <main>
+    <section class="posts">
+      <Container>
+        <BlogList posts={posts} />
+      </Container>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

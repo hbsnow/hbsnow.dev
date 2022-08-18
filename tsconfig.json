@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    /* Basic Options */
     "target": "esnext",
     "module": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -14,8 +13,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "importsNotUsedAsValues": "error"
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "src/types/*.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": ["node_modules"]
 }

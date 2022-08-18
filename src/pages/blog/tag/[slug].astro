@@ -1,0 +1,21 @@
+---
+import type { BlogFrontmatter } from "../../../components/BlogList";
+import { sortPost } from "../../../utils/sortPost";
+
+export const getStaticPaths = async () => {
+  const unsortedPosts = await Astro.glob<BlogFrontmatter>("../*.md");
+  const posts = sortPost(unsortedPosts);
+  const tags = Array.from(
+    new Set(posts.flatMap((post) => post.frontmatter.tags))
+  );
+
+  return tags.map((tag) => ({ params: { slug: tag } }));
+};
+
+const unsortedPosts = await Astro.glob<BlogFrontmatter>("../*.md");
+const posts = sortPost(unsortedPosts);
+
+const { slug } = Astro.params;
+---
+
+<p>Post: {slug}</p>

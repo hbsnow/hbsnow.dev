@@ -1,0 +1,41 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  border: var(--border-thin) solid var(--color-default-divider);
+  background-color: var(--color-default-bg);
+  border-radius: var(--border-radius);
+  padding: var(--s0);
+  gap: var(--s0);
+}
+
+.root:hover {
+  text-decoration: none;
+}
+
+.title {
+  line-height: var(--line-height-small);
+  font-size: var(--s1);
+  margin: 0;
+  padding: 0;
+}
+
+.tags {
+  display: flex;
+  margin-top: auto;
+  gap: var(--s-3);
+}
+
+.times {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--s-2);
+}
+
+.createdAt,
+.updatedAt {
+  font-size: var(--s-1);
+}
+
+.createdAt.disabled {
+  color: var(--color-default-text-muted);
+}

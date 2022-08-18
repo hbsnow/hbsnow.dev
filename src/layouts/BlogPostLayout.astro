@@ -1,0 +1,27 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+export type Props = {
+  content: {
+    title: string;
+    description: string;
+    publishDate: string;
+    heroImage?: {
+      src: string;
+      alt: string;
+    };
+  };
+};
+
+const {
+  content: { title, description, publishDate, heroImage },
+} = Astro.props as Props;
+---
+
+<BaseLayout seo={{ title, description }}>
+  <main class="container">
+    <article>
+      <slot />
+    </article>
+  </main>
+</BaseLayout>

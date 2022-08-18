@@ -1,34 +1,24 @@
-import React from "react";
+import { Container } from "../../cores/Container";
+import { Heading } from "../../cores/Heading";
+import { Link } from "../../cores/Link";
+import styles from "./styles.module.css";
 
-import Link from "next/link";
-
-import Container from "../../elements/container/Container";
-import { mediaQuery } from "../../styles/const";
-
-const Header = (): JSX.Element => {
+export const Header = (): JSX.Element => {
   return (
-    <header className="header">
+    <header className={styles.header}>
       <Container>
-        <div className="grid">
-          <div className="siteTitleContainer">
-            <h1 className="siteTitle">
-              <Link href="/">
-                <a className="link">hbsnow.dev</a>
-              </Link>
-            </h1>
-          </div>
+        <div className={styles.flex}>
+          <Heading level={1} className={styles.heading}>
+            <Link href="/">hbsnow.dev</Link>
+          </Heading>
 
-          <nav className="navContainer">
-            <ul className="navList">
-              <li className="navListItem">
-                <Link href="/blog/">
-                  <a className="link">blog</a>
-                </Link>
+          <nav>
+            <ul className={styles.navList}>
+              <li>
+                <Link href="/">home</Link>
               </li>
-              <li className="navListItem">
-                <Link href="/book/">
-                  <a className="link">book</a>
-                </Link>
+              <li>
+                <Link href="/blog/">blog</Link>
               </li>
             </ul>
           </nav>
@@ -37,5 +27,3 @@ const Header = (): JSX.Element => {
     </header>
   );
 };
-
-export default Header;

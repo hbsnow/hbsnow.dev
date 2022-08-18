@@ -1,19 +1,9 @@
-import React from "react";
+import { Container } from "../../cores/Container";
+import { Icon } from "../../cores/Icon";
+import { Link } from "../../cores/Link";
+import styles from "./styles.module.css";
 
-import Link from "next/link";
-
-import Container from "../../elements/container/Container";
-import Icon, { IconType } from "../../elements/icon/Icon";
-import ExternalLink from "../../elements/link/ExternalLink";
-import { ExternalLinkType } from "../../models/link";
-
-type SnsLink = Readonly<
-  {
-    label: string;
-  } & ExternalLinkType<IconType>
->;
-
-const sns: Readonly<SnsLink[]> = [
+const sns = [
   {
     name: "github",
     label: "GitHub",
@@ -24,40 +14,33 @@ const sns: Readonly<SnsLink[]> = [
     label: "Twitter",
     href: "https://twitter.com/hbsnow",
   },
-];
+] as const;
 
-const Footer = (): JSX.Element => {
+export const Footer = (): JSX.Element => {
   return (
-    <footer className="footer">
+    <footer className={styles.footer}>
       <Container>
-        <div className="footerContainer">
-          <div className="siteName">
-            <Link href="/">
-              <a className="link">hbsnow.dev</a>
-            </Link>
+        <div className={styles.footerContainer}>
+          <div className={styles.siteName}>
+            <Link href="/">hbsnow.dev</Link>
           </div>
 
-          <hr className="separator" />
+          <hr className={styles.separator} />
 
-          <ul className="snsList">
+          <div role="list" className={styles.snsList}>
             {sns.map((item) => (
-              <li className="snsListItem" key={item.href}>
-                <div className="snsIcon">
-                  <ExternalLink
-                    href={item.href}
-                    aria-label={item.label}
-                    disableVisited
-                  >
-                    <Icon name={item.name} />
-                  </ExternalLink>
-                </div>
-              </li>
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-label={item.label}
+                external
+              >
+                <Icon name={item.name} />
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
       </Container>
     </footer>
   );
 };
-
-export default Footer;

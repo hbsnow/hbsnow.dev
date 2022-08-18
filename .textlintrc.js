@@ -7,7 +7,9 @@ const config = {
     "ja-hiragana-hojodoushi": true,
     "ja-hiragana-keishikimeishi": true,
     "preset-ja-technical-writing": true,
-    "spellcheck-tech-word": true,
+    "@proofdict/proofdict": {
+      dictURL: "https://azu.github.io/proof-dictionary/",
+    },
   },
 };
 

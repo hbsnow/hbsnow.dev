@@ -1,0 +1,30 @@
+---
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { Container } from "@/cores/Container";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+// import type { Frontmatter } from "@/types/astro";
+// import { sortPostByCreatedAt } from "@/utils/sortPostByCreatedAt";
+
+// const unsortedPosts = await Astro.glob<Frontmatter>("./blog/*.md");
+// const posts = sortPostByCreatedAt(unsortedPosts).slice(0, 3);
+---
+
+<BaseLayout
+  seo={{
+    title: "hbsnow.dev",
+    description: "hbsnow の技術メモ置き場を兼ねた実験場",
+  }}
+>
+  <Header />
+
+  <main>
+    <Container>作成中</Container>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+
+</style>

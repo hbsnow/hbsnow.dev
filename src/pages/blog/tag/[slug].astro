@@ -1,0 +1,64 @@
+---
+import { BlogList } from "@/components/BlogList";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { Container } from "@/cores/Container";
+import { Heading } from "@/cores/Heading";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Frontmatter } from "@/types/astro";
+import { filterPostByTag } from "@/utils/filterPostByTag";
+import { isNonNull } from "@/utils/isNonNull";
+import { sortPostByCreatedAt } from "@/utils/sortPostByCreatedAt";
+
+export const getStaticPaths = async () => {
+  const unsortedPosts = await Astro.glob<Frontmatter>("../*.md");
+  const posts = sortPostByCreatedAt(unsortedPosts);
+  const tags = Array.from(
+    new Set(posts.flatMap((post) => post.frontmatter.tags))
+  );
+
+  return tags.map((tag) => ({ params: { slug: tag } }));
+};
+
+const { slug } = Astro.params;
+
+if (!isNonNull(slug)) {
+  throw new Error("slug が指定されていません。");
+}
+
+const unsortedPosts = await Astro.glob<Frontmatter>("../*.md");
+const posts = filterPostByTag(sortPostByCreatedAt(unsortedPosts), `${slug}`);
+---
+
+<BaseLayout
+  seo={{
+    title: `${slug} | hbsnow.dev`,
+    description: "hbsnow のブログ記事一覧。",
+  }}
+>
+  <Header />
+
+  <main>
+    <Container>
+      <Heading level={2}>
+        Tag: {slug}
+      </Heading>
+
+      <div class="posts">
+        <BlogList posts={posts} />
+      </div>
+    </Container>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  main {
+    padding: var(--s5) 0;
+  }
+
+  .posts {
+    margin: var(--s0) 0 0;
+  }
+</style>

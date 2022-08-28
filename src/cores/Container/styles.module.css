@@ -1,0 +1,8 @@
+.root {
+  box-sizing: content-box;
+  max-width: var(--container-size);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 3vw;
+  padding-right: 3vw;
+}

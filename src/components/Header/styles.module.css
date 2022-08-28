@@ -1,0 +1,20 @@
+.root {
+  background-color: var(--color-default-bg);
+  padding: var(--s-2) 0;
+}
+
+.heading {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+}
+
+.heading h1 {
+  font-size: var(--s0);
+}
+
+.slash,
+.pathname {
+  font-size: var(--s-1);
+  font-family: var(--font-family-heading);
+}

@@ -1,0 +1,140 @@
+---
+import clsx from "clsx";
+
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { TagList } from "@/components/TagList";
+import { Container } from "@/cores/Container";
+import type { TagType } from "@/cores/Icon";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { AstroMdProps } from "@/types/astro";
+import { formattedDate } from "@/utils/formattedDate";
+import { ogpImagePath } from "@/utils/ogpImagePath";
+
+export type Props = {
+  frontmatter: {
+    title: string;
+    description: string;
+    createdAt: string;
+    updatedAt?: string;
+    tags: TagType[];
+  };
+};
+
+const {
+  frontmatter: { title, description, createdAt, updatedAt, tags },
+} = Astro.props as AstroMdProps;
+const image = ogpImagePath("title");
+---
+
+<BaseLayout
+  seo={{
+    title: `${title} | hbsnow.dev`,
+    description,
+    openGraph: {
+      basic: { title, type: "website", image },
+      article: {
+        publishedTime: createdAt,
+        modifiedTime: updatedAt,
+      },
+      image: { alt: title },
+      optional: { title },
+    },
+    twitter: {
+      card: "summary",
+      site: "@hbsnow",
+    },
+  }}
+>
+  <Header paths={[{ name: "blog", href: "/blog" }]} />
+
+  <main>
+    <article>
+      <Container>
+        <header>
+          <div class="times">
+            <div
+              class={clsx("createdAt", {
+                disabled: !!updatedAt,
+              })}
+            >
+              <time aria-label="作成日" datetime={createdAt}>
+                {formattedDate(createdAt)}
+              </time>
+            </div>
+            {
+              updatedAt && (
+                <div class="updatedAt">
+                  <time aria-label="更新日" datetime={updatedAt}>
+                    {formattedDate(updatedAt)}
+                  </time>
+                </div>
+              )
+            }
+          </div>
+
+          <h1>{title}</h1>
+
+          <div class="tags">
+            <TagList tags={tags} />
+          </div>
+        </header>
+
+        <div class="content">
+          <slot />
+        </div>
+      </Container>
+    </article>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style>
+  article {
+    padding: var(--s5) 0;
+  }
+
+  h1 {
+    margin: 0;
+    margin-top: var(--s0);
+    line-height: var(--line-height-small);
+  }
+
+  .times {
+    display: flex;
+    gap: var(--s-2);
+  }
+
+  .createdAt,
+  .updatedAt {
+    font-size: var(--s-1);
+  }
+
+  .createdAt.disabled {
+    color: var(--color-default-text-muted);
+  }
+
+  .tags {
+    margin-top: var(--s0);
+  }
+
+  .content {
+    margin-top: var(--s5);
+  }
+
+  main > :global(article pre) {
+    margin-left: -3vw;
+    margin-right: -3vw;
+    padding: var(--s0) 3vw;
+  }
+
+  main > :global(article .responsiveTable) {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  main > :global(article .responsiveTable > table) {
+    width: 100%;
+    vertical-align: top;
+  }
+</style>

@@ -1,0 +1,76 @@
+---
+import "@/styles/preflight.css";
+import "dayjs/locale/ja";
+import { SEO } from "astro-seo";
+import dayjs from "dayjs";
+
+dayjs.locale("ja");
+
+export type Props = {
+  seo: Parameters<typeof SEO>[0] & {
+    title: Required<Parameters<typeof SEO>[0]>["title"];
+  };
+};
+
+const { seo } = Astro.props as Props;
+
+const seoProps: Props["seo"] = {
+  extend: {
+    meta: [
+      ...[
+        { name: "theme-color", content: "#fff" },
+        {
+          name: "viewport",
+          content: "width=device-width,minimum-scale=1,initial-scale=1",
+        },
+      ],
+      ...(seo?.extend?.meta ? seo.extend.meta : []),
+    ],
+    link: [
+      ...[
+        { rel: "manifest", href: "/site.webmanifest" },
+        {
+          rel: "icon",
+          type: "image/svg+xml",
+          sizes: "any",
+          href: "/assets/img/logo/icon.svg",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "256x256",
+          href: "/assets/img/logo/icon-256x256.png",
+        },
+        {
+          rel: "apple-touch-icon",
+          type: "image/png",
+          sizes: "256x256",
+          href: "/assets/img/logo/icon-256x256.png",
+        },
+        {
+          rel: "mask-icon",
+          color: "#335BC4",
+          href: "/assets/img/logo/mask.svg",
+        },
+        {
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Nunito:wght@700&amp;display=swap",
+        },
+      ],
+    ],
+  },
+  ...seo,
+};
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+
+    <SEO {...seoProps} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

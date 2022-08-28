@@ -1,0 +1,25 @@
+.heading {
+  font-family: "Nunito", var(--font-family-default);
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.heading:where(h1) {
+  font-size: var(--s3);
+}
+.heading:where(h2) {
+  font-size: var(--s2);
+}
+.heading:where(h3) {
+  font-size: var(--s1);
+}
+.heading:where(h4) {
+  font-size: var(--s0);
+}
+.heading:where(h5) {
+  font-size: var(--s-1);
+}
+.heading:where(h6) {
+  font-size: var(--s-2);
+}

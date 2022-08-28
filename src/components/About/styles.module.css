@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--s0);
+}
+
+.avatar {
+  background-color: var(--color-default-bg);
+  border-radius: 100%;
+  padding: var(--s0);
+  box-shadow: 0 0 var(--s-5) rgba(0, 0, 0, 0.2);
+}

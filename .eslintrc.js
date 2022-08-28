@@ -1,71 +1,50 @@
-/** @type {import('@typescript-eslint/experimental-utils').TSESLint.Linter.Config} */
+/** @type {import("eslint/lib/shared/types").ConfigData} */
 
 const config = {
-  extends: ["eslint:recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+  ],
   env: {
     browser: true,
-    node: true,
     es6: true,
+    node: true,
   },
-  parserOptions: {
-    ecmaVersion: 2020,
+  plugins: ["@typescript-eslint", "import"],
+  rules: {
+    "import/order": [
+      "error",
+      {
+        groups: ["builtin", "external", "internal"],
+        pathGroups: [
+          { pattern: "react", group: "external", position: "before" },
+        ],
+        pathGroupsExcludedImportTypes: ["react"],
+        "newlines-between": "always",
+        alphabetize: { order: "asc", caseInsensitive: true },
+      },
+    ],
   },
   overrides: [
     {
-      files: ["**/*.{ts,tsx}"],
+      files: ["*.{jsx,tsx}"],
       extends: [
-        "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier",
+        "plugin:react/jsx-runtime",
+        "plugin:react-hooks/recommended",
       ],
-      parser: "@typescript-eslint/parser",
-      settings: {
-        react: {
-          pragma: "React",
-          version: "detect",
-        },
-      },
+    },
+    {
+      files: ["*.astro"],
+      extends: ["plugin:astro/recommended"],
+      parser: "astro-eslint-parser",
       parserOptions: {
-        sourceType: "module",
-        project: "./tsconfig.json",
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-      plugins: ["@typescript-eslint", "react", "react-hooks", "import"],
-      rules: {
-        "no-unused-vars": "off",
-        "import/order": [
-          "error",
-          {
-            groups: ["builtin", "external", "internal"],
-            pathGroups: [
-              {
-                pattern: "react",
-                group: "external",
-                position: "before",
-              },
-            ],
-            pathGroupsExcludedImportTypes: ["react"],
-            "newlines-between": "always",
-            alphabetize: {
-              order: "asc",
-              caseInsensitive: true,
-            },
-          },
-        ],
-        "@typescript-eslint/no-unused-vars": "error",
-        "react/jsx-no-target-blank": "error",
-        "react/prop-types": "off",
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "error",
+        parser: "@typescript-eslint/parser",
+        extraFileExtensions: [".astro"],
       },
     },
   ],
-  globals: {
-    React: "writable",
-  },
 };
 
 module.exports = config;

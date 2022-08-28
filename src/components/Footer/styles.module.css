@@ -1,0 +1,6 @@
+.root {
+  text-align: center;
+  font-family: var(--font-family-heading);
+  font-size: var(--s-1);
+  padding: var(--s-2);
+}

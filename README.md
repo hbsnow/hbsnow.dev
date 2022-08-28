@@ -7,14 +7,5 @@ https://hbsnow.dev
 ## Run
 
 ```
-yarn dev
-
-# webpack のパフォーマンス計測をする場合
-MEASURE=true yarn build
-```
-
-## Update models
-
-```
-yarn build:model
+pnpm dev
 ```

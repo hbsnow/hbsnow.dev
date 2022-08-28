@@ -29,7 +29,7 @@ const image = ogpImagePath("title");
 
 <BaseLayout
   seo={{
-    title,
+    title: `${title} | hbsnow.dev`,
     description,
     openGraph: {
       basic: { title, type: "website", image },
@@ -37,6 +37,7 @@ const image = ogpImagePath("title");
         publishedTime: createdAt,
         modifiedTime: updatedAt,
       },
+      image: { alt: title },
     },
     twitter: {
       card: "summary",

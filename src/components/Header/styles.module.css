@@ -6,14 +6,15 @@
 .heading {
   display: flex;
   align-items: baseline;
-  font-size: var(--s0);
   gap: var(--s-2);
 }
 
-.slash {
-  font-size: var(--s-1);
+.heading h1 {
+  font-size: var(--s0);
 }
 
+.slash,
 .pathname {
   font-size: var(--s-1);
+  font-family: var(--font-family-heading);
 }

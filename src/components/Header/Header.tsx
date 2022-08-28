@@ -18,9 +18,10 @@ export const Header = (props: Props): JSX.Element => {
   return (
     <header className={styles.root}>
       <Container>
-        <Heading level={1} className={styles.heading}>
-          <Link href="/">hbsnow.dev</Link>
-
+        <div className={styles.heading}>
+          <Heading level={1}>
+            <Link href="/">hbsnow.dev</Link>
+          </Heading>
           {paths.map(({ name, href }) => {
             return (
               <Fragment key={name}>
@@ -35,7 +36,7 @@ export const Header = (props: Props): JSX.Element => {
               </Fragment>
             );
           })}
-        </Heading>
+        </div>
       </Container>
     </header>
   );

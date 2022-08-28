@@ -1,4 +1,6 @@
-import { Icon, TagType, tagList } from "./Icon";
+import { ColoredIcon } from "./ColoredIcon";
+import { SystemIcon } from "./SystemIcon";
+import { TagIcon, TagType, tagList } from "./TagIcon";
 
-export { Icon, tagList };
+export { ColoredIcon, SystemIcon, TagIcon, tagList };
 export type { TagType };

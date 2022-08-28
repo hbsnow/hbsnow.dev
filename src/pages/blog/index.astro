@@ -1,12 +1,12 @@
 ---
-import type { BlogFrontmatter } from "../../components/BlogList";
 import { BlogList } from "../../components/BlogList";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { Container } from "../../cores/Container";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import type { Frontmatter } from "../../types/astro";
 
-const unsortedPosts = await Astro.glob<BlogFrontmatter>("./*.md");
+const unsortedPosts = await Astro.glob<Frontmatter>("./*.md");
 const posts = unsortedPosts.sort((a, b) => {
   return (
     new Date(b.frontmatter.createdAt).valueOf() -
@@ -17,19 +17,23 @@ const posts = unsortedPosts.sort((a, b) => {
 
 <BaseLayout
   seo={{
-    title: "hbsnow.dev",
-    description: "hbsnow の技術メモ置き場を兼ねた実験場",
+    title: "Blog | hbsnow.dev",
+    description: "hbsnow のブログ記事一覧。",
   }}
 >
-  <Header />
+  <Header paths={[{ name: "blog" }]} />
 
   <main>
-    <section class="posts">
-      <Container>
-        <BlogList posts={posts} />
-      </Container>
-    </section>
+    <Container>
+      <BlogList posts={posts} />
+    </Container>
   </main>
 
   <Footer />
 </BaseLayout>
+
+<style>
+  main {
+    padding: var(--s5) 0;
+  }
+</style>

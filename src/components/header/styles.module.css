@@ -1,35 +1,19 @@
-.header {
-  padding: var(--s5) 0;
-  border-bottom: var(--border-thin) solid var(--color-default-divider);
-}
-.header a {
-  color: var(--color-primary);
-}
-
-.flex {
-  display: flex;
-  align-items: center;
-  gap: 0 var(--s0);
-}
-
-.flex > *:nth-child(2) {
-  margin-left: auto;
+.root {
+  background-color: var(--color-default-bg);
+  padding: var(--s-2) 0;
 }
 
 .heading {
-  font-size: var(--s1);
-}
-
-.navList {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: var(--s1);
+  align-items: baseline;
+  font-size: var(--s0);
+  gap: var(--s-2);
 }
 
-.navList > li {
-  display: block;
+.slash {
+  font-size: var(--s-1);
+}
+
+.pathname {
+  font-size: var(--s-1);
 }

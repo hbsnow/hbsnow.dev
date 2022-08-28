@@ -2,13 +2,13 @@ import { memo } from "react";
 
 import type { MarkdownInstance } from "astro";
 
-import type { BlogFrontmatter } from ".";
+import type { Frontmatter } from "../../types/astro";
 import { formattedDate } from "../../utils/formattedDate";
 import { PostCard } from "../PostCard";
 import styles from "./styles.module.css";
 
 type Props = {
-  posts: MarkdownInstance<BlogFrontmatter>[];
+  posts: MarkdownInstance<Frontmatter>[];
 };
 
 const Component = (props: Props): JSX.Element => {

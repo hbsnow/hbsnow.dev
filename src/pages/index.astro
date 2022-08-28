@@ -1,19 +1,10 @@
 ---
-import { Picture } from "@astrojs/image/components";
-
-import avatarImage from "../../public/assets/img/avatar/hbsnow.png";
-import type { BlogFrontmatter } from "../components/BlogList";
-import { BlogList } from "../components/BlogList";
 import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
+import { LinkCard } from "../cores/Card";
 import { Container } from "../cores/Container";
 import { Heading } from "../cores/Heading";
-import { Link } from "../cores/Link";
+import { ColoredIcon } from "../cores/Icon";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { sortPost } from "../utils/sortPost";
-
-const unsortedPosts = await Astro.glob<BlogFrontmatter>("./blog/*.md");
-const posts = sortPost(unsortedPosts).slice(0, 4);
 ---
 
 <BaseLayout
@@ -22,95 +13,81 @@ const posts = sortPost(unsortedPosts).slice(0, 4);
     description: "hbsnow の技術メモ置き場を兼ねた実験場",
   }}
 >
-  <Header />
+  <header>
+    <Heading level={1} className="heading"><span>hbsnow.dev</span></Heading>
+  </header>
 
   <main>
-    <section>
-      <Container>
-        <div class="about">
-          <div class="avatar">
-            <Picture
-              src={avatarImage}
-              sizes="256px"
-              widths={[256]}
-              aspectRatio="1:1"
-            />
-          </div>
-          <div class="description">
-            <p>札幌ではたらく Front End Developer です。</p>
-            <p>
-              このサイトは
-              <Link href="https://astro.build/" external>Astro</Link>
-              で作成し
-              <Link href="https://vercel.com/" external>Vercel</Link>
-              にデプロイしています。ソースコードは
-              <Link href="https://github.com/hbsnow/hbsnow.dev" external
-                >GitHub
-              </Link>
-              にて公開しています。
-            </p>
-          </div>
-        </div>
-      </Container>
-    </section>
+    <Container>
+      <!-- <About>
+        <Picture
+          src={avatarImage}
+          formats={["avif", "webp", "png"]}
+          widths={[224]}
+          sizes="100%"
+          alt="hbsnow"
+          aspectRatio="1:1"
+          class="avatar"
+        />
+      </About> -->
 
-    <section class="posts">
-      <Container>
-        <Heading level={2}>Latest Posts</Heading>
-
-        <div class="blogList">
-          <BlogList posts={posts} />
-        </div>
-      </Container>
-    </section>
+      <div role="list" class="menu">
+        <LinkCard href="/blog"
+          ><ColoredIcon name="blog" /><h2>Blog</h2>
+        </LinkCard>
+        <!-- <LinkCard href="/activity"
+          ><ColoredIcon name="activity" /><h2>Activity</h2>
+        </LinkCard> -->
+      </div>
+    </Container>
   </main>
 
   <Footer />
 </BaseLayout>
 
 <style>
-  p {
-    margin: calc(var(--s0)) 0 0;
-    padding: 0;
+  header {
+    padding: var(--s5);
   }
 
-  .about {
+  main {
+    position: relative;
+    padding-top: var(--s5);
+    padding-bottom: var(--s5);
+  }
+  main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--color-gradation);
+    filter: brightness(var(--color-gradation-brightness));
+    z-index: -1;
+  }
+
+  .heading {
+    text-align: center;
+  }
+  .heading > span {
+    background-image: var(--color-gradation);
+    background-clip: text;
+    color: transparent;
+  }
+
+  .menu {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: var(--s5) 0;
     gap: var(--s0);
   }
 
-  .avatar {
+  .menu > :global(*) {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-basis: 0;
-    flex-grow: 0;
-    min-width: 256px;
+    flex: 1 1 12rem;
+    gap: var(--s0);
   }
 
-  .description {
-    flex-basis: 0;
-    flex-grow: 1;
-    min-width: 20em;
-    background-color: var(--color-default-surface);
-    border-radius: var(--border-radius);
-    padding: var(--s2);
-  }
-
-  .description > p:nth-child(1) {
-    margin-top: 0;
-  }
-
-  .posts {
-    background-color: var(--color-default-surface);
-    padding: var(--s5) 0;
-  }
-
-  .blogList {
-    margin: calc(var(--s0)) 0 0;
+  .menu :global(h2) {
+    font-family: var(--font-family-heading);
+    margin: 0;
   }
 </style>

@@ -1,4 +1,4 @@
-.container {
+.root {
   box-sizing: content-box;
   max-width: var(--container-size);
   margin-left: auto;

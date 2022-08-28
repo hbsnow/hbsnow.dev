@@ -14,7 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "importsNotUsedAsValues": "error"
+    "importsNotUsedAsValues": "error",
+    "types": ["@astrojs/image/client"]
   },
   "exclude": ["node_modules"]
 }

@@ -2,9 +2,9 @@ import type { ComponentPropsWithoutRef } from "react";
 
 import clsx from "clsx";
 
-import { Chip } from "../../cores/Chip";
 import type { TagType } from "../../cores/Icon";
 import { Link } from "../../cores/Link";
+import { TagList } from "../TagList";
 import styles from "./styles.module.css";
 
 type Props = Readonly<
@@ -41,19 +41,8 @@ export const PostCard = (props: Props) => {
       <h2 className={styles.title} itemProp="headline">
         <Link href={url}>{title}</Link>
       </h2>
-      {tags.length > 0 && (
-        <div className={styles.tags}>
-          {tags.map((tag) => (
-            <Link
-              key={tag}
-              className={styles.tag}
-              href={`/blog/tag/${encodeURIComponent(tag)}`}
-            >
-              <Chip icon={tag}>{tag}</Chip>
-            </Link>
-          ))}
-        </div>
-      )}
+
+      <TagList tags={tags} />
     </div>
   );
 };

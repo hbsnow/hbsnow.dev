@@ -1,4 +1,4 @@
-export const sortPost = <
+export const sortPostByCreatedAt = <
   T extends {
     frontmatter: {
       createdAt: string;

@@ -1,20 +1,21 @@
 import type { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
-import { Icon, tagList, TagType } from "../Icon";
+import { TagIcon, tagList, TagType } from "../Icon";
+import { Link } from "../Link";
 import styles from "./styles.module.css";
 
 export type Props = Readonly<
   PropsWithChildren<{
     icon?: TagType;
   }> &
-    Omit<ComponentPropsWithoutRef<"div">, "className">
+    Omit<ComponentPropsWithoutRef<typeof Link>, "className">
 >;
 
 export const Chip = (props: Props): JSX.Element => {
   const { children, icon, ...rest } = props;
 
   return (
-    <div className={styles.root} {...rest}>
+    <Link className={styles.root} {...rest}>
       {icon ? (
         <span
           className={styles.icon}
@@ -23,13 +24,13 @@ export const Chip = (props: Props): JSX.Element => {
             color: tagList[icon],
           }}
         >
-          <Icon name={icon} width={16} height={16} />
+          <TagIcon name={icon} width={16} height={16} />
         </span>
       ) : (
         <span className={styles.spacer}></span>
       )}
       <span>{children}</span>
       <span className={styles.spacer}></span>
-    </div>
+    </Link>
   );
 };

@@ -1,54 +1,6 @@
-.footer {
-  position: relative;
-  background-color: var(--color-default-surface);
-  border-top: var(--border-thin) solid var(--color-default-divider);
-  padding: var(--s0);
-}
-
-.footer a {
-  color: var(--color-primary);
-}
-
-.footer::before {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  content: "";
-  z-index: -1;
-  background-color: var(--color-default-bg);
-  opacity: 0.6;
-}
-
-.footerContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.separator {
-  width: var(--border-thin);
-  height: var(--s1);
-  border: 0;
-  border-left: var(--border-thin) solid var(--color-default-divider);
-  margin: 0 var(--s-2);
-}
-
-.siteName {
-  padding: var(--s-2);
-}
-
-.snsList {
-  display: flex;
-  list-style: none;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.snsList > a {
-  display: flex;
-  align-items: center;
+.root {
+  text-align: center;
+  font-family: var(--font-family-heading);
+  font-size: var(--s-1);
   padding: var(--s-2);
 }

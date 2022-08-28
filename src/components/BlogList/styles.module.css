@@ -1,17 +1,8 @@
 .root {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: stretch;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   gap: var(--s0);
-}
-
-.root > * {
-  min-width: 16em;
-  min-height: 16em;
-  flex-basis: 0;
-  flex-grow: 1;
 }

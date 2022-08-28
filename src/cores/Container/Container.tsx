@@ -1,12 +1,15 @@
 import type { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
+import clsx from "clsx";
+
 import styles from "./styles.module.css";
 
 type Props = Readonly<
-  PropsWithChildren<unknown> &
-    Omit<ComponentPropsWithoutRef<"div">, "className">
+  PropsWithChildren<unknown> & ComponentPropsWithoutRef<"div">
 >;
 
 export const Container = (props: Props): JSX.Element => {
-  return <div className={styles.container} {...props} />;
+  const { className, ...rest } = props;
+
+  return <div className={clsx(className, styles.root)} {...rest} />;
 };

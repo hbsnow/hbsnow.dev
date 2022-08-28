@@ -6,9 +6,19 @@
   background-color: var(--color-default-surface);
   border: var(--border-thin) solid var(--color-default-divider);
   border-radius: 100vh;
+  color: var(--color-default-text);
   vertical-align: middle;
   gap: var(--s-3);
   padding: var(--border-thick);
+}
+.root:hover {
+  text-decoration: none;
+  border: var(--border-thin) solid var(--color-primary);
+}
+.root:hover,
+.root:focus {
+  outline: calc(var(--border-thick) - var(--border-thin)) solid
+    var(--color-primary);
 }
 
 .icon {
@@ -24,5 +34,5 @@
 }
 
 .spacer {
-  width: var(--s0);
+  width: var(--s-4);
 }

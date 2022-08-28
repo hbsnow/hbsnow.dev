@@ -1,18 +1,39 @@
 :root {
   font-size: calc(1em + 0.25vw);
   --color-default-bg: #fefefe;
-  --color-default-surface: rgba(32, 32, 32, 0.03);
+  --color-default-surface: #eeeeee;
   --color-default-text: rgba(0, 0, 0, 0.87);
   --color-default-text-muted: rgba(0, 0, 0, 0.54);
   --color-default-divider: rgba(0, 0, 0, 0.12);
-  --color-primary: #335bc4;
+  --color-primary: #4678f0;
   --color-primary-text: rgba(255, 255, 255, 0.87);
   --color-primary-variant-bg: #6f5571;
   --color-primary-variant-text: rgba(255, 255, 255, 0.87);
   --color-transparent: rgba(255, 255, 255, 0);
+  --color-gradation: linear-gradient(
+    45deg,
+    hsl(224deg 67% 56%) 0%,
+    hsl(208deg 100% 44%) 8%,
+    hsl(206deg 100% 46%) 15%,
+    hsl(204deg 100% 46%) 23%,
+    hsl(202deg 100% 46%) 31%,
+    hsl(200deg 100% 46%) 38%,
+    hsl(197deg 100% 45%) 46%,
+    hsl(194deg 100% 43%) 54%,
+    hsl(190deg 100% 42%) 62%,
+    hsl(186deg 100% 40%) 69%,
+    hsl(181deg 100% 38%) 77%,
+    hsl(176deg 100% 38%) 85%,
+    hsl(171deg 100% 39%) 92%,
+    hsl(167deg 100% 40%) 100%
+  );
+  --color-gradation-brightness: 1.1;
+  --color-gradation-text: rgba(255, 255, 255, 0.87);
   --font-family-default: sans-serif;
-  --font-family-code: "_", monospace;
-  --container-size: 36em;
+  --font-family-heading: "Nunito", var(--font-family-default);
+  --font-family-code: "Ricty", "Ricty Diminished", "HackGen", "PlemolJP",
+    "Source Han Code JP", "Inconsolata", monospace;
+  --container-size: 40em;
   --ratio: 1.25;
   --s-5: calc(var(--s-4) / var(--ratio));
   --s-4: calc(var(--s-3) / var(--ratio));
@@ -34,9 +55,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-default-bg: #2b2842;
+    --color-default-bg: #252525;
     --color-default-surface: rgba(255, 255, 255, 0.08);
-    --color-default-text: rgba(255, 255, 255, 0.87);
+    --color-default-text: rgba(232, 232, 232, 0.8);
     --color-default-text-muted: rgba(255, 255, 255, 0.49);
     --color-default-divider: rgba(255, 255, 255, 0.2);
     --color-primary: #70a5d4;
@@ -44,6 +65,7 @@
     --color-primary-variant-bg: #9c94a8;
     --color-primary-variant-text: rgba(0, 0, 0, 0.87);
     --color-transparent: rgba(0, 0, 0, 0);
+    --color-gradation-brightness: 0.8;
   }
 }
 
@@ -62,7 +84,7 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-/*
+
 h1,
 h2,
 h3,
@@ -70,27 +92,27 @@ h4,
 h5,
 h6 {
   font-weight: bold;
-  margin: calc(var(--s0) * 4) 0;
+  margin: var(--s0) 0;
   padding: 0;
 }
 
 h1 {
-  font-size: var(--s3);
-}
-h2 {
   font-size: var(--s2);
 }
-h3 {
+h2 {
   font-size: var(--s1);
 }
-h4 {
+h3 {
   font-size: var(--s0);
 }
-h5 {
+h4 {
   font-size: var(--s-1);
 }
-h6 {
+h5 {
   font-size: var(--s-2);
+}
+h6 {
+  font-size: var(--s-3);
 }
 
 p,
@@ -104,7 +126,7 @@ pre {
 
 ul,
 ol {
-  margin: 0 0 calc(var(--gap-size) * 2) calc(var(--gap-size) * 2);
+  margin: var(--s0) 0 0 var(--s0);
   padding: 0;
 }
 
@@ -112,11 +134,11 @@ ul ul,
 ul ol,
 ol ul,
 ol ol {
-  margin: 0 0 0 calc(var(--gap-size) * 2);
+  margin: 0 0 0 var(--s0);
 }
 
 li {
-  margin: 0 0 var(--gap-size / 2);
+  margin: 0;
   padding: 0;
 }
 
@@ -132,23 +154,22 @@ thead {
 th,
 td {
   border: 1px solid var(--color-default-divider);
-  padding: var(--gap-size);
+  padding: var(--s-2);
 }
 
 a {
-  display: inline-block;
   color: var(--color-primary);
   text-decoration: none;
 }
-a:hover {
+a:where(:hover) {
   text-decoration: underline;
 }
-a:visited {
+a:where(:visited) {
   color: var(--color-primary-variant-bg);
 }
-a[href^="#"]:visited,
-a[href="/"]:visited,
-a[href="/blog/"]:visited {
+a:where([href="/"]:visited),
+a:where([href="/blog"]:visited),
+a:where([href="/activity"]:visited) {
   color: var(--color-primary);
 }
 
@@ -158,6 +179,7 @@ svg {
 }
 
 pre {
+  line-height: var(--line-height-small);
   font-family: var(--font-family-code);
   font-size: 1em;
   overflow-wrap: break-word;
@@ -174,4 +196,4 @@ samp {
 
 i {
   font-style: normal;
-} */
+}

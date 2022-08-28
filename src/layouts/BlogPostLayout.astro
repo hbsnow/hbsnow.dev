@@ -1,15 +1,15 @@
 ---
 import clsx from "clsx";
 
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
-import { TagList } from "../components/TagList";
-import { Container } from "../cores/Container";
-import type { TagType } from "../cores/Icon";
-import type { AstroMdProps } from "../types/astro";
-import { formattedDate } from "../utils/formattedDate";
-import { ogpImagePath } from "../utils/ogpImagePath";
-import BaseLayout from "./BaseLayout.astro";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { TagList } from "@/components/TagList";
+import { Container } from "@/cores/Container";
+import type { TagType } from "@/cores/Icon";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { AstroMdProps } from "@/types/astro";
+import { formattedDate } from "@/utils/formattedDate";
+import { ogpImagePath } from "@/utils/ogpImagePath";
 
 export type Props = {
   frontmatter: {

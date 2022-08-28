@@ -1,14 +1,14 @@
 ---
-import { BlogList } from "../../../components/BlogList";
-import { Footer } from "../../../components/Footer";
-import { Header } from "../../../components/Header";
-import { Container } from "../../../cores/Container";
-import { Heading } from "../../../cores/Heading";
-import BaseLayout from "../../../layouts/BaseLayout.astro";
-import type { Frontmatter } from "../../../types/astro";
-import { filterPostByTag } from "../../../utils/filterPostByTag";
-import { isNonNull } from "../../../utils/isNonNull";
-import { sortPostByCreatedAt } from "../../../utils/sortPostByCreatedAt";
+import { BlogList } from "@/components/BlogList";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { Container } from "@/cores/Container";
+import { Heading } from "@/cores/Heading";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Frontmatter } from "@/types/astro";
+import { filterPostByTag } from "@/utils/filterPostByTag";
+import { isNonNull } from "@/utils/isNonNull";
+import { sortPostByCreatedAt } from "@/utils/sortPostByCreatedAt";
 
 export const getStaticPaths = async () => {
   const unsortedPosts = await Astro.glob<Frontmatter>("../*.md");

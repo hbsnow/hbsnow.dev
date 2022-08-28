@@ -8,6 +8,7 @@ import { Container } from "../cores/Container";
 import type { TagType } from "../cores/Icon";
 import type { AstroMdProps } from "../types/astro";
 import { formattedDate } from "../utils/formattedDate";
+import { ogpImagePath } from "../utils/ogpImagePath";
 import BaseLayout from "./BaseLayout.astro";
 
 export type Props = {
@@ -23,9 +24,26 @@ export type Props = {
 const {
   frontmatter: { title, description, createdAt, updatedAt, tags },
 } = Astro.props as AstroMdProps;
+const image = ogpImagePath("title");
 ---
 
-<BaseLayout seo={{ title, description }}>
+<BaseLayout
+  seo={{
+    title,
+    description,
+    openGraph: {
+      basic: { title, type: "website", image },
+      article: {
+        publishedTime: createdAt,
+        modifiedTime: updatedAt,
+      },
+    },
+    twitter: {
+      card: "summary",
+      site: "@hbsnow",
+    },
+  }}
+>
   <Header paths={[{ name: "blog", href: "/blog" }]} />
 
   <main>

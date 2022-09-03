@@ -5,21 +5,10 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { TagList } from "@/components/TagList";
 import { Container } from "@/cores/Container";
-import type { TagType } from "@/cores/Icon";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { AstroMdProps } from "@/types/astro";
 import { formattedDate } from "@/utils/formattedDate";
 import { ogpImagePath } from "@/utils/ogpImagePath";
-
-export type Props = {
-  frontmatter: {
-    title: string;
-    description: string;
-    createdAt: string;
-    updatedAt?: string;
-    tags: TagType[];
-  };
-};
 
 const {
   frontmatter: { title, description, createdAt, updatedAt, tags },
@@ -124,9 +113,10 @@ const image = ogpImagePath("title");
   }
 
   main > :global(article pre) {
-    margin-left: -3vw;
-    margin-right: -3vw;
-    padding: var(--s0) 3vw;
+    border-radius: var(--border-radius);
+    margin-left: -2vw;
+    margin-right: -2vw;
+    padding: var(--s0) 2vw;
   }
 
   main > :global(article .responsiveTable) {
@@ -136,5 +126,63 @@ const image = ogpImagePath("title");
   main > :global(article .responsiveTable > table) {
     width: 100%;
     vertical-align: top;
+  }
+  main > :global(article .rlc-container) {
+    display: flex;
+    flex-wrap: wrap;
+    border: var(--border-thin) solid var(--color-default-divider);
+    border-radius: var(--border-radius);
+    margin-top: var(--s0);
+    margin-left: -2vw;
+    margin-right: -2vw;
+    padding: var(--s0) 2vw;
+    gap: var(--s0);
+  }
+
+  main > :global(article .rlc-container > .rlc-info) {
+    display: flex;
+    min-width: 18rem;
+    flex-direction: column;
+    flex-basis: 0;
+    flex-grow: 999;
+    order: 2;
+  }
+
+  main > :global(article .rlc-container > .rlc-info > .rlc-title) {
+    line-height: var(--line-height-small);
+  }
+
+  main > :global(article .rlc-container > .rlc-info > .rlc-description) {
+    display: none;
+  }
+  main > :global(article .rlc-container > .rlc-info > .rlc-url-container) {
+    display: flex;
+    align-items: center;
+    font-size: var(--s-1);
+    margin-top: auto;
+    gap: var(--s-5);
+  }
+
+  main
+    > :global(article
+      .rlc-container
+      > .rlc-info
+      > .rlc-url-container
+      > .rlc-url) {
+    max-width: 80vw;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  main > :global(article .rlc-container > .rlc-image-container) {
+    flex-basis: 12rem;
+    flex-grow: 1;
+    order: 1;
+  }
+
+  main > :global(article .rlc-container > .rlc-image-container > .rlc-image) {
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
   }
 </style>

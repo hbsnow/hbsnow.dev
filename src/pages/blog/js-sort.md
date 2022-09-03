@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: JavaScript でオブジェクトの配列を sort をする
 tags: [javascript]
 description: JavaScript でオブジェクトの配列を sort をする方法。
@@ -204,7 +204,7 @@ const sortedItems = sortBy(items, (item) => {
 
 プロジェクトによっては自分の判断でライブラリをインストールできない場合もあるので、そういったときには sort を使う必要がでてきます。
 
-最初に書いたように JavaScript の sort は破壊的ソートなので、直接配列を sort できません。そのため name の昇順は下記のように記述する必要があります。
+最初に書いたように JavaScript の sort は破壊的ソートなので、直接配列を sort できません。そのため name の昇順は次のように記述する必要があります。
 
 ```js
 const sortedItems = [...items].sort((a, b) => (a.name < b.name ? -1 : 1));
@@ -228,7 +228,7 @@ const sortedItems = [...items].sort((a, b) => (a.amount < b.amount ? -1 : 1));
 
 これは `undefined` の比較が発生してしまうため正しくソートされません。
 
-ただしくソートするためには、下記のようなコードを書く必要があります。
+ただしくソートするためには、次のようなコードを書く必要があります。
 
 ```js
 const sortedItems = [...items].sort((a, b) => {

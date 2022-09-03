@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: JSON-LD による構造化データ
 tags: [amp]
 description: JSON-LD による構造化データの記述方法についての解説。
@@ -17,7 +17,7 @@ JSON-LD にはいくつかの keyword がありますが、ここで紹介して
 
 `@context` は JSON-LD 全体で使用される省略名を定義するために使用します。
 
-例えば、下記の JSON-LD は同じ長い文字列が繰り返し出現しています。
+例えば、次の JSON-LD は同じ長い文字列が繰り返し出現しています。
 
 ```json
 {
@@ -150,7 +150,7 @@ AMP で JSON-LD を使用する場合には、いくつかの記述が必須と�
 }
 ```
 
-`image` には以下の条件があります。
+`image` には次の条件があります。
 
 | 内容     | 制限          |
 | -------- | ------------- |

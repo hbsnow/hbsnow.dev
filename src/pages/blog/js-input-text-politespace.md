@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: 文字数によって区切りのあるテキストフォームを作る
 tags: [react, javascript]
 description: 文字数によって区切りのあるテキスト用のフォームを作成します。
@@ -7,7 +7,7 @@ createdAt: 2020-06-06
 updatedAt: 2020-08-06
 ---
 
-タイトルだと少しわかりにくいですが、下記の画像を見ていただければ伝わるはずです。クレジットカードの入力でみかけることが多いでしょうか。
+タイトルだと少しわかりにくいですが、次の画像を見ていただければ伝わるはずです。クレジットカードの入力でみかけることが多いでしょうか。
 
 ![4つごとに空白のあるテキスト入力フォーム](/assets/img/posts/js-input-text-politespace/sample.png)
 
@@ -17,7 +17,7 @@ UX が向上しそうなのですが日本語圏ではかな入力時になに�
 
 ## Cleave.js を使う
 
-- [Cleave.js](https://github.com/nosir/cleave.js/)
+- https://github.com/nosir/cleave.js/
 
 上記のライブラリを使えば特に問題なく実装できそうです。
 

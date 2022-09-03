@@ -5,14 +5,10 @@ import { Header } from "@/components/Header";
 import { Container } from "@/cores/Container";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Frontmatter } from "@/types/astro";
+import { sortPostByCreatedAt } from "@/utils/sortPostByCreatedAt";
 
 const unsortedPosts = await Astro.glob<Frontmatter>("./*.md");
-const posts = unsortedPosts.sort((a, b) => {
-  return (
-    new Date(b.frontmatter.createdAt).valueOf() -
-    new Date(a.frontmatter.createdAt).valueOf()
-  );
-});
+const posts = sortPostByCreatedAt(unsortedPosts);
 ---
 
 <BaseLayout

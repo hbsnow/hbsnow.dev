@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: 快適なターミナル環境を整備する
 tags: [shell]
 description: 快適なターミナル環境を整備する
@@ -48,7 +48,7 @@ Prezto の設定は `~/.zpreztorc` にあり、デフォルトだと [`syntax-hi
 - [autosuggestions](https://github.com/sorin-ionescu/prezto/tree/master/modules/autosuggestions)
 - [history-substring-search](https://github.com/sorin-ionescu/prezto/tree/master/modules/history-substring-search)
 
-私は上記のモジュールも有効にしていて、最終的には以下のモジュールを読み込ませています。
+私は上記のモジュールも有効にしていて、最終的には次のモジュールを読み込ませています。
 
 ```
 zstyle ':prezto:load' pmodule \

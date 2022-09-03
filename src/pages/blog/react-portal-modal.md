@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: React の portal を使ってスタック可能なモーダルを作成する
 tags: [react]
 description: React の portal を使ってスタック可能なモーダルを作成する。
@@ -52,11 +52,11 @@ export default Modal;
 
 ## モーダルをスタックさせる
 
-モーダルをスタックさせるには、どこかでモーダルとその順序を持つ配列を何らかの形でもつ必要があります。
+モーダルをスタックさせるには、どこかでモーダルとその順序をもつ配列を何らかの形でもつ必要があります。
 
 [store に React のコンポーネントをそのまま配列に入れて順番を保持する](https://github.com/reduxjs/redux/issues/1248)ようなことは推奨されていません。
 
-なので、モーダル用の props をつくってそれを配列として持つか、そういったことも難しいようであれば Enum とか Union 型を props で渡して条件分岐させる方法が考えられます。ここのサンプルでは後者を採用しました。
+なので、モーダル用の props をつくってそれを配列としてもつか、そういったことも難しいようであれば Enum とか Union 型を props で渡して条件分岐させる方法が考えられます。ここのサンプルでは後者を採用しました。
 
 ```tsx
 import React, { useContext } from 'react'
@@ -134,7 +134,7 @@ export const reducer = (state: StateType, action): StateType => {
 
 ## モーダルを呼び出す
 
-モーダルを呼び出すには以下のような感じで dispatch するだけです。
+モーダルを呼び出すには次のように dispatch するだけです。
 
 ```tsx
 import React, { useContext } from "react";

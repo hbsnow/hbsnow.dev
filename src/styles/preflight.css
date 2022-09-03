@@ -2,7 +2,7 @@
   font-size: calc(1em + 0.25vw);
   --color-default-bg: #fefefe;
   --color-default-surface: #eeeeee;
-  --color-default-text: rgba(0, 0, 0, 0.87);
+  --color-default-text: rgba(0, 0, 0, 0.78);
   --color-default-text-muted: rgba(0, 0, 0, 0.54);
   --color-default-divider: rgba(0, 0, 0, 0.12);
   --color-primary: #4678f0;
@@ -144,7 +144,7 @@ li {
 
 table {
   border-collapse: collapse;
-  border: 1px solid var(--color-default-divider);
+  border: var(--border-thin) solid var(--color-default-divider);
 }
 
 thead {
@@ -153,7 +153,7 @@ thead {
 
 th,
 td {
-  border: 1px solid var(--color-default-divider);
+  border: var(--border-thin) solid var(--color-default-divider);
   padding: var(--s-2);
 }
 

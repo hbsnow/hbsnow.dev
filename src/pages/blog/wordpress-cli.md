@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: WP-CLI まとめ
 tags: [wordpress]
 description: WordPress の CLI である WP-CLI の使いそうな機能をまとめました。
@@ -76,7 +76,7 @@ wp rewrite flush
 wp post-type list
 ```
 
-テーマ名を指定すると標準出力ではなく、指定テーマの `post-types` にファイルが生成されます。このコマンドはファイルを生成するだけであるため、実行するためには `functions.php` に以下のようなコードを記述する必要があります。
+テーマ名を指定すると標準出力ではなく、指定テーマの `post-types` にファイルが生成されます。このコマンドはファイルを生成するだけであるため、実行するためには `functions.php` に次のようなコードを記述する必要があります。
 
 ```php
 require get_template_directory() . '/post-types/<post-types>.php';
@@ -102,7 +102,7 @@ wp term create <taxonomy-slug> <term> --slug=<term-slug> --description=<descript
 wp term list <taxonomy-slug>
 ```
 
-scaffold はテーマ名を指定すると標準出力ではなく、指定テーマの `taxonomies` にファイルが生成されます。このコマンドはファイルを生成するだけであるため、実行するためには `functions.php` に以下のようなコードを記述する必要があります。
+scaffold はテーマ名を指定すると標準出力ではなく、指定テーマの `taxonomies` にファイルが生成されます。このコマンドはファイルを生成するだけであるため、実行するためには `functions.php` に次のようなコードを記述する必要があります。
 
 ```php
 require get_template_directory() . '/taxonomies/<taxonomy-slug>.php';

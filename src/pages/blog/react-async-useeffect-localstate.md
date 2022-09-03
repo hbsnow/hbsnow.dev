@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: useEffect 内の非同期処理で local state を変更するときの注意点
 tags: [react]
 description: useEffect 内の非同期処理で local state を変更するとき、コンポーネントがマウントされているかのチェックが必要になる。
@@ -8,7 +8,7 @@ createdAt: 2020-11-29
 
 ## メモリリークで怒られるパターン
 
-`useEffect` 内で非同期処理を書くと以下のようなエラーで怒られることがあります。
+`useEffect` 内で非同期処理を書くと次のようなエラーで怒られることがあります。
 
 ```
 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
@@ -106,9 +106,9 @@ useEffect(() => {
 
 ## レースコンディションで思った値と別の値になるパターン
 
-レースコンディションで起こる問題については以下の記事が詳しいです。
+レースコンディションで起こる問題については次の記事が詳しいです。
 
-- [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
+https://overreacted.io/a-complete-guide-to-useeffect/
 
 ただし、例えば叩いた回数を返す API があり、その結果を表示させるような場合。その API を連読で叩き、一度目の API 呼び出しの結果が二度目の API の戻りよりも遅れて返ってきた場合、`isMounted()` で判定するだけでは意図しない結果が表示されてしまいます。
 
@@ -156,7 +156,7 @@ export const Todo: React.FC = () => {
 };
 ```
 
-これを react-use の [`useAsyncFn`](https://github.com/streamich/react-use/blob/master/docs/useAsyncFn.md) で書き換えると以下のようにすっきりと記述できます。
+これを react-use の [`useAsyncFn`](https://github.com/streamich/react-use/blob/master/docs/useAsyncFn.md) で書き換えると次のようにすっきりと記述できます。
 
 ```tsx
 import React, { useEffect } from "react";

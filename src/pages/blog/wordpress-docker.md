@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: Docker による WordPress のローカル開発環境構築
 tags: [wordpress, docker]
 description: Docker で WordPress のローカル開発環境を構築する。
@@ -13,7 +13,7 @@ WordPress の環境構築には [VCCW](https://github.com/vccw-team/vccw) とい
 
 制作物は以下になります。
 
-- [hbsnow/wordpress-docker](https://github.com/hbsnow/wordpress-docker)
+https://github.com/hbsnow/wordpress-docker
 
 ## とりあえず動かす
 

@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: WordPress のカスタム投稿とカスタムタクソノミー、カスタムフィールドを作成する
 tags: [wordpress]
 description: WordPress のカスタム投稿とカスタムタクソノミー、カスタムフィールドを作成する。
@@ -39,7 +39,7 @@ wp scaffold post-type item --theme=example --label="Item"
 | `rest_base`             | REST API で使用される slug。初期値は `<pot-type>`                                                                                                                                                                                            |
 | `rest_controller_class` | REST API コントローラーのクラス名。初期値は `'WP_REST_Posts_Controller'`                                                                                                                                                                     |
 
-すべての設定は下記のリンク先に記載されています。
+すべての設定は次のリンク先に記載されています。
 
 - [register_post_type()](https://developer.wordpress.org/reference/functions/register_post_type/)
 
@@ -184,7 +184,7 @@ SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts
   LIMIT 0, 10
 ```
 
-先ほどの AND 検索の方法では、下記のような SQL が叩かれることになります。
+先ほどの AND 検索の方法では、次のような SQL が叩かれることになります。
 
 ```sql
 SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts
@@ -248,7 +248,7 @@ add_filter(
 
 上記のコードは [Search WordPress by Custom Fields without a Plugin](https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/) を参考にしています。
 
-これによって以下のように SQL が書き換わります。
+これによって次のように SQL が書き換わります。
 
 ```sql
 SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts

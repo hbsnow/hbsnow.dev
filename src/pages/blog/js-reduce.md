@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: reduce の使いどころ
 tags: [javascript]
 description: JavaScript の reduce の使いどころについて。
@@ -9,7 +9,7 @@ updatedAt: 2020-05-30
 
 ## まとめ
 
-- 使う場面は以下の二点
+- 使う場面は次の二点
   - 配列の合計を計算する
   - オブジェクトの配列から最大、最小値をもつオブジェクトを取得する
 - ループとして使わないようにする
@@ -30,7 +30,7 @@ updatedAt: 2020-05-30
 [3, 7, 1, 2].reduce((accumulator, currentValue) => accumulator + currentValue); // => 13
 ```
 
-こういった単純な一次配列を合計できるし、以下のようなオブジェクトの特定プロパティの総数を数えることもできます。
+こういった単純な一次配列を合計できるし、次のようなオブジェクトの特定プロパティの合計を求めることもできます。
 
 ```js
 const cart = [
@@ -89,7 +89,7 @@ const items = [
 ];
 ```
 
-このような配列から `taxRate` ごとに集計をとりたくなったときには、以下のように記述できます。
+このような配列から `taxRate` ごとに集計をとりたくなったときには、次のように記述できます。
 
 ```js
 const groupByTaxRate = (items) => {
@@ -109,7 +109,7 @@ const groupByTaxRate = (items) => {
 };
 ```
 
-`groupByTaxRate(items)` の出力結果は以下の通り。
+`groupByTaxRate(items)` の出力結果は次の通り。
 
 ```
 [
@@ -171,7 +171,7 @@ console.log(
 
 ## reduce を使うべきか
 
-- [Is reduce() bad? - HTTP 203](https://www.youtube.com/watch?v=qaGjS7-qWzg)
+https://www.youtube.com/watch?v=qaGjS7-qWzg
 
 [Jake Archibald が Twitter で reduce について言及して](https://twitter.com/jaffathecake/status/1213077702300852224) 少し話題になっていて、自分も考えさせられました。合計や最大値を求めるといった以外のループとしての用途で使うことってそれなりにあるんですよね。
 

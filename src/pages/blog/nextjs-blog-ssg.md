@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: Next.js の SSG で AMP-only のブログを作った
 tags: [nextjs, amp]
 description: Next.js の SSG で AMP-only のブログを作ったのでそのメモ。
@@ -32,9 +32,9 @@ mdx の場合、あまり考えずに [Next.js のリポジトリにある examp
 
 ### ブログ記事一覧
 
-ブログの記事一覧の取得は下記のサイトが参考になります。
+ブログの記事一覧の取得は次のサイトが参考になります。
 
-- [Creating a Markdown Blog with Next.js](https://dev.to/tinacms/creating-a-markdown-blog-with-next-js-52hk)
+https://dev.to/tinacms/creating-a-markdown-blog-with-next-js-52hk
 
 ```ts
 export type BlogType = {
@@ -58,7 +58,7 @@ export const loadBlogList = (): BlogType[] => {
 };
 ```
 
-`JSON.parse(JSON.stringify(blogList))` の部分は Date 型を string に変換しています。これをしないと下記のようなエラーが発生します。
+`JSON.parse(JSON.stringify(blogList))` の部分は Date 型を string に変換しています。これをしないと次のようなエラーが発生します。
 
 ```
 SerializableError: Error serializing `.blogList[0].createdAt` returned from `getStaticProps` in "/".
@@ -67,7 +67,7 @@ Reason: `object` ("[object Date]") cannot be serialized as JSON. Please only ret
 
 これについては[いくつか issue](https://github.com/zeit/next.js/issues/11993) もあるため、とりあえず現状はしばらくこの対応で保留してあります。
 
-`matter.GrayMatterFile<string>['data']` には YAML front matter のデータが含まれ、特定のタグを持つ一覧ページを作るための配列を作成できます。
+`matter.GrayMatterFile<string>['data']` には YAML front matter のデータが含まれ、特定のタグをもつ一覧ページを作るための配列を作成できます。
 
 ### ブログ記事
 
@@ -93,7 +93,7 @@ const Heading: FC<Props> = ({ level = 1, children, ...rest }) => {
 };
 ```
 
-[react-children-utilities](https://github.com/fernandopasik/react-children-utilities) の `onlyText` で `children` からテキストを取得して slug 用に変換しています。しかし、このまま使うと以下のようにエラーとなります。
+[react-children-utilities](https://github.com/fernandopasik/react-children-utilities) の `onlyText` で `children` からテキストを取得して slug 用に変換しています。しかし、このまま使うと次のようにエラーとなります。
 
 ```
 Unhandled Runtime Error
@@ -118,9 +118,9 @@ Failed to compile
 Module not found: Can't resolve 'fs' in '/PATH/TO/...'
 ```
 
-これについては下記の Issue についているコメントが参考になります。
+これについては次の Issue についているコメントが参考になります。
 
-- [Module not found: Can't resolve 'fs' #7755](https://github.com/zeit/next.js/issues/7755#issuecomment-508633125)
+https://github.com/zeit/next.js/issues/7755#issuecomment-508633125
 
 ## contentful で所持している本の一覧を作る
 
@@ -172,7 +172,7 @@ JSON-LD の出力には [next-seo](https://github.com/garmeeh/next-seo) を使�
 
 ## CSS
 
-最初は emotion を採用していたのですが、以下のエラーが発生しました。
+最初は emotion を採用していたのですが、次のエラーが発生しました。
 
 ```
 /  error  The parent tag of tag 'style amp-custom (transformed)' is 'body', but it can only be 'head'.  https://amp.dev/documentation/guides-and-tutorials/learn/spec/amphtml#stylesheets
@@ -196,7 +196,7 @@ JSON-LD の出力には [next-seo](https://github.com/garmeeh/next-seo) を使�
 
 ## sitemap.xml
 
-- [[Feature Request] native static sitemaps #12354](https://github.com/vercel/next.js/issues/12354)
+https://github.com/vercel/next.js/issues/12354
 
 上記の Isuue にあるようにそのうちなにか簡単に実装できるかなともおもいましたが、なにもないというのも若干不安だったのでとりあえず暫定的に出力できるようにしておきました。
 

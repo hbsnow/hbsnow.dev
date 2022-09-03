@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: 固定のヘッダーがアンカー先コンテンツを隠してしまう問題
 tags: [css]
 description: 固定のヘッダーがあるときのページ内リンクで、アンカー先コンテンツを隠してしまう問題の解決策。
@@ -18,7 +18,7 @@ JavaScript での実装は説明が不要なのでここでは省略します。
 
 実際のリンク先に ID を付与するのではなく空の別の要素を置いておいて、それを絶対配置で飛ばしておく方法になります。
 
-- [Next.js](https://nextjs.org/)
+https://nextjs.org/
 
 ```css
 .docs .heading > span[id] {
@@ -36,7 +36,7 @@ JavaScript での実装は説明が不要なのでここでは省略します。
 
 疑似要素を使って、上方向に領域を確保しておく方法。
 
-- [web.dev](https://web.dev/)
+https://web.dev/
 
 ```css
 *:not([href])[id]::before {
@@ -53,9 +53,9 @@ JavaScript での実装は説明が不要なのでここでは省略します。
 
 ## 4. target 擬似クラスで領域を確保する
 
-かなりスマートな方法。
+とてもスマートな方法。
 
-- [blog.jxck.io](https://blog.jxck.io/)
+https://blog.jxck.io/
 
 ```css
 h2:target,
@@ -84,6 +84,4 @@ IE11 のおかげで、この挙動の完全なサポートが必要になるの
 
 ### scroll-padding-top がまれに正しく動作しない
 
-AMP ページの場合多くはただしく動作するのですが、ごくまれに `padding` を確保してくれないことがあります。最初のうちは `scroll-padding-top` のバグかと思ったのですが、クリックイベント自体を削除してみるとただしく動作したので AMP が原因のようです。
-
-ということなので、AMP のページでも `scroll-padding-top` を使うのは控えたほうが良さそう。
+AMP ページの場合多くはただしく動作するのですが、ごくまれに `padding` を確保してくれないことがあります。最初のうちは `scroll-padding-top` のバグかと思ったのですが、クリックイベント自体を削除してみるとただしく動作したので AMP が原因のようでした。

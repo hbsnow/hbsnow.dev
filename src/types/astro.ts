@@ -10,9 +10,10 @@ export type Frontmatter = {
   updatedAt?: string;
 };
 
-export type AstroMdProps<T = Frontmatter> = {
+export type AstroMdProps<T extends Frontmatter = Frontmatter> = {
   frontmatter: T;
   content: T;
+  url: string;
   headings: MarkdownHeading[];
   rawContent: MarkdownInstance<T>["rawContent"];
   compiledContent: MarkdownInstance<T>["compiledContent"];

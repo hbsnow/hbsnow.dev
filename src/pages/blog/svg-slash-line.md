@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: 斜線を含む SVG のコンポーネントを作成する
 tags: [svg, react]
 description: 斜線を含む SVG のコンポーネントを作成する方法。
@@ -52,13 +52,13 @@ export const Triangle: React.FC<Props> = (props) => {
 };
 ```
 
-このコンポーネントを表示させると、以下のような斜線部分の太い三角形になってしまいます。
+このコンポーネントを表示させると、次のような斜線部分の太い三角形になってしまいます。
 
 ![斜線の太い三角形](/assets/img/posts/svg-slash-line/triangle-1.png)
 
 これは斜線が太くなったわけではなく、直線部分が viewBox からはみ出てしまったため欠けている状態になっていることが原因です。viewBox を少し大きくしてみると、期待する図形が表示されることを確認できます。
 
-これは SVG の path の stroke が path の中心から描かれることが原因です。stroke は path の内側や外側を通るような指定をすることが今のところできません。つまり線の欠けない正しい path にするためには、以下のようなコードにする必要があります。
+これは SVG の path の stroke が path の中心から描かれることが原因です。stroke は path の内側や外側を通るような指定をすることが今のところできません。つまり線の欠けない正しい path にするためには、次のようなコードにする必要があります。
 
 ```tsx
 const d = useMemo(() => {

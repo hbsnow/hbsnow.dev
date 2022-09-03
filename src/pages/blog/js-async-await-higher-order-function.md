@@ -1,5 +1,5 @@
 ---
-layout: "../../layouts/BlogPostLayout.astro"
+layout: "@/layouts/BlogPostLayout.astro"
 title: async/await を forEach で使ったらハマった話
 tags: [javascript]
 description: JavaScript の async/await を forEach で使ったらハマった話を社内で発表したので、発表内容に関する資料。
@@ -7,11 +7,11 @@ createdAt: 2019-04-14
 updatedAt: 2019-04-21
 ---
 
-- [JavaScript の async/await を forEach で使ったらハマった話](https://hackmd.io/UsWcutr_RGyh1wKYcZOdIA)
+https://hackmd.io/UsWcutr_RGyh1wKYcZOdIA
 
 上記のスライドを社内で発表したのでそのときのまとめです。サンプルコードは下記にあります。
 
-- [hbsnow-sandbox/js-async-await](https://github.com/hbsnow-sandbox/js-async-await)
+https://github.com/hbsnow-sandbox/js-async-await
 
 ## 前提
 

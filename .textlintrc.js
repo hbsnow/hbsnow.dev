@@ -6,7 +6,11 @@ const config = {
     "ja-hiragana-fukushi": true,
     "ja-hiragana-hojodoushi": true,
     "ja-hiragana-keishikimeishi": true,
-    "preset-ja-technical-writing": true,
+    "preset-ja-technical-writing": {
+      "sentence-length": {
+        max: 150,
+      },
+    },
     "@proofdict/proofdict": {
       dictURL: "https://azu.github.io/proof-dictionary/",
     },

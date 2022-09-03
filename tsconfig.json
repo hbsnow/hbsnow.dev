@@ -15,7 +15,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "importsNotUsedAsValues": "error",
-    "types": ["@astrojs/image/client"],
+    "types": ["@astrojs/image/client", "vite/client"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]

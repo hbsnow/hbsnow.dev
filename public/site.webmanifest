@@ -12,18 +12,18 @@
       "type": "image/png"
     },
     {
-      "src": "/assets/img/logo/icon-256x256.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },
-    {
       "src": "/assets/img/logo/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/assets/img/logo/favicon.svg",
+      "src": "/assets/img/logo/icon.svg",
       "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/img/logo/mask.svg",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }

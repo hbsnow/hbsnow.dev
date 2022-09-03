@@ -6,7 +6,7 @@ description: Next.js で SSG していたブログを Astro を使って作り�
 createdAt: 2022-09-03
 ---
 
-[クラスメソッド入社して以来 DeveloperIO にブログを書くようになった](https://dev.classmethod.jp/author/takahashi-yuki/)ため、このブログに記事を書くことがなくなりましたが、最近 [Astro が 1.0 になった](https://astro.build/blog/astro-1/)ので作り直してみることにしました。
+[クラスメソッドに入社して以来 DeveloperIO にブログを書くようになった](https://dev.classmethod.jp/author/takahashi-yuki/)ため、このブログに記事を書くことがなくなりましたが、最近 [Astro が 1.0 になった](https://astro.build/blog/astro-1/)ので作り直してみることにしました。
 
 またこの記事は Astro の機能を網羅的に紹介するものではなく、作成時において気になった点を記録しておくものです。そのため Astro がどういったものかを知るために、まずは[公式のドキュメント](https://astro.build/)を参照ください。
 
@@ -17,8 +17,6 @@ createdAt: 2022-09-03
 そのため記事のデータは Web の API で取得するようなものではなく、ローカルの Markdown のファイルからビルドするという形をとっています。それを Next.js でやろうとすると、意外と自分で結構な量のコードを書かないといけないのでメンテナンスが面倒です。
 
 Astro であれば、`page` ディレクトリ内に `.md` または `.mdx` ファイルを置くだけで自動的にページのルートが構築されるため、これがもっとも大きな移行動機になります。
-
-## Astro を使う動機
 
 [ドキュメントを見ながら](https://docs.astro.build/en/getting-started/)進めれば困ることはありません。今回は pnpm を使いましたが特にトラブルもありませんでした。
 
@@ -102,4 +100,4 @@ Astro Integrations を使えば Blog にほしい機能は簡単に追加がで�
 - [@astrojs/sitemap - sitemap.xml](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
 - [@astrojs/rss - RSS](https://docs.astro.build/en/guides/rss/)
 
-ただし RSS は少し使いにくく、自分で素朴に `import.meta.glob` を使って生成するコードを追加して @astrojs/rss は使いませんでした。具体的に使いにくかったのは frontmatter で投稿日を `pubDate` が必須になっていることです。
+ただし RSS は少し使いにくく、自分で素朴に `import.meta.glob` を使って生成するコードを追加して @astrojs/rss は使いませんでした。具体的に使いにくかったのは frontmatter で投稿日として `pubDate` が必須になっていることです。

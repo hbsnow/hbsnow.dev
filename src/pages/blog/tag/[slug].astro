@@ -32,10 +32,10 @@ const posts = filterPostByTag(sortPostByCreatedAt(unsortedPosts), `${slug}`);
 <BaseLayout
   seo={{
     title: `${slug} | hbsnow.dev`,
-    description: "hbsnow のブログ記事一覧。",
+    description: `hbsnow の${slug}のタグに分類されるブログ記事一覧。`,
   }}
 >
-  <Header />
+  <Header paths={[{ name: "blog", href: "/blog" }]} />
 
   <main>
     <Container>

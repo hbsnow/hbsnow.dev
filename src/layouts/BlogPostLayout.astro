@@ -129,7 +129,6 @@ const image = ogpImagePath(title);
   }
   main > :global(article .rlc-container) {
     display: flex;
-    flex-wrap: wrap;
     border: var(--border-thin) solid var(--color-default-divider);
     border-radius: var(--border-radius);
     margin-top: var(--s0);
@@ -141,11 +140,11 @@ const image = ogpImagePath(title);
 
   main > :global(article .rlc-container > .rlc-info) {
     display: flex;
-    min-width: 18rem;
     flex-direction: column;
     flex-basis: 0;
     flex-grow: 999;
     order: 2;
+    gap: var(--s-5);
   }
 
   main > :global(article .rlc-container > .rlc-info > .rlc-title) {
@@ -169,20 +168,21 @@ const image = ogpImagePath(title);
       > .rlc-info
       > .rlc-url-container
       > .rlc-url) {
-    max-width: 80vw;
+    max-width: calc(94vw - (var(--s0) * 2) - var(--s-5) - 80px);
     text-overflow: ellipsis;
     overflow: hidden;
   }
 
   main > :global(article .rlc-container > .rlc-image-container) {
-    flex-basis: 12rem;
+    flex-basis: 80px;
     flex-grow: 1;
     order: 1;
   }
 
   main > :global(article .rlc-container > .rlc-image-container > .rlc-image) {
-    width: 100%;
-    height: auto;
+    width: 80px;
+    height: 80px;
     vertical-align: bottom;
+    object-fit: cover;
   }
 </style>

@@ -1,5 +1,5 @@
-export const ogpImagePath = (message: string) => {
-  const image = `${message.replace(" | hbsnow.dev", "")}.png`;
+export const ogpImagePath = (title: string) => {
+  const image = `${title.replace(" | hbsnow.dev", "")}.png`;
   const url = new URL(
     encodeURIComponent(image),
     "https://hbsnow-og-image.now.sh"

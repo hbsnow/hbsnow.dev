@@ -30,6 +30,7 @@ const Component = (props: Props): JSX.Element => {
             createdAt={formattedDate(post.frontmatter.createdAt)}
             updatedAt={formattedDate(post.frontmatter.updatedAt)}
             className={styles.postCard}
+            role="listitem"
           />
         );
       })}

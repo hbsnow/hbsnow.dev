@@ -102,4 +102,4 @@ Astro Integrations を使えば Blog にほしい機能は簡単に追加がで�
 - [@astrojs/sitemap - sitemap.xml](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
 - [@astrojs/rss - RSS](https://docs.astro.build/en/guides/rss/)
 
-ただし RSS は少し使いにくく、私は自分で生成するようなコードを追加して @astrojs/rss を使いませんでした。具体的には frontmatter で投稿日を `pubDate` が必須になっていることです。
+ただし RSS は少し使いにくく、自分で素朴に `import.meta.glob` を使って生成するコードを追加して @astrojs/rss は使いませんでした。具体的に使いにくかったのは frontmatter で投稿日を `pubDate` が必須になっていることです。

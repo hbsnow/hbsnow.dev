@@ -13,7 +13,7 @@ import { ogpImagePath } from "@/utils/ogpImagePath";
 const {
   frontmatter: { title, description, createdAt, updatedAt, tags },
 } = Astro.props as AstroMdProps;
-const image = ogpImagePath("title");
+const image = ogpImagePath(title);
 ---
 
 <BaseLayout

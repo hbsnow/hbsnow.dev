@@ -20,13 +20,13 @@ Astro であれば、`page` ディレクトリ内に `.md` または `.mdx` フ�
 
 [ドキュメントを見ながら](https://docs.astro.build/en/getting-started/)進めれば困ることはありません。今回は pnpm を使いましたが特にトラブルもありませんでした。
 
-ただ私が作成したときには日本語の翻訳が英語バージョンよりもやや古いバージョンを参照しているようで、古い情報のままになってしまっていた箇所があったため少し気をつけたほうが良さそうです。
+ただ私が作成したときには日本語の翻訳が英語バージョンよりもやや古いバージョンを参照しているようで、古い情報のままになってしまっていた箇所があったため、その点ば少し気をつけたほうが良さそうです。
 
 ```sh
 pnpm create astro@latest
 ```
 
-テンプレートに `Just the basics (recommended)` を選択すると、`.vscode` も合わせて生成されます。そのため VSCode であれば特に意識しなくとも開発環境が整います。とはいえ今のところ、Astro コンポーネントの開発者体験がいいかというと微妙なところではあります。
+テンプレートに `Just the basics (recommended)` を選択すると、`.vscode` も合わせて生成されます。そのため VSCode であれば特に意識しなくとも開発環境が整います。とはいえ今のところ、Astro コンポーネントの開発者体験がいいかというとそこまででもない印象です。
 
 ## Astro コンポーネント
 
@@ -67,11 +67,11 @@ Blog 用に使用するレイアウトは必須なので BlogPostLayout.astro �
 
 結論から言うと、Astro では Tailwind のようなユーティリティクラスを使うことで開発はしやすくなるように感じています。
 
-問題になるのは [normarize.css](https://necolas.github.io/normalize.css/) のようなものを導入するケースです。Astro コンポーネントが `:where` を使用してスコープを作るため詳細度が低く、normarize.css のスタイルを上書きするためには毎回 `:global` が必要になります。これが意外と面倒で、これだけでも個人的には Tailwind の導入動機になり得ます。
+ユーティリティクラスを使用しなかった場合に問題となるのは [normarize.css](https://necolas.github.io/normalize.css/) のようなものを導入するケースです。Astro コンポーネントが `:where` を使用してスコープを作るため詳細度が低く、normarize.css のスタイルを上書きするためには毎回 `:global` が必要になります。これが意外と面倒で、これだけでも個人的には Tailwind の導入動機になり得ます。
 
 ## Markdown
 
-`*.md` を `/page/**` に配置して、frontmatter に使用する Layout を指定するだけです。Next.js で書いたコードのことを考えるととても楽。デフォルトでコードにはシンタックスハイライトもつけてくれて、いたれりつくせり。
+`*.md` を `/page/**` に配置して、frontmatter に使用する Layout を指定するだけです。Next.js で書いたコードのことを考えるととても楽です。デフォルトでコードにはシンタックスハイライトもつけてくれます。
 
 プラグインを追加したくなったら astro.config.ts に追加するだけです。そのときにデフォルトで導入されているプラグインをそのまま使用する場合には `extendDefaultPlugins: true` にしておく必要があります。
 
@@ -79,7 +79,7 @@ Blog 用に使用するレイアウトは必須なので BlogPostLayout.astro �
 
 ## React
 
-Astro は React のコンポーネントも呼び出せて、次のコマンドだけで導入できる。
+Astro は React のコンポーネントも呼び出せて、次のコマンドだけで導入できます。
 
 ```
 pnpm astro add react
@@ -99,5 +99,7 @@ Astro Integrations を使えば Blog にほしい機能は簡単に追加がで�
 
 - [@astrojs/sitemap - sitemap.xml](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
 - [@astrojs/rss - RSS](https://docs.astro.build/en/guides/rss/)
+
+sitemap はデフォルトだとそこまでの容量にならなくても分割され、sitemap.xml ではなく sitemap-index.xml を生成する点に注意が必要です。
 
 ただし RSS は少し使いにくく、自分で素朴に `import.meta.glob` を使って生成するコードを追加して @astrojs/rss は使いませんでした。具体的に使いにくかったのは frontmatter で投稿日として `pubDate` が必須になっていることです。

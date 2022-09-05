@@ -1,4 +1,5 @@
 import { certification } from "./certification";
+import { events } from "./events";
 
 export type Activity = (
   | {
@@ -12,10 +13,10 @@ export type Activity = (
       url: string;
     }
   | {
-      type: "media";
-      category: "youtube";
+      type: "event";
       url: string;
+      mediaUrl?: string;
     }
 ) & { title: string; date: string };
 
-export const activities: Activity[] = [...certification];
+export const activities: Activity[] = [...certification, ...events];

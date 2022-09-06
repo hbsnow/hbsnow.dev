@@ -13,6 +13,11 @@ const config = {
   },
   plugins: ["@typescript-eslint", "import"],
   rules: {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { varsIgnorePattern: "^_", argsIgnorePattern: "^_" },
+    ],
     "import/order": [
       "error",
       {

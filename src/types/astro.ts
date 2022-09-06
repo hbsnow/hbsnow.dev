@@ -1,6 +1,6 @@
 import type { MarkdownHeading, MarkdownInstance } from "astro";
 
-import type { TagType } from "../cores/Icon";
+import type { TagType } from "@/cores/Icon";
 
 export type Frontmatter = {
   title: string;

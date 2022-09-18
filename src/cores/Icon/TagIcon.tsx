@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, PropsWithChildren } from "react";
+import { ComponentPropsWithoutRef, memo, PropsWithChildren } from "react";
 
 export const tagList = {
   amp: "#005AF0",
@@ -36,7 +36,7 @@ type Props = Readonly<
     Omit<ComponentPropsWithoutRef<"svg">, "className" | "role" | "viewBox">
 >;
 
-export const TagIcon = (props: Props): JSX.Element => {
+const Component = (props: Props): JSX.Element => {
   const { name, ...rest } = props;
 
   const svgRestProps = {
@@ -186,3 +186,5 @@ export const TagIcon = (props: Props): JSX.Element => {
       );
   }
 };
+
+export const TagIcon = memo(Component);

@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, PropsWithChildren } from "react";
+import { ComponentPropsWithoutRef, memo, PropsWithChildren } from "react";
 
 type IconType = "twitter" | "arrowLeft" | "arrowRight" | "quote" | "star";
 
@@ -9,7 +9,7 @@ type Props = Readonly<
     Omit<ComponentPropsWithoutRef<"svg">, "className" | "role" | "viewBox">
 >;
 
-export const SystemIcon = (props: Props): JSX.Element => {
+const Component = (props: Props): JSX.Element => {
   const { name, ...rest } = props;
 
   const svgRestProps = {
@@ -59,3 +59,5 @@ export const SystemIcon = (props: Props): JSX.Element => {
       );
   }
 };
+
+export const SystemIcon = memo(Component);

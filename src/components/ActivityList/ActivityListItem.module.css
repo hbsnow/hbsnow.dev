@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-2);
+}
+
+.state {
+  color: var(--color-default-text-muted);
+  font-size: var(--s-1);
+}
+
+.icon {
+  display: inline-flex;
+  background-color: var(--color-default-surface);
+  border-radius: 100%;
+  padding: var(--s-5);
+}
+
+.icon > svg {
+  filter: grayscale(1) brightness(0.9);
+}

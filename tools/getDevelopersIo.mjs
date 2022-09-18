@@ -6,7 +6,7 @@ import { XMLParser } from "fast-xml-parser";
 import fetch from "node-fetch";
 
 export const getDevelopersIo = async () => {
-  const json = await import("../src/data/feed/developersio.json", {
+  const json = await import("../src/data/feeds/developersio.json", {
     assert: { type: "json" },
   });
 

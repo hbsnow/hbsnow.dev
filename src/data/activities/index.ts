@@ -1,3 +1,4 @@
+import { feeds } from "../feeds";
 import { certification } from "./certification";
 import { events } from "./events";
 
@@ -19,4 +20,4 @@ export type Activity = (
     }
 ) & { title: string; date: string };
 
-export const activities: Activity[] = [...certification, ...events];
+export const activities: Activity[] = [...certification, ...events, ...feeds];

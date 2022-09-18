@@ -7,7 +7,7 @@ import { TagList } from "@/components/TagList";
 import { Container } from "@/cores/Container";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { AstroMdProps } from "@/types/astro";
-import { formattedDate } from "@/utils/formattedDate";
+import { formatDate } from "@/utils/formatDate";
 import { ogpImagePath } from "@/utils/ogpImagePath";
 
 const {
@@ -48,14 +48,14 @@ const image = ogpImagePath(title);
               })}
             >
               <time aria-label="作成日" datetime={createdAt}>
-                {formattedDate(createdAt)}
+                {formatDate(createdAt)}
               </time>
             </div>
             {
               updatedAt && (
                 <div class="updatedAt">
                   <time aria-label="更新日" datetime={updatedAt}>
-                    {formattedDate(updatedAt)}
+                    {formatDate(updatedAt)}
                   </time>
                 </div>
               )

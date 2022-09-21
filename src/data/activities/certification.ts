@@ -64,6 +64,11 @@ const aws: Activity[] = [
  */
 const googleCloud: Activity[] = [
   {
+    title: "Google Cloud Associate Cloud Engineer",
+    date: "2022-09-20",
+    url: "https://www.credential.net/0efd47c6-1362-47c8-a757-baf30cdb2790",
+  },
+  {
     title: "Google Cloud Certified Cloud Digital Leader",
     date: "2022-09-02",
     url: "https://www.credential.net/7e9238ee-9ebe-492a-bddf-7a7b509d618d",

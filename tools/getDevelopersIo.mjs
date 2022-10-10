@@ -38,7 +38,7 @@ export const getDevelopersIo = async () => {
   }
 
   await writeFile(
-    "./src/data/feed/developersio.json",
+    "./src/data/feeds/developersio.json",
     JSON.stringify({ items: result })
   );
   console.log(

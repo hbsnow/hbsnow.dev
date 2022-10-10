@@ -60,9 +60,15 @@ const aws: Activity[] = [
 
 /**
  * Google Cloud
+ *
  * https://www.credential.net/profile/hbsnow
  */
 const googleCloud: Activity[] = [
+  {
+    title: "Google Cloud Professional Cloud Architect",
+    date: "2022-10-06",
+    url: "https://www.credential.net/4f641ec8-d9c2-4bb7-afc1-155ac3826595",
+  },
   {
     title: "Google Cloud Associate Cloud Engineer",
     date: "2022-09-20",

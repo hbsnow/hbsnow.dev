@@ -7,7 +7,7 @@
 .item {
   display: flex;
   align-items: flex-start;
-  gap: var(--s2);
+  gap: var(--s-1);
 }
 
 .item + .item {
@@ -18,5 +18,7 @@
   position: sticky;
   top: var(--s0);
   font-size: var(--s0);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
   margin: 0;
 }

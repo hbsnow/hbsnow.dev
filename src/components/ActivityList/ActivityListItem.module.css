@@ -1,7 +1,7 @@
 .root {
   display: flex;
   align-items: flex-start;
-  gap: var(--s-2);
+  gap: var(--s-1);
 }
 
 .state {
@@ -14,8 +14,4 @@
   background-color: var(--color-default-surface);
   border-radius: 100%;
   padding: var(--s-5);
-}
-
-.icon > svg {
-  filter: grayscale(1) brightness(0.9);
 }

@@ -19,8 +19,8 @@ const Component = (props: Props): JSX.Element => {
   return (
     <div role="list">
       {chunked.map(([year, activities]) => (
-        <section role="listitem" key={year}>
-          <h2>{year}</h2>
+        <section className={styles.item} role="listitem" key={year}>
+          <h2 className={styles.title}>{year}</h2>
 
           <div className={styles.activities} role="list">
             {activities.map((activity) => (

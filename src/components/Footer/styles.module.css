@@ -1,6 +1,25 @@
-.root {
-  text-align: center;
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
+  padding: var(--s2);
+}
+
+.sns {
+  display: flex;
+  order: 2;
+  gap: var(--s0);
+  margin-left: auto;
+}
+
+.sns > a {
+  display: flex;
+  align-items: center;
+  color: var(--color-primary);
+}
+
+.copyright {
+  order: 1;
   font-family: var(--font-family-heading);
   font-size: var(--s-1);
-  padding: var(--s-2);
 }

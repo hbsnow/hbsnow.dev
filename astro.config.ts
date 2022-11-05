@@ -1,4 +1,3 @@
-import image from "@astrojs/image";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
@@ -8,7 +7,7 @@ import remarkLinkCard from "remark-link-card";
 // https://astro.build/config
 export default defineConfig({
   site: "https://hbsnow.dev",
-  integrations: [react(), image(), sitemap()],
+  integrations: [react(), sitemap()],
   markdown: {
     remarkPlugins: [remarkLinkCard],
     rehypePlugins: [

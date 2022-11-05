@@ -33,10 +33,12 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 
       <div role="list" class="menu">
         <LinkCard href="/blog"
-          ><ColoredIcon name="blog" /><h2>Blog</h2>
+          ><div class="menuItem"><ColoredIcon name="blog" /><h2>Blog</h2></div>
         </LinkCard>
         <LinkCard href="/activity"
-          ><ColoredIcon name="activity" /><h2>Activity</h2>
+          ><div class="menuItem">
+            <ColoredIcon name="activity" /><h2>Activity</h2>
+          </div>
         </LinkCard>
       </div>
     </Container>
@@ -80,13 +82,16 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
   }
 
   .menu > :global(*) {
+    flex: 1 1 12rem;
+  }
+
+  .menuItem {
     display: flex;
     align-items: center;
-    flex: 1 1 12rem;
     gap: var(--s0);
   }
 
-  .menu :global(h2) {
+  .menuItem > h2 {
     font-family: var(--font-family-heading);
     margin: 0;
   }

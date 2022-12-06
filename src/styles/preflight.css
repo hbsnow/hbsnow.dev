@@ -1,5 +1,4 @@
 :root {
-  font-size: calc(1em + 0.25vw);
   --color-default-bg: #fefefe;
   --color-default-surface: #eeeeee;
   --color-default-text: rgba(0, 0, 0, 0.78);

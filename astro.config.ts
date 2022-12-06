@@ -1,6 +1,8 @@
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 import rehypeWrapAll from "rehype-wrap-all";
 import remarkLinkCard from "remark-link-card";
 import remarkSectionize from "remark-sectionize";
@@ -12,6 +14,8 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkLinkCard, remarkSectionize],
     rehypePlugins: [
+      rehypeSlug,
+      rehypeAutolinkHeadings,
       [
         rehypeWrapAll,
         {

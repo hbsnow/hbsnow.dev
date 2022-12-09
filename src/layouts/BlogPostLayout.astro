@@ -1,19 +1,22 @@
 ---
 import clsx from "clsx";
 
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
+import { BlogToc } from "@/components/BlogToc";
 import { TagList } from "@/components/TagList";
 import { Container } from "@/cores/Container";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { AstroMdProps } from "@/types/astro";
 import { formatDate } from "@/utils/formatDate";
+import { nestHeadings } from "@/utils/nestHeadings";
 import { ogpImagePath } from "@/utils/ogpImagePath";
 
 const {
   frontmatter: { title, description, createdAt, updatedAt, tags },
+  headings,
 } = Astro.props as AstroMdProps;
 const image = ogpImagePath(title);
+const nestedHeadings = nestHeadings(headings);
+const articleId = "article" as const;
 ---
 
 <BaseLayout
@@ -27,20 +30,19 @@ const image = ogpImagePath(title);
         modifiedTime: updatedAt,
       },
       image: { alt: title },
-      optional: { title },
+      optional: { siteName: title },
     },
     twitter: {
       card: "summary",
       site: "@hbsnow",
     },
   }}
+  breadcrumb={[{ name: "blog", href: "/blog" }]}
 >
-  <Header paths={[{ name: "blog", href: "/blog" }]} />
-
   <main>
-    <article>
-      <Container>
-        <header>
+    <article id={articleId}>
+      <header>
+        <Container>
           <div class="times">
             <div
               class={clsx("createdAt", {
@@ -67,7 +69,13 @@ const image = ogpImagePath(title);
           <div class="tags">
             <TagList tags={tags} />
           </div>
-        </header>
+        </Container>
+      </header>
+
+      <Container className="container">
+        <div class="toc">
+          <BlogToc id={articleId} headings={nestedHeadings} client:load />
+        </div>
 
         <div class="content">
           <slot />
@@ -76,113 +84,123 @@ const image = ogpImagePath(title);
     </article>
   </main>
 
-  <Footer />
+  <style>
+    article {
+      padding: var(--s5) 0;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row-reverse;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .post {
+      flex: 0 1 auto;
+    }
+
+    .toc {
+      position: sticky;
+      top: 0;
+    }
+
+    h1 {
+      margin: 0;
+      margin-top: var(--s0);
+      line-height: var(--line-height-small);
+    }
+
+    .times {
+      display: flex;
+      gap: var(--s-2);
+    }
+
+    .createdAt,
+    .updatedAt {
+      font-size: var(--s-1);
+    }
+
+    .createdAt.disabled {
+      color: var(--color-default-text-muted);
+    }
+
+    .tags {
+      margin-top: var(--s0);
+    }
+
+    .content {
+      margin-top: var(--s5);
+    }
+
+    main > :global(article pre) {
+      border-radius: var(--border-radius);
+      margin-left: -1vw;
+      margin-right: -1vw;
+      padding: var(--s0) 1vw;
+    }
+
+    main > :global(article .responsiveTable) {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    main > :global(article .responsiveTable > table) {
+      width: 100%;
+      vertical-align: top;
+    }
+
+    /* LinkCard */
+    main > :global(article .rlc-container) {
+      display: flex;
+      border: var(--border-thin) solid var(--color-default-divider);
+      border-radius: var(--border-radius);
+      margin-top: var(--s0);
+      margin-left: -1vw;
+      margin-right: -1vw;
+      padding: var(--s0) 1vw;
+      gap: var(--s0);
+    }
+    main > :global(article .rlc-container > .rlc-info) {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 0;
+      flex-grow: 999;
+      order: 2;
+      gap: var(--s-5);
+    }
+    main > :global(article .rlc-container > .rlc-info > .rlc-title) {
+      line-height: var(--line-height-small);
+    }
+
+    main > :global(article .rlc-container > .rlc-info > .rlc-description) {
+      display: none;
+    }
+    main > :global(article .rlc-container > .rlc-info > .rlc-url-container) {
+      display: flex;
+      align-items: center;
+      font-size: var(--s-1);
+      margin-top: auto;
+      gap: var(--s-5);
+    }
+    main
+      > :global(
+        article .rlc-container > .rlc-info > .rlc-url-container > .rlc-url
+      ) {
+      max-width: calc(94vw - (var(--s0) * 2) - var(--s-5) - 80px);
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+    main > :global(article .rlc-container > .rlc-image-container) {
+      flex-basis: 80px;
+      flex-grow: 1;
+      order: 1;
+    }
+    main > :global(article .rlc-container > .rlc-image-container > .rlc-image) {
+      width: 80px;
+      height: 80px;
+      vertical-align: bottom;
+      object-fit: cover;
+    }
+  </style>
 </BaseLayout>
-
-<style>
-  article {
-    padding: var(--s5) 0;
-  }
-
-  h1 {
-    margin: 0;
-    margin-top: var(--s0);
-    line-height: var(--line-height-small);
-  }
-
-  .times {
-    display: flex;
-    gap: var(--s-2);
-  }
-
-  .createdAt,
-  .updatedAt {
-    font-size: var(--s-1);
-  }
-
-  .createdAt.disabled {
-    color: var(--color-default-text-muted);
-  }
-
-  .tags {
-    margin-top: var(--s0);
-  }
-
-  .content {
-    margin-top: var(--s5);
-  }
-
-  main > :global(article pre) {
-    border-radius: var(--border-radius);
-    margin-left: -2vw;
-    margin-right: -2vw;
-    padding: var(--s0) 2vw;
-  }
-
-  main > :global(article .responsiveTable) {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  main > :global(article .responsiveTable > table) {
-    width: 100%;
-    vertical-align: top;
-  }
-  main > :global(article .rlc-container) {
-    display: flex;
-    border: var(--border-thin) solid var(--color-default-divider);
-    border-radius: var(--border-radius);
-    margin-top: var(--s0);
-    margin-left: -2vw;
-    margin-right: -2vw;
-    padding: var(--s0) 2vw;
-    gap: var(--s0);
-  }
-
-  main > :global(article .rlc-container > .rlc-info) {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 0;
-    flex-grow: 999;
-    order: 2;
-    gap: var(--s-5);
-  }
-
-  main > :global(article .rlc-container > .rlc-info > .rlc-title) {
-    line-height: var(--line-height-small);
-  }
-
-  main > :global(article .rlc-container > .rlc-info > .rlc-description) {
-    display: none;
-  }
-  main > :global(article .rlc-container > .rlc-info > .rlc-url-container) {
-    display: flex;
-    align-items: center;
-    font-size: var(--s-1);
-    margin-top: auto;
-    gap: var(--s-5);
-  }
-
-  main
-    > :global(article
-      .rlc-container
-      > .rlc-info
-      > .rlc-url-container
-      > .rlc-url) {
-    max-width: calc(94vw - (var(--s0) * 2) - var(--s-5) - 80px);
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-
-  main > :global(article .rlc-container > .rlc-image-container) {
-    flex-basis: 80px;
-    flex-grow: 1;
-    order: 1;
-  }
-
-  main > :global(article .rlc-container > .rlc-image-container > .rlc-image) {
-    width: 80px;
-    height: 80px;
-    vertical-align: bottom;
-    object-fit: cover;
-  }
-</style>

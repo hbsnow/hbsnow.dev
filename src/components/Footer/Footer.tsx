@@ -1,5 +1,7 @@
 import type { ComponentPropsWithoutRef } from "react";
 
+import clsx from "clsx";
+
 import styles from "./styles.module.css";
 import { Container } from "@/cores/Container";
 import { SystemIcon } from "@/cores/Icon";
@@ -8,8 +10,10 @@ import { Link } from "@/cores/Link";
 type Props = ComponentPropsWithoutRef<"footer">;
 
 export const Footer = (props: Props): JSX.Element => {
+  const { className, ...rest } = props;
+
   return (
-    <footer {...props}>
+    <footer className={clsx(styles.root, className)} {...rest}>
       <Container>
         <div className={styles.container}>
           <div className={styles.sns}>

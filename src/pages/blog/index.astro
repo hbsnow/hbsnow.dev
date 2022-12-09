@@ -1,7 +1,5 @@
 ---
 import { BlogList } from "@/components/BlogList";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { Container } from "@/cores/Container";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Frontmatter } from "@/types/astro";
@@ -16,16 +14,13 @@ const posts = sortPostByCreatedAt(unsortedPosts);
     title: "Blog | hbsnow.dev",
     description: "hbsnow のブログ記事一覧。",
   }}
+  breadcrumb={[{ name: "blog" }]}
 >
-  <Header paths={[{ name: "blog" }]} />
-
   <main>
     <Container>
       <BlogList posts={posts} />
     </Container>
   </main>
-
-  <Footer />
 </BaseLayout>
 
 <style>

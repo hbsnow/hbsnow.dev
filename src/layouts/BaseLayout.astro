@@ -1,14 +1,23 @@
 ---
-import "@/styles/preflight.css";
+import type { ComponentProps } from "react";
+
 import { SEO } from "astro-seo";
+
+import { Breadcrumb } from "@/components/Breadcrumb";
+import { Footer } from "@/components/Footer";
+import { Heading } from "@/cores/Heading";
+import { Link } from "@/cores/Link";
+
+import "@/styles/preflight.css";
 
 export type Props = {
   seo: Parameters<typeof SEO>[0] & {
     title: Required<Parameters<typeof SEO>[0]>["title"];
   };
+  breadcrumb?: ComponentProps<typeof Breadcrumb>["paths"];
 };
 
-const { seo } = Astro.props as Props;
+const { seo, breadcrumb } = Astro.props as Props;
 
 const seoProps: Props["seo"] = {
   extend: {
@@ -67,6 +76,32 @@ const seoProps: Props["seo"] = {
     <SEO {...seoProps} />
   </head>
   <body>
+    <header>
+      <Heading level={1} className="heading"
+        ><Link href="/">hbsnow.dev</Link>
+      </Heading>
+    </header>
+
+    {breadcrumb && <Breadcrumb paths={breadcrumb} />}
+
     <slot />
+
+    <Footer />
   </body>
 </html>
+
+<style>
+  header {
+    border-bottom: var(--border-thin) solid var(--color-default-divider);
+    padding: var(--s5);
+  }
+
+  .heading {
+    text-align: center;
+  }
+  .heading > :global(a) {
+    background-image: var(--color-gradation);
+    background-clip: text;
+    color: transparent;
+  }
+</style>

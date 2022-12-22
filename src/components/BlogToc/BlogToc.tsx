@@ -29,6 +29,7 @@ const Component = (props: Props): JSX.Element | null => {
     <nav className={styles.root}>
       <h2>
         <button
+          aria-label="ページ内の目次"
           aria-expanded="false"
           aria-controls={controlsId}
           onClick={() => button && toggle()}
@@ -44,12 +45,12 @@ const Component = (props: Props): JSX.Element | null => {
         <ol>
           {headings.map((heading) => (
             <li key={heading.slug}>
-              <PageLink heading={heading} />
+              <PageLink heading={heading} tabIndex={hidden ? -1 : 0} />
               {heading.children && (
                 <ol>
                   {heading.children.map((child) => (
                     <li key={child.slug}>
-                      <PageLink heading={child} />
+                      <PageLink heading={child} tabIndex={hidden ? -1 : 0} />
                     </li>
                   ))}
                 </ol>

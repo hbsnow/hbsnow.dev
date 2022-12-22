@@ -12,11 +12,11 @@ type Props = {
   }[];
 };
 
-export const Header = (props: Props): JSX.Element => {
+export const Breadcrumb = (props: Props): JSX.Element => {
   const { paths = [] } = props;
 
   return (
-    <header className={styles.root}>
+    <nav className={styles.root}>
       <Container>
         <div className={styles.heading}>
           <Heading level={1}>
@@ -38,6 +38,6 @@ export const Header = (props: Props): JSX.Element => {
           })}
         </div>
       </Container>
-    </header>
+    </nav>
   );
 };

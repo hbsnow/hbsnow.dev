@@ -1,5 +1,5 @@
 .root {
-  background-color: var(--color-default-bg);
+  border-bottom: var(--border-thin) solid var(--color-default-divider);
   padding: var(--s-2) 0;
 }
 
@@ -15,6 +15,5 @@
 
 .slash,
 .pathname {
-  font-size: var(--s-1);
   font-family: var(--font-family-heading);
 }

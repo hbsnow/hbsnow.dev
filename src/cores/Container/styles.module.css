@@ -1,8 +1,7 @@
 .root {
   box-sizing: content-box;
-  max-width: var(--container-size);
+  width: 94vw;
+  max-width: 70rem;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 3vw;
-  padding-right: 3vw;
 }

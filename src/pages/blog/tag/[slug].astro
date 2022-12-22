@@ -1,7 +1,5 @@
 ---
 import { BlogList } from "@/components/BlogList";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { Container } from "@/cores/Container";
 import { Heading } from "@/cores/Heading";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -34,9 +32,8 @@ const posts = filterPostByTag(sortPostByCreatedAt(unsortedPosts), `${slug}`);
     title: `${slug} | hbsnow.dev`,
     description: `hbsnow の${slug}のタグに分類されるブログ記事一覧。`,
   }}
+  breadcrumb={[{ name: "blog", href: "/blog" }]}
 >
-  <Header paths={[{ name: "blog", href: "/blog" }]} />
-
   <main>
     <Container>
       <Heading level={2}>
@@ -48,8 +45,6 @@ const posts = filterPostByTag(sortPostByCreatedAt(unsortedPosts), `${slug}`);
       </div>
     </Container>
   </main>
-
-  <Footer />
 </BaseLayout>
 
 <style>

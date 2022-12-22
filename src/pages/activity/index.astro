@@ -1,7 +1,6 @@
 ---
 import { ActivityList } from "@/components/ActivityList";
 import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
 import { Container } from "@/cores/Container";
 import { activities } from "@/data/activities";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -12,9 +11,8 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
     title: "hbsnow.dev",
     description: "hbsnow の技術メモ置き場を兼ねた実験場",
   }}
+  breadcrumb={[{ name: "activity" }]}
 >
-  <Header paths={[{ name: "activity" }]} />
-
   <main>
     <Container>
       <ActivityList activities={activities} />

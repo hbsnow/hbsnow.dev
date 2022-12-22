@@ -1,8 +1,12 @@
+.root {
+  border-top: var(--border-thin) solid var(--color-default-divider);
+  padding: var(--s2) 0;
+}
+
 .container {
   display: flex;
   align-items: center;
   gap: var(--s2);
-  padding: var(--s2);
 }
 
 .sns {
@@ -21,5 +25,5 @@
 .copyright {
   order: 1;
   font-family: var(--font-family-heading);
-  font-size: var(--s-1);
+  font-size: var(--s0);
 }

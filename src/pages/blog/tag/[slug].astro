@@ -1,19 +1,18 @@
 ---
+import { getCollection } from "astro:content";
+
 import { BlogList } from "@/components/BlogList";
 import { Container } from "@/cores/Container";
 import { Heading } from "@/cores/Heading";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import type { Frontmatter } from "@/types/astro";
 import { filterPostByTag } from "@/utils/filterPostByTag";
 import { isNonNull } from "@/utils/isNonNull";
 import { sortPostByCreatedAt } from "@/utils/sortPostByCreatedAt";
 
 export const getStaticPaths = async () => {
-  const unsortedPosts = await Astro.glob<Frontmatter>("../*.md");
+  const unsortedPosts = await getCollection("blog");
   const posts = sortPostByCreatedAt(unsortedPosts);
-  const tags = Array.from(
-    new Set(posts.flatMap((post) => post.frontmatter.tags))
-  );
+  const tags = Array.from(new Set(posts.flatMap((post) => post.data.tags)));
   return tags.map((tag) => ({ params: { slug: tag } }));
 };
 
@@ -23,7 +22,7 @@ if (!isNonNull(slug)) {
   throw new Error("slug が指定されていません。");
 }
 
-const unsortedPosts = await Astro.glob<Frontmatter>("../*.md");
+const unsortedPosts = await getCollection("blog");
 const posts = filterPostByTag(sortPostByCreatedAt(unsortedPosts), `${slug}`);
 ---
 

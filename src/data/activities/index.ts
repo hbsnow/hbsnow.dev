@@ -1,6 +1,6 @@
-import { feeds } from "../feeds";
 import { certification } from "./certification";
 import { events } from "./events";
+import { feeds } from "@/data/feeds";
 
 export type Activity = (
   | {

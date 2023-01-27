@@ -2,8 +2,9 @@
 
 interface Link extends HTMLLinkElement {
   prefetch: boolean;
-  sizes: any;
-  color: any;
+  crossorigin: string;
+  sizes: string;
+  color: string;
 }
 
 interface Meta extends HTMLMetaElement {
@@ -61,5 +62,5 @@ interface Props {
 }
 
 declare module "astro-seo" {
-  export function SEO(_props: Props): any;
+  export function SEO(_props: Props): JSX.Element;
 }

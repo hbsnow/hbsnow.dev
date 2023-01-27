@@ -1,17 +1,14 @@
 export const sortPostByCreatedAt = <
   T extends {
-    frontmatter: {
-      createdAt: string;
+    data: {
+      createdAt: Date;
     };
   }
 >(
   unsortedPosts: T[]
 ) => {
   const posts = unsortedPosts.sort((a, b) => {
-    return (
-      new Date(b.frontmatter.createdAt).valueOf() -
-      new Date(a.frontmatter.createdAt).valueOf()
-    );
+    return b.data.createdAt.valueOf() - a.data.createdAt.valueOf();
   });
 
   return posts;

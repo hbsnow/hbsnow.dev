@@ -1,13 +1,12 @@
 import { memo } from "react";
 
-import type { MarkdownInstance } from "astro";
+import type { CollectionEntry } from "astro:content";
 
-import type { Frontmatter } from "../../types/astro";
 import styles from "./BlogList.module.css";
 import { BlogListItem } from "./BlogListItem";
 
 type Props = {
-  posts: MarkdownInstance<Frontmatter>[];
+  posts: CollectionEntry<"blog">[];
 };
 
 const Component = (props: Props): JSX.Element => {
@@ -17,7 +16,7 @@ const Component = (props: Props): JSX.Element => {
     <div className={styles.root} role="list">
       {posts.map((post) => {
         return (
-          <div key={post.url} role="listitem">
+          <div key={post.slug} role="listitem">
             <BlogListItem post={post} />
           </div>
         );

@@ -20,3 +20,6 @@ pnpm-debug.log*
 
 # textlint
 .cache
+
+# Astro
+.astro

@@ -1,9 +1,9 @@
 import { ComponentProps, Fragment } from "react";
 
-import { Container } from "../../cores/Container";
-import { Heading } from "../../cores/Heading";
-import { Link } from "../../cores/Link";
 import styles from "./styles.module.css";
+import { Container } from "@/cores/Container";
+import { Heading } from "@/cores/Heading";
+import { Link } from "@/cores/Link";
 
 type Props = {
   paths?: {

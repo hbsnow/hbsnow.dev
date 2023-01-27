@@ -9,7 +9,7 @@ import remarkLinkCard from "remark-link-card";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://hbsnow.dev",
+  site: "https://hbsnow.dev/",
   integrations: [react(), sitemap()],
   markdown: {
     remarkPlugins: [remarkLinkCard],
@@ -25,7 +25,6 @@ export default defineConfig({
         },
       ],
     ],
-    extendDefaultPlugins: true,
     shikiConfig: {
       theme: "dark-plus",
       wrap: true,

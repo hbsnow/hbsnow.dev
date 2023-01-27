@@ -2,7 +2,7 @@ import type { MarkdownHeading, MarkdownInstance } from "astro";
 
 import type { TagType } from "@/cores/Icon";
 
-export type Frontmatter = {
+type Frontmatter = {
   title: string;
   description: string;
   tags: TagType[];

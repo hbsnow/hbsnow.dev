@@ -1,6 +1,35 @@
 import { ComponentPropsWithoutRef, memo, PropsWithChildren } from "react";
 
-export const tagList = {
+export const tagName = [
+  "amp",
+  "angular",
+  "astro",
+  "aws",
+  "css",
+  "database",
+  "docker",
+  "firebase",
+  "firestore",
+  "git",
+  "github",
+  "go",
+  "google",
+  "googleAppsScript",
+  "javascript",
+  "nextjs",
+  "nuxtjs",
+  "react",
+  "svg",
+  "shell",
+  "typescript",
+  "vercel",
+  "vuejs",
+  "wordpress",
+] as const;
+
+export type TagType = (typeof tagName)[number];
+
+export const tagList: Record<TagType, string> = {
   amp: "#005AF0",
   angular: "#DD0031",
   astro: "#FF5D01",
@@ -25,9 +54,7 @@ export const tagList = {
   vercel: "#000000",
   vuejs: "#4FC08D",
   wordpress: "#21759B",
-} as const;
-
-export type TagType = Array<keyof typeof tagList>[number];
+};
 
 type Props = Readonly<
   PropsWithChildren<{

@@ -15,8 +15,9 @@
   },
   "devDependencies": {
     "@astrojs/react": "2.0.1",
+    "@astrojs/rss": "2.1.0",
     "@astrojs/sitemap": "1.0.0",
-    "@hbsnow/rehype-sectionize": "1.0.5",
+    "@hbsnow/rehype-sectionize": "1.0.7",
     "@proofdict/textlint-rule-proofdict": "3.1.2",
     "@testing-library/jest-dom": "5.16.5",
     "@types/react": "18.0.27",
@@ -53,6 +54,7 @@
     "textlint-rule-ja-hiragana-hojodoushi": "1.0.4",
     "textlint-rule-ja-hiragana-keishikimeishi": "1.1.0",
     "textlint-rule-preset-ja-technical-writing": "7.0.0",
+    "vite-tsconfig-paths": "4.0.5",
     "vitest": "0.28.3"
   },
   "dependencies": {

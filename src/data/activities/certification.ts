@@ -7,6 +7,11 @@ import type { Activity } from ".";
  */
 const aws: Activity[] = [
   {
+    title: "AWS Certified Advanced Networking – Specialty",
+    date: "2023-01-17",
+    url: "https://www.credly.com/badges/1510639a-6d29-4d2f-b6e6-6b73b1ea0a43",
+  },
+  {
     title: "AWS Certified Machine Learning – Specialty",
     date: "2022-08-15",
     url: "https://www.credly.com/badges/9d2bcb35-b1f8-48df-821c-9c5c1c78110a",

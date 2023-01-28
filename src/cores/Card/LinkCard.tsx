@@ -2,8 +2,8 @@ import { ComponentProps, forwardRef } from "react";
 
 import clsx from "clsx";
 
-import { Link } from "../Link";
 import styles from "./styles.module.css";
+import { Link } from "@/cores/Link";
 
 type Props = Readonly<ComponentProps<typeof Link>>;
 

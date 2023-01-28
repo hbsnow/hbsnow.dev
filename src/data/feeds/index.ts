@@ -1,5 +1,5 @@
-import type { Activity } from "../activities";
 import developersio from "./developersio.json";
+import type { Activity } from "@/data/activities";
 
 export const feeds: Activity[] = [
   ...developersio.items.map((item) => ({

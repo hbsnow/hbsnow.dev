@@ -30,6 +30,7 @@ const config = {
         alphabetize: { order: "asc", caseInsensitive: true },
       },
     ],
+    "@typescript-eslint/triple-slash-reference": "off",
   },
   overrides: [
     {

@@ -10,7 +10,7 @@ import { Link } from "@/cores/Link";
 
 import "@/styles/preflight.css";
 
-export type Props = {
+type Props = {
   seo: Parameters<typeof SEO>[0] & {
     title: Required<Parameters<typeof SEO>[0]>["title"];
   };
@@ -77,8 +77,8 @@ const seoProps: Props["seo"] = {
   </head>
   <body>
     <header>
-      <Heading level={1} className="heading"
-        ><Link href="/">hbsnow.dev</Link>
+      <Heading level={1} className="heading">
+        <Link href="/">hbsnow.dev</Link>
       </Heading>
     </header>
 
@@ -87,21 +87,20 @@ const seoProps: Props["seo"] = {
     <slot />
 
     <Footer />
+    <style>
+      header {
+        border-bottom: var(--border-thin) solid var(--color-default-divider);
+        padding: var(--s5);
+      }
+
+      .heading {
+        text-align: center;
+      }
+      .heading > :global(a) {
+        background-image: var(--color-gradation);
+        background-clip: text;
+        color: transparent;
+      }
+    </style>
   </body>
 </html>
-
-<style>
-  header {
-    border-bottom: var(--border-thin) solid var(--color-default-divider);
-    padding: var(--s5);
-  }
-
-  .heading {
-    text-align: center;
-  }
-  .heading > :global(a) {
-    background-image: var(--color-gradation);
-    background-clip: text;
-    color: transparent;
-  }
-</style>

@@ -1,51 +1,23 @@
-import dayjs from "dayjs";
+import rss from "@astrojs/rss";
+import type { APIRoute } from "astro";
+import { getCollection } from "astro:content";
 
-import { GlobResult, mapGlobResult } from "@/utils/feed";
-import { sortPostByCreatedAt } from "@/utils/sortPostByCreatedAt";
+export const get: APIRoute = async ({ site }) => {
+  if (!site) {
+    throw new Error("context.site is not found");
+  }
 
-export const get = async () => {
-  const items = await mapGlobResult(
-    import.meta.glob("./**/*.md") as GlobResult
-  );
+  const blog = await getCollection("blog");
 
-  const posts = sortPostByCreatedAt(items);
-
-  const rssItems = posts
-    .map((post) => {
-      const id = `tag:hbsnow.dev,${dayjs(post.frontmatter.createdAt).format(
-        "YYYY-MM-DD"
-      )}:${post.url}`;
-
-      const updated = post.frontmatter.updatedAt
-        ? post.frontmatter.updatedAt
-        : post.frontmatter.createdAt;
-
-      return `
-<entry>
-  <title>${post.frontmatter.title}</title>
-  <id>${id}</id>
-  <link href="https://hbsnow.dev/blog${post.url}" />
-  <summary>${post.frontmatter.description}</summary>
-  <published>${post.frontmatter.createdAt}</published>
-  <updated>${updated}</updated>
-</entry>
-`;
-    })
-    .join("");
-
-  return {
-    body: `<?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="ja">
-  <id>tag:hbsnow.dev,2022-09-03:/feed</id>
-  <title>hbsnow.dev blog feed</title>
-  <link href="https://hbsnow.dev/blog" />
-  <link rel="self" type="application/atom+xml" href="https://hbsnow.dev/blog/feed.xml" />
-  <updated>${posts[0].frontmatter.createdAt}</updated>
-  <author>
-    <name>hbsnow</name>
-  </author>
-  ${rssItems}
-</feed>
-`,
-  };
+  return rss({
+    title: "hbsnow.dev blog feed",
+    description: "hbsnow.dev blog feed",
+    site: new URL("/blog/", site).toString(),
+    items: blog.map((post) => ({
+      title: post.data.title,
+      pubDate: post.data.createdAt,
+      description: post.data.description,
+      link: `/blog/${post.slug}/`,
+    })),
+  });
 };

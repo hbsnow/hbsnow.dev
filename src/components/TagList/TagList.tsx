@@ -1,7 +1,6 @@
-import { Chip } from "../../cores/Chip";
-import type { TagType } from "../../cores/Icon";
-import { Link } from "../../cores/Link";
 import styles from "./styles.module.css";
+import { Chip } from "@/cores/Chip";
+import type { TagType } from "@/cores/Icon";
 
 type Props = Readonly<{
   tags: TagType[];

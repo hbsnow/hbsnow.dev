@@ -1,6 +1,6 @@
 export const filterPostByTag = <
   T extends {
-    frontmatter: {
+    data: {
       tags: string[];
     };
   }
@@ -9,7 +9,7 @@ export const filterPostByTag = <
   tag: string
 ) => {
   const posts = unfilteredPosts.filter((post) => {
-    return post.frontmatter.tags.includes(tag);
+    return post.data.tags.includes(tag);
   });
 
   return posts;

@@ -1,14 +1,13 @@
-import type { MarkdownInstance } from "astro";
+import type { CollectionEntry } from "astro:content";
 import clsx from "clsx";
 
-import { Link } from "../../cores/Link";
-import { TagList } from "../TagList";
 import styles from "./BlogListItem.module.css";
-import type { Frontmatter } from "@/types/astro";
+import { TagList } from "@/components/TagList";
+import { Link } from "@/cores/Link";
 import { formatDate } from "@/utils/formatDate";
 
 type Props = Readonly<{
-  post: MarkdownInstance<Frontmatter>;
+  post: CollectionEntry<"blog">;
 }>;
 
 export const BlogListItem = (props: Props) => {
@@ -19,26 +18,32 @@ export const BlogListItem = (props: Props) => {
       <div className={styles.times}>
         <div
           className={clsx(styles.createdAt, {
-            [styles.disabled]: !!post.frontmatter.createdAt,
+            [styles.disabled]: !!post.data.createdAt,
           })}
         >
-          <time aria-label="作成日" dateTime={post.frontmatter.createdAt}>
-            {formatDate(post.frontmatter.createdAt)}
+          <time
+            aria-label="作成日"
+            dateTime={post.data.createdAt.toISOString()}
+          >
+            {formatDate(post.data.createdAt)}
           </time>
         </div>
-        {post.frontmatter.updatedAt && (
+        {post.data.updatedAt && (
           <div className={styles.updatedAt}>
-            <time aria-label="更新日" dateTime={post.frontmatter.updatedAt}>
-              {formatDate(post.frontmatter.updatedAt)}
+            <time
+              aria-label="更新日"
+              dateTime={post.data.updatedAt.toISOString()}
+            >
+              {formatDate(post.data.updatedAt)}
             </time>
           </div>
         )}
       </div>
       <h2 className={styles.title} itemProp="headline">
-        <Link href={post.url}>{post.frontmatter.title}</Link>
+        <Link href={`/blog/${post.slug}`}>{post.data.title}</Link>
       </h2>
 
-      <TagList tags={post.frontmatter.tags} />
+      <TagList tags={post.data.tags} />
     </div>
   );
 };

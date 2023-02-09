@@ -5,7 +5,7 @@ import { feeds } from "@/data/feeds";
 export type Activity = (
   | {
       type: "certification";
-      category: "aws" | "google-cloud" | "azure";
+      category: "aws" | "google-cloud" | "azure" | "line";
       url?: string;
     }
   | {

@@ -7,6 +7,11 @@ import type { Activity } from ".";
  */
 const aws: Activity[] = [
   {
+    title: "AWS Certified: SAP on AWS – Specialty",
+    date: "2023-02-09",
+    url: "https://www.credly.com/badges/c2b61f27-f629-42e8-a072-404bb3fe7751",
+  },
+  {
     title: "AWS Certified Advanced Networking – Specialty",
     date: "2023-01-17",
     url: "https://www.credly.com/badges/1510639a-6d29-4d2f-b6e6-6b73b1ea0a43",
@@ -86,4 +91,20 @@ const googleCloud: Activity[] = [
   },
 ].map((v) => ({ type: "certification", category: "google-cloud", ...v }));
 
-export const certification: Activity[] = [...aws, ...googleCloud];
+/**
+ * Line
+ *
+ * https://campus.line.biz/mypage/certificates/
+ */
+const line: Activity[] = [
+  {
+    title: "LINE公式アカウント Basic",
+    date: "2023-01-21",
+  },
+  {
+    title: "LINE公式アカウント Advanced",
+    date: "2023-01-31",
+  },
+].map((v) => ({ type: "certification", category: "line", ...v }));
+
+export const certification: Activity[] = [...aws, ...googleCloud, ...line];

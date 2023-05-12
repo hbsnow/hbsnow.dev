@@ -63,9 +63,9 @@
     "throttle-debounce": "5.0.0"
   },
   "engines": {
-    "node": ">=16.12.0"
+    "node": ">=18.16.0"
   },
   "volta": {
-    "node": "16.12.0"
+    "node": "18.16.0"
   }
 }

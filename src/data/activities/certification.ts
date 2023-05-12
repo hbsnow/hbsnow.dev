@@ -7,6 +7,11 @@ import type { Activity } from ".";
  */
 const aws: Activity[] = [
   {
+    title: "2023 Japan AWS All Certifications Engineers 受賞",
+    date: "2023-04-20",
+    url: "https://aws.amazon.com/jp/blogs/psa/2023-japan-aws-all-certifications-engineers/",
+  },
+  {
     title: "AWS Certified: SAP on AWS – Specialty",
     date: "2023-02-09",
     url: "https://www.credly.com/badges/c2b61f27-f629-42e8-a072-404bb3fe7751",

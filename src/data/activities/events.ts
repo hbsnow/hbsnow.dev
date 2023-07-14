@@ -2,9 +2,18 @@ import type { Activity } from ".";
 
 export const events: Activity[] = [
   {
+    title: "Front-End Deep Dive Online",
+    date: "2023-06-22",
+    url: "https://anotherworks.connpass.com/event/285095/",
+    slideUrl:
+      "https://speakerdeck.com/hbsnow/ju-da-tablenopahuomansuwogai-shan-suru",
+  },
+  {
     title: "【オフライン@福岡】俺たちのフロントエンド”大”自慢大会",
     date: "2023-04-14",
     url: "https://findy.connpass.com/event/278455/",
+    slideUrl:
+      "https://speakerdeck.com/hbsnow/oke-sannoensiniatosukuramute-bing-zou-siteiruhua",
   },
   {
     title:

@@ -17,6 +17,7 @@ export type Activity = (
       type: "event";
       url: string;
       mediaUrl?: string;
+      slideUrl?: string;
     }
 ) & { title: string; date: string };
 

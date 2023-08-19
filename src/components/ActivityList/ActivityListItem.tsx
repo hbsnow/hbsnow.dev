@@ -1,6 +1,6 @@
 import styles from "./ActivityListItem.module.css";
 import { ActivityState } from "./ActivityState";
-import { ColoredIcon } from "@/cores/Icon";
+import { ColoredIcon, SystemIcon } from "@/cores/Icon";
 import { Link } from "@/cores/Link";
 import type { Activity } from "@/data/activities";
 
@@ -20,14 +20,23 @@ export const ActivityListItem = (props: Props): JSX.Element => {
       <div>
         <div className={styles.state}>
           <ActivityState activity={activity} />
+          {activity.type === "event" && activity.slideUrl && (
+            <Link
+              external
+              href={activity.slideUrl}
+              className={styles.speakerdeck}
+            >
+              <SystemIcon name="speakerdeck" width={22} height={22} />
+            </Link>
+          )}
         </div>
-        <div>
+        <div className={styles.activity}>
           {activity.url ? (
             <Link external href={activity.url}>
               {activity.title}
             </Link>
           ) : (
-            activity.title
+            <span>{activity.title}</span>
           )}
         </div>
       </div>

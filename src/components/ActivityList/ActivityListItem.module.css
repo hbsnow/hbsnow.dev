@@ -5,8 +5,15 @@
 }
 
 .state {
+  display: flex;
+  align-items: center;
   color: var(--color-default-text-muted);
   font-size: var(--s-1);
+  gap: var(--s-5);
+}
+
+.speakerdeck {
+  color: var(--color-icon-speakerdeck);
 }
 
 .icon {
@@ -14,4 +21,9 @@
   background-color: var(--color-default-surface);
   border-radius: 100%;
   padding: var(--s-5);
+}
+
+.activity {
+  display: inline-flex;
+  gap: 0 var(--s-5);
 }

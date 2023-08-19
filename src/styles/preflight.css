@@ -28,6 +28,7 @@
   );
   --color-gradation-brightness: 1.1;
   --color-gradation-text: rgba(255, 255, 255, 0.87);
+  --color-icon-speakerdeck: #009287;
   --font-family-default: sans-serif;
   --font-family-heading: "Nunito", var(--font-family-default);
   --font-family-code: "Ricty", "Ricty Diminished", "HackGen", "PlemolJP",

@@ -2,6 +2,13 @@ import type { Activity } from ".";
 
 export const events: Activity[] = [
   {
+    title: "クラスメソッドの最新開発ノウハウを学ぶ勉強会 〜エンジニア編〜",
+    date: "2023-08-04",
+    url: "https://classmethod.connpass.com/event/290312/",
+    slideUrl:
+      "https://speakerdeck.com/hbsnow/hurontoendoenziniagagu-ke-enziniatosukuramudeban-zou-siteiruhua",
+  },
+  {
     title: "Front-End Deep Dive Online",
     date: "2023-06-22",
     url: "https://anotherworks.connpass.com/event/285095/",

@@ -12,7 +12,16 @@
   gap: var(--s-5);
 }
 
+.slide {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  font-size: var(--s-1);
+}
+
 .speakerdeck {
+  display: flex;
+  align-items: center;
   color: var(--color-icon-speakerdeck);
 }
 

@@ -20,15 +20,6 @@ export const ActivityListItem = (props: Props): JSX.Element => {
       <div>
         <div className={styles.state}>
           <ActivityState activity={activity} />
-          {activity.type === "event" && activity.slideUrl && (
-            <Link
-              external
-              href={activity.slideUrl}
-              className={styles.speakerdeck}
-            >
-              <SystemIcon name="speakerdeck" width={22} height={22} />
-            </Link>
-          )}
         </div>
         <div className={styles.activity}>
           {activity.url ? (
@@ -39,6 +30,14 @@ export const ActivityListItem = (props: Props): JSX.Element => {
             <span>{activity.title}</span>
           )}
         </div>
+        {activity.type === "event" && activity.slide && (
+          <Link external href={activity.slide.url} className={styles.slide}>
+            <div className={styles.speakerdeck}>
+              <SystemIcon name="speakerdeck" width={22} height={22} />
+            </div>
+            <div>{activity.slide.title}</div>
+          </Link>
+        )}
       </div>
     </div>
   );

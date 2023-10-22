@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef, PropsWithChildren } from "react";
 
 import styles from "./styles.module.css";
-import { TagIcon, tagList, TagType } from "@/cores/Icon";
+import { TagIcon, tagList, type TagType } from "@/cores/Icon";
 import { Link } from "@/cores/Link";
 
 export type Props = Readonly<

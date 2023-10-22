@@ -1,4 +1,4 @@
-import { ComponentProps, Fragment } from "react";
+import { type ComponentProps, Fragment } from "react";
 
 import styles from "./styles.module.css";
 import { Container } from "@/cores/Container";

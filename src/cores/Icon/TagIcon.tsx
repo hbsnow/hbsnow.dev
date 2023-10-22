@@ -1,4 +1,8 @@
-import { ComponentPropsWithoutRef, memo, PropsWithChildren } from "react";
+import {
+  memo,
+  type ComponentPropsWithoutRef,
+  type PropsWithChildren,
+} from "react";
 
 export const tagName = [
   "amp",

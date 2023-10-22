@@ -1,6 +1,7 @@
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import rehypeSectionize from "@hbsnow/rehype-sectionize";
+import type { AstroUserConfig } from "astro";
 import { defineConfig } from "astro/config";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
@@ -14,8 +15,9 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkLinkCard],
     rehypePlugins: [
-      rehypeSlug(),
-      rehypeAutolinkHeadings(),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      rehypeSlug as any,
+      rehypeAutolinkHeadings,
       rehypeSectionize,
       [
         rehypeWrapAll,

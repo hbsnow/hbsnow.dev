@@ -13,7 +13,7 @@ export const ActivityState = (props: Props): JSX.Element => {
 
   const date = useMemo(
     () => formatDate(activity.date, "MMM D"),
-    [activity.date]
+    [activity.date],
   );
 
   if (activity.type === "blog") {

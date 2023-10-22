@@ -1,3 +1,46 @@
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--s0);
+}
+
+.button {
+  width: 80px;
+  border: 0;
+  background-color: transparent;
+  color: var(--color-default-text);
+  padding: 0;
+  cursor: pointer;
+  outline: 0;
+}
+
+.innerButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  gap: var(--s-2);
+}
+
+.icon {
+  display: grid;
+  place-content: center;
+  border-radius: 100%;
+  background-color: var(--color-default-bg);
+  width: var(--s5);
+  height: var(--s5);
+  outline: var(--color-default-surface) solid var(--border-thick);
+}
+.button:hover .icon,
+.button:focus .icon {
+  outline: var(--color-primary) solid var(--border-thick);
+}
+.button[aria-checked="true"] .icon {
+  outline: var(--color-primary) solid var(--border-thick);
+  background-color: var(--color-default-surface);
+}
+
 .activities {
   display: flex;
   flex-direction: column;
@@ -8,9 +51,6 @@
   display: flex;
   align-items: flex-start;
   gap: var(--s-1);
-}
-
-.item + .item {
   margin-top: var(--s4);
 }
 

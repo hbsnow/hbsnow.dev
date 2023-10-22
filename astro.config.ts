@@ -14,8 +14,8 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkLinkCard],
     rehypePlugins: [
-      rehypeSlug,
-      rehypeAutolinkHeadings,
+      rehypeSlug(),
+      rehypeAutolinkHeadings(),
       rehypeSectionize,
       [
         rehypeWrapAll,

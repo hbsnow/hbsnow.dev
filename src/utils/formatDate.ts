@@ -1,8 +1,8 @@
-import dayjs, { ConfigType } from "dayjs";
+import dayjs, { type ConfigType } from "dayjs";
 
 export const formatDate = (
   date: NonNullable<ConfigType>,
-  format = "YYYY-MM-DD"
+  format = "YYYY-MM-DD",
 ) => {
   return dayjs(date).format(format);
 };

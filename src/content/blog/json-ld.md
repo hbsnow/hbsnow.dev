@@ -7,17 +7,17 @@ createdAt: 2017-12-01
 updatedAt: 2020-04-17
 ---
 
-JSON-LD とは、[Linked Data](https://www.w3.org/DesignIssues/LinkedData.html) を JSON で記述するための軽量シンタックスです。Google は構造化データを、 [JSON-LD での記述を推奨](https://developers.google.com/search/docs/guides/intro-structured-data#structured-data-format)しています。
+JSON-LDとは、[Linked Data](https://www.w3.org/DesignIssues/LinkedData.html) をJSONで記述するための軽量シンタックスです。Googleは構造化データを、 [JSON-LD での記述を推奨](https://developers.google.com/search/docs/guides/intro-structured-data#structured-data-format)しています。
 
 ## JSON-LD の keywords
 
-JSON-LD にはいくつかの keyword がありますが、ここで紹介しているのは AMP で必要になる keyword のみに限定しています。その他の keyword については[JSON-LD の SPEC](https://json-ld.org/spec/latest/json-ld/#syntax-tokens-and-keywords) にて確認できます。
+JSON-LDにはいくつかのkeywordがありますが、ここで紹介しているのはAMPで必要になるkeywordのみに限定しています。その他のkeywordについては[JSON-LD の SPEC](https://json-ld.org/spec/latest/json-ld/#syntax-tokens-and-keywords) にて確認できます。
 
 ### @context
 
-`@context` は JSON-LD 全体で使用される省略名を定義するために使用します。
+`@context` はJSON-LD全体で使用される省略名を定義するために使用します。
 
-例えば、次の JSON-LD は同じ長い文字列が繰り返し出現しています。
+例えば、次のJSON-LDは同じ長い文字列が繰り返し出現しています。
 
 ```json
 {
@@ -39,7 +39,7 @@ JSON-LD にはいくつかの keyword がありますが、ここで紹介して
 }
 ```
 
-ここでの `name` や `Person` は term と呼ばれ、識別子を短い記法で表現できるようになります。
+ここでの `name` や `Person` はtermと呼ばれ、識別子を短い記法で表現できるようになります。
 
 また、次のように記述できます。
 
@@ -63,7 +63,7 @@ JSON-LD にはいくつかの keyword がありますが、ここで紹介して
 }
 ```
 
-この例のように term の定義が 1 つであれば、`@vocab` を使用さらに簡略化して書くこともできます。
+この例のようにtermの定義が1つであれば、`@vocab` を使用さらに簡略化して書くこともできます。
 
 ```json
 {
@@ -91,15 +91,15 @@ JSON-LD にはいくつかの keyword がありますが、ここで紹介して
 
 #### @type
 
-node あるいは typed value の型を指定するときに使用します。
+nodeあるいはtyped valueの型を指定するときに使用します。
 
-node 型は人物や場所、イベント、Web ページなどの記述されているものの型を指定し、typed value 型は整数や浮動小数点数、または日付など特定の値のデータ型を指定します。
+node型は人物や場所、イベント、Webページなどの記述されているものの型を指定し、typed value型は整数や浮動小数点数、または日付など特定の値のデータ型を指定します。
 
 #### @id
 
-IRI や blank node identifier (`_:` ではじまる文字列) を用いて一意に識別するために使用します。
+IRIやblank node identifier (`_:` ではじまる文字列) を用いて一意に識別するために使用します。
 
-先ほどの例では Jhon Doe という人物が複数いた場合、それがどの Jhon Doe なのかがわかりません。
+先ほどの例ではJhon Doeという人物が複数いた場合、それがどのJhon Doeなのかがわかりません。
 
 ```json
 {
@@ -110,11 +110,11 @@ IRI や blank node identifier (`_:` ではじまる文字列) を用いて一意
 }
 ```
 
-この例ではサイトの URL を追加することで、人物を一意に特定しています。
+この例ではサイトのURLを追加することで、人物を一意に特定しています。
 
 ## AMP で使用する場合のサンプル
 
-AMP で JSON-LD を使用する場合には、いくつかの記述が必須となる項目があり、[構造化データの記事](https://developers.google.com/search/docs/data-types/article)で確認できます。
+AMPでJSON-LDを使用する場合には、いくつかの記述が必須となる項目があり、[構造化データの記事](https://developers.google.com/search/docs/data-types/article)で確認できます。
 
 ### ブログ記事
 

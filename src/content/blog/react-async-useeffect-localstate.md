@@ -14,7 +14,7 @@ createdAt: 2020-11-29
 Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
 ```
 
-これはコンポーネントがアンマウントされた状態で、アンマウントされたコンポーネントの local state を変更したときに発生します。
+これはコンポーネントがアンマウントされた状態で、アンマウントされたコンポーネントのlocal stateを変更したときに発生します。
 
 人為的にこのエラーを引き起こしてみます。
 
@@ -58,9 +58,9 @@ export const CountUp: React.FC = () => {
 };
 ```
 
-表示直後、5 秒後に表示されている数値が 1 にカウントアップするだけのコンポーネントです。toggle のボタンをクリックすると CountUp のコンポーネントのマウント状態を切り替えます。そのため、render 直後から 5 秒以内に toggle ボタンを押すことで先述のエラーが表示されるはずです。
+表示直後、5秒後に表示されている数値が1にカウントアップするだけのコンポーネントです。toggleのボタンをクリックするとCountUpのコンポーネントのマウント状態を切り替えます。そのため、render直後から5秒以内にtoggleボタンを押すことで先述のエラーが表示されるはずです。
 
-これを防ぐには CountUp.tsx の `useEffect` の cleanup で `clearTimeout` をするだけです。
+これを防ぐにはCountUp.tsxの `useEffect` のcleanupで `clearTimeout` をするだけです。
 
 ```tsx
 useEffect(() => {
@@ -74,7 +74,7 @@ useEffect(() => {
 }, []);
 ```
 
-コンポーネントがマウントされていないときに、local state の変更をしなければエラーは発生しません。つまり、`clearTimeout` をしなくてもマウントされているかどうかのフラグによってエラーを回避できます。`setTimeout` ではあまり次のように書く意味はありませんが、Promise がキャンセルできないときにはフラグが必要なります。
+コンポーネントがマウントされていないときに、local stateの変更をしなければエラーは発生しません。つまり、`clearTimeout` をしなくてもマウントされているかどうかのフラグによってエラーを回避できます。`setTimeout` ではあまり次のように書く意味はありませんが、Promiseがキャンセルできないときにはフラグが必要なります。
 
 ```tsx
 useEffect(() => {
@@ -110,11 +110,11 @@ useEffect(() => {
 
 https://overreacted.io/a-complete-guide-to-useeffect/
 
-ただし、例えば叩いた回数を返す API があり、その結果を表示させるような場合。その API を連読で叩き、一度目の API 呼び出しの結果が二度目の API の戻りよりも遅れて返ってきた場合、`isMounted()` で判定するだけでは意図しない結果が表示されてしまいます。
+ただし、例えば叩いた回数を返すAPIがあり、その結果を表示させるような場合。そのAPIを連読で叩き、一度目のAPI呼び出しの結果が二度目のAPIの戻りよりも遅れて返ってきた場合、`isMounted()` で判定するだけでは意図しない結果が表示されてしまいます。
 
 ## useAsyncFn
 
-`isMounted()` は便利なのですが `useEffect` 内で API を叩くようなとき、loading と error の状態なども持たせたくなるため、やや大げさなコードになってしまいます。
+`isMounted()` は便利なのですが `useEffect` 内でAPIを叩くようなとき、loadingとerrorの状態なども持たせたくなるため、やや大げさなコードになってしまいます。
 
 ```tsx
 import React, { useState, useCallback, useEffect } from "react";
@@ -156,7 +156,7 @@ export const Todo: React.FC = () => {
 };
 ```
 
-これを react-use の [`useAsyncFn`](https://github.com/streamich/react-use/blob/master/docs/useAsyncFn.md) で書き換えると次のようにすっきりと記述できます。
+これをreact-useの [`useAsyncFn`](https://github.com/streamich/react-use/blob/master/docs/useAsyncFn.md) で書き換えると次のようにすっきりと記述できます。
 
 ```tsx
 import React, { useEffect } from "react";
@@ -180,7 +180,7 @@ export const Todo: React.FC = () => {
 };
 ```
 
-ただし、`useAsyncFn` の第二引数には ESLint の `react-hooks/exhaustive-deps` がきかないので注意が必要です。この問題は [`additionalHooks` の設定を追加することで解決](https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks)します。
+ただし、`useAsyncFn` の第二引数にはESLintの `react-hooks/exhaustive-deps` がきかないので注意が必要です。この問題は [`additionalHooks` の設定を追加することで解決](https://github.com/facebook/react/tree/master/packages/eslint-plugin-react-hooks)します。
 
 ```json
 {

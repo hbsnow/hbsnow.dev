@@ -11,7 +11,8 @@
     "astro": "astro",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
-    "lint": "prettier src --check && eslint src"
+    "lint": "prettier src --check && eslint src",
+    "lintfix:text": "textlint --fix './src/content/blog/**/*.md'"
   },
   "devDependencies": {
     "@astrojs/react": "3.0.3",
@@ -52,6 +53,7 @@
     "textlint-rule-ja-hiragana-fukushi": "1.3.0",
     "textlint-rule-ja-hiragana-hojodoushi": "1.1.0",
     "textlint-rule-ja-hiragana-keishikimeishi": "1.1.0",
+    "textlint-rule-preset-ja-spacing": "2.3.0",
     "textlint-rule-preset-ja-technical-writing": "8.0.0",
     "vite-tsconfig-paths": "4.2.1",
     "vitest": "0.34.6"

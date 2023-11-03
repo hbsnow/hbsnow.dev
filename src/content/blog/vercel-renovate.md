@@ -9,8 +9,8 @@ updatedAt: 2020-06-27
 
 ## まとめ
 
-- 同時刻に renovate の大量の PR でがでていたため Vercel のビルドが詰まっていた
-- renovate の設定を変更
+- 同時刻にrenovateの大量のPRでがでていたためVercelのビルドが詰まっていた
+- renovateの設定を変更
   - `master` ではなく `chore/renovate` ブランチにオートマージ
   - スケジュールを平日にのみ稼働させる
 
@@ -18,7 +18,7 @@ updatedAt: 2020-06-27
 
 このサイトは [renovate](https://renovatebot.com/) を使って依存パッケージの自動更新をしていて、サイトのデプロイ先を [Vercel](https://vercel.com/) にしています。
 
-当時の renovate.json の設定は以下です。
+当時のrenovate.jsonの設定は以下です。
 
 ```json
 {
@@ -35,13 +35,13 @@ updatedAt: 2020-06-27
 }
 ```
 
-結果的にこの設定は非常によくなくて、週末の特定時間に master へのマージが多発したためキューの大渋滞を起こしていました。
+結果的にこの設定は非常によくなくて、週末の特定時間にmasterへのマージが多発したためキューの大渋滞を起こしていました。
 
 ## renovate で master に直接マージしない
 
-原因は特定のタイミングで master へのマージが一気に行われることです。平日まめに確認できないのでオートマージは維持させたいという事情があります。
+原因は特定のタイミングでmasterへのマージが一気に行われることです。平日まめに確認できないのでオートマージは維持させたいという事情があります。
 
-そこでマージ先を直接 master ではなく `chore/renovate` というブランチを作り、そこにマージしていくように変更しました。
+そこでマージ先を直接masterではなく `chore/renovate` というブランチを作り、そこにマージしていくように変更しました。
 
 ```json
 {
@@ -63,15 +63,15 @@ updatedAt: 2020-06-27
 }
 ```
 
-直接 master にマージされなくなったため、major アップデート以外と devDependencies のすべてをオートマージするように変更しています。また、私が稼働する週末には動作せず、平日にのみ動作するようにしました。
+直接masterにマージされなくなったため、majorアップデート以外とdevDependenciesのすべてをオートマージするように変更しています。また、私が稼働する週末には動作せず、平日にのみ動作するようにしました。
 
 ## 結果
 
-1. renovate が平日 `chore/renovate` にオートマージ
-1. renovate が dependencies の major アップデートを `chore/renovate` に PR を出す
-1. 私が `chore/renovate` への PR をレビューしてマージ
-1. 私が `chore/renovate` から `master` に PR を出して、レビューしてマージ
+1. renovateが平日 `chore/renovate` にオートマージ
+1. renovateがdependenciesのmajorアップデートを `chore/renovate` にPRを出す
+1. 私が `chore/renovate` へのPRをレビューしてマージ
+1. 私が `chore/renovate` から `master` にPRを出して、レビューしてマージ
 
-minor のアップデートもオートマージになったので結果的に作業量が大きく減りました。
+minorのアップデートもオートマージになったので結果的に作業量が大きく減りました。
 
-今回の例ではださなかったけど、[セマンティックバージョニング](https://semver.org/) になっていない、例えば [TypeScript](https://www.typescriptlang.org/) のようなパッケージには注意が必要になります。renovate の設定はパッケージごとに `packageRules` でグループ化することで細かく設定できるので、プロジェクトにあった設定をするとよさそうです。
+今回の例ではださなかったけど、[セマンティックバージョニング](https://semver.org/) になっていない、例えば [TypeScript](https://www.typescriptlang.org/) のようなパッケージには注意が必要になります。renovateの設定はパッケージごとに `packageRules` でグループ化することで細かく設定できるので、プロジェクトにあった設定をするとよさそうです。

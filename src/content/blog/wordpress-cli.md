@@ -35,7 +35,7 @@ wp plugin install wp-multibyte-patch --activate
 wp option update timezone_string Asia/Tokyo
 ```
 
-上記でインストールから日本語化までの手順になります。ここまでは WP-CLI で実行するよりも、`init.sql` で流すことが多いです。あるいは `wp db export` したものを `wp db import` するのもよさそうです。
+上記でインストールから日本語化までの手順になります。ここまではWP-CLIで実行するよりも、`init.sql` で流すことが多いです。あるいは `wp db export` したものを `wp db import` するのもよさそうです。
 
 - [wp core install](https://developer.wordpress.org/cli/commands/core/install/)
 - [wp core update](https://developer.wordpress.org/cli/commands/core/update/)
@@ -47,7 +47,7 @@ wp option update timezone_string Asia/Tokyo
 
 ### テーマ
 
-[\_s](https://github.com/automattic/_s) というの WordPress 用のスターターテーマ。
+[\_s](https://github.com/automattic/_s) というのWordPress用のスターターテーマ。
 
 ```sh
 # _s のベーステーマを生成
@@ -82,7 +82,7 @@ wp post-type list
 require get_template_directory() . '/post-types/<post-types>.php';
 ```
 
-そのまま使用すると日本語の場合であっても、複数形の s がついてしまうので修正が必要になります。
+そのまま使用すると日本語の場合であっても、複数形のsがついてしまうので修正が必要になります。
 
 - [wp scaffold post-type](https://developer.wordpress.org/cli/commands/scaffold/post-type/)
 
@@ -102,7 +102,7 @@ wp term create <taxonomy-slug> <term> --slug=<term-slug> --description=<descript
 wp term list <taxonomy-slug>
 ```
 
-scaffold はテーマ名を指定すると標準出力ではなく、指定テーマの `taxonomies` にファイルが生成されます。このコマンドはファイルを生成するだけであるため、実行するためには `functions.php` に次のようなコードを記述する必要があります。
+scaffoldはテーマ名を指定すると標準出力ではなく、指定テーマの `taxonomies` にファイルが生成されます。このコマンドはファイルを生成するだけであるため、実行するためには `functions.php` に次のようなコードを記述する必要があります。
 
 ```php
 require get_template_directory() . '/taxonomies/<taxonomy-slug>.php';
@@ -128,7 +128,7 @@ wp db export
 wp db import
 ```
 
-WordPress の DB ではデータがシリアライズされている可能性があるため、単純な置換ができません。例えば移転などで URL に変更を加える必要がある場合、`wp search-replace` によって置き換えることができます。
+WordPressのDBではデータがシリアライズされている可能性があるため、単純な置換ができません。例えば移転などでURLに変更を加える必要がある場合、`wp search-replace` によって置き換えることができます。
 
 - [wp search-replace](https://developer.wordpress.org/cli/commands/search-replace/)
 - [wp db export](https://developer.wordpress.org/cli/commands/db/export/)
@@ -179,7 +179,7 @@ wp maintenance-mode activate
 wp maintenance-mode deactivate
 ```
 
-生成されるファイルは `<?php $upgrading = 1594870466; ?>` のように現在のタイムスタンプが設定するだけです。そのためコマンド実行から 10 分でメンテナンスモードは自動的に解除されます。
+生成されるファイルは `<?php $upgrading = 1594870466; ?>` のように現在のタイムスタンプが設定するだけです。そのためコマンド実行から10分でメンテナンスモードは自動的に解除されます。
 
 この方法だとメンテナンスモード時のデザイン変更ができそうにないので、利用する機会は少なそうです。
 

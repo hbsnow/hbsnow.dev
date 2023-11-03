@@ -7,9 +7,9 @@ createdAt: 2018-05-11
 updatedAt: 2020-07-24
 ---
 
-WordPress の環境構築には [VCCW](https://github.com/vccw-team/vccw) という Vagrant を使用する Starter もありますが、私自身は使用したことがないので、ツールの比較については言及していません。
+WordPressの環境構築には [VCCW](https://github.com/vccw-team/vccw) というVagrantを使用するStarterもありますが、私自身は使用したことがないので、ツールの比較については言及していません。
 
-また、[Laradock](https://laradock.io/) でも WordPress をサポートしているようです。
+また、[Laradock](https://laradock.io/) でもWordPressをサポートしているようです。
 
 制作物は以下になります。
 
@@ -27,15 +27,15 @@ https://github.com/hbsnow/wordpress-docker
 
 ## WordPress
 
-WP-CLI とそれに必要な `mysql-client` などを追加でインストールしています。また、共有したディレクトリについては、Apache の実行ユーザに所有を変更しています。
+WP-CLIとそれに必要な `mysql-client` などを追加でインストールしています。また、共有したディレクトリについては、Apacheの実行ユーザに所有を変更しています。
 
-`php.ini` にある設定の追加は WP-CLI の `wp package install wp-cli/profile-command` のインストールのために追記してあります。
+`php.ini` にある設定の追加はWP-CLIの `wp package install wp-cli/profile-command` のインストールのために追記してあります。
 
 ### WP-CLI
 
-WorpPress を使用するうえで、[WP-CLI](https://wp-cli.org/ja/) はあると非常に便利です。
+WorpPressを使用するうえで、[WP-CLI](https://wp-cli.org/ja/) はあると非常に便利です。
 
-WP-CLI について詳しくは [WP-CLI まとめ](/blog/wordpress-cli/) で解説しています。
+WP-CLIについて詳しくは [WP-CLI まとめ](/blog/wordpress-cli/) で解説しています。
 
 ## MySQL
 

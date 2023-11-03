@@ -14,7 +14,7 @@ updatedAt: 2020-08-08
 
 ## カスタム投稿を作る
 
-example というテーマに Item (商品) というカスタム投稿を追加します。
+exampleというテーマにItem (商品) というカスタム投稿を追加します。
 
 ```sh
 wp scaffold post-type item --theme=example --label="Item"
@@ -86,7 +86,7 @@ add_filter(
 
 ## カスタムタクソノミーを作る
 
-カスタムタクソノミーを Item Category というカスタムタクソノミーを追加します。
+カスタムタクソノミーをItem Categoryというカスタムタクソノミーを追加します。
 
 ```sh
 wp scaffold taxonomy item-category --post_types=item --theme=example --label="Item Category"
@@ -169,7 +169,7 @@ add_action(
 
 ### 検索語句と OR 検索で検索可能にする
 
-OR 検索の条件がつくと `WP_Query::set` では難しくなります。例えば `検索語句` を検索したときには次のような SQL が叩かれます。
+OR検索の条件がつくと `WP_Query::set` では難しくなります。例えば `検索語句` を検索したときには次のようなSQLが叩かれます。
 
 ```sql
 SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts
@@ -184,7 +184,7 @@ SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts
   LIMIT 0, 10
 ```
 
-先ほどの AND 検索の方法では、次のような SQL が叩かれることになります。
+先ほどのAND検索の方法では、次のようなSQLが叩かれることになります。
 
 ```sql
 SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts
@@ -204,7 +204,7 @@ SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts
   LIMIT 0, 10
 ```
 
-そのため、`posts_where` と `posts_join` を使って直接 SQL を書き換える必要があります。
+そのため、`posts_where` と `posts_join` を使って直接SQLを書き換える必要があります。
 
 ```php
 add_filter(
@@ -248,7 +248,7 @@ add_filter(
 
 上記のコードは [Search WordPress by Custom Fields without a Plugin](https://adambalee.com/search-wordpress-by-custom-fields-without-a-plugin/) を参考にしています。
 
-これによって次のように SQL が書き換わります。
+これによって次のようにSQLが書き換わります。
 
 ```sql
 SELECT SQL_CALC_FOUND_ROWS  wp_posts.ID FROM wp_posts

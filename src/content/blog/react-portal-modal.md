@@ -7,7 +7,7 @@ createdAt: 2020-04-25
 updatedAt: 2020-04-29
 ---
 
-React で普通のモーダルを作るのであれば、素直にスターが多めの以下を使うのがよさそう。
+Reactで普通のモーダルを作るのであれば、素直にスターが多めの以下を使うのがよさそう。
 
 - https://github.com/reactjs/react-modal
 
@@ -26,7 +26,7 @@ React で普通のモーダルを作るのであれば、素直にスターが�
 
 - https://ja.reactjs.org/docs/portals.html
 
-こういった問題を解決するために React では、子のコンポーネントを親の DOM 階層下以外の場所に描画できる portal というものが用意されています。
+こういった問題を解決するためにReactでは、子のコンポーネントを親のDOM階層下以外の場所に描画できるportalというものが用意されています。
 
 ```tsx
 import React, { FC, useRef, useState, useEffect } from "react";
@@ -48,7 +48,7 @@ const Modal: FC = () => {
 export default Modal;
 ```
 
-簡略化していますが Next.js だとモーダル用のコンポーネントはこんな感じになります。
+簡略化していますがNext.jsだとモーダル用のコンポーネントはこんな感じになります。
 
 ## モーダルをスタックさせる
 
@@ -56,7 +56,7 @@ export default Modal;
 
 [store に React のコンポーネントをそのまま配列に入れて順番を保持する](https://github.com/reduxjs/redux/issues/1248)ようなことは推奨されていません。
 
-なので、モーダル用の props をつくってそれを配列としてもつか、そういったことも難しいようであれば Enum とか Union 型を props で渡して条件分岐させる方法が考えられます。ここのサンプルでは後者を採用しました。
+なので、モーダル用のpropsをつくってそれを配列としてもつか、そういったことも難しいようであればEnumとかUnion型をpropsで渡して条件分岐させる方法が考えられます。ここのサンプルでは後者を採用しました。
 
 ```tsx
 import React, { useContext } from 'react'
@@ -86,7 +86,7 @@ export default ModalContent
 
 ## モーダルの情報をもった配列の変更
 
-モーダルの状態をもった配列はどのコンポーネントからも変更できる必要があります。Redux を使っていればそれでいいし、今回のようなサンプル程度のものであれば `useReducer` と `useContext` を使えばいいでしょう。
+モーダルの状態をもった配列はどのコンポーネントからも変更できる必要があります。Reduxを使っていればそれでいいし、今回のようなサンプル程度のものであれば `useReducer` と `useContext` を使えばいいでしょう。
 
 ```tsx
 import { createContext, Dispatch } from "react";
@@ -130,11 +130,11 @@ export const reducer = (state: StateType, action): StateType => {
 };
 ```
 
-サンプルで用意したのは PUSH, SHIFT, UNSHIFT の 3 つ。配列操作の名前の通りの挙動なので特に説明はいらないはず。
+サンプルで用意したのはPUSH, SHIFT, UNSHIFTの3つ。配列操作の名前の通りの挙動なので特に説明はいらないはず。
 
 ## モーダルを呼び出す
 
-モーダルを呼び出すには次のように dispatch するだけです。
+モーダルを呼び出すには次のようにdispatchするだけです。
 
 ```tsx
 import React, { useContext } from "react";

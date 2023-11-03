@@ -20,7 +20,7 @@ updatedAt: 2020-05-30
 
 ## reduce の使用例
 
-ここでは上記 5 つの例をみていきます。
+ここでは上記5つの例をみていきます。
 
 ### 1. 配列の合計を計算する
 
@@ -46,7 +46,7 @@ const sum = cart.reduce((accumulator, currentValue) => {
 console.log(sum); // => 6
 ```
 
-また、特定のプロパティ名のある値を除外するようなこともできます。以下は、itemId が 2 であれば合計値に含めないコードです。
+また、特定のプロパティ名のある値を除外するようなこともできます。以下は、itemIdが2であれば合計値に含めないコードです。
 
 ```js
 const sum = cart.reduce((accumulator, currentValue) => {
@@ -78,7 +78,7 @@ console.log(sum); // => { itemId: 3, quantity: 1 }
 
 ### 3. 集計する
 
-SQL でいう `group by` のような集計を取りたいときに便利です。
+SQLでいう `group by` のような集計を取りたいときに便利です。
 
 ```js
 const items = [
@@ -163,7 +163,7 @@ console.log(
 
 こうなります。
 
-ただ、2 次元より大きな配列に対応するためにはもう少し複雑な処理が必要になって、[MDN の flat の項目](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flat#reduce_and_concat)にもあるのでそちらにまかせることとします。
+ただ、2次元より大きな配列に対応するためにはもう少し複雑な処理が必要になって、[MDN の flat の項目](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flat#reduce_and_concat)にもあるのでそちらにまかせることとします。
 
 ### 5. async/await で配列の順次処理
 
@@ -175,7 +175,7 @@ https://www.youtube.com/watch?v=qaGjS7-qWzg
 
 [Jake Archibald が Twitter で reduce について言及して](https://twitter.com/jaffathecake/status/1213077702300852224) 少し話題になっていて、自分も考えさせられました。合計や最大値を求めるといった以外のループとしての用途で使うことってそれなりにあるんですよね。
 
-前述のサンプルだと『async/await で配列の順次処理』がまさにこれに該当するし、『配列の合計を計算する』の最後の例。
+前述のサンプルだと『async/awaitで配列の順次処理』がまさにこれに該当するし、『配列の合計を計算する』の最後の例。
 
 ```js
 const sum = cart.reduce((accumulator, currentValue) => {
@@ -208,7 +208,7 @@ const items = [
 ];
 ```
 
-さきほどのサンプルの配列で、amount が 1000 以上のものについてそれぞれ `+100` した結果のオブジェクトの配列。
+さきほどのサンプルの配列で、amountが1000以上のものについてそれぞれ `+100` した結果のオブジェクトの配列。
 
 ```
 [
@@ -249,7 +249,7 @@ const result = items
 
 ### オブジェクトの指定 key を Omit する
 
-オブジェクトで特定 key を除外したいとき、reduce を使うことができます。
+オブジェクトで特定keyを除外したいとき、reduceを使うことができます。
 
 ```js
 const example = {

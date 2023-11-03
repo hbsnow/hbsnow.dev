@@ -9,9 +9,9 @@ createdAt: 2020-05-06
 ## まとめ
 
 1. `Array.prototype.sort` は破壊的
-1. ES2019 以降は安定ソート、そうでなければ実装依存
+1. ES2019以降は安定ソート、そうでなければ実装依存
 1. 基本的には `lodash.sortby` を使う
-1. 複数の key が判定の条件にあって ASC/DESC が異なる場合には `lodash.orderby` を使う
+1. 複数のkeyが判定の条件にあってASC/DESCが異なる場合には `lodash.orderby` を使う
 1. ライブラリが使えない場合、`Array.prototype.sort` で頑張る。必ずテストコードを書く
 
 ## まえがき
@@ -29,9 +29,9 @@ const items = [
 ];
 ```
 
-基本的なことになるのですが JavaScript の sort は破壊的で、非破壊ソートがありません。
+基本的なことになるのですがJavaScriptのsortは破壊的で、非破壊ソートがありません。
 
-また ES2019 以降は安定ソート、つまり同等なデータのソート順は保持されます。ですが、それ以前の仕様については明確に定義されていないので実装依存になっています。幅広いブラウザの対応と厳密なソートが必要なときには、ユニットテストで通ってもブラウザで表示順が異なるといったことも考えられるので注意が必要です。
+またES2019以降は安定ソート、つまり同等なデータのソート順は保持されます。ですが、それ以前の仕様については明確に定義されていないので実装依存になっています。幅広いブラウザの対応と厳密なソートが必要なときには、ユニットテストで通ってもブラウザで表示順が異なるといったことも考えられるので注意が必要です。
 
 ## lodash の sortBy を使う
 
@@ -39,7 +39,7 @@ const items = [
 
 ### name でのソート
 
-name をアルファベットの昇順でソートするの場合、特に考えることはありません。
+nameをアルファベットの昇順でソートするの場合、特に考えることはありません。
 
 ```js
 import sortBy from "lodash.sortby";
@@ -62,7 +62,7 @@ const sortedItems = sortBy(items, "name");
 const sortedItems = sortBy(items, "name").reverse();
 ```
 
-アルファベット順以外の基準で並べたい場合には、ただ第二引数に key を与えるだけでは足りません。ここでは例として文字数でソートしてみます。
+アルファベット順以外の基準で並べたい場合には、ただ第二引数にkeyを与えるだけでは足りません。ここでは例として文字数でソートしてみます。
 
 ```js
 const sortedItems = sortBy(items, (item) => item.name.length);
@@ -79,7 +79,7 @@ const sortedItems = sortBy(items, (item) => item.name.length);
 
 ### amount でのソート
 
-amount は suger で定義されていません。そのまま amount を指定すると次のような結果になります。
+amountはsugerで定義されていません。そのままamountを指定すると次のような結果になります。
 
 ```js
 import sortBy from "lodash.sortby";
@@ -96,9 +96,9 @@ const sortedItems = sortBy(items, "amount");
 // ]
 ```
 
-key を持たないオブジェクトがあってもエラーになることはありません。
+keyを持たないオブジェクトがあってもエラーになることはありません。
 
-この例では、suger は無料なので配列の先頭にあるほうが自然です。key が存在しない場合には、そのオブジェクトを配列の先頭にしてみます。
+この例では、sugerは無料なので配列の先頭にあるほうが自然です。keyが存在しない場合には、そのオブジェクトを配列の先頭にしてみます。
 
 ```js
 import sortBy from "lodash.sortby";
@@ -115,7 +115,7 @@ const sortedItems = sortBy(items, [(item) => "amount" in item, "amount"]);
 // ]
 ```
 
-amount の key がある場合には後ろにまわしています。
+amountのkeyがある場合には後ろにまわしています。
 
 ### name と amount でのソート
 
@@ -140,7 +140,7 @@ const sortedItems = sortBy(items, [
 // ]
 ```
 
-ただし、amount を降順、name を昇順のようにソート順が key によって異なる場合には複雑になります。
+ただし、amountを降順、nameを昇順のようにソート順がkeyによって異なる場合には複雑になります。
 
 ```js
 import sortBy from "lodash.sortby";
@@ -161,9 +161,9 @@ const sortedItems = sortBy(sortedItemsByNameDesc, [
 // ]
 ```
 
-最終的に reverse するので、その前準備としてのソート `sortedItemsByNameDesc` も最終的なソートとは逆のソートにする必要があってわかりにくい。
+最終的にreverseするので、その前準備としてのソート `sortedItemsByNameDesc` も最終的なソートとは逆のソートにする必要があってわかりにくい。
 
-ここまで必要になるのであれば、素直に orderBy がわかりやすいです。
+ここまで必要になるのであれば、素直にorderByがわかりやすいです。
 
 ```js
 import orderBy from "lodash.orderBy";
@@ -202,9 +202,9 @@ const sortedItems = sortBy(items, (item) => {
 
 ## sort を使う
 
-プロジェクトによっては自分の判断でライブラリをインストールできない場合もあるので、そういったときには sort を使う必要がでてきます。
+プロジェクトによっては自分の判断でライブラリをインストールできない場合もあるので、そういったときにはsortを使う必要がでてきます。
 
-最初に書いたように JavaScript の sort は破壊的ソートなので、直接配列を sort できません。そのため name の昇順は次のように記述する必要があります。
+最初に書いたようにJavaScriptのsortは破壊的ソートなので、直接配列をsortできません。そのためnameの昇順は次のように記述する必要があります。
 
 ```js
 const sortedItems = [...items].sort((a, b) => (a.name < b.name ? -1 : 1));
@@ -219,7 +219,7 @@ const sortedItems = [...items].sort((a, b) => (a.name < b.name ? -1 : 1));
 // ]
 ```
 
-amount のように key が存在しない場合には少し注意が必要です。
+amountのようにkeyが存在しない場合には少し注意が必要です。
 
 ```js
 // ダメな例
@@ -255,9 +255,9 @@ const sortedItems = [...items].sort((a, b) => {
 // ]
 ```
 
-`0` と `undefined` がどちらも falsy なのでややこしく、テストがないと不安の残るコードになります。
+`0` と `undefined` がどちらもfalsyなのでややこしく、テストがないと不安の残るコードになります。
 
-さらにこれを amount を降順、name を昇順にする場合にはさらに複雑で次のようになります。
+さらにこれをamountを降順、nameを昇順にする場合にはさらに複雑で次のようになります。
 
 ```js
 const sortedItems = [...items].sort((a, b) => {

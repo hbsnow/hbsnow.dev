@@ -8,9 +8,9 @@ createdAt: 2020-11-14
 
 ## shell
 
-shell は Mac で現在ではデフォルトの zsh を使っています。
+shellはMacで現在ではデフォルトのzshを使っています。
 
-以前 fish を使っていたこともあるのですが、Web 上で公開されているスクリプトや設定がそのままでは動かないことが多く、メリットを上回るデメリットに感じたため今は使っていません。
+以前fishを使っていたこともあるのですが、Web上で公開されているスクリプトや設定がそのままでは動かないことが多く、メリットを上回るデメリットに感じたため今は使っていません。
 
 ## ターミナルエミュレータ
 
@@ -25,7 +25,7 @@ shell は Mac で現在ではデフォルトの zsh を使っています。
 - [anyenv-git](https://github.com/znz/anyenv-git)
 - [nodenv-package-json-engine](https://github.com/nodenv/nodenv-package-json-engine)
 
-[nodenv-package-json-engine](https://github.com/nodenv/nodenv-package-json-engine) を入れておくと、プロジェクトによって使用する Node.js のバージョンを変更してくれます。
+[nodenv-package-json-engine](https://github.com/nodenv/nodenv-package-json-engine) を入れておくと、プロジェクトによって使用するNode.jsのバージョンを変更してくれます。
 
 ```json
 "engines": {
@@ -33,7 +33,7 @@ shell は Mac で現在ではデフォルトの zsh を使っています。
 }
 ```
 
-package.json に上記のようにバージョンが記述するか、あるいは .node-version を置いてくことが条件になります。
+package.jsonに上記のようにバージョンが記述するか、あるいは .node-versionを置いてくことが条件になります。
 
 ## Prezto
 
@@ -41,9 +41,9 @@ package.json に上記のようにバージョンが記述するか、あるい�
 
 - [Prezto](https://github.com/sorin-ionescu/prezto)
 
-頑張れるのであれば [zplug](https://github.com/zplug/zplug) を使うことになるのですが、設定に強いこだわりがなく面倒なので Prezto を使っています。
+頑張れるのであれば [zplug](https://github.com/zplug/zplug) を使うことになるのですが、設定に強いこだわりがなく面倒なのでPreztoを使っています。
 
-Prezto の設定は `~/.zpreztorc` にあり、デフォルトだと [`syntax-highlighting`](https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting) が有効化されていないので、有効にしておくと便利です。
+Preztoの設定は `~/.zpreztorc` にあり、デフォルトだと [`syntax-highlighting`](https://github.com/sorin-ionescu/prezto/tree/master/modules/syntax-highlighting) が有効化されていないので、有効にしておくと便利です。
 
 - [autosuggestions](https://github.com/sorin-ionescu/prezto/tree/master/modules/autosuggestions)
 - [history-substring-search](https://github.com/sorin-ionescu/prezto/tree/master/modules/history-substring-search)
@@ -70,7 +70,7 @@ zstyle ':prezto:load' pmodule \
 
 - [pure](https://github.com/sindresorhus/pure)
 
-以前は [powerline](https://github.com/powerline/powerline) を使っていたのですが、別途フォントのインストールが必要になります。環境によってはそれが許されないこともあるので、pure に乗り換えました。
+以前は [powerline](https://github.com/powerline/powerline) を使っていたのですが、別途フォントのインストールが必要になります。環境によってはそれが許されないこともあるので、pureに乗り換えました。
 
 こちらの設定も `~/.zpreztorc` を編集することで反映されます。
 
@@ -83,15 +83,15 @@ zstyle ':prezto:load' pmodule \
 
 - [ghq](https://github.com/x-motemen/ghq)
 
-コードを統一的に管理するツール。`ghq get` でリポジトリを取得して、fzf を使って検索ができるようになるととりあえず手元にもってくることが苦痛でなくなるので本当に便利。
+コードを統一的に管理するツール。`ghq get` でリポジトリを取得して、fzfを使って検索ができるようになるととりあえず手元にもってくることが苦痛でなくなるので本当に便利。
 
-ssh で clone するとき `ghq get -p` とすればいいんだけど、毎回オプションを忘れてます。
+sshでcloneするとき `ghq get -p` とすればいいんだけど、毎回オプションを忘れてます。
 
 ## fzf
 
 - [fzf](https://github.com/junegunn/fzf)
 
-以前は [peco](https://github.com/peco/peco) を使っていたのですが、左右に表示されるのがいいなと思って fzf を使い始めました。いまのところ ghq や cdr と組み合わせて使うくらいしかしていません。
+以前は [peco](https://github.com/peco/peco) を使っていたのですが、左右に表示されるのがいいなと思ってfzfを使い始めました。いまのところghqやcdrと組み合わせて使うくらいしかしていません。
 
 - [6 歳娘｢パパ、プロジェクトフォルダを見つけるのに何時間かけるの？｣【ghq+fzf+zsh】](https://qiita.com/tomoyamachi/items/e51d2906a5bb24cf1684)
 - [fzf で捗る自作コマンド一覧(zsh)](https://www.rasukarusan.com/entry/2018/08/14/083000)
@@ -100,7 +100,7 @@ ssh で clone するとき `ghq get -p` とすればいいんだけど、毎回�
 
 - [Icdiff](https://www.jefftk.com/icdiff)
 
-VS Code が優秀なのであまりターミナル上で差分の確認をすることはありませんが、するときにあると便利なので入れています。
+VS Codeが優秀なのであまりターミナル上で差分の確認をすることはありませんが、するときにあると便利なので入れています。
 
 ## AWS-CLI
 

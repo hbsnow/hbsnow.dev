@@ -7,7 +7,7 @@ createdAt: 2019-06-01
 updatedAt: 2019-07-26
 ---
 
-よく使う MySQL と PostgreSQL のコマンドの対応表です。
+よく使うMySQLとPostgreSQLのコマンドの対応表です。
 
 | 説明             | MySQL              | PostgreSQL           |
 | ---------------- | ------------------ | -------------------- |

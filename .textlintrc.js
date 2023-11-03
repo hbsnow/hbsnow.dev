@@ -11,6 +11,7 @@ const config = {
         max: 150,
       },
     },
+    "preset-ja-spacing": true,
     "@proofdict/proofdict": {
       dictURL: "https://azu.github.io/proof-dictionary/",
     },

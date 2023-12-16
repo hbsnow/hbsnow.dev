@@ -18,6 +18,6 @@ export const Heading = (props: Props): JSX.Element => {
   return createElement(
     `h${level}`,
     { className: clsx(styles.heading, className), ...rest },
-    children
+    children,
   );
 };

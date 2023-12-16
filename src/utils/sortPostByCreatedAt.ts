@@ -3,9 +3,9 @@ export const sortPostByCreatedAt = <
     data: {
       createdAt: Date;
     };
-  }
+  },
 >(
-  unsortedPosts: T[]
+  unsortedPosts: T[],
 ) => {
   const posts = unsortedPosts.sort((a, b) => {
     return b.data.createdAt.valueOf() - a.data.createdAt.valueOf();

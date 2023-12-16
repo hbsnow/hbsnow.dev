@@ -32,6 +32,9 @@ const config = {
     ],
     "@typescript-eslint/triple-slash-reference": "off",
   },
+  settings: {
+    react: { version: "detect" },
+  },
   overrides: [
     {
       files: ["*.{jsx,tsx}"],

@@ -1,9 +1,9 @@
 export const sortActivityByDate = <
   T extends {
     date: string;
-  }
+  },
 >(
-  unsortedPosts: T[]
+  unsortedPosts: T[],
 ) => {
   const posts = unsortedPosts.sort((a, b) => {
     return new Date(b.date).valueOf() - new Date(a.date).valueOf();

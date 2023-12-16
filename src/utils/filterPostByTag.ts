@@ -3,10 +3,10 @@ export const filterPostByTag = <
     data: {
       tags: string[];
     };
-  }
+  },
 >(
   unfilteredPosts: T[],
-  tag: string
+  tag: string,
 ) => {
   const posts = unfilteredPosts.filter((post) => {
     return post.data.tags.includes(tag);

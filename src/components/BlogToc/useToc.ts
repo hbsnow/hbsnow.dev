@@ -63,7 +63,7 @@ export const useToc = (id: string, wideWidth: number) => {
             dispatch({ type: "enableButton" });
           }
         });
-      })
+      }),
     );
     const target = document.querySelector(`#${id}`);
     if (target) {

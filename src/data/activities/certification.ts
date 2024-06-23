@@ -8,7 +8,7 @@ import type { Activity } from ".";
 const aws: Activity[] = [
   {
     title: "2024 Japan AWS All Certifications Engineers 受賞",
-    date: "2023-06-20",
+    date: "2024-06-20",
     url: "https://aws.amazon.com/jp/blogs/psa/2024-japan-aws-all-certifications-engineers/",
   },
   {

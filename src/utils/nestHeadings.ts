@@ -7,7 +7,7 @@ type Heading = {
 /**
  * nestを実行する
  */
-const nest = (headings: MarkdownHeading[]): Heading[] => {
+export const nestHeadings = (headings: MarkdownHeading[]): Heading[] => {
   const result = headings.reduceRight<Heading[]>((prev, current) => {
     const prevHead = prev.at(0);
     if (prevHead == null) {
@@ -16,7 +16,7 @@ const nest = (headings: MarkdownHeading[]): Heading[] => {
 
     // 階層が同じであれば前に追加する
     if (prevHead.depth === current.depth) {
-      return [current, ...prev];
+      return [current].concat(prev);
     }
 
     // 階層が小さくなればwrapする
@@ -32,27 +32,22 @@ const nest = (headings: MarkdownHeading[]): Heading[] => {
       if (prevHead && prevHead.depth > current.depth) {
         // すべてwrapして問題ないケース
         if (prev.every((v) => v.depth > current.depth)) {
-          return [{ ...current, children: [head, ...prev] }];
+          return [{ ...current, children: [head].concat(prev) }];
         }
 
         const index = prev.findIndex((v) => v.depth <= current.depth);
         const rest = prev.splice(0, index);
+        const result: Heading[] = [{ ...current, children: [head, ...rest] }];
 
-        return [{ ...current, children: [head, ...rest] }, ...prev];
+        return result.concat(prev);
       }
 
-      return [{ ...current, children: [head] }, ...prev];
+      const result: Heading[] = [{ ...current, children: [head] }];
+      return result.concat(prev);
     }
 
-    // 階層が大きくなれば前に追加する
-    return [current, ...prev];
+    return [current].concat(prev);
   }, []);
 
   return result;
-};
-
-export const nestHeadings = (headings: MarkdownHeading[], depth = 3) => {
-  const filtered = headings.filter((heading) => heading.depth <= depth);
-
-  return nest(filtered);
 };

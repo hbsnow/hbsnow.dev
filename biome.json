@@ -1,4 +1,8 @@
 {
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
   "files": {
     "ignore": ["./src/data/feeds/developersio.json"]
   },
@@ -8,7 +12,10 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "correctness": {
+        "useHookAtTopLevel": "error"
+      }
     }
   },
   "overrides": [

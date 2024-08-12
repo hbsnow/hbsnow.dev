@@ -12,7 +12,7 @@ export type Props = Readonly<
     HTMLAttributes<HTMLHeadingElement>
 >;
 
-export const Heading = (props: Props): JSX.Element => {
+export const Heading = (props: Props) => {
   const { level = 1, children, className, ...rest } = props;
 
   return createElement(

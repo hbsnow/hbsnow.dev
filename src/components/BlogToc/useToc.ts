@@ -56,13 +56,13 @@ export const useToc = (id: string, wideWidth: number) => {
   useEffect(() => {
     const observer = new ResizeObserver(
       debounce<ResizeObserverCallback>(300, (entries) => {
-        entries.forEach((entry) => {
+        for (const entry of entries) {
           if (entry.contentRect.width > wideWidth) {
             dispatch({ type: "disableButton" });
           } else {
             dispatch({ type: "enableButton" });
           }
-        });
+        }
       }),
     );
     const target = document.querySelector(`#${id}`);
@@ -73,7 +73,7 @@ export const useToc = (id: string, wideWidth: number) => {
     return () => {
       observer.disconnect();
     };
-  }, [id]);
+  }, [id, wideWidth]);
 
   return [tocState, toggle] as const;
 };

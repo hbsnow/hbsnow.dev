@@ -53,6 +53,7 @@ const Component = (props: Props): JSX.Element => {
         {categories.map((category) => (
           <button
             key={category.icon}
+            type="button"
             className={styles.button}
             aria-checked={category.icon === selected}
             onClick={() => setSelected(category.icon)}

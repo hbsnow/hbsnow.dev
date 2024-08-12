@@ -27,10 +27,10 @@ export const Chip = (props: Props): JSX.Element => {
           <TagIcon name={icon} width={16} height={16} />
         </span>
       ) : (
-        <span className={styles.spacer}></span>
+        <span className={styles.spacer} />
       )}
       <span>{children}</span>
-      <span className={styles.spacer}></span>
+      <span className={styles.spacer} />
     </Link>
   );
 };

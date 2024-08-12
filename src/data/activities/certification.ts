@@ -85,37 +85,42 @@ const aws: Activity[] = [
  */
 const googleCloud: Activity[] = [
   {
+    title: "Professional Machine Learning Engineer",
+    date: "2024-08-09",
+    url: "https://www.credly.com/badges/4148e78e-1ea1-45b7-90b3-1d695f2dca89/public_url",
+  },
+  {
     title: "Professional Google Workspace Administrator Certification",
     date: "2024-06-12",
     url: "https://www.credly.com/badges/c6a035e5-2cb3-4eee-b525-c0d1380ebbc0/public_url",
   },
   {
-    title: "Professional Google Cloud Cloud Network Engineer",
+    title: "Professional Cloud Network Engineer",
     date: "2024-05-15",
     url: "https://www.credly.com/badges/ecbb9b7c-56b5-4ae5-b1e7-8b3f9d471b34/public_url",
   },
   {
-    title: "Professional Google Cloud Cloud Security Engineer",
+    title: "Professional Cloud Cloud Security Engineer",
     date: "2024-04-17",
     url: "https://www.credly.com/badges/23876f61-9470-4766-a18b-d4a5a5a2a6c6/public_url",
   },
   {
-    title: "Professional Google Cloud Cloud DevOps Engineer",
+    title: "Professional Cloud Cloud DevOps Engineer",
     date: "2024-03-15",
     url: "https://www.credly.com/badges/12dda099-b195-4d79-a77e-2d40a6c7847b/public_url",
   },
   {
-    title: "Professional Google Cloud Data Engineer",
+    title: "Professional Cloud Data Engineer",
     date: "2023-08-18",
     url: "https://www.credly.com/badges/2b75d0ee-7cf5-4824-8421-dfb1521cd589/public_url",
   },
   {
-    title: "Professional Google Cloud Developer",
+    title: "Professional Cloud Developer",
     date: "2023-06-30",
     url: "https://www.credly.com/badges/f5c609eb-9716-4bad-94a1-e2a24e669279/public_url",
   },
   {
-    title: "Professional Google Cloud Architect",
+    title: "Professional Cloud Architect",
     date: "2022-10-06",
     url: "https://www.credly.com/badges/4d6d6740-752c-414e-be7d-331350730a95/public_url",
   },

@@ -10,17 +10,18 @@ export const useInView = (
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+      for (const entry of entries) {
         const slug = entry.target.getAttribute("aria-labelledby");
-        if (!slug) {
+        if (slug == null) {
           throw new Error(
             "ターゲットにしている要素に aria-labelledby がセットされていません",
           );
         }
 
         setInView(entry.isIntersecting);
-      });
+      }
     }, options);
+
     const target = document.querySelector(
       `.heading[aria-labelledby="${heading.slug}"]`,
     );
@@ -31,7 +32,7 @@ export const useInView = (
     return () => {
       observer.disconnect();
     };
-  }, [heading.slug]);
+  }, [heading.slug, options]);
 
   return inView;
 };

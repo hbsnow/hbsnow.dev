@@ -29,6 +29,7 @@ const Component = (props: Props): JSX.Element | null => {
     <nav className={styles.root}>
       <h2>
         <button
+          type="button"
           aria-label="ページ内の目次"
           aria-expanded="false"
           aria-controls={controlsId}

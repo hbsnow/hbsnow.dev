@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: JSON-LD による構造化データ
 tags: [amp]
 description: JSON-LD による構造化データの記述方法についての解説。

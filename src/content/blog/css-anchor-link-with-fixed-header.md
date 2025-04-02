@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: 固定のヘッダーがアンカー先コンテンツを隠してしまう問題
 tags: [css]
 description: 固定のヘッダーがあるときのページ内リンクで、アンカー先コンテンツを隠してしまう問題の解決策。

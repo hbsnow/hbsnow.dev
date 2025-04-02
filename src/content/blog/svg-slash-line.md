@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: 斜線を含む SVG のコンポーネントを作成する
 tags: [svg, react]
 description: 斜線を含む SVG のコンポーネントを作成する方法。

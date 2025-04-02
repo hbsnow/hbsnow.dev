@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: 文字数によって区切りのあるテキストフォームを作る
 tags: [react, javascript]
 description: 文字数によって区切りのあるテキスト用のフォームを作成します。

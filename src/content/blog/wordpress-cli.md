@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: WP-CLI まとめ
 tags: [wordpress]
 description: WordPress の CLI である WP-CLI の使いそうな機能をまとめました。

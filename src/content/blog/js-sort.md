@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: JavaScript でオブジェクトの配列を sort をする
 tags: [javascript]
 description: JavaScript でオブジェクトの配列を sort をする方法。

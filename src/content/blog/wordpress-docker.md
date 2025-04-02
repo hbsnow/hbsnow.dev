@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: Docker による WordPress のローカル開発環境構築
 tags: [wordpress, docker]
 description: Docker で WordPress のローカル開発環境を構築する。

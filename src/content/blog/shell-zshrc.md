@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: 快適なターミナル環境を整備する
 tags: [shell]
 description: 快適なターミナル環境を整備する

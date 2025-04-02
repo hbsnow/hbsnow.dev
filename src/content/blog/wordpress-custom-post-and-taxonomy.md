@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: WordPress のカスタム投稿とカスタムタクソノミー、カスタムフィールドを作成する
 tags: [wordpress]
 description: WordPress のカスタム投稿とカスタムタクソノミー、カスタムフィールドを作成する。

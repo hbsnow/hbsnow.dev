@@ -9,14 +9,14 @@ type Props = {
   posts: CollectionEntry<"blog">[];
 };
 
-const Component = (props: Props): JSX.Element => {
+const Component = (props: Props) => {
   const { posts } = props;
 
   return (
     <div className={styles.root} role="list">
       {posts.map((post) => {
         return (
-          <div key={post.slug} role="listitem">
+          <div key={post.id} role="listitem">
             <BlogListItem post={post} />
           </div>
         );

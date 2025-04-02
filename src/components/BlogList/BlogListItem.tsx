@@ -40,7 +40,7 @@ export const BlogListItem = (props: Props) => {
         )}
       </div>
       <h2 className={styles.title} itemProp="headline">
-        <Link href={`/blog/${post.slug}`}>{post.data.title}</Link>
+        <Link href={`/blog/${post.id}`}>{post.data.title}</Link>
       </h2>
 
       <TagList tags={post.data.tags} />

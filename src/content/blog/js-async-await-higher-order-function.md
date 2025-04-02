@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: async/await を forEach で使ったらハマった話
 tags: [javascript]
 description: JavaScript の async/await を forEach で使ったらハマった話を社内で発表したので、発表内容に関する資料。

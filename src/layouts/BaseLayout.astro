@@ -2,7 +2,6 @@
 import type { ComponentProps } from "react";
 
 import { SEO } from "astro-seo";
-import { ViewTransitions } from "astro:transitions";
 
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { Footer } from "@/components/Footer";
@@ -75,8 +74,6 @@ const seoProps: Props["seo"] = {
     <meta charset="utf-8" />
 
     <SEO {...seoProps} />
-
-    <ViewTransitions />
   </head>
   <body>
     <header>

@@ -1,10 +1,11 @@
 import { z, defineCollection } from "astro:content";
+import { glob } from 'astro/loaders';
 
 import { tagName } from "@/cores/Icon/TagIcon";
 
 const blogCollection = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.md', base: "./src/content/blog" }),
   schema: z.object({
-    layout: z.string(),
     title: z.string(),
     tags: z.array(z.enum(tagName)),
     description: z.string(),

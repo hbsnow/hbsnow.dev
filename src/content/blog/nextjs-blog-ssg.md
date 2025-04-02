@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: Next.js の SSG で AMP-only のブログを作った
 tags: [nextjs, amp]
 description: Next.js の SSG で AMP-only のブログを作ったのでそのメモ。

@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: React の portal を使ってスタック可能なモーダルを作成する
 tags: [react]
 description: React の portal を使ってスタック可能なモーダルを作成する。

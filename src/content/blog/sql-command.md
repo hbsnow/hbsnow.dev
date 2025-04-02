@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: MySQL と PostgreSQL のコマンド
 tags: [database]
 description: MySQL と PostgreSQL のコマンドの対応表ろSQL逆引き。

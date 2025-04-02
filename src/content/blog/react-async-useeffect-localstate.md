@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: useEffect 内の非同期処理で local state を変更するときの注意点
 tags: [react]
 description: useEffect 内の非同期処理で local state を変更するとき、コンポーネントがマウントされているかのチェックが必要になる。

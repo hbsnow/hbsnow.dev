@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: reduce の使いどころ
 tags: [javascript]
 description: JavaScript の reduce の使いどころについて。

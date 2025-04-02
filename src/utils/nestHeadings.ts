@@ -8,6 +8,11 @@ type Heading = {
  * nestを実行する
  */
 export const nestHeadings = (headings: MarkdownHeading[]): Heading[] => {
+  console.log(headings)
+  if (!headings || headings.length === 0) {
+    return [];
+  }
+
   const result = headings.reduceRight<Heading[]>((prev, current) => {
     const prevHead = prev.at(0);
     if (prevHead == null) {

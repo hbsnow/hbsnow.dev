@@ -14,7 +14,7 @@ type Props = {
 // 60rem
 const wideWidth = 16 * 60;
 
-const Component = (props: Props): JSX.Element | null => {
+const Component = (props: Props) => {
   const { headings, id } = props;
 
   const controlsId = useId();

@@ -1,5 +1,4 @@
 ---
-layout: "@/layouts/BlogPostLayout.astro"
 title: renovate しているリポジトリを Vercel にデプロイする
 tags: [vercel]
 description: renovate しているリポジトリを Vercel にデプロイするときの注意点。

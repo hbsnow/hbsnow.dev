@@ -53,6 +53,9 @@
     "react-dom": "19.1.0",
     "throttle-debounce": "5.0.2"
   },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.38.0"
+  },
   "engines": {
     "node": ">=20.11.1"
   }
